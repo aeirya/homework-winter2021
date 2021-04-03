@@ -96,6 +96,7 @@ public:
     Notepad() {
         data.add(0);
         current = data.begin();
+        index = 0;
     }
 
     ~Notepad() {}
@@ -104,20 +105,29 @@ public:
         auto& node = current.getCurrent();
         data.insert(c, node);
         pointerRight();
+        ++size;
     }
 
     void pointerLeft() {
-        --current;
+        if (index > 0) {
+            --index;
+            --current;
+        }
+
     }
 
     void pointerRight() {
-        ++current;
+        if (index < size-1) {
+            ++index;
+            ++current;
+        }
     }
 
     void deleteChar() {
         auto& node = current.getCurrent();
         pointerLeft();
         data.remove(node);
+        --size;
     }
 
     void print() {
@@ -130,6 +140,8 @@ public:
 private:
     LinkedList<char> data;
     LinkedList<char>::NodeIterator current;
+    int index;
+    int size;
 };
 
 void operate(Notepad& notepad, char c) {
