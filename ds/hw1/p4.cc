@@ -102,10 +102,19 @@ public:
     ~Notepad() {}
     
     void insertChar(char c) {
+        ++size;
         auto& node = current.getCurrent();
         data.insert(c, node);
         pointerRight();
-        ++size;
+    }
+
+    void deleteChar() {
+        if (index > 0) {
+            --size;
+            auto& node = current.getCurrent();
+            pointerLeft();
+            data.remove(node);
+        }
     }
 
     void pointerLeft() {
@@ -113,21 +122,13 @@ public:
             --index;
             --current;
         }
-
     }
 
     void pointerRight() {
-        if (index < size-1) {
+        if (index < size) {
             ++index;
             ++current;
         }
-    }
-
-    void deleteChar() {
-        auto& node = current.getCurrent();
-        pointerLeft();
-        data.remove(node);
-        --size;
     }
 
     void print() {
