@@ -22,7 +22,8 @@ int main() {
         for (int i = 1; i < n - sublen;++i;) {
             if (A[i] > max) max = A[i];
         }
-        sum += 
+        sum = (sum + max) 
+        ?!
     }
 
 

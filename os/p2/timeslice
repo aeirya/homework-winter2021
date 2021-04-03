@@ -1,0 +1,297 @@
+Script started on Mon Mar 29 14:07:55 2021
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hw[90mordnet dude[39m[11Dw[39mc[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10Dw[90mo[90mrdnet dude[39m[11D [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12De[90mxit[39me[39mc[90mh[90mo[90m AEIRYA MOHAMMADI[39m[19D[39mh[39mo[39m [39mA[39mE[39mI[39mR[39mY[39mA[39m [39mM[39mO[39mH[39mA[39mM[39mM[39mA[39mD[39mI[?1l>[?2004l
+]2;echo AEIRYA MOHAMMADI]1;echoAEIRYA MOHAMMADI
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004he[90mcho AEIRYA MOHAMMADI[39m[20De[39mc[39mh[39mo[39m [39m"[90mt[90mh[90mi[90ms[90m [90mi[90ms[90m [90ms[90mo[90mm[90me[90mt[90mh[90mi[90mng meaningless"[39m[30D[39mi[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [29Dncrease ing the sim   time slice will lead to less switching of philog sophers and one i ip  p person eating it  until he         numou  em rou       nons -stop"[?1l>[?2004l
+]2;echo ]1;echoincreasing the time slice will lead to less switching of philosophers and one person eating non-stop
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hb[90mlitz -g os[39m[10Db[39ml[39mi[39mt[39mz[39m [39m-[39mg[39m [39mo[39ms[?1l>[?2004l
+]2;blitz -g os]1;blitzBeginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Example Thread-based Programs...
+Initializing Thread Scheduler...
+Plato
+    Sartre
+        Kant
+            Nietzsche
+                Aristotle
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+.       .   .   .   
+.   E   .   .   .   
+.   .   .   .   .   
+.       .   .   .   
+.   E   .   .   .   
+.   .   .   .   .   
+.       .   .   .   
+.   E   .   .   .   
+.   E       .   .   
+.   E           .   
+.   E       E   .   
+.   E       E       
+.   .       E       
+.   .       .       
+.           .       
+.   E       .       
+.   E       .   E   
+.   E           E   
+.   .           E   
+.   .           .   
+.               .   
+.   E           .   
+.   E       E   .   
+.   E       E       
+.   .       E       
+.   .       .       
+.           .       
+.   E       .       
+.   E       .   E   
+.   E           E   
+.   .           E   
+.   .           .   
+.               .   
+.   E           .   
+.   E       E   .   
+.   E       E       
+.   .       E       
+.   .       .       
+.   .   E   .       
+.   .   E   .   E   
+.   .   E       E   
+.   .   .       E   
+.   .   .       .   
+.   .           .   
+.   .   E       .   
+.   .   E           
+.   .   E       E   
+.   .   .       E   
+.   .   .       .   
+.   .           .   
+.   .   E       .   
+.   .   E           
+.   .   E       E   
+.   .   .       E   
+.   .   .       .   
+.   .           .   
+.   .   E       .   
+.   .   E           
+.   .   E       E   
+.   .   .       E   
+.   .   .       .   
+.   .           .   
+.   .   E       .   
+.   .   E           
+.   .   E       E   
+.   .   .       E   
+.   .   .       .   
+.   .           .   
+.   .   E       .   
+.   .   .       .   
+.   .           .   
+.   .   E       .   
+.   .   .       .   
+.   .   .   E   .   
+.   .   .   .   .   
+.   .   .       .   
+.   .   .   E   .   
+.   .   .   .   .   
+.   .   .       .   
+.   .   .   E   .   
+.   .   .   .   .   
+.   .   .       .   
+.   .   .   E   .   
+.   .   .   .   .   
+
+*****  A 'wait' instruction was executed and no more interrupts are scheduled... halting emulation!  *****
+
+Done!  The next instruction to execute will be:
+000EC8: 09000000       ret     
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 248176
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 248176
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004he[90mcho "increasing the time slice will lead to less switching of philosophers and one person eating non-stop"[39m[106De[39mc[39mh[39mo[39m [39m"[39md[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [100Decreasing the s time slice:"[?1l>[?2004l
+]2;echo "decreasing the time slice:"]1;echodecreasing the time slice:
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hecho "decreasing the time slice:"[33Dblitz -g os                      [22D[?1l>[?2004l
+]2;blitz -g os]1;blitzBeginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Example Thread-based Programs...
+Initializing Thread Scheduler...
+Plato
+    Sartre
+        Kant
+            Nietzsche
+                Aristotle
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+E       .   .   .   
+E           .   .   
+E       E   .   .   
+.       E   .   .   
+.       E       .   
+.       E           
+.       E       E   
+.       .       E   
+.   E   .       E   
+    E   .       E   
+    E   .       .   
+    E   .   E   .   
+    E       E   .   
+    .       E   .   
+E   .       E   .   
+E   .       E       
+E   .       .       
+E   .   E   .       
+E       E   .       
+.       E   .       
+.       E   .   E   
+.       E       E   
+.       .       E   
+.   E   .       E   
+    E   .       E   
+    E   .       .   
+    E   .   E   .   
+    E       E   .   
+    .       E   .   
+E   .       E   .   
+E   .       E       
+E   .       .       
+E   .   E   .       
+E       E   .       
+.       E   .       
+.       E   .   E   
+.       E       E   
+.       .       E   
+.   E   .       E   
+    E   .       E   
+    E   .       .   
+    E   .   E   .   
+    E       E   .   
+    .       E   .   
+E   .       E   .   
+E   .       E       
+E   .       .       
+E   .   E   .       
+E       E   .       
+.       E   .       
+.       E   .   E   
+.       E       E   
+.       .       E   
+.   E   .       E   
+    E   .       E   
+    E   .       .   
+    E   .   E   .   
+    E       E   .   
+    .       E   .   
+E   .       E   .   
+E   .       E       
+E   .       .       
+E   .   E   .       
+E       E   .       
+.       E   .       
+.       E   .   E   
+.       E       E   
+.       .       E   
+.   E   .       E   
+    E   .       E   
+    E   .       .   
+    E   .   E   .   
+    E       E   .   
+    .       E   .   
+E   .       E   .   
+E   .       E       
+E   .       .       
+E   .   E   .       
+E       E   .       
+.       E   .       
+.       E   .   E   
+.       E       E   
+.       .       E   
+.   E   .       E   
+    E   .       E   
+    E   .       .   
+    E   .   E   .   
+    E       E   .   
+    .       E   .   
+E   .       E   .   
+E   .       E       
+E   .       .       
+E   .   E   .       
+E       E   .       
+.       E   .       
+.       E   .   E   
+.       E       E   
+.       .       E   
+.   E   .       E   
+.   E   .       .   
+.   E   .   E   .   
+.   .   .   E   .   
+.   .   .   .   .   
+
+*****  A 'wait' instruction was executed and no more interrupts are scheduled... halting emulation!  *****
+
+Done!  The next instruction to execute will be:
+000EC8: 09000000       ret     
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 1067125
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 1067125
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hblitz -g os[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;31m➜  [36mp2[00m [K[?1h=[?2004he[90mcho "decreasing the time slice:"[39m[32De[39mc[39mh[39mo[39m [39m"[39ms[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [26Dettt ing to 1000..."[?1l>[?2004l
+]2;echo "setting to 1000..."]1;echosetting to 1000...
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hecho "setting to 1000..."[25Dblitz -g os              [14D[?1l>[?2004l
+]2;blitz -g os]1;blitzBeginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Example Thread-based Programs...
+Initializing Thread Scheduler...
+Plato
+    Sartre
+        Kant
+            Nietzsche
+                Aristotle
+^C
+*****  Control-C  *****
+Done!  The next instruction to execute will be:
+0071DC: 8F1EFFE8       store   r1,[r14+0xFFE8]	! decimal: -24
+
+Entering machine-level debugger...
+======================================================
+=====                                            =====
+=====         The BLITZ Machine Emulator         =====
+=====                                            =====
+=====  Copyright 2001-2007, Harry H. Porter III  =====
+=====                                            =====
+======================================================
+
+Enter a command at the prompt.  Type 'quit' to exit or 'help' for
+info about commands.
+> q
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 135580495
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 135580495
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004he[90mcho "setting to 1000..."[39m[24De[39mx[90mi[90mt[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [23D[39mi[39mt[?1l>[?2004l
+]2;exit]1;exit
+Script done on Mon Mar 29 14:10:33 2021

@@ -1,0 +1,294 @@
+Script started on Mon Mar 29 14:00:24 2021
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004he[90mxit[39me[39mc[90mh[90mo[90m $$[39m[39mh[39mo[39m [39mA[39m EIRYA MOHAMMADI[?1l>[?2004l
+]2;echo AEIRYA MOHAMMADI]1;echoAEIRYA MOHAMMADI
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hm[90make; blitz -g os[39m[16Dm[39ma[39mk[39me[39m;[39m [39mb[39ml[39mi[39mt[39mz[39m [39m-[39mg[39m [39mo[39ms[?1l>[?2004l
+]2;make; blitz -g os]1;make;kpl Main -unsafe
+asm Main.s
+lddd System.o List.o Thread.o Switch.o Synch.o Main.o Runtime.o -o os
+Beginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Example Thread-based Programs...
+Initializing Thread Scheduler...
+
+-- You should see 70 lines, each consecutively numbered. --
+
+LockTester-A = 1
+LockTester-A = 2
+LockTester-B = 3
+LockTester-C = 4
+LockTester-D = 5
+LockTester-E = 6
+LockTester-A = 7
+LockTester-F = 8
+LockTester-G = 9
+LockTester-C = 10
+LockTester-D = 11
+LockTester-B = 12
+LockTester-A = 13
+LockTester-F = 14
+LockTester-G = 15
+LockTester-E = 16
+LockTester-D = 17
+LockTester-C = 18
+LockTester-B = 19
+LockTester-F = 20
+LockTester-A = 21
+LockTester-G = 22
+LockTester-D = 23
+LockTester-C = 24
+LockTester-E = 25
+LockTester-F = 26
+LockTester-A = 27
+LockTester-G = 28
+LockTester-B = 29
+LockTester-D = 30
+LockTester-C = 31
+LockTester-F = 32
+LockTester-A = 33
+LockTester-G = 34
+LockTester-E = 35
+LockTester-D = 36
+LockTester-C = 37
+LockTester-B = 38
+LockTester-F = 39
+LockTester-A = 40
+LockTester-G = 41
+LockTester-D = 42
+LockTester-C = 43
+LockTester-E = 44
+LockTester-F = 45
+LockTester-B = 46
+LockTester-G = 47
+LockTester-A = 48
+LockTester-D = 49
+LockTester-C = 50
+LockTester-F = 51
+LockTester-E = 52
+LockTester-G = 53
+LockTester-A = 54
+LockTester-D = 55
+LockTester-C = 56
+LockTester-B = 57
+LockTester-F = 58
+LockTester-G = 59
+LockTester-D = 60
+LockTester-C = 61
+LockTester-E = 62
+LockTester-F = 63
+LockTester-G = 64
+LockTester-B = 65
+LockTester-E = 66
+LockTester-B = 67
+LockTester-E = 68
+LockTester-B = 69
+LockTester-E = 70
+
+*****  A 'wait' instruction was executed and no more interrupts are scheduled... halting emulation!  *****
+
+Done!  The next instruction to execute will be:
+000EC8: 09000000       ret     
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 423706
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 423706
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hmake; blitz -g os[?1l>[?2004l
+]2;make; blitz -g os]1;make;kpl Main -unsafe
+asm Main.s
+lddd System.o List.o Thread.o Switch.o Synch.o Main.o Runtime.o -o os
+Beginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Example Thread-based Programs...
+Initializing Thread Scheduler...
+        Producer-A         A
+A       Producer-B             B
+AB      Producer-B             B
+ABB     Producer-B             B
+ABBB    Producer-C                 C
+ABBBC   Consumer-2                               |          A
+BBBC    Consumer-3                               |              B
+BBC     Consumer-1                               |      B
+BC      Consumer-2                               |          B
+C       Producer-D                     D
+CD      Consumer-3                               |              C
+D       Producer-E                         E
+DE      Producer-A         A
+DEA     Producer-B             B
+DEAB    Consumer-1                               |      D
+EAB     Producer-C                 C
+EABC    Consumer-2                               |          E
+ABC     Consumer-3                               |              A
+BC      Consumer-1                               |      B
+C       Producer-D                     D
+CD      Consumer-2                               |          C
+D       Producer-E                         E
+DE      Producer-A         A
+DEA     Producer-B             B
+DEAB    Consumer-3                               |              D
+EAB     Producer-C                 C
+EABC    Consumer-1                               |      E
+ABC     Consumer-2                               |          A
+BC      Consumer-3                               |              B
+C       Producer-D                     D
+CD      Consumer-1                               |      C
+D       Producer-E                         E
+DE      Producer-A         A
+DEA     Producer-C                 C
+DEAC    Consumer-2                               |          D
+EAC     Producer-D                     D
+EACD    Consumer-3                               |              E
+ACD     Consumer-1                               |      A
+CD      Consumer-2                               |          C
+D       Producer-E                         E
+DE      Consumer-3                               |              D
+E       Producer-A         A
+EA      Producer-C                 C
+EAC     Producer-D                     D
+EACD    Consumer-2                               |          E
+ACD     Producer-E                         E
+ACDE    Consumer-1                               |      A
+CDE     Consumer-3                               |              C
+DE      Consumer-2                               |          D
+E       Consumer-3                               |              E
+     
+*****  A 'wait' instruction was executed and no more interrupts are scheduled... halting emulation!  *****
+
+Done!  The next instruction to execute will be:
+000EC8: 09000000       ret     
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 263466
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 263466
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004hmake; blitz -g os[?1l>[?2004l
+]2;make; blitz -g os]1;make;kpl Main -unsafe
+asm Main.s
+lddd System.o List.o Thread.o Switch.o Synch.o Main.o Runtime.o -o os
+Beginning execution...
+====================  KPL PROGRAM STARTING  ====================
+Example Thread-based Programs...
+Initializing Thread Scheduler...
+Plato
+    Sartre
+        Kant
+            Nietzsche
+                Aristotle
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+.   .   .   .   .   
+    .   .   .   .   
+E   .   .   .   .   
+E       .   .   .   
+E           .   .   
+E       E   .   .   
+E       E       .   
+E       E           
+.       E           
+.       .           
+.   E   .           
+.   E   .   E       
+    E   .   E       
+    .   .   E       
+    .       E       
+    .       .       
+            .       
+    E       .       
+    E       .   E   
+    E           E   
+    E           .   
+    .           .   
+    .               
+    .           E   
+    .   E       E   
+    .   E       .   
+        E       .   
+        .       .   
+        .           
+        .       E   
+                E   
+        E       E   
+        E       .   
+        .       .   
+        .           
+        .       E   
+    E   .       E   
+    E           E   
+    E           .   
+    .           .   
+    .               
+    .           E   
+    .   E       E   
+    .   E       .   
+        E       .   
+        .       .   
+        .           
+        .       E   
+                E   
+        E       E   
+        E       .   
+        .       .   
+        .           
+        .       E   
+    E   .       E   
+    E   .       .   
+    E           .   
+    .           .   
+E   .           .   
+E   .       E   .   
+E           E   .   
+.           E   .   
+.           .   .   
+            .   .   
+E           .   .   
+E       E   .   .   
+.       E   .   .   
+.       E       .   
+.       .       .   
+.   E   .       .   
+    E   .       .   
+    E           .   
+    E       E   .   
+    .       E   .   
+    .       .   .   
+            .   .   
+    E       .   .   
+    .       .   .   
+    .           .   
+    .       E   .   
+            E   .   
+    E       E   .   
+    E       .   .   
+    .       .   .   
+    .           .   
+    .       E   .   
+E   .       E   .   
+E   .       .   .   
+.   .       .   .   
+.   .           .   
+.   .       E   .   
+    .       E   .   
+E   .       E   .   
+E   .       .   .   
+.   .       .   .   
+.   .   E   .   .   
+    .   E   .   .   
+E   .   E   .   .   
+E   .   E       .   
+E   .   .       .   
+.   .   .       .   
+.   .   .   E   .   
+.   .   .   .   .   
+
+*****  A 'wait' instruction was executed and no more interrupts are scheduled... halting emulation!  *****
+
+Done!  The next instruction to execute will be:
+000EC8: 09000000       ret     
+Number of Disk Reads    = 0
+Number of Disk Writes   = 0
+Instructions Executed   = 489812
+Time Spent Sleeping     = 0
+    Total Elapsed Time  = 489812
+[1m[7m%[27m[1m[0m                                                                                                                                     ]2;amadeus@amadeus:~/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/os/p2]1;..omework/os/p2[0m[27m[24m[J[01;32m➜  [36mp2[00m [K[?1h=[?2004he[90mcho AEIRYA MOHAMMADI[39m[20De[39mx[90mi[90mt[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [19D[39mi[39mt[?1l>[?2004l
+]2;exit]1;exit
+Script done on Mon Mar 29 14:01:18 2021
