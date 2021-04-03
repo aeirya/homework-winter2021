@@ -1,4 +1,7 @@
 #include <iostream>
+/*
+ایستگاه باربری
+*/
 
 /*
   definitions
@@ -198,17 +201,13 @@ int main() {
     // get input
     int n;
     std::cin >> n;
-    // n = 4;
     int P[n];
-    // P[0] = 1;
-    // P[1] = 3;
-    // P[2] = 4;
-    // P[3] = 2;
 
     for (int i = 0; i<n; ++i) {
         std::cin >> P[i];
     }
 
+    // solve
     Rails* rail = new Rails(n);
     if (isCombinable(rail, n, P)) {
         auto& actions = rail->actions->reversed();
@@ -226,3 +225,8 @@ int main() {
     delete rail;
     return 0;
 }
+
+/*
+    aeirya mohammadi
+    97103779
+*/
