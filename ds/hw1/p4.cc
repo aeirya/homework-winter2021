@@ -22,7 +22,7 @@ TT class LinkedList {
         NodeIterator(const LinkedList &list);
         NodeIterator() : node(0) {}
 
-        Node& getCurrent() {
+        Node& getCurrentNode() {
             return *node;
         }
 
@@ -70,8 +70,10 @@ TT class LinkedList {
     }
 
     void remove(Node& node) {
-        node.previous->next = node.next;
-        node.next->previous = node.previous;
+        if (node.previous)
+            node.previous->next = node.next;
+        if (node.next) 
+            node.next->previous = node.previous;
     }
 
     NodeIterator begin() {
@@ -93,17 +95,16 @@ TT class LinkedList {
 class Notepad {
 
 public:
-    Notepad() {
+    Notepad() : index(0), size(0) {
         data.add(0);
-        current = data.begin();
-        index = 0;
+        pointer = data.begin();
     }
 
     ~Notepad() {}
     
     void insertChar(char c) {
         ++size;
-        auto& node = current.getCurrent();
+        auto& node = pointer.getCurrentNode();
         data.insert(c, node);
         pointerRight();
     }
@@ -111,7 +112,7 @@ public:
     void deleteChar() {
         if (index > 0) {
             --size;
-            auto& node = current.getCurrent();
+            auto& node = pointer.getCurrentNode();
             pointerLeft();
             data.remove(node);
         }
@@ -120,27 +121,29 @@ public:
     void pointerLeft() {
         if (index > 0) {
             --index;
-            --current;
+            --pointer;
         }
     }
 
     void pointerRight() {
         if (index < size) {
             ++index;
-            ++current;
+            ++pointer;
         }
     }
 
     void print() {
         for (char& c : data) {
-            std::cout << c;
+            if (c != 0) {
+                std::cout << c;
+            }
         }
         std::cout << std::endl;
     }
 
 private:
     LinkedList<char> data;
-    LinkedList<char>::NodeIterator current;
+    LinkedList<char>::NodeIterator pointer;
     int index;
     int size;
 };
