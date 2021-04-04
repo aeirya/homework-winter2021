@@ -21,7 +21,8 @@ TT class LinkedList {
         NodeIterator(Node &node) : node(&node) {}
         NodeIterator(const LinkedList &list);
         NodeIterator() : node(0) {}
-
+        ~NodeIterator() { }
+        
         Node& getCurrentNode() {
             return *node;
         }
@@ -173,3 +174,10 @@ int main() {
     aeirya mohammadi
     97103779
 */
+
+
+/// note:
+/// add deconstructors
+/// add copy constructor
+/// add = operator
+/// could also use cpp standard library
