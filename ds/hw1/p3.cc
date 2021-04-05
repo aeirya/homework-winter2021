@@ -54,24 +54,23 @@ void right_j(int A[], int n, long long m, int out[]) {
     // print(A, n);
     diff(A, n);
     // print(A, n);
-    sum(A, n, 1);
-    // print(A, n);
     long long cost = 0;
     int j = 0;
-    long long M;
+    long long M = m;
     for (int i=0; i<n; ++i) {
-        M = m;
-        while (cost + A[j] <= M && j<n) {
+        while (cost + A[j] <= M && j<n && M >= 0) {
             cost += A[j];
             if (cost < 0) cost = 0;
             M -= cost;
             ++j;
         }
+        if (j >= n) j = n-1;
         out[i] = j;
         if (A[i] > 0) {
             cost -= A[i]; 
             if (cost < 0) cost = 0;
         }
+        M = m - cost;
     }
     out[n-1] = n-1;
 }
@@ -83,7 +82,7 @@ int solve(int A[], int n, int m) {
     int count = 0;
     power p;
     for (int i=0; i<n; ++i) {
-        count += (right[i] - i - 1) + 1;
+        count += (right[i] - i) + 1;
     }
     return count;
 }
@@ -103,13 +102,13 @@ int* ex2(int &n, int &m) {
 int test() {
     int n, m;
     int *A = new int[n];
-    A = ex1(n,m);
-    solve(A, n, m);
+    A = ex2(n,m);
+    std::cout << solve(A, n, m);
     return 0;
 }
 
 int main() {
-    return test();
+    // return test();
 
     int n;
     std::cin >> n;
@@ -121,5 +120,5 @@ int main() {
     input(A, n);
     
     int count = solve(A, n, m);
-    std::cout << count;
+    std::cout << count << std::endl;
 }
