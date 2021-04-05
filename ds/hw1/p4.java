@@ -1,11 +1,9 @@
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class p4 {
-    static interface ILinkedList<T> {
-        void insert(T value);
-    }
-    
-    static class LinkedList<T> implements ILinkedList<T> {
+
+    static class LinkedList<T> implements Iterable<T> {
         public class Node {
             T value;
             Node previous;
@@ -102,7 +100,12 @@ public class p4 {
         }
 
         public Node getHead() {
-            return NULL;
+            return NULL.next;
+        }
+
+        @Override
+        public Iterator<T> iterator() {
+            return new NodeIterator<>(getHead());
         }
     }
 
@@ -144,10 +147,9 @@ public class p4 {
         }
 
         public void print() {
-            LinkedList<Character>.Node node = data.getHead();
-            for (int i=0; i<size; ++i) {
-                node = node.next;
-                printChar(node.value);
+            Iterator<Character> it = data.iterator();
+            while (it.hasNext()) {
+                printChar(it.next());
             }
             newLine();
         }
@@ -237,6 +239,27 @@ public class p4 {
         } while (c != '!');
     }
 
+    static class NodeIterator<T> implements Iterator<T> {
+        private LinkedList<T>.Node current;
+
+        NodeIterator(LinkedList<T>.Node head) {
+            current = head;
+        }
+        
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            T val = current.value;
+            current = current.next;
+            return val;
+        }
+
+    }
+
     public static void main(String[] args) {
         NotepadApp app = new NotepadApp();
         final Scanner sc = new Scanner(System.in);
@@ -251,5 +274,9 @@ public class p4 {
         }
         sc.close();
         app.print();
+
+        Iterator it;
+
     }
+
 }
