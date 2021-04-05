@@ -1,59 +1,27 @@
-#include "list"
-#include "vector"
+/*
+    مشکل اصلی
+*/
+
 #include "iostream"
 
-class power {
-    private:
-    std::vector<long> A;
-
-    public:
-
-    long to(int n) {
-        if (n==0) return 1;
-        if (n>=A.size()) {
-            A.resize(2*n, 0);
-        }
-        if (A[n] == 0) {
-            auto x = to(n/2) * to(n/2);
-            if (n%2) 
-                A[n] = 2*x;
-            else
-                A[n] = x;
-        }
-        return A[n];
-    }
-};
-
-void diff(int A[], int n) {
+void diff(long A[], int n) {
     for (int i=0; i<n-1; ++i)
         A[i] = A[i] - A[i+1];
 }
 
-void sum(int A[], int n, int x) {
-    for (int i=0; i<n; ++i)
-        A[i] += x;
-}
-
-void zeros(int A[], int n) {
-    for (int i=0; i<n; ++i)
-        A[i] = 0;
-}
-
-void input(int A[], int n) {
+void input(long A[], int n) {
     for (int i=0; i<n; ++i)
         std::cin >> A[i];
 }
 
-void print(int A[], int n) {
+void print(long A[], int n) {
     for (int i=0; i<n; ++i) 
         std::cout << A[i] << " ";
     std::cout << std::endl;
 }
 
-void right_j(int A[], int n, long long m, int out[]) {
-    // print(A, n);
+void right_j(long A[], int n, long long m, int out[]) {
     diff(A, n);
-    // print(A, n);
     long long cost = 0;
     int j = 0;
     long long M = m;
@@ -80,12 +48,15 @@ int solve(int A[], int n, int m) {
     right_j(A, n, m, right);
     // print(right, n);
     int count = 0;
-    power p;
     for (int i=0; i<n; ++i) {
         count += (right[i] - i) + 1;
     }
     return count;
 }
+
+/*
+    tests
+*/
 
 int* ex1(int &n, int &m) {
     n = 6;
@@ -107,6 +78,10 @@ int test() {
     return 0;
 }
 
+/*
+    main
+*/
+
 int main() {
     // return test();
 
@@ -116,9 +91,14 @@ int main() {
     long long m;
     std::cin >> m;
 
-    int A[n];
+    long A[n];
     input(A, n);
     
     int count = solve(A, n, m);
     std::cout << count << std::endl;
 }
+
+/*
+    aeirya mohammadi
+    97103779
+*/
