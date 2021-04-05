@@ -1,4 +1,5 @@
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class p4 {
@@ -24,7 +25,7 @@ public class p4 {
             }
 
             boolean isNull() {
-                return value == null;
+                return value == null && previous == null;
             }
 
             @Override
@@ -42,13 +43,7 @@ public class p4 {
         }
 
         public void insert(T value) {
-            if (current.isNull()) {
-                current = new Node(value, NULL, NULL.next);   
-                NULL.next = current;
-                // current.previous = NULL;
-            } else {
-                current = insert(value, current);
-            }
+            current = insert(value, current);
         }
 
         Node insert(T value, Node previous) {
@@ -66,12 +61,12 @@ public class p4 {
                     current.previous.next = null;
                     previous();
                 } else if (current.isHead()) {
-                    current.next.previous = NULL;
                     NULL.next = current.next;
-                    next();
+                    current.next.previous = NULL;
+                    current = NULL;
                 } else {
-                    current.previous.next = current.next;
                     current.next.previous = current.previous;
+                    current.previous.next = current.next;
                     previous();
                 }
             }
@@ -85,7 +80,7 @@ public class p4 {
 
         public T previous() {
             if (current.isNull()) return null;
-            this.current = current.previous;
+            current = current.previous;
             return current.value;
         }
 
@@ -99,7 +94,7 @@ public class p4 {
             return current.value;
         }
 
-        public Node getHead() {
+        private Node getHead() {
             return NULL.next;
         }
 
@@ -110,7 +105,7 @@ public class p4 {
     }
 
     static class Notepad {
-        private LinkedList<Character> data;
+        private final LinkedList<Character> data;
         private int index, size;
 
         public Notepad() {
@@ -129,6 +124,7 @@ public class p4 {
             if (index > 0) {
                 data.remove();
                 --size;
+                --index;
             }
         }
 
@@ -147,7 +143,7 @@ public class p4 {
         }
 
         public void print() {
-            Iterator<Character> it = data.iterator();
+            final Iterator<Character> it = data.iterator();
             while (it.hasNext()) {
                 printChar(it.next());
             }
@@ -179,6 +175,11 @@ public class p4 {
 
         public void print() {
             notepad.print();
+        }
+
+        public void printStatus() {
+            LinkedList<Character>.Node c = notepad.data.current;
+            System.out.println(notepad.size + " " + notepad.index + " " + c.value);
         }
     }
 
@@ -236,6 +237,7 @@ public class p4 {
             c = sc.next().charAt(0);
             app.operate(c);
             app.print();
+            app.printStatus();
         } while (c != '!');
     }
 
@@ -252,31 +254,29 @@ public class p4 {
         }
 
         @Override
-        public T next() {
+        public T next() throws NoSuchElementException {
+            if (current == null) throw new NoSuchElementException();
             T val = current.value;
             current = current.next;
             return val;
         }
 
     }
-
+    
     public static void main(String[] args) {
         NotepadApp app = new NotepadApp();
         final Scanner sc = new Scanner(System.in);
-        // manualTest(sc, app);
-        // return;
-        int n = sc.nextInt();
-        while (n>0) {
-            app.operate(
-                sc.next().charAt(0)
-            );
-            --n;
-        }
-        sc.close();
-        app.print();
-
-        Iterator it;
-
+        manualTest(sc, app);
+        return;
+        // int n = sc.nextInt();
+        // while (n>0) {
+        //     app.operate(
+        //         sc.next().charAt(0)
+        //     );
+        //     --n;
+        // }
+        // sc.close();
+        // app.print();
     }
 
 }
