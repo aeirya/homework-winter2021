@@ -25,10 +25,8 @@ class power {
 };
 
 void diff(int A[], int n) {
-    for (int i=n-1; i>0; --i) {
-        A[i] = A[i-1] - A[i]; 
-    }
-    A[0] = 0;
+    for (int i=0; i<n-1; ++i)
+        A[i] = A[i] - A[i+1];
 }
 
 void sum(int A[], int n, int x) {
@@ -53,15 +51,20 @@ void print(int A[], int n) {
 }
 
 void right_j(int A[], int n, long long m, int out[]) {
+    // print(A, n);
     diff(A, n);
+    // print(A, n);
     sum(A, n, 1);
-    A[0] = 0;
+    // print(A, n);
     long long cost = 0;
     int j = 0;
+    long long M;
     for (int i=0; i<n; ++i) {
-        while (cost + A[j] <= m) {
+        M = m;
+        while (cost + A[j] <= M && j<n) {
             cost += A[j];
             if (cost < 0) cost = 0;
+            M -= cost;
             ++j;
         }
         out[i] = j;
@@ -70,12 +73,13 @@ void right_j(int A[], int n, long long m, int out[]) {
             if (cost < 0) cost = 0;
         }
     }
+    out[n-1] = n-1;
 }
 
 int solve(int A[], int n, int m) {
     int right[n];
     right_j(A, n, m, right);
-    print(right, n);
+    // print(right, n);
     int count = 0;
     power p;
     for (int i=0; i<n; ++i) {
@@ -84,11 +88,22 @@ int solve(int A[], int n, int m) {
     return count;
 }
 
-int test() {
-    int n, m;
+int* ex1(int &n, int &m) {
+    n = 6;
+    m = 6;
+    return new int[n] {6, 5, 2, 2, 6, 6};
+}
+
+int* ex2(int &n, int &m) {
     n = 5;
     m = 3;
-    int A[] = {7, 6, 5, 4, 3};
+    return new int[n] {7, 6, 5, 4, 3};
+}
+
+int test() {
+    int n, m;
+    int *A = new int[n];
+    A = ex1(n,m);
     solve(A, n, m);
     return 0;
 }
