@@ -6,7 +6,7 @@ public class p4 {
     }
     
     static class LinkedList<T> implements ILinkedList<T> {
-        class Node {
+        public class Node {
             T value;
             Node previous;
             Node next;
@@ -15,18 +15,6 @@ public class p4 {
                 this.value = value;
                 this.previous = previous;
                 this.next = next;
-            }
-
-            /*
-                inserts node after *this
-            */
-            void insertAfterMe(Node node) {
-                // this -> node -> this.next
-                node.previous = this;
-                node.next = this.next;
-                if (this.next != null) 
-                    this.next.previous = next;
-                this.next = node;
             }
 
             boolean isHead() {
@@ -46,11 +34,9 @@ public class p4 {
                 if (value == null) return "NULL";
                 return value.toString();
             }
-
         }
         
         private final Node NULL = new Node(null, null, null);
-
         private Node current;
         
         public LinkedList() {
@@ -59,8 +45,9 @@ public class p4 {
 
         public void insert(T value) {
             if (current.isNull()) {
-                current = new Node(value, NULL, null);   
-                NULL.insertAfterMe(current);
+                current = new Node(value, NULL, NULL.next);   
+                NULL.next = current;
+                // current.previous = NULL;
             } else {
                 current = insert(value, current);
             }
@@ -76,11 +63,13 @@ public class p4 {
             if (! isEmpty()) {
                 if (current.isHead() && current.isTail()) {
                     current = NULL;
+                    NULL.next = null;
                 } else if (current.isTail()) {
                     current.previous.next = null;
                     previous();
                 } else if (current.isHead()) {
                     current.next.previous = NULL;
+                    NULL.next = current.next;
                     next();
                 } else {
                     current.previous.next = current.next;
@@ -97,8 +86,8 @@ public class p4 {
         }
 
         public T previous() {
-            if (current.isHead()) return null;
-            current = current.previous;
+            if (current.isNull()) return null;
+            this.current = current.previous;
             return current.value;
         }
 
@@ -112,16 +101,8 @@ public class p4 {
             return current.value;
         }
 
-        @Override
-        public String toString() {
-            if (!isEmpty()) return "EMPTY";
-            Node value = NULL;
-            StringBuilder str = new StringBuilder();
-            while (value != null) {
-                str.append(value.value);
-                value = value.next;
-            }
-            return str.toString();
+        public Node getHead() {
+            return NULL;
         }
     }
 
@@ -145,7 +126,6 @@ public class p4 {
             if (index > 0) {
                 data.remove();
                 --size;
-                --index;
             }
         }
 
@@ -164,10 +144,10 @@ public class p4 {
         }
 
         public void print() {
-            Character value = data.head();
-            while (value != null) {
-                printChar(value);
-                value = data.next();
+            LinkedList<Character>.Node node = data.getHead();
+            for (int i=0; i<size; ++i) {
+                node = node.next;
+                printChar(node.value);
             }
             newLine();
         }
@@ -248,10 +228,20 @@ public class p4 {
         notepad.insertChar('o');
     }
 
+    static void manualTest(Scanner sc, NotepadApp app) {
+        char c;
+        do {
+            c = sc.next().charAt(0);
+            app.operate(c);
+            app.print();
+        } while (c != '!');
+    }
+
     public static void main(String[] args) {
         NotepadApp app = new NotepadApp();
-
         final Scanner sc = new Scanner(System.in);
+        // manualTest(sc, app);
+        // return;
         int n = sc.nextInt();
         while (n>0) {
             app.operate(
