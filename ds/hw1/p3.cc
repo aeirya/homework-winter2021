@@ -26,13 +26,12 @@ void right_j(long A[], int n, long long m, int out[]) {
     int j = 0;
     long long M = m;
     for (int i=0; i<n; ++i) {
-        while (cost + A[j] <= M && j<n && M >= 0) {
+        while (cost + A[j] <= M && j < n-1 && M >= 0) {
             cost += A[j];
             if (cost < 0) cost = 0;
             M -= cost;
             ++j;
         }
-        if (j >= n) j = n-1;
         out[i] = j;
         if (A[i] > 0) {
             cost -= A[i]; 
