@@ -32,12 +32,12 @@ void next_and_previous_greater_elements(int arr[], int n, int next[], int previo
         s.pop();
 }
 
-inline int f(int i, int previous, int next, int arr[]) {
+inline long f(int i, int previous, int next, int arr[]) {
     return ((next - i) * (i - previous) * arr[i]) % N;
 }
 
-int solve(int arr[], int nge[], int pge[], int n) {
-    int sum = 0;
+long solve(int arr[], int nge[], int pge[], int n) {
+    long sum = 0;
     int next, previous;
     for (int i=0; i<n; ++i) {
         next = (nge[i] >= 0) ? nge[i] : n;
