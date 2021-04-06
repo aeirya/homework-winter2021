@@ -48,7 +48,7 @@ class list {
         node* current;
     };
 
-    void insert(T value, iterator& it) {
+    void insert(iterator& it, T value) {
         // current pointer node
         node &current = it.get_current();
         // create node
@@ -68,31 +68,18 @@ class list {
 
     void erase(iterator& it) {
         node& current = it.get_current();
-        if (!current.previous) return;
-        node* _node = current.previous;
-        if (_node->previous)
-            _node->previous->next = &current;
-        current.previous = _node->previous;
-        
-        if (_node == head) {
-            head = head->next;
-        }
-        if (_node == tail) {
-            if (tail->previous)
-                tail = tail->previous;
+        current.next->previous = current.previous;
+        if (current.previous)
+            current.previous->next = current.next;
+        else if (&current == head)
+            head = current.next;
+        if (&current == tail) {
+            if (current.previous)
+                tail = current.previous;
             else
                 tail = _end;
         }
-        
-        delete _node;
-//        Node* next = it.node;
-//        if (!next)
-//        Node &node = next.previous;
-//
-//        if (node.previous)
-//            node.previous->next = node.next;
-//        if (node.next)
-//            node.next->previous = node.previous;
+        delete &current;
     }
 
     iterator begin() {
@@ -114,26 +101,104 @@ class list {
     node* _end;
 };
 
-void test_list() {
-    list<int> l;
-    auto it = l.begin();
-    l.insert(1, it);
-    --it;
-    l.insert(2, it);
-    --it;
-    l.insert(0, it);
-    ++it;
-    ++it;
-    l.erase(it);
-    l.erase(it);
-    l.erase(it);
-    l.insert(0, it);
-    l.insert(2, it);
+class Notepad {
+
+private:
+    list<char> data;
+    list<char>::iterator pointer;
+    int index;
+    int size;
+    const bool show_pointer = false;
+
+public:
+    Notepad() : index(0), size(0), pointer(data.begin()) {}
+
+    ~Notepad() {}
     
-    for (int x : l)
-        std::cout << x;
+    void insertChar(char c) {
+        data.insert(pointer, c);
+        ++index;
+        ++size;
+    }
+
+    void deleteChar() {
+        if (index > 0) {
+            auto it = pointer;
+            data.erase(--pointer);
+            pointer = it;
+            --index;
+            --size;
+        }
+    }
+
+    void pointerLeft() {
+        if (index > 0) {
+            --index;
+            --pointer;
+        }
+    }
+
+    void pointerRight() {
+        if (index < size) {
+            ++index;
+            ++pointer;
+        }
+    }
+
+    void print() {
+        if (show_pointer)
+            data.insert(pointer, '|');
+        for (char c : data) {
+            std::cout << c;
+        }
+        if (show_pointer) {
+            auto it = pointer;
+            data.erase(--pointer);
+            pointer = it;
+        }
+        std::cout << std::endl;
+    }
+
+    void printStatus() {
+        std::cout << index << " " << *pointer << std::endl;
+    }
+};
+
+void operate(Notepad& notepad, char c) {
+    if      (c == '<') notepad.pointerLeft();
+    else if (c == '>') notepad.pointerRight();
+    else if (c == '-') notepad.deleteChar();
+    else               notepad.insertChar(c);
+}
+
+void test(Notepad& notepad) {
+      notepad.insertChar('a');
+      notepad.insertChar('b');
+      notepad.insertChar('b');
+      notepad.pointerLeft();
+      notepad.insertChar('o');
+      notepad.pointerLeft();
+      notepad.deleteChar();
+      notepad.print();
+}
+
+int doTest() {
+    Notepad notepad;
+    test(notepad);
+    return 0;
 }
 
 int main() {
+//    return doTest();
+    int n;
+    std::cin >> n;
+
+    auto* notepad = new Notepad();
+    char c;
+    for (int i=0; i<n; ++i) {
+        std::cin >> c;
+        operate(*notepad, c);
+    }
+    notepad->print();
     return 0;
 }
