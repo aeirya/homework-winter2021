@@ -91,6 +91,8 @@ int main() {
     for (int i=0; i<n; ++i) {
         std::cin >> c;
         operate(*notepad, c);
+        notepad->print();
+        notepad->printStatus();
     }
 
     notepad->print();
