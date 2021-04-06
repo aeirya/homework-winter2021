@@ -4,7 +4,7 @@
 	as my final submission
 */
 
-
+#define N 105131359
 
 // C++ implementation of the approach
 #include <iostream>
@@ -51,8 +51,9 @@ int findMaxSum(int arr[], int n)
 	int ans = 0;
 
 	// Calculate the final sum
+    int z;
 	for (int i = 0; i < n; i++)
-		ans += ((CL[i] + 1) * (CR[i] + 1) * arr[i]);
+		ans += ((((CL[i] + 1) * (CR[i] + 1)) % N) * arr[i])%N;
 
 	return ans;
 }
