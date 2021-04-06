@@ -1,203 +1,183 @@
 /*
 احراز هویت
-
-آئیریا محمدی
-97103779
 */
 
-// headers
 #include "iostream"
 
-/// macros
 #define TT template <typename T>
 
-/// aliases
-#define CNode LinkedList<char>::Node
+TT class LinkedList {
+    public:
 
-/*
-    definitions
-*/
+    struct Node
+    {
+        T value;
+        Node* previous;
+        Node* next;
+    };
 
-template <typename T>
-class LinkedList {
-public:
-    struct Node;
-    class NodeIterator;
-    
-    LinkedList() : head(NULL), current(head) {};
-    ~LinkedList();
-    
-    void add(const T& value);
-    void removeCurrent();
-    
-    void insert(const T& value, Node& previous);
-    void remove(Node& node);
-    
-    auto begin();
-    auto end() const;
-    
-private:
-    Node* current;
+    class NodeIterator {
+        public:
+        NodeIterator(Node &node) : node(&node) {}
+        NodeIterator(const LinkedList &list);
+        NodeIterator() : node(0) {}
+        ~NodeIterator() { }
+        
+        Node& getCurrentNode() {
+            return *node;
+        }
+
+        NodeIterator &operator++() {
+            this->node = this->node->next;
+            return *this;
+        }
+
+        NodeIterator &operator--() {
+            this->node = this->node->previous;
+            return *this;
+        }
+
+        T& operator*() {
+            return this->node->value;
+        }
+
+        bool operator!=(const NodeIterator& other) const {
+            return other.node != this->node;
+        } 
+
+        bool operator==(const NodeIterator& other) {
+            return this->node == other.node;
+        }
+
+        private:
+        Node* node;
+    };
+
+    void add(const T& value) {
+        Node* node = new Node {value, tail, 0};
+
+        if (!head) {
+            head = node;
+            tail = node;
+        } else {
+            tail->next = node;
+            tail = node;
+        }
+    }
+
+    void insert(T value, Node& previous) {
+        Node* node = new Node {value, &previous, previous.next};
+        previous.next = node;
+    }
+
+    void remove(Node& node) {
+        if (node.previous)
+            node.previous->next = node.next;
+        if (node.next) 
+            node.next->previous = node.previous;
+    }
+
+    NodeIterator begin() {
+        return NodeIterator(*head);
+    }
+
+    NodeIterator end() {
+        return NodeIterator();
+    }
+
+    LinkedList() : head(0), tail(0) {}
+    ~LinkedList() {}
+
+    private:
     Node* head;
-};
-
-template <typename T>
-struct LinkedList<T>::Node
-{
-    T value;
-    Node* next;
-    Node* previous;
-};
-
-template <typename T>
-class LinkedList<T>::NodeIterator {
-private:
-    Node* node;
-    
-public:
-    NodeIterator(Node &node) : node(&node) { }
-    NodeIterator(const LinkedList &list);
-    NodeIterator() : node(0) { }
-    
-    auto &operator++();
-    auto &operator--();
-    bool operator==(const NodeIterator& other);
-    bool operator!=(const NodeIterator& other) const;
-    T& operator*();
-    
-    Node& getCurrent();
+    Node* tail;
 };
 
 class Notepad {
+
 public:
-    Notepad();
-    ~Notepad();
+    Notepad() : index(0), size(0) {
+        data.add(0);
+        pointer = data.begin();
+    }
+
+    ~Notepad() {}
     
-    void insertChar(char c);
-    void pointerLeft();
-    void pointerRight();
-    void deleteChar();
-    void print();
+    void insertChar(char c) {
+        ++size;
+        auto& node = pointer.getCurrentNode();
+        data.insert(c, node);
+        pointerRight();
+    }
+
+    void deleteChar() {
+        if (index > 0) {
+            --size;
+            auto& node = pointer.getCurrentNode();
+            pointerLeft();
+            data.remove(node);
+        }
+    }
+
+    void pointerLeft() {
+        if (index > 0) {
+            --index;
+            --pointer;
+        }
+    }
+
+    void pointerRight() {
+        if (index < size) {
+            ++index;
+            ++pointer;
+        }
+    }
+
+    void print() {
+        for (char& c : data) {
+            if (c != 0) {
+                std::cout << c;
+            }
+        }
+        std::cout << std::endl;
+    }
+
 private:
-    LinkedList<char>* data;
-    CNode* current;
+    LinkedList<char> data;
+    LinkedList<char>::NodeIterator pointer;
+    int index;
+    int size;
 };
 
-/*
-    implementations
-*/
-
-TT LinkedList<T>::~LinkedList() {
-    auto& node = *head;
-    while (! node) {
-        auto& next = node;
-        delete node;
-        node = next;
-    }
-}
-
-// inserts value after 'previous' node and before its next node
-
-template <typename T>
-void LinkedList<T>::insert(const T& value, Node& previous) {
-//    Node* node = new Node { value, &previous, *(previous.next) };
-    Node* node = new Node();
-    node->value = value;
-    node->previous = &previous;
-    node->next = previous.next;
-    previous.next = node;
-    
-    // check for null previous
-    if (! previous.previous) {
-        this->head = node;
-    }
-}
-
-// removes the node from linked list, connecting its previous and next nodes
-
-template <typename T>
-void LinkedList<T>::remove(Node& node) {
-    node.previous->next = node.next;
-    node.next->previous = node.previous;
-    delete &node;
-}
-
-TT auto LinkedList<T>::begin() {
-    return NodeIterator(*head);
-}
-
-TT auto LinkedList<T>::end() const {
-    return NodeIterator();
-}
-
-/*
-    Node iterator class implementation
-*/
-
-TT LinkedList<T>::NodeIterator::NodeIterator(const LinkedList &list) :
-    node(list.head) { }
-
-TT auto& LinkedList<T>::NodeIterator::operator++() {
-    return *this;
-}
-
-TT bool LinkedList<T>::NodeIterator::operator==(const NodeIterator &other) {
-    return this->node == other.node;
-}
-
-TT bool LinkedList<T>::NodeIterator::operator!=(const NodeIterator &other) const {
-    return this->node != other.node;
-}
-
-TT T& LinkedList<T>::NodeIterator::operator*() {
-        return this->node->value;
-    }
-
-/*
- Notepad class implementation
- */
-
-Notepad::Notepad() {
-    current = new CNode {0, NULL, NULL};
-}
-
-Notepad::~Notepad() {
-//    delete current;
-//    delete data;
-}
-
-void Notepad::pointerLeft() {
-    current = current->previous;
-}
-
-void Notepad::pointerRight() {
-    current = current->next;
-}
-
-void Notepad::insertChar(const char c) {
-    data->insert(c, *current);
-    pointerRight();
-}
-
-void Notepad::deleteChar() {
-    auto& to_delete = current;
-    pointerLeft();
-    data->remove(*to_delete);
-}
-
-void Notepad::print() {
-    for (char c : *data) {
-        std::cout << c;
-    }
+void operate(Notepad& notepad, char c) {
+    if      (c == '<') notepad.pointerLeft();
+    else if (c == '>') notepad.pointerRight();
+    else if (c == '-') notepad.deleteChar();
+    else               notepad.insertChar(c);
 }
 
 int main() {
+    int n;
+    std::cin >> n;
+
     auto* notepad = new Notepad();
-    notepad->insertChar('a');
-    notepad->insertChar('b');
-    notepad->insertChar('c');
+    for (int i=0; i<n; ++i) {
+        char c;
+        std::cin >> c;
+        operate(*notepad, c);
+    }
+
     notepad->print();
-//    std::cout << node->value << "h";
-    return 0;
-    
 }
+
+/*
+    aeirya mohammadi
+    97103779
+*/
+
+
+/// note:
+/// add deconstructors
+/// add copy constructor
+/// add = operator
+/// could also use cpp standard library
