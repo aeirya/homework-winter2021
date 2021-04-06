@@ -1,0 +1,57 @@
+Date : 2021-04-06 18:38:03
+Directory : /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1
+Total : 22 files,  1785 codes, 216 comments, 430 blanks, all 2431 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |         17 |      1,194 |        212 |        313 |      1,719 |
+| Java     |          3 |        479 |          3 |         80 |        562 |
+| Markdown |          2 |        112 |          1 |         37 |        150 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                        |         22 |      1,785 |        216 |        430 |      2,431 |
+| archive                                                                                                                  |         12 |        855 |        102 |        228 |      1,185 |
+| archive/p4                                                                                                               |         11 |        835 |        102 |        225 |      1,162 |
+| archive/p4/p4_1                                                                                                          |          8 |        309 |         44 |        109 |        462 |
+| archive/p4/p4_1/lib                                                                                                      |          2 |         36 |          3 |         18 |         57 |
+| archive/p4/p4_1/p4                                                                                                       |          5 |        140 |         13 |         48 |        201 |
+| archive/useful                                                                                                           |          1 |         20 |          0 |          3 |         23 |
+| done                                                                                                                     |          4 |        450 |         44 |        109 |        603 |
+| done/t2                                                                                                                  |          1 |         56 |          1 |         13 |         70 |
+| done/t3                                                                                                                  |          1 |         56 |          0 |         24 |         80 |
++--------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                                 | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/Reader.java                        | Java     |        130 |          1 |         16 |        147 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4.cc                   | C++      |        135 |         12 |         36 |        183 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4.java                 | Java     |        314 |          0 |         58 |        372 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/lib/linked_list.cc | C++      |         13 |          0 |          7 |         20 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/lib/linked_list.hh | C++      |         23 |          3 |         11 |         37 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/p4.cc              | C++      |        133 |         28 |         43 |        204 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/p4/linked_list.cc  | C++      |         47 |          7 |         15 |         69 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/p4/linked_list.hh  | C++      |         42 |          0 |         18 |         60 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/p4/main.cc         | C++      |         10 |          1 |          2 |         13 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/p4/notepad.cc      | C++      |         27 |          5 |          9 |         41 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_1/p4/notepad.hh      | C++      |         14 |          0 |          4 |         18 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/p4/p4_std.cc               | C++      |         77 |         46 |         22 |        145 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/archive/useful/power.cc            | C++      |         20 |          0 |          3 |         23 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/done/p2.cc                         | C++      |        177 |         19 |         36 |        232 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/done/p4_re.cc                      | C++      |        161 |         24 |         36 |        221 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/done/t2/t2.md                      | Markdown |         56 |          1 |         13 |         70 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/done/t3/t3.md                      | Markdown |         56 |          0 |         24 |         80 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/p1.cc                              | C++      |        123 |         23 |         25 |        171 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/p1_std.cc                          | C++      |         66 |         20 |         15 |        101 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/p3.cc                              | C++      |         71 |         15 |         17 |        103 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/p3.java                            | Java     |         35 |          2 |          6 |         43 |
+| /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw1/p3_nonstd.cc                       | C++      |         55 |          9 |         14 |         78 |
+| Total                                                                                                                    |          |      1,785 |        216 |        430 |      2,431 |
++--------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
