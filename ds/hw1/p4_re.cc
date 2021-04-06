@@ -1,6 +1,17 @@
+/*
+    احراز هویت
+    (تمرین سری یک)
+*/
+
 #include "iostream"
 
 template <typename T>
+
+/*
+    link list implementation in cpp,
+    it includes an iterator, and insert and erase methods,
+    behaving just as std::list
+*/
 
 class list {
     public:
@@ -36,10 +47,6 @@ class list {
             return other.current != this->current;
         } 
 
-        bool operator==(const iterator& other) {
-            return this->current == other.current;
-        }
-        
         node& get_current() {
             return *current;
         }
@@ -51,28 +58,34 @@ class list {
     void insert(iterator& it, T value) {
         // current pointer node
         node &current = it.get_current();
-        // create node
+        // create new node
         node* _node = new node {value, current.previous, &current};
         // insert before the pointer
         if (current.previous)
             current.previous->next = _node;
+        // connect from left
         current.previous = _node;
 
+        // check for new head
         if (!_node->previous)
             head = _node;
-//        if (head == _end)
-//            head = _end->previous;
+        // check for new tail
         if (_node->next == _end)
             tail = _node;
     }
 
+    // removes current node, connectng its before and after
     void erase(iterator& it) {
         node& current = it.get_current();
+        // connect from right
         current.next->previous = current.previous;
+        // connect from left
         if (current.previous)
             current.previous->next = current.next;
+        // check for new head
         else if (&current == head)
             head = current.next;
+        // check for new tail
         if (&current == tail) {
             if (current.previous)
                 tail = current.previous;
@@ -172,14 +185,14 @@ void operate(Notepad& notepad, char c) {
 }
 
 void test(Notepad& notepad) {
-      notepad.insertChar('a');
-      notepad.insertChar('b');
-      notepad.insertChar('b');
-      notepad.pointerLeft();
-      notepad.insertChar('o');
-      notepad.pointerLeft();
-      notepad.deleteChar();
-      notepad.print();
+    notepad.insertChar('a');
+    notepad.insertChar('b');
+    notepad.insertChar('b');
+    notepad.pointerLeft();
+    notepad.insertChar('o');
+    notepad.pointerLeft();
+    notepad.deleteChar();
+    notepad.print();
 }
 
 int doTest() {
@@ -189,7 +202,6 @@ int doTest() {
 }
 
 int main() {
-//    return doTest();
     int n;
     std::cin >> n;
 
@@ -202,3 +214,8 @@ int main() {
     notepad->print();
     return 0;
 }
+
+/*
+    aeirya mohammadi
+    97103779
+*/
