@@ -3,8 +3,9 @@
 
 #define N 105131359
 
-void next_greater_elements(long arr[], int n, int next[]) {
+void next_and_previous_greater_elements(int arr[], int n, int next[], int previous[]) {
     std::stack<int> s;
+    // next
     for (int i = n-1; i>=0; --i) {
         while (!s.empty() && arr[s.top()] <= arr[i])
             s.pop();
@@ -14,61 +15,47 @@ void next_greater_elements(long arr[], int n, int next[]) {
             next[i] = -1;
         s.push(i);
     }
-}
-
-void previous_greater_elements(long arr[], int n, int out[]) {
-    std::stack<int> s;
+    // empty stack
+    while (!s.empty())
+        s.pop();
+    // previous
     for (int i = 0; i<n; ++i) {
         while (!s.empty() && arr[s.top()] < arr[i])
             s.pop();
         if(!s.empty())
-            out[i] = s.top();
+            previous[i] = s.top();
         else 
-            out[i] = -1;
+            previous[i] = -1;
         s.push(i);
     }
+    while (!s.empty())
+        s.pop();
 }
 
-int solve(long arr[], int nge[], int pge[], int n) {
-    long sum = 0;
-    long next, previous;
+inline int f(int i, int previous, int next, int arr[]) {
+    return ((next - i) * (i - previous) * arr[i]) % N;
+}
+
+int solve(int arr[], int nge[], int pge[], int n) {
+    int sum = 0;
+    int next, previous;
     for (int i=0; i<n; ++i) {
         next = (nge[i] >= 0) ? nge[i] : n;
         previous = pge[i];
-        sum = (sum + ((next - i) * (i - previous) * arr[i])%N)%N;
+        sum = (f(i, previous, next, arr) + sum) % N;
     }
     return sum;
-}
-
-void print(int a[], int n) {
-    for (int i=0; i<n; ++i)
-        std::cout << a[i] << " ";
-    std::cout << std::endl;
-}
-
-void test() {
-	long arr[] = { 11, 13, 21, 3 };
-	int n = sizeof(arr) / sizeof(arr[0]);
 }
 
 int main() {
     int n;
     std::cin >> n;
-    long* arr = new long[n];
+    int* arr = new int[n];
     for (int i=0; i<n; ++i) 
         std::cin >> arr[i];
-
-    int nge[n];
-    next_greater_elements(arr, n, nge);
-
-    int pge[n];
-    previous_greater_elements(arr, n, pge);
-    
-    // print(nge, n);
-    // print(pge, n);
-
-    long sum = solve(arr, nge, pge, n);
-    std::cout << sum << std::endl;
-
+    int* nge = new int[n];
+    int* pge = new int[n];
+    next_and_previous_greater_elements(arr, n, nge, pge);
+    std::cout << solve(arr, nge, pge, n) << std::endl;
     return 0;
 }
