@@ -1,30 +1,7 @@
 #include "stack"
 #include "iostream"
 
-// void next_greater_elements(long arr[], int n, int next[]) {
-//    std::stack<int> s;
-//    // iterating from n-1 to 0
-//    for (int i = n - 1; i >= 0; i--)
-//    {
-//        /*We will pop till we get the
-//        greater element on top or stack gets empty*/
-//        while (!s.empty() && arr[s.top()] <= arr[i])
-//            s.pop();
-
-//        /*if stack gots empty means there
-//        is no element on right which is greater
-//        than the current element.
-//        if not empty then the next greater
-//        element is on top of stack*/
-//        if (s.empty())
-//            next[i] = -1;
-//        else
-//            next[i] = s.top();
-
-//        s.push(i);
-//    }
-// }
-
+#define N 105131359
 
 void next_greater_elements(long arr[], int n, int next[]) {
     std::stack<int> s;
@@ -42,7 +19,7 @@ void next_greater_elements(long arr[], int n, int next[]) {
 void previous_greater_elements(long arr[], int n, int out[]) {
     std::stack<int> s;
     for (int i = 0; i<n; ++i) {
-        while (!s.empty() && arr[s.top()] <= arr[i])
+        while (!s.empty() && arr[s.top()] < arr[i])
             s.pop();
         if(!s.empty())
             out[i] = s.top();
@@ -54,13 +31,11 @@ void previous_greater_elements(long arr[], int n, int out[]) {
 
 int solve(long arr[], int nge[], int pge[], int n) {
     long sum = 0;
-    long next, previous, x;
+    long next, previous;
     for (int i=0; i<n; ++i) {
         next = (nge[i] >= 0) ? nge[i] : n;
         previous = pge[i];
-        x = arr[i];
-        sum += (next - i) * (i - previous) * x;
-        sum %= 105131359;
+        sum = (sum + ((next - i) * (i - previous) * arr[i])%N)%N;
     }
     return sum;
 }
