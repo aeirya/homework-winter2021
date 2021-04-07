@@ -1,9 +1,13 @@
+/*
+    مختصصات اشتباه
+*/
+
 #include "stack"
 #include "iostream"
 
 #define N 105131359
 
-void next_greater_elements(long arr[], int n, int next[]) {
+void next_greater_elements(long long arr[], int n, int next[]) {
     std::stack<int> s;
     for (int i = n-1; i>=0; --i) {
         while (!s.empty() && arr[s.top()] <= arr[i])
@@ -16,7 +20,7 @@ void next_greater_elements(long arr[], int n, int next[]) {
     }
 }
 
-void previous_greater_elements(long arr[], int n, int out[]) {
+void previous_greater_elements(long long arr[], int n, int out[]) {
     std::stack<int> s;
     for (int i = 0; i<n; ++i) {
         while (!s.empty() && arr[s.top()] < arr[i])
@@ -29,15 +33,16 @@ void previous_greater_elements(long arr[], int n, int out[]) {
     }
 }
 
-int solve(long arr[], int nge[], int pge[], int n) {
-    long sum = 0;
-    long next, previous;
+long long solve(long long arr[], int nge[], int pge[], int n) {
+    long long sum = 0;
+    long long next, previous;
     for (int i=0; i<n; ++i) {
         next = (nge[i] >= 0) ? nge[i] : n;
         previous = pge[i];
+        
         sum = (sum + ((next - i) * (i - previous) * arr[i])%N)%N;
     }
-    return sum;
+    return (sum + N) % N;
 }
 
 void print(int a[], int n) {
@@ -54,7 +59,7 @@ void test() {
 int main() {
     int n;
     std::cin >> n;
-    long* arr = new long[n];
+    long long* arr = new long long[n];
     for (int i=0; i<n; ++i) 
         std::cin >> arr[i];
 
@@ -64,8 +69,13 @@ int main() {
     int pge[n];
     previous_greater_elements(arr, n, pge);
     
-    long sum = solve(arr, nge, pge, n);
+    long long sum = solve(arr, nge, pge, n);
     std::cout << sum << std::endl;
 
     return 0;
 }
+
+/*
+    aeirya mohammadi
+    97103779
+*/
