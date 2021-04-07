@@ -1,7 +1,7 @@
 from socket import socket, AF_INET, SOCK_STREAM
 import sys
 
-server_address = 'localhost', 8080
+server_address = 'localhost', 8084
 
 # connects to server
 def connect():
