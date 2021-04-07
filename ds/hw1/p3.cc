@@ -4,23 +4,23 @@
 
 #include "iostream"
 
-void diff(long A[], int n) {
+void diff(long long A[], int n) {
     for (int i=0; i<n-1; ++i)
         A[i] = A[i] - A[i+1];
 }
 
-void input(long A[], int n) {
+void input(long long A[], int n) {
     for (int i=0; i<n; ++i)
         std::cin >> A[i];
 }
 
-void print(long A[], int n) {
+void print(long long A[], int n) {
     for (int i=0; i<n; ++i) 
         std::cout << A[i] << " ";
     std::cout << std::endl;
 }
 
-void right_j(long A[], int n, long long m, int out[]) {
+void right_j(long long A[], int n, long long m, long long out[]) {
     diff(A, n);
     long long cost = 0;
     int j = 0;
@@ -42,11 +42,11 @@ void right_j(long A[], int n, long long m, int out[]) {
     out[n-1] = n-1;
 }
 
-int solve(long A[], int n, int m) {
-    int right[n];
+long long solve(long long A[], int n, long long m) {
+    long long right[n];
     right_j(A, n, m, right);
     // print(right, n);
-    int count = 0;
+    long long count = 0;
     for (int i=0; i<n; ++i) {
         count += (right[i] - i) + 1;
     }
@@ -57,25 +57,25 @@ int solve(long A[], int n, int m) {
     tests
 */
 
-long* ex1(int &n, int &m) {
-    n = 6;
-    m = 6;
-    return new long[n] {6, 5, 2, 2, 6, 6};
-}
+// long* ex1(int &n, int &m) {
+//     n = 6;
+//     m = 6;
+//     return new long[n] {6, 5, 2, 2, 6, 6};
+// }
 
-long* ex2(int &n, int &m) {
-    n = 5;
-    m = 3;
-    return new long[n] {7, 6, 5, 4, 3};
-}
+// long* ex2(int &n, int &m) {
+//     n = 5;
+//     m = 3;
+//     return new long[n] {7, 6, 5, 4, 3};
+// }
 
-int test() {
-    int n, m;
-    long *A = new long[n];
-    A = ex2(n,m);
-    std::cout << solve(A, n, m);
-    return 0;
-}
+// int test() {
+//     int n, m;
+//     long *A = new long[n];
+//     A = ex2(n,m);
+//     std::cout << solve(A, n, m);
+//     return 0;
+// }
 
 /*
     main
@@ -90,7 +90,7 @@ int main() {
     long long m;
     std::cin >> m;
 
-    long A[n];
+    long long A[n];
     input(A, n);
     
     int count = solve(A, n, m);
