@@ -15,15 +15,15 @@ type* input(int &n, type &m) {
     return A;
 }
 
-template <typename T>
-void print(int n, T* A) {
-    for (int i=0; i<n; ++i)
-        std::cout << A[i];
-    std::cout << std::endl;
-}
+// template <typename T>
+// void print(int n, T* A) {
+//     for (int i=0; i<n; ++i)
+//         std::cout << A[i];
+//     std::cout << std::endl;
+// }
 
 template <typename T>
-T inline min(T a, T b) {
+inline T min(T a, T b) {
     return (a < b) ? a : b;
 }
 
@@ -33,9 +33,9 @@ T inline min(T a, T b) {
 // } 
 
 void right_j(int n, type A[], type m, int right[]) {
+    // queue with max on back
     std::deque<int> maxq;
     type cost = 0;
-    type rem = m;
     type max;
     int j = 0;
     for (int i=0; i<n; ++i) {
@@ -46,7 +46,7 @@ void right_j(int n, type A[], type m, int right[]) {
         }
 
         // revert cost (from previous iterations)
-        // in the scope of A[i-1] of A[k], A[i-1] is the max
+        // in the scope of i-1 to k, A[i-1] is the max
         // and since A[i] < A[i-1], we have diff = A[i] - A[i-1] < 0
         for (int k=i; k<j && A[k]<A[i-1]; ++k) {
             cost -= min(A[i-1]-A[k], A[i-1]-A[i]);
