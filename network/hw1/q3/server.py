@@ -54,11 +54,13 @@ class HttpMessageBuilder:
         self.body = body
     
     def build(self) -> str:
-        return "\n".join(self.fields) \
-            + ("" if self.body is None else f"\n\n{self.body}\n")
+        return "\r\n".join(self.fields) \
+            + ("" if self.body is None else f"\r\n\r\n{self.body}\r\n")
 
 server, port = open_socket()
 print("listening on port: " + str(port))
+
+server.listen()
 
 input()
 server.close()
