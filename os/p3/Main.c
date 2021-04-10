@@ -2,7 +2,8 @@ code Main
 
   -- OS Class: Project 3
   --
-  -- <PUT YOUR NAME HERE>
+  -- AEIRYA MOHAMMADI
+  -- 97103779
   --
 
 -----------------------------  Main  ---------------------------------
