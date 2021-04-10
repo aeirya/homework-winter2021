@@ -1,0 +1,1 @@
+className=com.liferay.portlet.journal.model.JournalArticle&classPK=4227055&serviceClassName=com.liferay.portlet.tags.service.http.TagsAssetServiceJSON&serviceMethodName=incrementViewCounter&serviceParameters=className%2CclassPK

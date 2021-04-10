@@ -1,0 +1,1562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html class="nojs" dir="rtl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="/html/portlet/ext/chat/css/jquery.gritter.css"/>
+     		<title> دانشگاه صنعتی شریف - خانه</title>
+    	
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" /><meta name="description" content="دانشگاه ، اخبار دانشگاه ، درباره دانشگاه، دانشکده های دانشگاه ، واحدهای دانشگاه، تقویم دانشگاه، آلبوم عکس دانشگاه" lang="fa-IR" /><meta name="keywords" content="شریف,sharif, دانشگاه شریف, دانشگاه صنعتی شریف, اخبار شریف, درباره شریف,  سایت دانشگاه شریف, پرتال شریف, پرتال دانشگاه شریف, sharif portal, sharif web site , sharif university" lang="fa-IR" /><link rel="Shortcut Icon" href='/display_favicon/image?imageId=14502/favicon.ico' />
+<link href="/c/portal/css_cached?themeId=sharif&amp;colorSchemeId=01&amp;t=1611462537914" type="text/css" rel="stylesheet" />
+<link href="/html/css/general_ecportal2.css" type="text/css" rel="stylesheet" />
+<link href="/html/css/bootstrap/css/bootstrap-rtl.min.css" type="text/css" rel="stylesheet" />
+<link href="/html/css/bootstrap/css/font-awesome.css" type="text/css" rel="stylesheet" />
+<link href="/c/portal/css_cached?themeId=sharif&amp;colorSchemeId=01&amp;t=1611462537914" type="text/css" rel="stylesheet" />
+<link href="/html/css/general_ecportal.css" type="text/css" rel="stylesheet" />
+<link href="/html/portlet/ext/slide_content_image/css.jsp?themeId=sharif&amp;colorSchemeId=01&amp;t=1611462535843" rel="stylesheet" type="text/css" />
+<style type="text/css">
+#p_p_id_56_INSTANCE_Ds5N_ .portlet {
+}
+#portlet-wrapper-56_INSTANCE_Ds5N .pic-daneshgah
+{
+ width: 196px !important;
+ height: 95px !important;
+}
+#portlet-wrapper-56_INSTANCE_Ds5N li
+{
+margin-bottom: 5px !important;
+margin-top: 5px !important;
+}
+#portlet-wrapper-56_INSTANCE_Ds5N a
+{
+background: none important;
+padding-right: 0 !important;
+}
+#p_p_id_56_INSTANCE_ABzf_ .portlet {
+}
+#portlet-wrapper-56_INSTANCE_ABzf .journal-content-article a{
+background:none!important;
+padding-right:0!important;
+}#p_p_id_101_INSTANCE_FkOK_ .portlet {
+letter-spacing: 0;
+text-align: right;
+word-spacing: -0.05em
+}
+#portlet-wrapper-101_INSTANCE_FkOK .ecp-li{
+padding:4px 0;
+}
+#portlet-wrapper-101_INSTANCE_FkOK form{
+margin:0px!important;
+}
+#portlet-wrapper-101_INSTANCE_FkOK{
+margin-bottom:10px;
+}
+#p_p_id_EXT_SCI_INSTANCE_yz5k_ {
+}
+#p_p_id_EXT_SCI_INSTANCE_yz5k_ div .portlet-body
+{
+ font-size: 12px !important;
+ line-height: 180%;
+}
+#p_p_id_EXT_SCI_INSTANCE_yz5k_ h3 {
+color: #1D487B;
+font-size: 18px;
+font-family: BVNassim, tahoma;
+}
+#p_p_id_101_INSTANCE_F233_ .portlet {
+}
+#portlet-wrapper-101_INSTANCE_F233 .end-link-div{
+position:absolute;
+bottom:110px;
+}
+#portlet-wrapper-101_INSTANCE_F233 .portlet-journal-summary{
+margin:0 154px 0 0;
+}
+#p_p_id_101_INSTANCE_pAcV_ .portlet {
+}
+.columns-j-2-3 #p_p_id_101_INSTANCE_pAcV_ {
+max-height:620px !important;
+ min-height:100px !important;
+overflow-y:scroll;
+}
+.columns-j-2-3 #p_p_id_101_INSTANCE_pAcV_ ul {
+height:294px;
+}
+.columns-j-2-3 #p_p_id_101_INSTANCE_pAcV_ .pic-abstract , .columns-j-2-3 #p_p_id_101_INSTANCE_pAcV_ .portlet-journal-summary{
+height:45px;
+}
+#p_p_id_101_INSTANCE_pAcV_ .portlet-journal-abstract{
+text-align : right;
+}#p_p_id_101_INSTANCE_JHJu_ .portlet {
+letter-spacing: 0;
+text-align: justify;
+word-spacing: normal
+}
+#portlet-wrapper-101_INSTANCE_JHJu .portlet-body li{
+padding:5px 0 6px 4px!important;
+}
+.ie7 #portlet-wrapper-101_INSTANCE_JHJu .portlet-body li{
+padding-top: 0px!important;
+}
+</style>
+<style type="text/css">
+#asset-img{ display: none;}
+div #banner {padding-bottom: 3px !important;}
+</style>
+<script type="text/javascript">// <![CDATAvar themeDisplay = {getCompanyId: function() {return "10138";},getDoAsUserIdEncoded: function() {return "";},getPlid: function() {return "14505";},getGroupId: function() {return "14502";},getUserId: function() {return "10140";},getLayoutId: function() {return "1";},getLayoutURL: function() {return "http://www.sharif.ir/home";},isPrivateLayout: function() {return "false";},getParentLayoutId: function() {return "0";},getLanguageId: function() {return "fa_IR";},isFreeformLayout: function() {return false;},isSignedIn: function() {return false;},isStateExclusive: function() {return false;},isStateMaximized: function() {return false;},isStatePopUp: function() {return false;},getPathContext: function() {return "";},getPathImage: function() {return "/image";},getPathMain: function() {return "/c";},getPathThemeImages: function() {return "/html/themes/sharif/images";},getPathThemeRoot: function() {return "/html/themes/sharif";},getURLHome: function() {return "http://www.sharif.ir";},getSessionId: function() {return "8F9BECA6E6A3698964E31A94CF75152E.portal";}};// ]]></script><script src="/html/js/barebone_packed.js?bn=5101" type="text/javascript"></script><script type="text/javascript">// <![CDATALiferay.currentURL = '\u002f\u0068\u006f\u006d\u0065';Liferay.currentURLEncoded = '%2Fhome';jQuery(function() {Liferay.Util.addInputType();Liferay.Util.addInputFocus();});Liferay.Portlet.ready(function(portletId, jQueryObj) {Liferay.Util.addInputType(portletId, jQueryObj);if (Liferay.Menu) {new Liferay.Menu({button: '.lfr-actions',context: jQueryObj[0],trigger: '.lfr-trigger'});}});Liferay.Portlet.list = ['56_INSTANCE_Ds5N','56_INSTANCE_ABzf','101_INSTANCE_FkOK','EXT_SCI_INSTANCE_yz5k','101_INSTANCE_F233','101_INSTANCE_pAcV','101_INSTANCE_JHJu'];if (jQuery.ui && jQuery.ui.tabs) {jQuery.extend(jQuery.ui.tabs.defaults,{navClass: 'ui-tabs tabs',selectedClass: 'current'});}jQuery(function() {if (Liferay.Dock) {Liferay.Dock.init();}if (Liferay.Menu) {new Liferay.Menu({trigger: '.lfr-trigger',button: '.lfr-actions'});}if (Liferay.Notice) {Liferay.Notice.prototype.setClosing();}});// ]]></script>
+<script type="text/javascript">
+/*$jq171(document).ready(function(){
+$jq171('select:not([multiple]):not([class=defaultstyle]):not([size])').selectpicker();
+});*/
+</script>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+<script src="/html/js/html5.js"></script>
+<![endif]-->
+<script src="/html/js/liferay/service_packed.js?t=1611462535802" type="text/javascript"></script>
+<link class="lfr-css-file" href="/html/themes/sharif/css/main.css?companyId=10138&amp;languageId=fa_IR&amp;themeId=sharif&amp;colorSchemeId=01&amp;t=1611462537914" id="mainLiferayThemeCSS" rel="stylesheet" type="text/css" /><style type="text/css">
+#banner { height: 113px; margin: 0 auto;padding:0;top:0;width:576px;background: url(/image/layout_set_logo?img_id=363202&t=1617418837686) no-repeat 0% 0%; }
+        </style>
+        <!--script data-dojo-config="async: true, tlmSiblingOfDojo: true" 
+                                src="/html/js/push/cometd/dojo/dojo.js.uncompressed.js"></script>
+         <script src="/html/js/pushContainer.js"></script-->
+</head>
+<body class=" controls-visible">
+ 
+<div id="wrapper">
+<div class="whole-banner">
+<div id="banner" class="mainpage_banner">
+<script>
+function toggleControls(){
+jQuery('#afirstlink').toggleClass('toggle-notick');
+}
+</script>
+<a class="logo-sharif" href="http://sharif.ir"></a>  <div class="link-en-fa" dir="ltr"> | 			<a class="english" href="http://www.sharif.ir/web/en">English</a>
+</div>				
+<LINK REL="StyleSheet" HREF="/html/common/css/login.css" TYPE="text/css">
+<a href="#" class="login-link " onclick="showDialog();"><span>ورود</span></a>
+<div id="login_dialog" style="display: none;">
+<div style="" class="sign-in-out">
+<form id="fm1" name="fm1" method="post" action="/c/portal/login">
+  <input type="hidden" value="already-registered" name="cmd">
+    <input type="hidden" value="true" name="nav-bar">
+    <input type="hidden" value="/" name="redirect">
+<div class="label-contain">
+<input type="text" placeholder="شناسه کاربری"  style="margin-bottom: 10px;" size="23" name="login" id="login" class="username-field" autocomplete="off">
+<div class="error-message user-msg" style="display: none;"></div>
+</div>
+<div class="label-contain">
+<input type="password" placeholder="کلمه عبور" size="23" name="password" id="password" class="password-field" autocomplete="off">
+<div class="error-message pass-msg" style="display: none;"></div>
+</div>
+<div  class="label-contain float-right">
+<a target="_blank" class="note" href="/c/portal/login?tabs1=forgot-password" style="font-size: xx-small;">
+کلمه عبور را فراموش کرده اید؟
+</a>
+</div>
+<p  class="label-contain checkbox clearfix" style="white-space:nowrap;direction:rtl;">
+<input  type="checkbox" onClick="if (this.checked) {document._58_fm._58_rememberMe.value = 'on';}else {document._58_fm._58_rememberMe.value = 'off'}" style="float: left;">
+<label  for="user_session_remember_me">من را به خاطر داشته باش</label>
+</p>
+<input type="submit" value="ورود" id="submit" class="btn btn-primary float-right">
+<span style="color: #898989;">
+<!--a target="_blank" href="http://www.sharif.ir/home?p_p_id=2&p_p_lifecycle=1&p_p_state=maximized&p_p_mode=view&p_p_col_count=1&saveLastPath=0&_2_struts_action=%2Fmy_account%2Fcreate_account" class=" btn btn-warning signin-widget-join"> ايجاد حساب </a-->
+</span>
+</form>
+</div>
+    </div>
+<script type="text/javascript">
+function showDialog(){
+$jq171('#login_dialog').show();
+        $jq171('#login_dialog').dialog({
+            modal:true,
+            width: 660,
+            height: 300,
+            resizable:false,
+            scroll:false,
+            title:"ورود",
+            show: {effect: "blind", duration:500},
+            hide: {effect: "blind", duration:500},
+            dialogClass: "interiorDesign"
+        });
+}
+</script>
+ 	
+                                                 
+ 
+                <div class="date_show">
+                                            <span>امروز: شنبه ۲۱ فروردین ۱۴۰۰</span>
+                                    </div>
+<div class="org-greeting"><span>&#1576;&#1607; &#1662;&#1585;&#1578;&#1575;&#1604;</span></span>&nbsp<span><span>دانشگاه صنعتی شریف</span>&nbsp<span>&#1582;&#1608;&#1588; &#1570;&#1605;&#1583;&#1740;&#1583;</span></div>
+</div>				
+                    <div class="whole-navigation"><div  id="navigation"  class="sort-pages modify-pages"><ul id="nav" class="navigation sf-menu sf-js-enabled sf-shadow menu">     <li class="top li-index-1 parent-nav-item selected" >     <a href="http://www.sharif.ir/home"  class="top_link">                 <span>                                          صفحه اصلی                 </span>             </a></li><li class="sides sides-1"><span class="sides-div"></span></li>     <li class="top li-index-2 parent-nav-item non-selected" >     <a href="http://csprd.sharif.ir/"  class="top_link">                 <span>                                          امور راهبردی                 </span>             </a></li><li class="sides sides-2"><span class="sides-div"></span></li>     <li class="top li-index-3 parent-nav-item non-selected" >     <a href="http://www.sharif.ir/204"  class="top_link">                 <span>                                          آموزش                 </span>             </a></li><li class="sides sides-3"><span class="sides-div"></span></li>     <li class="top li-index-4 parent-nav-item non-selected" >     <a href="http://www.sharif.ir/5"  class="top_link">                 <span>                                          پژوهش و فناوری                 </span>             </a></li><li class="sides sides-4"><span class="sides-div"></span></li>     <li class="top li-index-5 parent-nav-item non-selected" >     <a href="http://www.sharif.ir/49"  class="top_link">                 <span>                                          دانشکده ها                 </span>             </a></li><li class="sides sides-5"><span class="sides-div"></span></li>     <li class="top li-index-6 parent-nav-item non-selected" >     <a href="http://www.sharif.ir/6"  class="top_link">                 <span>                                          دانشجویی                 </span>             </a></li><li class="sides sides-6"><span class="sides-div"></span></li>     <li class="top li-index-7 parent-nav-item non-selected" >     <a href="http://farhangi.sharif.ir/"  class="top_link">                 <span>                                          فرهنگی                 </span>             </a></li><li class="sides sides-7"><span class="sides-div"></span></li>     <li class="top li-index-8 parent-nav-item non-selected" >     <a href="http://www.sharif.ir/7"  class="top_link">                 <span>                                          اداری و مالی                 </span>             </a></li><li class="sides sides-8"><span class="sides-div"></span></li> <li class="top li-index-9 parent-nav-item non-selected" >                     		<a href="#"  class="top_link parent">                                 <span>                                                                          بین الملل                                 </span>                             </a><ul class="sub child-menu">                                                        					 <li class="li-index-9 non-selected1">				<a href="http://www.en.sharif.edu/academics/admission/"  >                    <span>                                                دفتر امور بین الملل                    </span>                </a>						     															</li>                                                        					 <li class="li-index-9 non-selected1">				<a href="http://www.en.sharif.edu/international/international-students/"  >                    <span>                                                دانشجویان بین الملل                    </span>                </a>						     															</li>                                                        					 <li class="li-index-9 non-selected1">				<a href="http://www.kish.ac.ir/IPPWebV1C041/Persian_WebUI/Default.aspx" target="_blank" >                    <span>                                                پردیس بین الملل کیش                    </span>                </a>						     															</li>                                                        					 <li class="li-index-9 non-selected1">				<a href="http://tic.sharif.ir/index.php" target="_blank" >                    <span>                                                پردیس بین الملل تهران                    </span>                </a>						     															</li></ul></li><li class="sides sides-9"><span class="sides-div"></span></li>     <li class="top li-index-10 parent-nav-item non-selected" >     <a href="http://nahad.sharif.ir"  class="top_link">                 <span>                                          نهاد نمایندگی رهبری                 </span>             </a></li><li class="sides sides-10"><span class="sides-div"></span></li>     <li class="top li-index-11 parent-nav-item non-selected" >     <a href="http://www.sharif.ir/217"  class="top_link">                 <span>                                          ارتباط با ما                 </span>             </a></li><li class="sides sides-11"><span class="sides-div"></span></li></ul></div></div>        		
+<!--
+-->
+<!--
+-->
+</div>
+<div class="whole-content">
+<div id="p_p_id_103_" class="portlet-boundary portlet-boundary_103_  " ><a name="p_103"></a><script type="text/javascript"></script></div><div class="columns-j-2-3" id="content-wrapper">
+<table class="lfr-grid" id="layout-grid">
+<tr>
+<td class="lfr-column twenty-t-1" id="col-1-tbl"  valign="top">
+   <div class="lfr-portlet-column" id="layout-column_column-1"><div id="p_p_id_56_INSTANCE_Ds5N_" class="portlet-boundary portlet-boundary_56_  portlet-journal-content" ><a name="p_56_INSTANCE_Ds5N"></a><div class="portlet" id="portlet-wrapper-56_INSTANCE_Ds5N">
+<div class="portlet-topper">
+<div class="portlet-top-back">
+<span class="portlet-title">
+ <img alt="" src="/display_icons/image?imageId=1624216.png" width="16" height="16"/>  دانشگاه صنعتی شریف
+</span>
+</div>
+<div class="portlet-icons" id="portlet-small-icon-bar_56_INSTANCE_Ds5N">
+    </div>
+</div>
+<div class="portlet-content-back">
+<div>
+<div>
+<div class="portlet-content">
+<div class="portlet-content-main"><div class="portlet-content-container" style=""><div class="portlet-body"><script type="text/javascript">try{Liferay.Service.Tags.TagsAsset.incrementViewCounter({className:'com.liferay.portlet.journal.model.JournalArticle', classPK:4227055});}catch(Error){}</script><div class="journal-content-article" id="article_14502_4227053_1.0"><ul style="line-height: 3em !important;">
+    <li class="ecp-li"><a href="/2">آشنایی با دانشگاه&nbsp;</a></li>
+    <li class="ecp-li"><a href="http://techpark.sharif.ir/">پارک علم و فناوری شریف&nbsp;</a></li>
+    <li class="ecp-li"><a href="http://tsc.sharif.ir/">مجتمع خدمات فناوری شریف</a></li>
+    <li class="ecp-li"><a target="_blank" href="http://ocw.sharif.edu/">درس افزار آزاد شریف&nbsp;</a></li>
+    <li class="ecp-li"><a target="_blank" href="http://library.sharif.ir">کتابخانه مرکزی&nbsp;</a></li>
+    <li class="ecp-li"><a target="_blank" href="http://book.sharif.ir/">موسسه انتشارات علمی&nbsp;</a></li>
+    <li class="ecp-li"><a href="http://alumsharif.org/">انجمن فارغ التحصیلان</a></li>
+    <li class="ecp-li"><a href="https://sutf.sharif.ir/">بنیاد حامیان دانشگاه صنعتی شریف</a></li>
+    <li class="ecp-li"><a href="http://c-labs.sharif.ir//">مرکز خدمات آزمایشگاهی</a>&nbsp;</li>
+    <li class="ecp-li"><a target="_blank" href="/25">دانشجویان</a></li>
+    <li class="ecp-li"><a target="_blank" href="/26">اساتید</a></li>
+    <li class="ecp-li"><a target="_blank" href="/27">کارمندان</a></li>
+    <li class="ecp-li"><a target="_blank" href="http://asnad.sharif.ir/">دبیرخانه اسناد دانشگاه صنعتی شریف&nbsp;</a></li>
+    <li class="ecp-li"><a target="_blank" href="/links">پیوندها</a>&nbsp; &nbsp;&nbsp;</li>
+</ul></div></div></div></div>
+</div>
+</div>
+</div>
+</div>	
+<div class="portlet-footer-back">
+<div>
+<div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle: false,columnPos: 0,isStatic: 'end',namespacedId: 'p_p_id_56_INSTANCE_Ds5N_',portletId: '56_INSTANCE_Ds5N'});</script></div><div id="p_p_id_56_INSTANCE_ABzf_" class="portlet-boundary portlet-boundary_56_  portlet-journal-content" ><a name="p_56_INSTANCE_ABzf"></a><div class="portlet" id="portlet-wrapper-56_INSTANCE_ABzf">
+<div class="portlet-topper">
+<div class="portlet-top-back">
+<span class="portlet-title">
+ <img alt="" src="/display_icons/image?imageId=1867385.png" width="16" height="16"/>  گزارش های تصویری
+</span>
+</div>
+<div class="portlet-icons" id="portlet-small-icon-bar_56_INSTANCE_ABzf">
+    </div>
+</div>
+<div class="portlet-content-back">
+<div>
+<div>
+<div class="portlet-content">
+<div class="portlet-content-main"><div class="portlet-content-container" style=""><div class="portlet-body"><script type="text/javascript">try{Liferay.Service.Tags.TagsAsset.incrementViewCounter({className:'com.liferay.portlet.journal.model.JournalArticle', classPK:1867380});}catch(Error){}</script><div class="journal-content-article" id="article_14502_1867378_1.0"><p style="text-align: center;"><a href="/250"><img width="210" height="31" src="/image/image_gallery?uuid=69fdaa86-ea5d-41be-8d83-0103bbba262c&amp;groupId=18523&amp;t=1556006409247" alt="" /></a></p></div></div></div></div>
+</div>
+</div>
+</div>
+</div>	
+<div class="portlet-footer-back">
+<div>
+<div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle: false,columnPos: 1,isStatic: 'end',namespacedId: 'p_p_id_56_INSTANCE_ABzf_',portletId: '56_INSTANCE_ABzf'});</script></div><div id="p_p_id_101_INSTANCE_FkOK_" class="portlet-boundary portlet-boundary_101_  portlet-tagged-content" ><a name="p_101_INSTANCE_FkOK"></a><div class="portlet" id="portlet-wrapper-101_INSTANCE_FkOK">
+<div class="portlet-topper">
+<div class="portlet-top-back">
+<span class="portlet-title">
+ <img alt="" src="/display_icons/image?imageId=364446.png" width="16" height="16"/>  اطلاعیه ها
+</span>
+</div>
+<div class="portlet-icons" id="portlet-small-icon-bar_101_INSTANCE_FkOK">
+    </div>
+</div>
+<div class="portlet-content-back">
+<div>
+<div>
+<div class="portlet-content">
+<div class="portlet-content-main"><div class="portlet-content-container" style=""><div class="portlet-body"><form name="_101_INSTANCE_FkOK_fm">
+</form>
+<div id="_101_INSTANCE_FkOK_ajaxContent">
+<script>
+function _101_INSTANCE_FkOK_changeContent(u){
+$jq171.ajax({
+url: u, 
+success: function(data) {
+$jq171('#_101_INSTANCE_FkOK_ajaxContent').replaceWith(data);
+}
+});
+}
+</script>
+<ul>
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/12027180/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87%28%D8%B4%D9%85%D8%A7%D8%B1%D9%87+%DB%B1%29+%D8%A7%D8%B9%D9%84%D8%A7%D9%85+%D8%B2%D9%85%D8%A7%D9%86+%D9%85%D8%B5%D8%A7%D8%AD%D8%A8%D9%87+%D8%A2%D8%B2%D9%85%D9%88%D9%86+%D9%86%DB%8C%D9%85%D9%87%E2%80%8C%D9%85%D8%AA%D9%85%D8%B1%DA%A9%D8%B2+%D8%AF%DA%A9%D8%AA%D8%B1%DB%8C+%D8%B3%D8%A7%D9%84+%DB%B1%DB%B4%DB%B0%DB%B0">اطلاعیه(شماره ۱) اعلام زمان مصاحبه آزمون نیمه‌متمرکز دکتری سال ۱۴۰۰</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۴۰۰/۰۱/۲۰ &nbsp;&nbsp; ۱۵:۵۴</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۵۲</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/11985632/%D8%A8%D8%B1%DA%AF%D8%B2%D8%A7%D8%B1%DB%8C+%D9%85%D8%AF%D8%B1%D8%B3%D9%87+%D8%A8%D9%87%D8%A7%D8%B1%D9%87+%D9%82%D8%B7%D8%A8+%D8%B1%D8%A8%D8%A7%D8%AA%DB%8C%DA%A9+%D8%B4%D8%B1%DB%8C%D9%81">برگزاری مدرسه بهاره قطب رباتیک شریف</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۴۰۰/۰۱/۰۹ &nbsp;&nbsp; ۰۳:۰۹</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۳۰۸</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/11931495/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87+%D9%BE%D8%B0%DB%8C%D8%B1%D8%B4+%D8%A7%D9%85%D8%B1%DB%8C%D9%87+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81%28%D8%B3%D8%A7%D9%84+1400%29">اطلاعیه پذیرش امریه دانشگاه صنعتی شریف(سال 1400)</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۷ &nbsp;&nbsp; ۱۳:۴۶</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۴۷۳</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/11931141/%D9%85%D8%B9%D8%A7%D9%88%D9%86%D8%AA+%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C+%D9%88+%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%DB%8C+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%A8%D8%B1%DA%AF%D8%B2%D8%A7%D8%B1+%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D8%AF%D8%9B+%D9%85%D8%B3%D8%A7%D8%A8%D9%82%D9%87+%D9%86%DB%8C%D9%85%D9%87+%D8%B4%D8%B9%D8%A8%D8%A7%D9%86">معاونت فرهنگی و اجتماعی دانشگاه برگزار می‌کند؛ مسابقه نیمه شعبان</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۷ &nbsp;&nbsp; ۰۸:۴۴</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۲۱۹</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/11925989/%D8%A2%D8%AE%D8%B1%DB%8C%D9%86+%D8%A7%D8%AD%DA%A9%D8%A7%D9%85+%D8%B5%D8%A7%D8%AF%D8%B1%D9%87">آخرین احکام صادره</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۵ &nbsp;&nbsp; ۱۰:۵۸</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۶۸۵</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/11917434/%D9%85%D8%B9%D8%A7%D9%88%D9%86%D8%AA+%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C+%D9%88+%D8%A7%D8%AC%D8%AA%D9%85%D8%A7%D8%B9%DB%8C+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B4%D8%B1%DB%8C%D9%81+%D8%A8%D8%B1%DA%AF%D8%B2%D8%A7%D8%B1+%D9%85%DB%8C%E2%80%8C%DA%A9%D9%86%D8%AF%3A+%D8%AC%D8%B4%D9%86+%D9%86%D9%88%D8%B1%D9%88%D8%B2+1400">معاونت فرهنگی و اجتماعی دانشگاه شریف برگزار می‌کند: جشن نوروز 1400</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۰ &nbsp;&nbsp; ۲۰:۰۰</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۲۴۴</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/11911455/%D8%A2%DA%AF%D9%87%DB%8C+%D9%BE%D8%B0%DB%8C%D8%B1%D8%B4+%D8%A8%D8%AF%D9%88%D9%86+%D8%A2%D8%B2%D9%85%D9%88%D9%86+%D8%AF%D8%A7%D9%86%D8%B4%D8%AC%D9%88%DB%8C%D8%A7%D9%86+%D9%85%D9%85%D8%AA%D8%A7%D8%B2+%D8%AF%D9%88%D8%B1%D9%87%E2%80%8C%DB%8C+%D8%AF%DA%A9%D8%AA%D8%B1%DB%8C+%28%D9%86%DB%8C%D9%85%D8%B3%D8%A7%D9%84+%D8%A7%D9%88%D9%84+1401-1400%29">آگهی پذیرش بدون آزمون دانشجویان ممتاز دوره‌ی دکتری (نیمسال اول 1401-1400)</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۱۸ &nbsp;&nbsp; ۱۳:۳۴</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۱۰۶۵</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/FkOK/id/11908817/%D8%AF%D8%A7%D9%86%D9%80%D8%B4%D9%80%DA%AF%D8%A7%D9%87+%D8%B4%D9%80%D9%80%D9%80%D8%B1%DB%8C%D9%81+%D9%85%D9%80%D9%80%D9%80%D9%80%DB%8C%D8%B2%D8%A8%D8%A7%D9%86+%D8%AF%DA%A9%D9%80%D9%80%D8%AA%D8%B1+%D9%84%D8%A7%D8%B1%D8%B3%D9%88%D9%86+%D8%A7%D8%B2+%D9%BE%DA%98%D9%88%D9%87%D8%B4%DA%AF%D8%B1%D8%A7%D9%86+%D8%A8%D8%B3%DB%8C%D8%A7%D8%B1+%D9%85%D8%B9%D8%AA%D8%A8%D8%B1+MIT+%D8%AF%D8%B1+%D8%AD%D9%88%D8%B2%D9%87+%D8%AA%D8%AD%D9%82%DB%8C%D9%82+%D8%AF%D8%B1+%D8%B9%D9%85%D9%84%DB%8C%D8%A7%D8%AA">دانـشـگاه شـــریف مــــیزبان دکــتر لارسون از پژوهشگران بسیار معتبر MIT در حوزه تحقیق در عملیات</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۱۷ &nbsp;&nbsp; ۱۰:۲۶</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۵۰۶</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+</ul>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+    <div class="end-link-div">
+        <a href="/announcementarchive">بیشتر</a>
+    </div>
+    <div class="after-end-link"></div>
+</div>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>	
+<div class="portlet-footer-back">
+<div>
+<div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle: false,columnPos: 2,isStatic: 'end',namespacedId: 'p_p_id_101_INSTANCE_FkOK_',portletId: '101_INSTANCE_FkOK'});</script></div></div>
+</td>
+<td class="lfr-column eighty-t-1" id="col-2-tbl" valign="top">
+    <table class="lfr-grid" id="layout-grid">
+    <tr>
+                <td class="lfr-column eighty-1" id="column-2" colspan="3" valign="top" >
+      <div class="lfr-portlet-column" id="layout-column_column-2"><div id="p_p_id_EXT_SCI_INSTANCE_yz5k_" class="portlet-boundary portlet-boundary_EXT_SCI_  portlet-slide_content_image" ><a name="p_EXT_SCI_INSTANCE_yz5k"></a><div class="portlet-borderless-container portlet-content" style=""><div class="portlet-body">        <link rel="stylesheet" href="/html/css/nivo-slider/dark/dark.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/html/css/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/html/js/jquery-1.7.1/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript">
+jQuery(window).load(function() {
+$jq171('#_EXT_SCI_INSTANCE_yz5k_slider').nivoSlider({pauseTime:6e3});
+});
+</script>
+<div id="_EXT_SCI_INSTANCE_yz5k_slider">
+ <a href="http://www.sharif.ir/home?p_p_id=EXT_SCI_INSTANCE_yz5k&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-2&p_p_col_count=1&_EXT_SCI_INSTANCE_yz5k_action=view_content&_EXT_SCI_INSTANCE_yz5k_redirect=%2Fhome&_EXT_SCI_INSTANCE_yz5k_assetId=12024222" target="_blank"><img alt="تصویر محتوا" src="/image/journal/article?img_id=12024221&t=1617878775919" id="nivoslider-img-1" title="آیین بهره‌برداری از طرح‌های توسعه‌ای ناحیه نوآوری شریف"/></a>
+            <a href="http://www.sharif.ir/home?p_p_id=EXT_SCI_INSTANCE_yz5k&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-2&p_p_col_count=1&_EXT_SCI_INSTANCE_yz5k_action=view_content&_EXT_SCI_INSTANCE_yz5k_redirect=%2Fhome&_EXT_SCI_INSTANCE_yz5k_assetId=12004880" target="_blank" style="display: none;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=12004879&t=1617611522583" id="nivoslider-img-2" title="«پیکار» دریچه‌ی ورود علاقه‌مندان حوزه امنیت سیستم‌های رایانه‌ای به بازار کار"/></a>
+        
+            <a href="http://www.sharif.ir/home?p_p_id=EXT_SCI_INSTANCE_yz5k&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-2&p_p_col_count=1&_EXT_SCI_INSTANCE_yz5k_action=view_content&_EXT_SCI_INSTANCE_yz5k_redirect=%2Fhome&_EXT_SCI_INSTANCE_yz5k_assetId=11935927" target="_blank" style="display: none;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=11935926&t=1616152728543" id="nivoslider-img-3" title="گزارش عملکرد دانشگاه صنعتی شریف (مهر ۱۳۹۳ تا مهر ۱۳۹۹)"/></a>
+        
+            <a href="http://www.sharif.ir/home?p_p_id=EXT_SCI_INSTANCE_yz5k&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-2&p_p_col_count=1&_EXT_SCI_INSTANCE_yz5k_action=view_content&_EXT_SCI_INSTANCE_yz5k_redirect=%2Fhome&_EXT_SCI_INSTANCE_yz5k_assetId=11909649" target="_blank" style="display: none;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=11909648&t=1615684958577" id="nivoslider-img-4" title="درخشش دانشگاه صنعتی شریـف در جدیدترین رتبه‌بندی موضوعی کیو اس"/></a>
+        
+            <a href="http://www.sharif.ir/home?p_p_id=EXT_SCI_INSTANCE_yz5k&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&p_p_col_id=column-2&p_p_col_count=1&_EXT_SCI_INSTANCE_yz5k_action=view_content&_EXT_SCI_INSTANCE_yz5k_redirect=%2Fhome&_EXT_SCI_INSTANCE_yz5k_assetId=11924367" target="_blank" style="display: none;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=11924366&t=1615711879503" id="nivoslider-img-5" title="با ارسال بسته‌های آموزشی، امکان کار عملی بدون حضور فیزیکی 400 دانشجوی شریفی فراهم شد"/></a>
+        
+</div>  
+</div></div><script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle: false,columnPos: 0,isStatic: 'end',namespacedId: 'p_p_id_EXT_SCI_INSTANCE_yz5k_',portletId: 'EXT_SCI_INSTANCE_yz5k'});</script></div></div>
+    </td>
+            </tr>
+            <tr>
+                
+                <td class="lfr-column thirty-2" id="column-3" valign="top">
+      <div class="lfr-portlet-column" id="layout-column_column-3"><div id="p_p_id_101_INSTANCE_F233_" class="portlet-boundary portlet-boundary_101_  portlet-tagged-content" ><a name="p_101_INSTANCE_F233"></a><div class="portlet" id="portlet-wrapper-101_INSTANCE_F233">
+<div class="portlet-topper">
+<div class="portlet-top-back">
+<span class="portlet-title">
+ <img alt="" src="/display_icons/image?imageId=364447.png" width="16" height="16"/>  تازه ها
+</span>
+</div>
+<div class="portlet-icons" id="portlet-small-icon-bar_101_INSTANCE_F233">
+    </div>
+</div>
+<div class="portlet-content-back">
+<div>
+<div>
+<div class="portlet-content">
+<div class="portlet-content-main"><div class="portlet-content-container" style=""><div class="portlet-body"><form name="_101_INSTANCE_F233_fm">
+</form>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery("#p_p_id_101_INSTANCE_F233_ a")
+                    .not('[@href*="javascript"]')
+                    .not('[@href="#"]').attr("target","_blank");
+        });
+    </script>
+<div id="_101_INSTANCE_F233_ajaxContent">
+<script>
+function _101_INSTANCE_F233_changeContent(u){
+$jq171.ajax({
+url: u, 
+success: function(data) {
+$jq171('#_101_INSTANCE_F233_ajaxContent').replaceWith(data);
+}
+});
+}
+</script>
+<div>
+<Style>
+.portlet-journal-abstract{
+text-align:justify;
+}
+</Style>
+<div class="pic-abstract">
+<div class="portlet-journal-abstract">
+<a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12023943/%D8%A2%DB%8C%DB%8C%D9%86+%D8%A8%D9%87%D8%B1%D9%87%E2%80%8C%D8%A8%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C+%D8%A7%D8%B2+%D8%B7%D8%B1%D8%AD%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%AA%D9%88%D8%B3%D8%B9%D9%87%E2%80%8C%D8%A7%DB%8C+%D9%86%D8%A7%D8%AD%DB%8C%D9%87+%D9%86%D9%88%D8%A2%D9%88%D8%B1%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81"><div class="abstract-image" style="float: right; padding-left: 10px;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=12023942&t=1617870496214" /></div></a>
+        	<span class="journal-head-title"> توسط رییس جمهور صورت گرفت؛</span><br/>
+<h3 class="journal-content-title"><a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12023943/%D8%A2%DB%8C%DB%8C%D9%86+%D8%A8%D9%87%D8%B1%D9%87%E2%80%8C%D8%A8%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C+%D8%A7%D8%B2+%D8%B7%D8%B1%D8%AD%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%AA%D9%88%D8%B3%D8%B9%D9%87%E2%80%8C%D8%A7%DB%8C+%D9%86%D8%A7%D8%AD%DB%8C%D9%87+%D9%86%D9%88%D8%A2%D9%88%D8%B1%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81">آیین بهره‌برداری از طرح‌های توسعه‌ای ناحیه نوآوری شریف</a></h3>
+<div class="portlet-journal-summary">
+آیین بهره‌برداری از طرح‌های توسعه‌ای ناحیه نوآوری به صورت ویدئو کنفرانس با حضور رییس جمهور ...
+            
+                <div class="portlet-journal-more">
+                    <a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12023943/%D8%A2%DB%8C%DB%8C%D9%86+%D8%A8%D9%87%D8%B1%D9%87%E2%80%8C%D8%A8%D8%B1%D8%AF%D8%A7%D8%B1%DB%8C+%D8%A7%D8%B2+%D8%B7%D8%B1%D8%AD%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%AA%D9%88%D8%B3%D8%B9%D9%87%E2%80%8C%D8%A7%DB%8C+%D9%86%D8%A7%D8%AD%DB%8C%D9%87+%D9%86%D9%88%D8%A2%D9%88%D8%B1%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81">ادامه</a>
+                </div>
+            
+</div>
+        
+            <div class="portlet-journal-metadata">
+                    
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۴۰۰/۰۱/۱۹ &nbsp;&nbsp; ۱۲:۴۶</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۲۸۶</ecportal:persianNumber>
+                
+                
+            
+</span>
+            </div>
+            <div style="clear:both;"></div>
+        
+</div>
+<div class="lfr-meta-actions edit-controls">
+<br />
+</div>
+<div class="separator"><!-- --></div>
+</div>
+</div>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<div>
+<Style>
+.portlet-journal-abstract{
+text-align:justify;
+}
+</Style>
+<div class="pic-abstract">
+<div class="portlet-journal-abstract">
+<a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12020472/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87+%D8%AC%D8%AF%DB%8C%D8%AF+%D8%AF%D9%88%D8%B1%DA%A9%D8%A7%D8%B1%DB%8C+%D8%AF%D8%A7%D9%86%D8%B4%D8%AC%D9%88%DB%8C%D8%A7%D9%86%2C+%D8%A7%D8%B3%D8%A7%D8%AA%DB%8C%D8%AF++%D9%88+%DA%A9%D8%A7%D8%B1%DA%A9%D9%86%D8%A7%D9%86+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87"><div class="abstract-image" style="float: right; padding-left: 10px;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=12020471&t=1617772415994" /></div></a>
+<h3 class="journal-content-title"><a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12020472/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87+%D8%AC%D8%AF%DB%8C%D8%AF+%D8%AF%D9%88%D8%B1%DA%A9%D8%A7%D8%B1%DB%8C+%D8%AF%D8%A7%D9%86%D8%B4%D8%AC%D9%88%DB%8C%D8%A7%D9%86%2C+%D8%A7%D8%B3%D8%A7%D8%AA%DB%8C%D8%AF++%D9%88+%DA%A9%D8%A7%D8%B1%DA%A9%D9%86%D8%A7%D9%86+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87">اطلاعیه جدید دورکاری دانشجویان, اساتید  و کارکنان دانشگاه</a></h3>
+<div class="portlet-journal-summary">
+دانشگاه صنعتی شریف طی اطلاعیه ای برنامه دورکاری دانشجویان، اساتید و کارکنان را اعلام کرد
+            
+                <div class="portlet-journal-more">
+                    <a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12020472/%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%DB%8C%D9%87+%D8%AC%D8%AF%DB%8C%D8%AF+%D8%AF%D9%88%D8%B1%DA%A9%D8%A7%D8%B1%DB%8C+%D8%AF%D8%A7%D9%86%D8%B4%D8%AC%D9%88%DB%8C%D8%A7%D9%86%2C+%D8%A7%D8%B3%D8%A7%D8%AA%DB%8C%D8%AF++%D9%88+%DA%A9%D8%A7%D8%B1%DA%A9%D9%86%D8%A7%D9%86+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87">ادامه</a>
+                </div>
+            
+</div>
+        
+            <div class="portlet-journal-metadata">
+                    
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۴۰۰/۰۱/۱۸ &nbsp;&nbsp; ۰۹:۴۲</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۴۳۸۶</ecportal:persianNumber>
+                
+                
+            
+</span>
+            </div>
+            <div style="clear:both;"></div>
+        
+</div>
+<div class="lfr-meta-actions edit-controls">
+<br />
+</div>
+<div class="separator"><!-- --></div>
+</div>
+</div>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<div>
+<Style>
+.portlet-journal-abstract{
+text-align:justify;
+}
+</Style>
+<div class="pic-abstract">
+<div class="portlet-journal-abstract">
+<a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12003414/%C2%AB%D9%BE%DB%8C%DA%A9%D8%A7%D8%B1%C2%BB+%D8%AF%D8%B1%DB%8C%DA%86%D9%87%E2%80%8C%DB%8C+%D9%88%D8%B1%D9%88%D8%AF+%D8%B9%D9%84%D8%A7%D9%82%D9%87%E2%80%8C%D9%85%D9%86%D8%AF%D8%A7%D9%86+%D8%AD%D9%88%D8%B2%D9%87+%D8%A7%D9%85%D9%86%DB%8C%D8%AA+%D8%B3%DB%8C%D8%B3%D8%AA%D9%85%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%B1%D8%A7%DB%8C%D8%A7%D9%86%D9%87%E2%80%8C%D8%A7%DB%8C+%D8%A8%D9%87+%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1+%DA%A9%D8%A7%D8%B1"><div class="abstract-image" style="float: right; padding-left: 10px;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=12003413&t=1617529612529" /></div></a>
+<h3 class="journal-content-title"><a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12003414/%C2%AB%D9%BE%DB%8C%DA%A9%D8%A7%D8%B1%C2%BB+%D8%AF%D8%B1%DB%8C%DA%86%D9%87%E2%80%8C%DB%8C+%D9%88%D8%B1%D9%88%D8%AF+%D8%B9%D9%84%D8%A7%D9%82%D9%87%E2%80%8C%D9%85%D9%86%D8%AF%D8%A7%D9%86+%D8%AD%D9%88%D8%B2%D9%87+%D8%A7%D9%85%D9%86%DB%8C%D8%AA+%D8%B3%DB%8C%D8%B3%D8%AA%D9%85%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%B1%D8%A7%DB%8C%D8%A7%D9%86%D9%87%E2%80%8C%D8%A7%DB%8C+%D8%A8%D9%87+%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1+%DA%A9%D8%A7%D8%B1">«پیکار» دریچه‌ی ورود علاقه‌مندان حوزه امنیت سیستم‌های رایانه‌ای به بازار کار</a></h3>
+<div class="portlet-journal-summary">
+آزمایشگاه ایمنی و امنیت نرم‌افزار و سیستم‌ها (S4Lab) در دانشکده مهندسی کامپیوتر دانشگاه صن ...
+            
+                <div class="portlet-journal-more">
+                    <a href="http://www.sharif.ir/home/-/tagged_content/F233/id/12003414/%C2%AB%D9%BE%DB%8C%DA%A9%D8%A7%D8%B1%C2%BB+%D8%AF%D8%B1%DB%8C%DA%86%D9%87%E2%80%8C%DB%8C+%D9%88%D8%B1%D9%88%D8%AF+%D8%B9%D9%84%D8%A7%D9%82%D9%87%E2%80%8C%D9%85%D9%86%D8%AF%D8%A7%D9%86+%D8%AD%D9%88%D8%B2%D9%87+%D8%A7%D9%85%D9%86%DB%8C%D8%AA+%D8%B3%DB%8C%D8%B3%D8%AA%D9%85%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%B1%D8%A7%DB%8C%D8%A7%D9%86%D9%87%E2%80%8C%D8%A7%DB%8C+%D8%A8%D9%87+%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1+%DA%A9%D8%A7%D8%B1">ادامه</a>
+                </div>
+            
+</div>
+        
+            <div class="portlet-journal-metadata">
+                    
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۴۰۰/۰۱/۱۵ &nbsp;&nbsp; ۱۴:۱۵</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۲۲۰</ecportal:persianNumber>
+                
+                
+            
+</span>
+            </div>
+            <div style="clear:both;"></div>
+        
+</div>
+<div class="lfr-meta-actions edit-controls">
+<br />
+</div>
+<div class="separator"><!-- --></div>
+</div>
+</div>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<div>
+<Style>
+.portlet-journal-abstract{
+text-align:justify;
+}
+</Style>
+<div class="pic-abstract">
+<div class="portlet-journal-abstract">
+<a href="http://www.sharif.ir/home/-/tagged_content/F233/id/11935534/%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4+%D8%B9%D9%85%D9%84%DA%A9%D8%B1%D8%AF+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81+%D8%AF%D8%B1+%D8%A8%D8%A7%D8%B2%D9%87+%D9%85%D9%87%D8%B1+%DB%B1%DB%B3%DB%B9%DB%B3+%D8%AA%D8%A7+%D9%85%D9%87%D8%B1+%DB%B1%DB%B3%DB%B9%DB%B9"><div class="abstract-image" style="float: right; padding-left: 10px;"><img alt="تصویر محتوا" src="/image/journal/article?img_id=11935533&t=1617870539715" /></div></a>
+<h3 class="journal-content-title"><a href="http://www.sharif.ir/home/-/tagged_content/F233/id/11935534/%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4+%D8%B9%D9%85%D9%84%DA%A9%D8%B1%D8%AF+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81+%D8%AF%D8%B1+%D8%A8%D8%A7%D8%B2%D9%87+%D9%85%D9%87%D8%B1+%DB%B1%DB%B3%DB%B9%DB%B3+%D8%AA%D8%A7+%D9%85%D9%87%D8%B1+%DB%B1%DB%B3%DB%B9%DB%B9">گزارش عملکرد دانشگاه صنعتی شریف در بازه مهر ۱۳۹۳ تا مهر ۱۳۹۹</a></h3>
+<div class="portlet-journal-summary">
+دانشگاه صنعتی شریف گزارش عملکرد شش ساله خود را که با الهام از مضامین اصلی برنامه راهبردی ص ...
+            
+                <div class="portlet-journal-more">
+                    <a href="http://www.sharif.ir/home/-/tagged_content/F233/id/11935534/%DA%AF%D8%B2%D8%A7%D8%B1%D8%B4+%D8%B9%D9%85%D9%84%DA%A9%D8%B1%D8%AF+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81+%D8%AF%D8%B1+%D8%A8%D8%A7%D8%B2%D9%87+%D9%85%D9%87%D8%B1+%DB%B1%DB%B3%DB%B9%DB%B3+%D8%AA%D8%A7+%D9%85%D9%87%D8%B1+%DB%B1%DB%B3%DB%B9%DB%B9">ادامه</a>
+                </div>
+            
+</div>
+        
+            <div class="portlet-journal-metadata">
+                    
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۹ &nbsp;&nbsp; ۱۴:۰۴</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۴۹۴</ecportal:persianNumber>
+                
+                
+            
+</span>
+            </div>
+            <div style="clear:both;"></div>
+        
+</div>
+<div class="lfr-meta-actions edit-controls">
+<br />
+</div>
+</div>
+</div>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+    <div class="end-link-div">
+        <a href="/newsarchive">آرشیو اخبار</a>
+    </div>
+    <div class="after-end-link"></div>
+</div>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>	
+<div class="portlet-footer-back">
+<div>
+<div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle: false,columnPos: 0,isStatic: 'end',namespacedId: 'p_p_id_101_INSTANCE_F233_',portletId: '101_INSTANCE_F233'});</script></div></div>
+    </td>
+                <td class="lfr-column thirty-1" id="column-5" valign="top">
+      <div class="lfr-portlet-column" id="layout-column_column-5"><div id="p_p_id_101_INSTANCE_JHJu_" class="portlet-boundary portlet-boundary_101_  portlet-tagged-content" ><a name="p_101_INSTANCE_JHJu"></a><div class="portlet" id="portlet-wrapper-101_INSTANCE_JHJu">
+<div class="portlet-topper">
+<div class="portlet-top-back">
+<span class="portlet-title">
+ دیگر تازه های دانشگاه
+</span>
+</div>
+<div class="portlet-icons" id="portlet-small-icon-bar_101_INSTANCE_JHJu">
+    </div>
+</div>
+<div class="portlet-content-back">
+<div>
+<div>
+<div class="portlet-content">
+<div class="portlet-content-main"><div class="portlet-content-container" style=""><div class="portlet-body"><form name="_101_INSTANCE_JHJu_fm">
+</form>
+<div id="_101_INSTANCE_JHJu_ajaxContent">
+<script>
+function _101_INSTANCE_JHJu_changeContent(u){
+$jq171.ajax({
+url: u, 
+success: function(data) {
+$jq171('#_101_INSTANCE_JHJu_ajaxContent').replaceWith(data);
+}
+});
+}
+</script>
+<ul>
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11928960/%D8%A7%D8%B2+%D8%B3%D9%88%DB%8C+%D9%85%D8%B9%D8%A7%D9%88%D9%86%D8%AA+%D9%81%D8%B1%D9%87%D9%86%DA%AF%DB%8C+%D8%B5%D9%88%D8%B1%D8%AA+%DA%AF%D8%B1%D9%81%D8%AA%D8%9B+%D8%AA%D9%87%DB%8C%D9%87+%D9%88+%D8%A7%D8%B1%D8%B3%D8%A7%D9%84+1200+%D8%A8%D8%B3%D8%AA%D9%87+%D9%87%D8%AF%DB%8C%D9%87+%D8%A8%D8%B1%D8%A7%DB%8C+%D8%AF%D8%A7%D9%86%D8%B4%D8%AC%D9%88%DB%8C%D8%A7%D9%86+%D9%88%D8%B1%D9%88%D8%AF%DB%8C+%D8%AC%D8%AF%DB%8C%D8%AF">از سوی معاونت فرهنگی صورت گرفت؛ تهیه و ارسال 1200 بسته هدیه برای دانشجویان ورودی جدید</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۶ &nbsp;&nbsp; ۱۳:۳۸</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۳۵۲۸</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11925759/%D9%BE%DB%8C%D8%A7%D9%85+%D8%AA%D8%A8%D8%B1%DB%8C%DA%A9+%D8%B1%D8%A6%DB%8C%D8%B3+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81+%D8%A8%D9%87+%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%AA+%D9%81%D8%B1%D8%A7+%D8%B1%D8%B3%DB%8C%D8%AF%D9%86+%D8%B3%D8%A7%D9%84+%D9%86%D9%88">پیام تبریک رئیس دانشگاه صنعتی شریف به مناسبت فرا رسیدن سال نو</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۵ &nbsp;&nbsp; ۰۸:۳۹</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۳۹۳</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11925735/%D9%BE%DB%8C%D8%A7%D9%85+%D8%AA%D8%A8%D8%B1%DB%8C%DA%A9+%D8%A7%D8%B9%D8%B6%D8%A7%DB%8C+%D9%87%DB%8C%D8%A6%D8%AA+%D8%B1%D8%A6%DB%8C%D8%B3%D9%87+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%A8%D9%87+%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%AA+%D8%B3%D8%A7%D9%84+%D9%86%D9%88">پیام تبریک اعضای هیئت رئیسه دانشگاه به مناسبت سال نو</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۵ &nbsp;&nbsp; ۰۸:۲۳</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۴۲۰</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11924498/%D8%A7%D9%85%D9%80%D9%80%D8%B6%D8%A7%DB%8C+%D8%AA%D9%80%D9%80%D9%80%D9%80%D9%80%D9%81%D8%A7%D9%87%D9%85%E2%80%8C%D9%86%D9%80%D8%A7%D9%85%D9%80%D9%80%D9%80%D9%87+%D9%85%DB%8C%D8%A7%D9%86+%D9%BE%DA%98%D9%88%D9%87%D8%B4%DA%A9%D8%AF%D9%87+%D9%88+%D8%B4%D8%B1%DA%A9%D8%AA+%D9%86%D8%A7%D8%B1%DA%AF%D8%A7%D9%86">امــضای تـــــفاهم‌نـامـــه میان پژوهشکده و شرکت نارگان</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۴ &nbsp;&nbsp; ۱۳:۱۱</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۴۱۷</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11921596/%D8%A8%D8%A7+%D8%A7%D8%B1%D8%B3%D8%A7%D9%84+%D8%A8%D8%B3%D8%AA%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C+%D8%A2%D9%85%D9%88%D8%B2%D8%B4%DB%8C%D8%8C+%D8%A7%D9%85%DA%A9%D8%A7%D9%86+%DA%A9%D8%A7%D8%B1+%D8%B9%D9%85%D9%84%DB%8C+%D8%A8%D8%AF%D9%88%D9%86+%D8%AD%D8%B6%D9%88%D8%B1+%D9%81%DB%8C%D8%B2%DB%8C%DA%A9%DB%8C+400+%D8%AF%D8%A7%D9%86%D8%B4%D8%AC%D9%88%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81%DB%8C+%D9%81%D8%B1%D8%A7%D9%87%D9%85+%D8%B4%D8%AF">با ارسال بسته‌های آموزشی، امکان کار عملی بدون حضور فیزیکی 400 دانشجوی شریفی فراهم شد</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۲۳ &nbsp;&nbsp; ۱۲:۵۳</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۶۸۰</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11908898/%D8%AF%D8%B1%D8%AE%D9%80%D9%80%D8%B4%D8%B4+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%D8%B4%D9%80%D9%80%D9%80%D8%B1%DB%8C%D9%80%D9%80%D9%81+%D8%AF%D8%B1+%D8%AC%D9%80%D9%80%D8%AF%DB%8C%D8%AF%D8%AA%D8%B1%DB%8C%D9%86+%D8%B1%D8%AA%D8%A8%D9%87%E2%80%8C%D8%A8%D9%86%D8%AF%DB%8C+%D9%85%D9%88%D8%B6%D9%88%D8%B9%DB%8C+%DA%A9%DB%8C%D9%88+%D8%A7%D8%B3">درخــشش دانشگاه صنعتی شـــریــف در جــدیدترین رتبه‌بندی موضوعی کیو اس</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۱۷ &nbsp;&nbsp; ۱۰:۴۷</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۱۹۳۷</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11899693/%D8%A7%D9%85%D8%B6%D8%A7%DB%8C+%D8%AA%D9%81%D8%A7%D9%87%D9%85%E2%80%8C%D9%86%D8%A7%D9%85%D9%87+%D9%87%D9%85%DA%A9%D8%A7%D8%B1%DB%8C+%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87+%D8%B5%D9%86%D8%B9%D8%AA%DB%8C+%D8%B4%D8%B1%DB%8C%D9%81+%D9%88+%D9%85%D8%AC%D9%85%D9%88%D8%B9%D9%87+%D9%85%D8%AF%DB%8C%D8%B1%DB%8C%D8%AA+%D8%A7%DA%A9%D8%AA%D8%B4%D8%A7%D9%81+%D8%A7%DB%8C%D8%B1%D8%A7%D9%86">امضای تفاهم‌نامه همکاری دانشگاه صنعتی شریف و مجموعه مدیریت اکتشاف ایران</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۱۳ &nbsp;&nbsp; ۱۲:۵۶</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۲۸۲</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+<li class="ecp-li">
+<a href="http://www.sharif.ir/home/-/tagged_content/JHJu/id/11882827/%D8%AF%D9%88%D9%85%DB%8C%D9%86+%D8%AC%D9%84%D8%B3%D9%87+%D9%86%D8%B4%D8%B3%D8%AA+%D9%87%DB%8C%D8%A3%D8%AA+%D8%A7%D9%85%D9%86%D8%A7%DB%8C+%D9%BE%D8%B1%D8%AF%DB%8C%D8%B3+%D8%A8%DB%8C%D9%86+%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%D9%84+%D8%B4%D8%B1%DB%8C%D9%81+%DA%A9%DB%8C%D8%B4">دومین جلسه نشست هیأت امنای پردیس بین ‌الملل شریف کیش</a>
+<div class="lfr-meta-actions edit-controls">
+</div>
+<!--
+<span class="portlet-journal-metadata">
+<span class="portlet-journal-metadata-publish-date-no-desc">
+            
+                
+        <ecportal:persianNumber><span class="portlet-journal-notified-publish-date" > ۱۳۹۹/۱۲/۰۶ &nbsp;&nbsp; ۰۸:۱۱</span></ecportal:persianNumber>
+                
+                
+            
+</span>
+&nbsp;-&nbsp;
+<span class="portlet-journal-metadata-view-count">
+            
+                
+        <ecportal:persianNumber>تعداد دفعات مشاهده:۴۵۹</ecportal:persianNumber>
+                
+                
+            
+</span>
+</span>
+-->
+</li>
+</ul>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+</div>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>	
+<div class="portlet-footer-back">
+<div>
+<div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle: false,columnPos: 0,isStatic: 'end',namespacedId: 'p_p_id_101_INSTANCE_JHJu_',portletId: '101_INSTANCE_JHJu'});</script></div></div>
+    </td>
+<td class="lfr-column twenty-2" id="column-4"  valign="top">
+      <div class="lfr-portlet-column" id="layout-column_column-4"><div id="p_p_id_101_INSTANCE_pAcV_" class="portlet-boundary portlet-boundary_101_  portlet-tagged-content" ><a name="p_101_INSTANCE_pAcV"></a><div class="portlet" id="portlet-wrapper-101_INSTANCE_pAcV">
+<div class="portlet-topper">
+<div class="portlet-top-back">
+<span class="portlet-title">
+ رویدادهای آینده
+</span>
+</div>
+<div class="portlet-icons" id="portlet-small-icon-bar_101_INSTANCE_pAcV">
+    </div>
+</div>
+<div class="portlet-content-back">
+<div>
+<div>
+<div class="portlet-content">
+<div class="portlet-content-main"><div class="portlet-content-container" style=""><div class="portlet-body"><form name="_101_INSTANCE_pAcV_fm">
+</form>
+<div id="_101_INSTANCE_pAcV_ajaxContent">
+<script>
+function _101_INSTANCE_pAcV_changeContent(u){
+$jq171.ajax({
+url: u, 
+success: function(data) {
+$jq171('#_101_INSTANCE_pAcV_ajaxContent').replaceWith(data);
+}
+});
+}
+</script>
+<div>
+<Style>
+.portlet-journal-abstract{
+text-align:justify;
+}
+</Style>
+<div class="pic-abstract">
+<div class="portlet-journal-abstract">
+<a href="http://www.sharif.ir/home/-/tagged_content/pAcV/id/11875418/%D8%AE%D8%B1%D8%AF%D8%A7%D8%AF+1400"></a>
+<h3 class="journal-content-title"><a href="http://www.sharif.ir/home/-/tagged_content/pAcV/id/11875418/%D8%AE%D8%B1%D8%AF%D8%A7%D8%AF+1400">خرداد 1400</a></h3>
+<div class="portlet-journal-summary">
+پانزدهمین كنفرانس تخصصي پايش وضعيت و عيب‌يابي
+            
+                <div class="portlet-journal-more">
+                    <a href="http://www.sharif.ir/home/-/tagged_content/pAcV/id/11875418/%D8%AE%D8%B1%D8%AF%D8%A7%D8%AF+1400">ادامه</a>
+                </div>
+            
+</div>
+        
+            <div class="portlet-journal-metadata">
+                    
+            </div>
+            <div style="clear:both;"></div>
+        
+</div>
+<div class="lfr-meta-actions edit-controls">
+<br />
+</div>
+</div>
+</div>
+            
+            
+            
+            
+            
+        
+        
+        
+        
+            
+        
+</div>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>	
+<div class="portlet-footer-back">
+<div>
+<div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">Liferay.Portlet.onLoad({canEditTitle: false,columnPos: 0,isStatic: 'end',namespacedId: 'p_p_id_101_INSTANCE_pAcV_',portletId: '101_INSTANCE_pAcV'});</script></div></div>
+    </td>
+            </tr>
+           
+</table>
+</td>
+</tr>
+</table>
+</div></div>
+<div class="whole-footer">
+<link rel="stylesheet" href="/html/css/interiordesign/jquery-ui-1.8.19.custom.css"/>
+<LINK REL="StyleSheet" HREF="/html/common/css/footer.css" TYPE="text/css">
+<script type="text/javascript" src="/html/js/editor/fckeditor/fckeditor.js"></script>
+<script type="text/javascript">
+    function submitChangeFooter(){
+        document.fmFooter.footerContent.value=window.editor.getHTML();
+        jQuery("#form_change_footer").submit();
+    }
+jQuery(document).ready(function() {
+jQuery('#dialog2_footer_link').click(function(e) {
+        $jq171('#footerupdate_dialog').show();
+        $jq171('#footerupdate_dialog').dialog({
+            modal:true,
+            width: 660,
+            height: 500,
+            resizable:false,
+            scroll:false,
+            title:"تعویض فوتر",
+            show: {effect: "blind", duration:500},
+            hide: {effect: "blind", duration:500},
+            dialogClass: "interiorDesign",
+            buttons: {
+                بروزرسانی: function() {
+                    submitChangeFooter();
+                    $jq171(this).dialog("close");
+                    return true;
+                },
+                انصراف: function() {
+                    $jq171(this).dialog("close");
+                    return false;
+                }
+            }
+        });
+});
+//if close button is clicked
+jQuery('.window .close').click(function (e) {
+//Cancel the link behavior
+e.preventDefault();
+jQuery('#mask_footer').hide();
+jQuery('.window').hide();
+});
+//if mask is clicked
+jQuery('#mask_footer').click(function () {
+jQuery(this).hide();
+jQuery('.window').hide();
+});
+jQuery(window).resize(function () {
+ 		var box = jQuery('#boxes_footer .window');
+        //Get the screen height and width
+        var maskHeight = jQuery(document).height();
+        var maskWidth = jQuery(window).width();
+        //Set height and width to mask to fill up the whole screen
+        jQuery('#mask_footer').css({'width':maskWidth,'height':maskHeight});
+        //Get the window height and width
+        var winH = jQuery(window).height();
+        var winW = jQuery(window).width();
+        //Set the popup window to center
+        box.css('top',  winH/2 - box.height()/2);
+        box.css('left', winW/2 - box.width()/2);
+});
+});
+    function initEditor(){
+//        window.editor.setHTMLContent("");
+        return '$unicodeFormatter.toString($footerContent)';
+    }
+</script>
+<div id="footer">
+    <div id="footerupdate_dialog" style="display: none;">
+        <form action="http://www.sharif.ir/home?p_p_id=79&p_p_lifecycle=1&p_p_state=maximized&p_p_col_count=1&_79_struts_action=%2Fenterprise_admin%2Fedit_banner" method="post" id="form_change_footer" name="fmFooter" enctype="multipart/form-data">
+                <input name="cmd" type="hidden" value="footer" />
+                <input name="groupId" type="hidden" value="14502" />
+                <input name="liveGroupId" type="hidden" value="14502" />
+                <input name="stagingGroupId" type="hidden" value="0" />
+                <input name="privateLayout" type="hidden" value="false" />
+                <input name="logo" type="hidden" value="false" />
+                <input name="footerContent" type="hidden" value="" />
+        <iframe frameborder="0" height="400" id="fckeditor" name="editor" scrolling="no" src="/html/js/editor/editor.jsp?p_l_id=14505&p_main_path=%2Fc&editorImpl=fckeditor&initMethod=initEditor&cssPath=%2Fhtml%2Fthemes%2Fsharif%2Fcss&cssClasses=portlet+portlet-slide_content_image" width="640"></iframe>
+        </form>
+    </div>
+<p style="text-align: center;">لطفا نظرات و پیشنهادات خود را به آدرس prm [at] sharif.ir ارسال فرمایید</p> <p style="text-align: center;" class="footer-text">&nbsp;دانشگاه صنعتی شریف، تهران، ایران</p>
+</div>
+</div>
+</div>
+    
+<script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><!--script type="text/javascript">var pageTracker = _gat._getTracker("UA-36769436-1");pageTracker._initData();pageTracker._trackPageview();</script--><script>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-36769436-1', 'sharif.ir');  ga('send', 'pageview');</script><form action="" method="post" name="hrefFm"></form>        <script defer="defer" src="/html/themes/sharif/javascript/hoverIntent.js" type="text/javascript"></script>
+        <script defer="defer" src="/html/themes/sharif/javascript/jquery.pngFix.pack.js" type="text/javascript"></script>
+        <script defer="defer" type="text/javascript" src="/html/themes/sharif/javascript/oldIEAlert.js"></script>
+<script defer="defer" src="/html/themes/sharif/javascript/superfish.js" type="text/javascript"></script>
+<script defer="defer" src="/html/themes/sharif/javascript/menu.js"></script>
+<script defer="defer" type="text/javascript" charset="utf-8">
+var nAgt = navigator.userAgent;
+var verOffset;
+if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+var fullVersion = nAgt.substring(verOffset+5);
+var majorVersion = parseInt(''+fullVersion,10);
+if(majorVersion<=6){
+window.onload = function() {   
+oldIEAlert();
+};          
+}
+}
+</script>
+<!--   Lazy Loading -->
+<!--
+<script src="/html/js/jquery/jquery.lazyload.js" type="text/javascript"></script>
+ <script type="text/javascript" charset="utf-8">
+      jQuery(function() {          
+          jQuery("img").lazyload({
+             placeholder : "/html/themes/sharif/images/irib/grey.gif",
+             effect      : "fadeIn"
+          });
+      });
+</script>
+-->
+<!-- effect for menu -->
+<!--effect for dock -->
+<script defer="defer" type="text/javascript">
+  jQuery(document).ready(function(){
+ jQuery("#topnav").hover(
+function(){ 
+clearTimeout(jQuery(this).data('timeout'));
+jQuery("#topnavul").slideDown('slow');
+ },
+function(){ 
+var t = setTimeout(
+function(){jQuery("#topnavul").slideUp('slow');}
+, 400);
+jQuery(this).data('timeout', t);									
+    }
+);
+  });
+</script>
+<!--effect for makanhaaye man -->
+<script defer="defer" type="text/javascript">
+                  jQuery(document).ready(function(){
+                                 jQuery(".my-places").hover(
+                                                                function(){
+                                                                        clearTimeout(jQuery(this).data('timeout'));
+                                                                        jQuery(".taglib-my-places").slideDown('slow');
+                                                                         },
+                                                                function(){
+                                                                        var t = setTimeout(function() {
+                                                                                 jQuery(".taglib-my-places").slideUp('slow');
+                                                                            }, 400);
+                                                                            jQuery(this).data('timeout', t);                                                 
+                                                                }
+                                                );
+                  });
+</script>
+<!--
+<script defer="defer" type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19078890-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('/html/js/ga.js');
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+-->
+<script class="lfr-script-file" id="mainLiferayThemeJavaScript" src="/html/themes/sharif/javascript/javascript.js?t=1611462537914" type="text/javascript"></script><script type="text/javascript">
+document.querySelector("#banner .link-en-fa .english").href = "http://www.en.sharif.edu/";
+</script>
+<div style="display:none;">Copyright &copy; 2012 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>
+<link rel="stylesheet" href="/html/portlet/ext/chat/css/jquery.gritter.css"/>
+<script type="text/javascript" src="/html/portlet/ext/chat/js/jquery.gritter.min.js"></script>
+<script type="text/javascript">
+    function setCookie(id){
+        document.cookie="popup"+id + "=" + false;
+    }
+    function getCookie(c_name){
+        var i,x,y,ARRcookies=document.cookie.split(";");
+        for (i=0;i<ARRcookies.length;i++){
+            x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+            y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+            x=x.replace(/^\s+|\s+$/g,"");
+            if (x==c_name){
+                return unescape(y);
+            }
+        }
+    }
+    function makePopup(content,title,id){
+//        jQuery171(document).ready(function(){
+            jQuery171.gritter.add({
+                title: title,
+                text: content,
+                sticky: true,
+                after_close: function(e){
+                    setCookie(id);
+                }
+            });
+                    jQuery171(".gritter-item-wrapper").mouseover();
+        //            jQuery171(".gritter-item-wrapper").mouseout();
+//        });
+    }
+    jQuery171(document).ready(function(){
+    });
+</script></body>
+</html>
