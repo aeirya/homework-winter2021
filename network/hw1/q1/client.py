@@ -1,7 +1,7 @@
 import socket
 
 message           = "throughput".encode()
-serverAddressPort = "192.168.43.29", 8080
+serverAddressPort = "192.168.43.123", 8080
 bufferSize        = 1024
 
 # Create a UDP socket at client side

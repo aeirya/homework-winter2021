@@ -1,5 +1,5 @@
 from socket import socket
-from typing import List, Tuple
+from typing import IO, List, Tuple
 
 def check_args_for_port() -> int:
     from sys import argv
@@ -62,5 +62,38 @@ print("listening on port: " + str(port))
 
 server.listen()
 
-input()
+class RequestHandler:
+    def __init__(self):
+        pass
+
+    def handle_request(self, request):
+        pass
+
+handler = RequestHandler()
+import io
+bs = io.BytesIO() 
+
+while True:
+    connection, address = server.accept()
+
+    data = b""
+    # while True:
+    rec = connection.recv(4096)
+    bs.write(rec)
+    data += rec
+    
+    request = data.decode()
+
+    # response = handler.handle_request(request)
+    body = "<br> hello world <\br>"
+
+    msg = HttpMessageBuilder(HttpStatusCode.OK)
+    msg.insert_field("size", len(body))
+    msg.insert_body(body)
+    
+    response = msg.build()
+
+    connection.sendall(response.encode())
+    connection.close()
+
 server.close()
