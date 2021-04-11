@@ -1,4 +1,3 @@
-
 void merge(int A[], int out[], int start, int middle, int end) {
     int i = start, 
         j = middle,
@@ -14,10 +13,6 @@ void merge(int A[], int out[], int start, int middle, int end) {
 }
 
 void merge_sort(int A[], int out[], int start, int end) {
-    if (end <= start) {
-        std::cout << "error";
-        return;
-    }
     if (end - start <= 1) return;
 
     int x = (end-start)/2;
