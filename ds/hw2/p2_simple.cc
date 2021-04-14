@@ -120,17 +120,16 @@ type solve(vector<int> &A, int k) {
     k = calc_k(n,k);
     type cost = 0;
     int j;
+    auto *list = new vector<int>();
     for (int i=0; i<k; ++i) {
-        vector<int> *list = new vector<int>();
         j = i;
-        do {
+        for (int j=i; j<n; j+=k)
             list->push_back(A[j]);
-            j=(j+k)%n;
-        } while (j != i);
         sort(list->begin(), list->end());
         cost += equalize_cost(*list);  
-        delete list;
+        list->clear();
     }
+    delete list;
     return cost;
 }
 
