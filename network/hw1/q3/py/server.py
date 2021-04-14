@@ -71,7 +71,7 @@ class RequestHandler:
 
 handler = RequestHandler()
 import io
-bs = io.BytesIO() 
+bs = io.BytesIO()
 
 while True:
     connection, address = server.accept()
