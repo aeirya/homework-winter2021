@@ -1,36 +1,48 @@
 /*
-    this is just a fast simple test and i have no 
-    intention of using this a final result
+    زیررشته‌های حلقوی
 */
 
 #include <iostream>
 #include <algorithm>
 #include <vector>
 
-// using std::cout;
-// using std::sort;
+using std::cout;
+using std::cin;
+using std::sort;
 using std::vector;
 
-// using vint = vector<int>;
-
-// returns index of the median member
-int median() {
-    return 0;
-}
+#define type long long
 
 template <typename T>
-int inline min(T a, T b) {
+T inline min(T a, T b) {
     return a < b ? a : b;
 }
 
-int solve(vector<int> A, int k) {
-    for (auto& item : A) {
-        std::cout << item;
-    }
-    std::cout << "\n";
+template <typename T>
+T inline max(T a, T b) {
+    return a > b ? a : b;
+}
 
-    k = min(k, (int)A.size()-k);
+template <typename T>
+T inline abs(T a) {
+    return a >= 0 ? a : -a;
+}
 
+/*
+    the number of classes
+*/
+int calc_k(int n, int k) {
+    int m = min(n-k, k);
+    int M = max(n-k, k);
+    if (M-m) return min(min(M-m, m), k);
+    return m;
+}
+
+/*
+    returns list of list of indices
+*/
+vector<vector<int>> categorize(int n, int k) {
+    k = calc_k(n, k);
     vector<vector<int>> groups;
     int j;
     for (int i=0; i<k; ++i) {
@@ -38,11 +50,22 @@ int solve(vector<int> A, int k) {
         j = i;
         do {
             g.push_back(j);
-            j = (j+k) % A.size();
-        } while (j != 0);
+            j = (j+k) % n;
+        } while (j != i);
         groups.push_back(g);
     }
+    return groups;
+}
 
+template <typename T>
+void print(vector<T> list) {
+    for (auto& item : list) {
+        std::cout << item << " ";
+    }
+    std::cout << "\n";
+}
+
+void printGroups(vector<vector<int>> groups) {
     for (auto& group : groups) {
         for (auto& item : group) {
             std::cout << item << " ";
@@ -51,19 +74,66 @@ int solve(vector<int> A, int k) {
     }
 }
 
-int main() {
-    std::cout << "HI\n";
-    int A[] = {3,2,4,1};
-    int n = 4;
-    // std::sort(A, A+4);
-    // std::vector<int> vec(A, A+n);
-    // std::sort(vec.begin(), vec.end());
-
-    // for (int i=0; i<4; ++i)
-        // std::cout << A[i];
-    
-    int k;
-    solve(vector<int>(A, A+n), 2);
-    
+/*
+    returns median of a sorted list
+*/
+int median(vector<int> sorted) {
+    int n = sorted.size();
+    int i = n/2;
+    if (2*i != n)
+        return sorted[i];
+    else return (sorted[i-1] + sorted[i])/2;
 }
 
+/*
+    returns items in the list corresponding to the indicees
+*/
+template <typename T>
+vector<T> select(vector<T>& list, vector<int>& indices) {
+    vector<T> sel;
+    for (int i : indices) {
+        sel.push_back(list[i]);
+    }
+    return sel;
+}
+
+/*
+    returns minimum cost to make all items equal
+*/
+template <typename T>
+int equalize_cost(vector<T>& list) {
+    int x = median(list);
+    int cost = 0;
+    for (auto& item : list) {
+        cost += abs(item-x); 
+    }
+    return cost;
+}
+
+int solve(vector<int> A, int k) {
+    auto groups = categorize(A.size(), k);;
+    int cost = 0;
+    for (auto& group : groups) {
+        auto list = select(A, group);
+        sort(list.begin(), list.end());
+        cost += equalize_cost(list);
+        // print(list);
+    }
+    return cost;
+}
+
+int main() {
+    int n,k;
+    cin >> n >> k;
+
+    int A[n];
+    for (int i=0; i<n; ++i) {
+        cin >> A[i];
+    }
+
+    cout << solve(vector<int>(A, A+n), k) << std::endl; 
+}
+
+/*
+    aeirya mohammadi
+*/
