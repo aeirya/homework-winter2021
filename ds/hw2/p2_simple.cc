@@ -41,21 +41,17 @@ int calc_k(int n, int k) {
 /*
     returns list of groups
 */
-vector<vector<int>> categorize(vector<int>& A, int k) {
+void categorize(vector<int>& A, int& k, int lables[]) {
     int n = A.size();
     k = calc_k(n, k);
-    vector<vector<int>> groups;
     int j;
     for (int i=0; i<k; ++i) {
-        vector<int> g;
         j = i;
         do {
-            g.push_back(A[j]);
+            lables[j] = i;
             j = (j+k) % n;
         } while (j != i);
-        groups.push_back(g);
     }
-    return groups;
 }
 
 template <typename T>
@@ -116,14 +112,21 @@ type equalize_cost(vector<T>& list) {
 }
 
 type solve(vector<int> &A, int k) {
-    auto groups = categorize(A, k);;
+    int n = A.size();
+    int labels[n];
+    categorize(A, k, labels);
     type cost = 0;
-    for (int n=groups.size()-1; n>=0;--n) {
-        auto& list = groups[n];
+    
+    for (int i=0; i<k; ++i) {
+        vector<int> list;
+        for (int j=0; j<n; ++j) {
+            if (labels[j] == i)
+                list.push_back(A[j]);
+        }
         sort(list.begin(), list.end());
-        cost += equalize_cost(list);   
-        groups.pop_back();
+        cost += equalize_cost(list);  
     }
+
     return cost;
 }
 
