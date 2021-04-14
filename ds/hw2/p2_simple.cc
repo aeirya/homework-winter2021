@@ -74,6 +74,10 @@ void printGroups(vector<vector<int>> groups) {
     }
 }
 
+void rc() {
+    std::cout << "checkpoint" << std::endl;
+}
+
 /*
     returns median of a sorted list
 */
@@ -101,23 +105,24 @@ vector<T> select(vector<T>& list, vector<int>& indices) {
     returns minimum cost to make all items equal
 */
 template <typename T>
-int equalize_cost(vector<T>& list) {
+type equalize_cost(vector<T>& list) {
     int x = median(list);
-    int cost = 0;
+    type cost = 0;
     for (auto& item : list) {
         cost += abs(item-x); 
     }
     return cost;
 }
 
-int solve(vector<int> A, int k) {
+type solve(vector<int> A, int k) {
     auto groups = categorize(A.size(), k);;
-    int cost = 0;
-    for (auto& group : groups) {
+    type cost = 0;
+    for (int n=groups.size()-1; n>=0;--n) {
+        auto& group = groups[n];
         auto list = select(A, group);
         sort(list.begin(), list.end());
-        cost += equalize_cost(list);
-        // print(list);
+        cost += equalize_cost(list);   
+        groups.pop_back();
     }
     return cost;
 }
@@ -126,12 +131,12 @@ int main() {
     int n,k;
     cin >> n >> k;
 
-    int A[n];
+    vector<int> A(n);
     for (int i=0; i<n; ++i) {
         cin >> A[i];
     }
 
-    cout << solve(vector<int>(A, A+n), k) << std::endl; 
+    cout << solve(A, k) << std::endl; 
 }
 
 /*
