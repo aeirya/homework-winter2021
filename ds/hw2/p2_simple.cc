@@ -38,6 +38,8 @@ int calc_k(int n, int k) {
     return m;
 }
 
+#pragma region not_used
+
 /*
     returns list of groups
 */
@@ -76,17 +78,6 @@ void rc() {
 }
 
 /*
-    returns median of a sorted list
-*/
-int median(vector<int>& sorted) {
-    int n = sorted.size();
-    int i = n/2;
-    if (2*i != n)
-        return sorted[i];
-    else return (sorted[i-1] + sorted[i])/2;
-}
-
-/*
     returns items in the list corresponding to the indicees
 */
 template <typename T>
@@ -96,6 +87,19 @@ vector<T> select(vector<T>& list, vector<int>& indices) {
         sel.push_back(list[i]);
     }
     return sel;
+}
+
+#pragma endregion not_used
+
+/*
+    returns median of a sorted list
+*/
+int median(vector<int>& sorted) {
+    int n = sorted.size();
+    int i = n/2;
+    if (2*i != n)
+        return sorted[i];
+    else return (sorted[i-1] + sorted[i])/2;
 }
 
 /*
@@ -113,20 +117,20 @@ type equalize_cost(vector<T>& list) {
 
 type solve(vector<int> &A, int k) {
     int n = A.size();
-    int labels[n];
-    categorize(A, k, labels);
+    k = calc_k(n,k);
     type cost = 0;
-    
+    int j;
     for (int i=0; i<k; ++i) {
-        vector<int> list;
-        for (int j=0; j<n; ++j) {
-            if (labels[j] == i)
-                list.push_back(A[j]);
-        }
-        sort(list.begin(), list.end());
-        cost += equalize_cost(list);  
+        vector<int> *list = new vector<int>();
+        j = i;
+        do {
+            list->push_back(A[j]);
+            j=(j+k)%n;
+        } while (j != i);
+        sort(list->begin(), list->end());
+        cost += equalize_cost(*list);  
+        delete list;
     }
-
     return cost;
 }
 
