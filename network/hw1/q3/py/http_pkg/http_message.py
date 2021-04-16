@@ -21,7 +21,10 @@ class HttpMessage:
             self.body = b''
 
         # http version
-        self.http_ver = http_ver
+        if type(http_ver) is str:
+            self.http_ver = float(http_ver.split('/')[1])
+        else:
+            self.http_ver = http_ver
 
     # [] get operator
     def __getitem__(self, key):
@@ -77,7 +80,7 @@ class HttpResponse(HttpMessage):
         self.status = status
 
     def status_line(self) -> str:
-        return str(self.status) + f' HTTP/{self.http_ver}\r\n'
+        return f'HTTP/{self.http_ver} ' + str(self.status) + '\r\n'
 
     def __bytes__(self):
         return self.status_line().encode() + super().__bytes__()

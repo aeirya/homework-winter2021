@@ -1,4 +1,3 @@
-
 def process_args() -> dict:
     args = {}
 
@@ -8,7 +7,8 @@ def process_args() -> dict:
         if arg.isdigit():
             args['port'] = int(arg)
         else:
-            args['resource'] = arg
+            if arg.find('.py') < 0:
+                args['resource'] = arg
     
     return args
 
