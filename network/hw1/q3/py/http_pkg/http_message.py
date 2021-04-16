@@ -30,7 +30,7 @@ class HttpMessage:
     def __getitem__(self, key):
         if key == 'body':
             return self.body
-        return self.header[key]
+        return self.header.get(key, None)
     
     # [] set operator
     def __setitem__(self, key, value):

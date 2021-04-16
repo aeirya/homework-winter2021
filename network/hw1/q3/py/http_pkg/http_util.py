@@ -51,8 +51,7 @@ class HttpParser:
         
         # digest body
         body = b''
-        while pipeline.has_line():
-            body += pipeline.next_line()
+        body = pipeline.buffer
         message.body = body
 
         return message
