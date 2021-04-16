@@ -2,7 +2,7 @@ import console
 from socket import socket
 from typing import IO, List, Tuple
 
-# args = console.process_args()
+args = console.process_args()
 # args.get('port', 8080)
 
 def open_socket(ip = 'localhost', port_list = range(8080, 8090)) -> Tuple[socket, int]:
@@ -27,12 +27,12 @@ server, port = open_socket()
 server.listen()
 print(port)
 
-from http_pkg.http_util import HttpParser, HttpPipeline
+from http_pkg.http_util import HttpParser, HttpPipeline, ParserMode
 from http_pkg.http_message import HttpMessage, HttpRequest, HttpResponse, HttpStatus
 
 def request_file(server : socket, file : str):
     request = HttpRequest('GET', file)
-    server.sendall(request)
+    server.sendall(bytes(request))
     data = server.recv(4096)
     return data
 
@@ -44,7 +44,9 @@ def contact_servers(file: str):
         try:
             tcp.connect((server_ip, port))
             data = request_file(tcp, file)
-            HttpResponse
+            response = HttpParser.parse(data, ParserMode.RESPONSE)
+            if response.status == HttpStatus.OK:
+                return response.body
         except error as e:
             if e.errno == 61:
                 # connection refused
@@ -63,33 +65,20 @@ def fetch_file(file: str):
     if os.path.exists(file):
         return read_file(file)
     else:
-        return request_file(file)
+        return contact_servers(file)
 
 try:
     while True:
         connection, address = server.accept()
         data = b''
         data = connection.recv(4096)
-        parser = HttpPipeline()
-        parser.feed(data)
-        method, file, version = [x.decode() for x in parser.next_line().split()]
-        request = HttpRequest(method, file, version)
-
-        while parser.has_line():
-            line = parser.next_line()
-            if line == b'':
-                # reached body
-                break
-            else:
-                field, value = [x.decode() for x in line.split(b': ')]
-                request[field] = value
-        
+        request = HttpParser.parse(data, ParserMode.REQUEST)
         data = None
-        if method == "GET":
-            if file == '/':
+        if request.method == "GET":
+            if request.file == '/':
                 data = fetch_file("index.html")
             else:
-                data = fetch_file(file)
+                data = fetch_file(f"{args['resource']}/{request.file}")
 
         response = HttpResponse(HttpStatus.OK)
         response.body = data

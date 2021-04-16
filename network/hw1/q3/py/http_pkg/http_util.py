@@ -1,4 +1,6 @@
 from typing import Tuple
+from enum import Enum
+from http_pkg.http_message import HttpRequest, HttpResponse
 
 class HttpPipeline:
     buffer : bytes
@@ -17,17 +19,40 @@ class HttpPipeline:
         line, self.buffer = self.buffer.split(b'\r\n', 1)
         return line
 
+class ParserMode(Enum):
+    REQUEST = 'request',
+    RESPONSE = 'response'
+
 class HttpParser:
     @staticmethod
-    def parse(data):
+    def parse(data, mode : ParserMode):
+        # ready pipeline
+        pipeline = HttpPipeline()
+        pipeline.feed(data)
 
-#     pipe : HttpPipeline
+        if mode == ParserMode.REQUEST:
+            # digest request line
+            method, file, version = [x.decode() for x in pipeline.next_line().split()]
+            message = HttpRequest(method, file, version)
 
-#     def __init__(self):
-#         self.pipe = HttpPipeline()
+        if mode == ParserMode.RESPONSE:
+            version, code, phrase = [x.decode() for x in pipeline.next_line().split()]
+            message = HttpResponse(int(code), version)
 
-#     def reached_body(self):
-#         return self.pipe.next_line
+        # digest head
+        while pipeline.has_line():
+            line = pipeline.next_line()
+            if line == b'':
+                # reached body
+                break
+            else:
+                field, value = [x.decode() for x in line.split(b': ')]
+                message[field] = value
+        
+        # digest body
+        body = b''
+        while pipeline.has_line():
+            body += pipeline.next_line()
+        message.body = body
 
-#     def next(self) -> Tuple[str, str]:
-#         return self.next_line().split(b': ', 1)
+        return message

@@ -19,5 +19,6 @@ def process_args() -> dict:
 #     except ValueError:
 #         return -1
 
-args = process_args()
-print(args)
+if __name__ == '__main__':
+    args = process_args()
+    print(args)
