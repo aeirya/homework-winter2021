@@ -1,8 +1,8 @@
-from socket import socket, AF_INET, SOCK_STREAM
-import sys
+from socket import socket, AF_INET, SOCK_STREAM, error
 from threading import Thread
 
-server_address = 'localhost', 8080
+server_address = 'localhost', 8081
+is_active = True
 
 # connects to server
 def connect():
@@ -20,31 +20,35 @@ def receive() -> str:
     return data.decode('utf-8')
 
 def listen():
-    global is_active
-    while is_active:
+    while True:
         try:
             msg = receive()
             if not msg:
                 continue
             print("-> " + msg)
             if msg == 'Bye':
-                client.close()
-                quit(0)
-        except socket.error:
+                global is_active
+                is_active = False
+                break
+        except error as e:
+            print(e)
             break
+    print("closing")
+    client.close()
             
-is_active = True
-
 client = connect()
-send("Hi")
+# send("Hi")
 Thread(target=listen).start()
 
-while is_active:
+while True:
     try:
-        send(input())
+        msg = input()
+        print(is_active)
+        if is_active:
+            send(msg)
+        else:
+            break
     except KeyboardInterrupt:
         print("\nkeyboard interrupt.. c u then!")
         is_active = False
-
-client.close()
 

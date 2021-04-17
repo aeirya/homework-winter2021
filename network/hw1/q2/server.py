@@ -71,10 +71,12 @@ def stop():
 
     server.close()
 
-
 server = start_listening()
 
 while is_active:
-    command = input()
-    if command == "q":
-        stop()
+    try:
+        command = input()
+        if command == "q":
+            stop()
+    except KeyboardInterrupt:
+        break
