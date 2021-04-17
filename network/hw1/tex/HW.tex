@@ -1,0 +1,56 @@
+\documentclass[11pt]{article}
+
+\include{template}
+
+%for subproblems:
+%		\begin{enumerate}[label=(\myharfi*), font=\large\bfseries]
+%		\end{enumerate}
+\begin{document}
+	\lecture{شبکه‌های کامپیوتری}{سری یک}{آئیریا محمدی}{97103779}
+
+	\begin{enumerate}[leftmargin=0.26in, font=\huge\bfseries]
+		\item %soal 1
+		شرح کد client.py در ادامه آمده‌است.
+	
+	محاسبه چهار خواسته سوال:
+		\begin{latin}
+			\lstinputlisting[language=Python, firstline=22, lastline=56, firstnumber=5]{client.py}
+		\end{latin}
+		
+	
+	\begin{figure}
+  \includegraphics[width=\linewidth]{Screen Shot 1400-01-22 at 18.51.12.png}
+  \caption{نتایج دو بار آزمایش}
+  \label{fig:screenshot}
+\end{figure}
+
+
+توضیحات:
+
+حالت دوم از حالت اول سریع تر است زیرا اگر رفت و برگشت $i$ ام به اندازه $x_i$
+طول بکشد و اندازه پیام $n$ بیت باشد و $m$ پیام بفرستیم خواهیم داشت:
+\begin{equation*}
+	T_1 = n/x_1 + \cdots + n/x_m 
+\end{equation*}
+\begin{equation*}
+	T_2 = \frac{m*n}{x_1 + \cdots + x_m}	
+\end{equation*}
+\begin{equation*}
+	\rightarrow T_1 = n*(\frac{1}{x_1} + \cdots + \frac{1}{x_m})
+	> n* (\underbrace{\frac{1}{x_1 + \cdots + x_m} + \cdots + \frac{1}{x_1 + \cdots + x_m}}_{m}) = n* \frac{m}{x_1 + \cdots + x_m} = T_2
+\end{equation*}
+
+البته می‌توان اشاره کرد که $x_i$ ها در حالت‌ اول و دوم مساوی نیستند و تاخیر صف به نفع حالت اول و در حالت دوم
+\lr{propagation delay} 
+کمتری داریم.
+
+حالت سوم 
+از حالت دوم بسیار بهتر است چرا که به جای ده بار سربار ارسال 
+توسط سرور و کلاینت با تنها یک بار سربار همان حجم ارسال می‌شود.
+ 
+و حالت چهارم از حالت سوم نیز بهتر است چرا که با مقدار سربار هندشیک و تعداد ارسال و تایید تقریبا مشابه حجم بیشتری داده را موفق به انتقال دادن شدیم.   
+
+	\end{enumerate}
+	
+	
+\end{document}
