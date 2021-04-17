@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import IntEnum
 
 class HttpMessage:
     header : dict
@@ -65,7 +65,10 @@ class HttpRequest(HttpMessage):
     def __bytes__(self):
         return self.request_line().encode() + super().__bytes__() 
 
-class HttpStatus(Enum):
+    def to_bytes(self) -> bytes:
+        return bytes(self)
+
+class HttpStatus(IntEnum):
     OK = 200
     NOT_FOUND = 404
 
@@ -75,8 +78,8 @@ class HttpStatus(Enum):
 class HttpResponse(HttpMessage):
     status : HttpStatus
 
-    def __init__(self, status : HttpStatus, http_ver = 1.1):
-        super().__init__(http_ver)
+    def __init__(self, status : HttpStatus, http_ver = 1.1, body = b''):
+        super().__init__(http_ver= http_ver, body= body)
         self.status = status
 
     def status_line(self) -> str:
@@ -84,6 +87,7 @@ class HttpResponse(HttpMessage):
 
     def __bytes__(self):
         return self.status_line().encode() + super().__bytes__()
+
 
 # tests
 if __name__ == "__main__":

@@ -1,99 +1,26 @@
-from socket import socket
-from typing import IO, List, Tuple
+from args import ports, server_ip
+from connection import HttpConnection
 
-def check_args_for_port() -> int:
-    from sys import argv
-    arg = argv[-1]
-    try:
-        return int(arg)
-    except ValueError:
-        return -1
+def contact_servers(file: str):
+    '''
+        contacts servers and requests the file 
+    '''
+    from socket import error
 
-def open_socket() -> Tuple[socket, int]:
-    from socket import socket, AF_INET, SOCK_STREAM, error
-    server = socket(AF_INET, SOCK_STREAM)
-    ports = list(range(8080, 8090))
-    port = check_args_for_port()
-    if port > 0:
-        ports.insert(0, port)
-    while len(ports) > 0:
-        port = ports.pop(0)
+    for target_port in ports:
+        # if server_port == target_port:
+        #     continue
         try:
-            server.bind(("localhost", port))
-            return server, port
+            conn = HttpConnection(server_ip, target_port)
+            data = conn.request_file(file)
+
+            if data is not None:
+                return data 
+
         except error as e:
-            if e.errno == 48:
-                # address already in use
+            if e.errno == 61:
+                # connection refused
                 continue
-    raise ConnectionError("could not open port")
+            raise
+    return None
 
-import enum
-class HttpStatusCode(enum.Enum):
-    OK = 200
-
-    def __str__(self):
-        return f"{self.value} {self.name}"
-
-class HttpMessageBuilder:
-    fields : List[str]
-    body : str
-
-    def __init__(self, status : HttpStatusCode):
-        self.fields = []
-        self.__insert_status_line(status)
-
-    def insert_field(self, field, val):
-        self.fields.append(field + ": " + str(val))
-
-    # supposed to be called first
-    def __insert_status_line(self, status_code : HttpStatusCode, http_ver = 1.1):
-        http_ver = f"HTTP/{http_ver}"
-        self.fields.append(f"{http_ver} {status_code}")
-
-    def insert_body(self, body : str):
-        self.body = body
-    
-    def build(self) -> str:
-        return "\r\n".join(self.fields) \
-            + ("" if self.body is None else f"\r\n\r\n{self.body}\r\n")
-
-server, port = open_socket()
-print("listening on port: " + str(port))
-
-server.listen()
-
-class RequestHandler:
-    def __init__(self):
-        pass
-
-    def handle_request(self, request):
-        pass
-
-handler = RequestHandler()
-import io
-bs = io.BytesIO()
-
-while True:
-    connection, address = server.accept()
-
-    data = b""
-    # while True:
-    rec = connection.recv(4096)
-    bs.write(rec)
-    data += rec
-    
-    request = data.decode()
-
-    # response = handler.handle_request(request)
-    body = "<br> hello world <\br>"
-
-    msg = HttpMessageBuilder(HttpStatusCode.OK)
-    msg.insert_field("size", len(body))
-    msg.insert_body(body)
-    
-    response = msg.build()
-
-    connection.sendall(response.encode())
-    connection.close()
-
-server.close()

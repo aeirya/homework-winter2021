@@ -8,17 +8,6 @@ def process_args() -> dict:
             args['port'] = int(arg)
         else:
             if arg.find('.py') < 0:
-                args['resource'] = arg
+                args['root'] = arg
     
     return args
-
-# def check_args_for_port() -> int:
-#     arg = argv[-1]
-#     try:
-#         return int(arg)
-#     except ValueError:
-#         return -1
-
-if __name__ == '__main__':
-    args = process_args()
-    print(args)
