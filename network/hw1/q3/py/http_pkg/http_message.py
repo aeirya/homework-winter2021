@@ -71,9 +71,14 @@ class HttpRequest(HttpMessage):
 class HttpStatus(IntEnum):
     OK = 200
     NOT_FOUND = 404
+    BAD_REQUEST = 400
+    METHOD_NOT_ALLOWED = 405
+
+    def to_sentence(self):
+        return ' '.join([x.lower().capitalize() for x in self.name.split('_')])
 
     def __str__(self):
-        return f"{self.value} {self.name}"
+        return f"{self.value} {self.to_sentence()}"
 
 class HttpResponse(HttpMessage):
     status : HttpStatus
@@ -89,13 +94,19 @@ class HttpResponse(HttpMessage):
         return self.status_line().encode() + super().__bytes__()
 
 
-# tests
-if __name__ == "__main__":
-    msg = HttpRequest("GET", "aeirya.txt")
+# # tests
+# if __name__ == "__main__":
+#     msg = HttpRequest("GET", "aeirya.txt")
 
-    print(bytes(msg).decode())
+#     print(bytes(msg).decode())
 
-    msg = HttpResponse(HttpStatus.OK, 'here you are')
-    msg['Content-Length'] = 1024
-    msg['Type'] = 'test'
-    print(bytes(msg).decode())
+#     msg = HttpResponse(HttpStatus.OK, 'here you are')
+#     msg['Content-Length'] = 1024
+#     msg['Type'] = 'test'
+#     print(bytes(msg).decode())
+
+# sta = HttpStatus.BAD_REQUEST
+# stt = HttpStatus.METHOD_NOT_ALLOWED
+
+# print(sta)
+# print(stt)

@@ -31,8 +31,11 @@ class RequestHandler:
             "GET" : self.get,
             "HEAD" : self.head
         }
-        response = methods[request.method](request)
-        
+        if request.method not in methods.keys():
+            response = HttpResponse(HttpStatus.METHOD_NOT_ALLOWED)
+        else:
+            response = methods[request.method](request)
+    
         # insert time
         from datetime import datetime
         dt = datetime.now()

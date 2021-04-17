@@ -1,3 +1,4 @@
+from http_pkg.http_message import HttpResponse, HttpStatus
 from port_manager import open_socket
 
 from http_pkg.http_util import HttpParser, ParserMode
@@ -8,8 +9,11 @@ def welcome(connection, address):
     # receive request
     data = connection.recv(4096)
     # process
-    request = HttpParser.parse(data, ParserMode.REQUEST)
-    response = handler.handle(request)
+    try:
+        request = HttpParser.parse(data, ParserMode.REQUEST)
+        response = handler.handle(request)
+    except:
+        response = HttpResponse(HttpStatus)
     # send response
     connection.sendall(bytes(response))
 
