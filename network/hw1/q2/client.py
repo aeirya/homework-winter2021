@@ -12,7 +12,7 @@ def connect():
     return client
 
 def send(message : str):
-    client.send(str.encode(message))
+    client.send(str.encode(message, 'utf-8'))
 
 def receive() -> str:
     bufsize = 4096
