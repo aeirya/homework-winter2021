@@ -1,4 +1,3 @@
-from typing import Tuple
 from enum import Enum
 from http_pkg.http_message import HttpRequest, HttpResponse
 

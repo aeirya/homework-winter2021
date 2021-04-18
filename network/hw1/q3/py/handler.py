@@ -1,7 +1,5 @@
-from socket import socket
 from http_pkg.http_message import HttpRequest, HttpResponse, HttpStatus
 from file import query_file
-from connection import HttpConnection
 from server import contact_servers
 from args import user_agent_name
 
@@ -31,6 +29,7 @@ class RequestHandler:
             "GET" : self.get,
             "HEAD" : self.head
         }
+        
         if request.method not in methods.keys():
             response = HttpResponse(HttpStatus.METHOD_NOT_ALLOWED)
         else:

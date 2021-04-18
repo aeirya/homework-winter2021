@@ -23,4 +23,3 @@ def contact_servers(file: str):
                 continue
             raise
     return None
-

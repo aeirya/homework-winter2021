@@ -1,5 +1,5 @@
-from socket import socket, AF_INET, SOCK_STREAM, error
 from typing import Tuple
+from socket import socket, AF_INET, SOCK_STREAM, error
 from http_pkg.http_message import HttpRequest, HttpResponse, HttpStatus
 from http_pkg.http_util import HttpParser, ParserMode
 from args import user_agent_name
@@ -34,7 +34,8 @@ def get_file(server, file, content_length):
     data = server.recv(4096)
     header = data.split(b'\r\n')[:-1]
     received += len(data) - len(header)
-
+    
+    # receive body part
     while received < content_length:
         rec = server.recv(4096)
         received += len(rec)
@@ -66,7 +67,7 @@ class HttpConnection:
         head = get_head(server, file)
         server.close()
 
-        # if head reponse is ok
+        # if head reponse is ok, knowing the content legth, send get request
         if head.status == HttpStatus.OK:
             content_length = int(head['Content-Length'])
             server = self.connect()
