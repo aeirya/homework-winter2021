@@ -12,6 +12,9 @@ namespace sorts {
             else
                 out[x++] =  A[i++];
         }
+        for (int i=start; i<end; ++i) {
+            A[i] = out[i];
+        }
     }
 
     void merge_sort(int A[], int out[], int start, int end) {
@@ -21,5 +24,10 @@ namespace sorts {
         merge_sort(A, out, start, start+x);
         merge_sort(A, out, start+x, end);
         merge(A, out, start, start+x, end);
+    }
+
+    void merge_sort(int A[], int n) {
+        int B[n];
+        merge_sort(A, B, 0, n);
     }
 }

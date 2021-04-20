@@ -2,7 +2,7 @@ from http_pkg.http_message import HttpResponse, HttpStatus
 from http_pkg.http_util import HttpParser, ParserMode
 
 from port_manager import open_socket
-from args import ports
+from args import ports, server_ip
 
 from threading import Thread
 
@@ -28,7 +28,7 @@ def welcome(connection, address, handler):
 if __name__ == '__main__':
     
     # open socket
-    server, server_port = open_socket(port_list=ports)
+    server, server_port = open_socket(server_ip, port_list=ports)
     server.listen()
     print(f'listening on port: {server_port}')
 
