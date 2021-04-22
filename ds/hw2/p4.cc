@@ -10,14 +10,18 @@ using std::sort;
 
 // }
 
+int inline abs(int x) {
+    return x < 0 ? -x : x;
+}
+
 int inline min(int x, int y) {
     return x < y ? x : y;
 }
 
 int solve(int n, int m, int a, int b, int S[]) {
-    int time = b-a-1;
+    int time = abs(b-a)-1;
+    int i = min(m-1, time);
     sort(S, S+m);
-    int i=min(m-1, time);
     int count = 0;
     while (i >= 0 && time > 0) {
         if (S[i] < time + a) {

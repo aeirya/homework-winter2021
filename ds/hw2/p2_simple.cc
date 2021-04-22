@@ -31,11 +31,20 @@ T inline abs(T a) {
 /*
     the number of classes
 */
-int calc_k(int n, int k) {
-    int m = min(n-k, k);
-    int M = max(n-k, k);
-    if (M-m) return min(min(M-m, m), k);
-    return m;
+type calc_k(type n, type k) {
+    if (n%k == 0) return k;
+    type a = n,
+         b = k,
+         d = n - k;
+
+    while (d > 2) {
+        d = a - b;
+        type t = b;
+        b = min(b,d);
+        a = t;
+    }
+    if (d == 0) return k;
+    else return d;
 }
 
 #pragma region not_used
@@ -43,11 +52,11 @@ int calc_k(int n, int k) {
 /*
     returns list of groups
 */
-void categorize(vector<int>& A, int& k, int lables[]) {
-    int n = A.size();
+void categorize(vector<type>& A, type& k, type lables[]) {
+    type n = A.size();
     k = calc_k(n, k);
-    int j;
-    for (int i=0; i<k; ++i) {
+    type j;
+    for (type i=0; i<k; ++i) {
         j = i;
         do {
             lables[j] = i;
@@ -64,7 +73,7 @@ void print(vector<T> list) {
     std::cout << "\n";
 }
 
-void printGroups(vector<vector<int>> groups) {
+void printGroups(vector<vector<type>> groups) {
     for (auto& group : groups) {
         for (auto& item : group) {
             std::cout << item << " ";
@@ -81,9 +90,9 @@ void rc() {
     returns items in the list corresponding to the indicees
 */
 template <typename T>
-vector<T> select(vector<T>& list, vector<int>& indices) {
+vector<T> select(vector<T>& list, vector<type>& indices) {
     vector<T> sel;
-    for (int i : indices) {
+    for (type i : indices) {
         sel.push_back(list[i]);
     }
     return sel;
@@ -94,9 +103,9 @@ vector<T> select(vector<T>& list, vector<int>& indices) {
 /*
     returns median of a sorted list
 */
-int median(vector<int>& sorted) {
-    int n = sorted.size();
-    int i = n/2;
+type median(vector<type>& sorted) {
+    type n = sorted.size();
+    type i = n/2;
     if (2*i != n)
         return sorted[i];
     else return (sorted[i-1] + sorted[i])/2;
@@ -107,7 +116,7 @@ int median(vector<int>& sorted) {
 */
 template <typename T>
 type equalize_cost(vector<T>& list) {
-    int x = median(list);
+    type x = median(list);
     type cost = 0;
     for (auto& item : list) {
         cost += abs(item-x); 
@@ -115,15 +124,15 @@ type equalize_cost(vector<T>& list) {
     return cost;
 }
 
-type solve(vector<int> &A, int k) {
-    int n = A.size();
+type solve(vector<type> &A, type k) {
+    type n = A.size();
     k = calc_k(n,k);
     type cost = 0;
-    int j;
-    auto *list = new vector<int>();
-    for (int i=0; i<k; ++i) {
+    type j;
+    auto *list = new vector<type>();
+    for (type i=0; i<k; ++i) {
         j = i;
-        for (int j=i; j<n; j+=k)
+        for (type j=i; j<n; j+=k)
             list->push_back(A[j]);
         sort(list->begin(), list->end());
         cost += equalize_cost(*list);  
@@ -134,11 +143,11 @@ type solve(vector<int> &A, int k) {
 }
 
 int main() {
-    int n,k;
+    type n,k;
     cin >> n >> k;
 
-    vector<int> A(n);
-    for (int i=0; i<n; ++i) {
+    vector<type> A(n);
+    for (type i=0; i<n; ++i) {
         cin >> A[i];
     }
 
