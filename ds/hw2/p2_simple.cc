@@ -142,7 +142,10 @@ type solve(vector<type> &A, type k) {
     return cost;
 }
 
+int test();
+
 int main() {
+    return test();
     type n,k;
     cin >> n >> k;
 
@@ -152,6 +155,15 @@ int main() {
     }
 
     cout << solve(A, k) << std::endl; 
+}
+
+int test() {
+    type A[] = {1,2,3,0};
+    int n = 5;
+    vector<type> V(A, A+n);
+    sort(V.begin(), V.end());
+    std::cout << median(V);
+    return 0;
 }
 
 /*
