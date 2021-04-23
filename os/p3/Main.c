@@ -1,67 +1,83 @@
 code Main
 
-  -- OS Class: Project 3
-  --
-  -- AEIRYA MOHAMMADI
-  -- 97103779
+    var
+        customers : Semaphore = new Semaphore
+        barbers   : Semaphore = new Semaphore
+        mutex     : Semaphore = new Semaphore
+        printer   : Mutex = new Mutex
+        waiting   : int = 0
+    const 
+        CHAIRS = 5  
+        CUST_N = 3
 
------------------------------  Customer  ---------------------------------
+    ---------------------------  Barber  --------------------------
+    function barber ()
+        while true
+            customers.Down ()
+            mutex.Down ()
+            waiting = waiting - 1
+            barbers.Up ()
+            mutex.Up ()
+            
+            printer.Lock ()
+            -- CutHair()
+            print ("Cut Hair\n")
+            printer.Unlock ()
+        endWhile
 
-  behavior Customer
-
-    method Init (customerID: int)
-        id = customerID
-      endMethod
-
-    method GetHaircut ()
-        print ("Getting haircut\n")
-      endMethod
-
-  endBehavior
-
------------------------------  Barber  ---------------------------------
-  behavior Barber
-    --  This class provides the following methods:
-    --    Loop()
-    --        Gets called in Init
-
-
-    method Init ()
-      -- Initialize customers semaphore
-      customers = new Semaphore
-      customers.Init (0)
-      -- Initialize thread
-      var t : Thread = new Thread
-      t.Init ("barber")
-      t.Fork (Loop)
-
-      endMethod
-
-    method CutHair ()
-        print ("Cutting hair\n")
-      endMethod
-
-    method Loop ()
-
-      endMethod
-
-    endBehavior
-    
------------------------------  Sleeping Barber  ---------------------------------
-  function sleepingBarber ()
-      var 
-        barber: Barber = new Barber
-        customers: array [10] of Customer {10 of new Customer}
-      barber : Barber = new Barber
-      print ("zZzz\n")
     endFunction
 
+    ---------------------------  Customer  --------------------------
+    function customer (id: int)
+        mutex.Down ()
+        if waiting < CHAIRS
+            waiting = waiting + 1
+            customers.Up ()
+            mutex.Up ()
+            barbers.Down ()
+            
+            printer.Lock ()
+            -- GetHaircut ()
+            print ("Thank you\n")
+            printer.Unlock ()
+        else
+            mutex.Up ()
+        endIf
+        ThreadFinish ()
+    endFunction
 
------------------------------  Main  ---------------------------------
+    ---------------------------  Sleeping Barber  --------------------------
+    var 
+        threadB : Thread = new Thread
+        thArr: array [CUST_N] of Thread = new array of Thread {CUST_N of new Thread }
 
-  function main ()
-      -- FatalError ("Need to implement")
-      sleepingBarber ()
+    function sleepingBarber ()
+        -- Iterator variable
+        var i: int = 0
+        -- Zeros waiting customer
+        customers.Init (0)
+        -- Barber not ready
+        barbers.Init (0)
+        -- Mutual Exclusion (waiting lock)
+        mutex.Init (1)
+        -- Printer lock
+        printer.Init ()
+        -- Init Barber Thread
+        threadB.Init ("Barber")
+        threadB.Fork (barber, 0)
+        -- Init Customer Threads
+        for i=0 to CUST_N-1 by 1
+            thArr[i].Init ("Customer "+i)
+            thArr[i].Fork (customer, i)
+        endFor
+
+    endFunction
+
+    -----------------------------  Main  ---------------------------------
+    function main ()
+        InitializeScheduler ()
+        sleepingBarber ()
+        ThreadFinish ()
     endFunction
 
 endCode

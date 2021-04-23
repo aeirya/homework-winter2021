@@ -4,6 +4,8 @@ header Main
 
   functions
     main ()
+    barber (x: int)
     sleepingBarber ()
+
 
 endHeader
