@@ -16,13 +16,12 @@ code Main
             customers.Down ()
             mutex.Down ()
             waiting = waiting - 1
+            print ("barber start\n")
             barbers.Up ()
             mutex.Up ()
             
-            printer.Lock ()
             -- CutHair()
-            print ("Cut Hair\n")
-            printer.Unlock ()
+            print ("barber end\n")
         endWhile
 
     endFunction
@@ -30,17 +29,19 @@ code Main
     ---------------------------  Customer  --------------------------
     function customer (id: int)
         mutex.Down ()
+        print ("customer enter\n")
         if waiting < CHAIRS
             waiting = waiting + 1
             customers.Up ()
+            print ("customer sit\n")
             mutex.Up ()
             barbers.Down ()
-            
-            printer.Lock ()
+            print ("customer begin\n")
+
             -- GetHaircut ()
-            print ("Thank you\n")
-            printer.Unlock ()
+            print ("customer finish\n")
         else
+            print ("customer leave\n")
             mutex.Up ()
         endIf
         ThreadFinish ()
