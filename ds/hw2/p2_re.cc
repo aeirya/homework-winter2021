@@ -33,23 +33,6 @@ T inline abs(T a) {
 }
 
 /*
-    returns list of groups
-*/
-void categorize(vector<type>& A, type& k, type lables[]) {
-    type n = A.size();
-    bool visited[n] = {false};
-    type j;
-    for (type i=0; i<k; ++i) {
-        j = i;
-        while (! visited[i]) {
-            lables[j] = i;
-            visited[j] = true;
-            j = (j+k) % n;
-        }
-    }
-}
-
-/*
     returns median of a sorted list
 */
 type median(vector<type>& sorted) {
@@ -65,7 +48,7 @@ type median(vector<type>& sorted) {
 */
 template <typename T>
 type eq_cost(vector<T>& list) {
-    sort(list->begin(), list->end());
+    sort(list.begin(), list.end());
     type x = median(list);
     type cost = 0;
     for (auto& item : list) {
@@ -74,22 +57,23 @@ type eq_cost(vector<T>& list) {
     return cost;
 }
 
-type solve(vector<type> &A, type k) {
-    type n = A.size();
+type solve(vector<type>& A, type& k) {
+    const type n = A.size();
+    bool visited[n];
+    for (int i=0; i<n; ++i)
+        visited[i] = false;
     type cost = 0;
     type j;
-    auto *list = new vector<type>();
-    vector<vector<type>> lists;
-    
-
     for (type i=0; i<k; ++i) {
+        vector<type> list;
         j = i;
-        for (type j=i; j<n; j+=k)
-            list->push_back(A[j]);
-        cost += eq_cost(*list);  
-        list->clear();
+        while (! visited[j]) {
+            list.push_back(A[j]);
+            visited[j] = true;
+            j = (j+k) % n;
+        }
+        cost += eq_cost(list);
     }
-    delete list;
     return cost;
 }
 
@@ -105,6 +89,10 @@ int main() {
         cin >> A[i];
     }
 
-    // cout << solve(A, k) << std::endl; 
+    cout << solve(A, k) << std::endl; 
     return 0;
 }
+
+/*
+    aeirya mohammadi
+*/
