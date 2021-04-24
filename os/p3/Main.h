@@ -22,18 +22,19 @@ header Main
     superclass Object
     fields
       --  status: array [5] of int             -- For each philosopher: HUNGRY, EATING, or THINKING
-      cv: Condition
+      mustWait: Condition
+      dieReady: Condition
       mut: Mutex
       dices: int
-      waiting: List [CustomerGroup]
+
+      waiting: bool
+      needed: int
     methods
       Init (numberOfDice: int)
       Request (numNeeded: int)
       Return (numReturned: int)
       Print (str: String, count: int)
 
-      AddCustomer (dicesNeeded: int) returns ptr to CustomerGroup
-      AskPermission ()
       Withdraw(x: int)
       Deposit(x: int)
   endClass

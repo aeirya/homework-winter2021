@@ -89,35 +89,51 @@ endBehavior
 behavior FrontDeskMonitor
     method Init (numberOfDice: int)
         dices = numberOfDice
-        waiting = new List [CustomerGroup]
         -- Init cv
-        cv = new Condition
-        cv.Init ()
+        mustWait = new Condition
+        mustWait.Init ()
+        dieReady = new Condition
+        dieReady.Init ()
         -- Init mut
         mut = new Mutex
         mut.Init ()
+        -- Wating 
+        waiting = false
+        needed = -1
     endMethod
     
     method Request (numNeeded: int)
-        var c: ptr to CustomerGroup
         mut.Lock ()
         self.Print ("requests", numNeeded)
-        c = self.AddCustomer (numNeeded)
-        self.AskPermission ()
-        while !c.isAllowed
-            cv.Wait (&mut)
+
+        while waiting == true
+            mustWait.Wait (&mut)
         endWhile
+        waiting = true
+        needed = numNeeded
+        
+        while numNeeded > dices
+            dieReady.Wait (&mut)
+        endWhile
+
         self.Withdraw (numNeeded)
         self.Print ("proceeds with", numNeeded)
+
+        waiting = false
+        mustWait.Signal (&mut)
+
         mut.Unlock ()
     endMethod
 
     method Return (numReturned: int)
         mut.Lock ()
-        self.Print ("releases and adds back", numReturned)
         self.Deposit (numReturned)
-        self.AskPermission ()  
-        cv.Broadcast (&mut)
+        self.Print ("releases and adds back", numReturned)
+        if waiting
+            if needed <= dices
+                dieReady.Signal (&mut)
+            endIf
+        endIf
         mut.Unlock ()
     endMethod
 
@@ -126,7 +142,7 @@ behavior FrontDeskMonitor
     -- It also prints the current number of dice available.
     --
     method Print (str: String, count: int) 
-        -- print (currentThread.name)
+        print (currentThread.name)
         print (" ")
         print (str)
         print (" ")
@@ -135,27 +151,6 @@ behavior FrontDeskMonitor
         print ("------------------------------Number of dice now avail = ") 
         printInt (dices)
         nl ()
-    endMethod
-
-    method AddCustomer (dicesNeeded: int) returns ptr to CustomerGroup
-        var c: CustomerGroup = new CustomerGroup
-        c.Init (dicesNeeded)
-        waiting.AddToEnd (&c)
-        return &c
-    endMethod
-
-    method AskPermission ()
-        var c : ptr to CustomerGroup
-        if !waiting.IsEmpty ()
-            c = waiting.Remove ()
-            printInt(c.dicesNeeded)
-            debug
-            if c.dicesNeeded <= dices
-                c.Allow ()
-            else
-                waiting.AddToFront (c)
-            endIf
-        endIf
     endMethod
     
     method Withdraw(x: int)
@@ -192,8 +187,16 @@ function gamingParlor(dieNumber: int)
     mon = new FrontDeskMonitor
     mon.Init (dieNumber)
     -- cusotmers 
+    customers[0].Init ("CustomerA")
+    customers[1].Init ("CustomerB")
+    customers[2].Init ("CustomerC")
+    customers[3].Init ("CustomerD")
+    customers[4].Init ("CustomerE")
+    customers[5].Init ("CustomerF")
+    customers[6].Init ("CustomerG")
+    customers[7].Init ("CustomerH")
+
     for i=0 to customerN-1 by 1
-        customers[i].Init ("Customer"+i )
         customers[i].Fork (customer, games[i])
     endFor    
 endFunction
