@@ -6,17 +6,17 @@ header Main
     main ()
     --  sleepingBarber ()
 
-  class CustomerGroup
-    superclass Listable
+  --  class CustomerGroup
+  --    superclass Listable
 
-    fields
-      dicesNeeded: int
-      isAllowed: bool
-      --  thread: Thread
-    methods
-      Init (needed: int)
-      Allow ()
-  endClass
+  --    fields
+  --      dicesNeeded: int
+  --      isAllowed: bool
+  --      --  thread: Thread
+  --    methods
+  --      Init (needed: int)
+  --      Allow ()
+  --  endClass
 
   class FrontDeskMonitor
     superclass Object
@@ -25,14 +25,14 @@ header Main
       cv: Condition
       mut: Mutex
       dices: int
-      waiting: List [CustomerGroup]
+      waiting: List [CustomerRecord]
     methods
       Init (numberOfDice: int)
       Request (numNeeded: int)
       Return (numReturned: int)
       Print (str: String, count: int)
 
-      AddCustomer (dicesNeeded: int) returns ptr to CustomerGroup
+      AddCustomer (dicesNeeded: int) returns ptr to CustomerRecord
       AskPermission ()
       Withdraw(x: int)
       Deposit(x: int)

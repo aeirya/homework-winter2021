@@ -74,22 +74,27 @@ code Main
 --  endFunction
 
 -----------------------------  Customer Group  ---------------------------------
-behavior CustomerGroup
-    method Init (needed: int)
-        dicesNeeded = needed
-        isAllowed = false
-    endMethod
+--  behavior CustomerGroup
+--      method Init (needed: int)
+--          dicesNeeded = needed
+--          isAllowed = false
+--      endMethod
     
-    method Allow ()
-        isAllowed = true
-    endMethod
-endBehavior
+--      method Allow ()
+--          isAllowed = true
+--      endMethod
+--  endBehavior
 
+-----------------------------  Customer Record  ---------------------------------   
+type CustomerRecord = record
+                        dicesNeeded: int
+                        isAllowed: bool
+                      endRecord
 -----------------------------  Front Desk  ---------------------------------   
 behavior FrontDeskMonitor
     method Init (numberOfDice: int)
         dices = numberOfDice
-        waiting = new List [CustomerGroup]
+        waiting = new List [CustomerRecord]
         -- Init cv
         cv = new Condition
         cv.Init ()
@@ -99,7 +104,7 @@ behavior FrontDeskMonitor
     endMethod
     
     method Request (numNeeded: int)
-        var c: ptr to CustomerGroup
+        var c: ptr to CustomerRecord
         mut.Lock ()
         self.Print ("requests", numNeeded)
         c = self.AddCustomer (numNeeded)
@@ -137,15 +142,14 @@ behavior FrontDeskMonitor
         nl ()
     endMethod
 
-    method AddCustomer (dicesNeeded: int) returns ptr to CustomerGroup
-        var c: CustomerGroup = new CustomerGroup
-        c.Init (dicesNeeded)
-        waiting.AddToEnd (&c)
-        return &c
+    method AddCustomer (dicesNeeded: int) returns ptr to CustomerRecord
+        var c: CustomerRecord = alloc CustomerRecord { dicesNeeded=dicesNeeded, isAllowed=false}
+        waiting.AddToEnd (c)
+        return c
     endMethod
 
     method AskPermission ()
-        var c : ptr to CustomerGroup
+        var c : ptr to CustomerRecord
         if !waiting.IsEmpty ()
             c = waiting.Remove ()
             printInt(c.dicesNeeded)
@@ -192,8 +196,16 @@ function gamingParlor(dieNumber: int)
     mon = new FrontDeskMonitor
     mon.Init (dieNumber)
     -- cusotmers 
+    customers[0].Init ("CustomerA")
+    customers[1].Init ("CustomerB")
+    customers[2].Init ("CustomerC")
+    customers[3].Init ("CustomerD")
+    customers[4].Init ("CustomerE")
+    customers[5].Init ("CustomerF")
+    customers[6].Init ("CustomerG")
+    customers[7].Init ("CustomerH")
+
     for i=0 to customerN-1 by 1
-        customers[i].Init ("Customer"+i )
         customers[i].Fork (customer, games[i])
     endFor    
 endFunction
@@ -201,6 +213,7 @@ endFunction
 --  Customer Thread  --
 function customer (game: int)
     var i: int
+    print(currentThread.name)
     -- game: the number of die the game needs
     -- iter: number of times the game is played
     for i = 1 to gameIterations by 1
