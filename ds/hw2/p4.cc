@@ -13,11 +13,7 @@ using std::endl;
 using std::sort;
 using std::vector;
 
-#define type long long
-
-// int binary_seach(int A[], int n, int x) {
-
-// }
+#define type int
 
 template <typename T>
 T inline abs(T x) {
@@ -37,9 +33,6 @@ T solve(T n, T m, T a, T b, T S[]) {
     T count = 0;
     T timeToRun = a < b ? a-1 : n-a;
     while (i >= 0 && time > 0) {
-        // cout << "time " << time
-        //     << "time to run " << timeToRun 
-        //     << "S[i] " << S[i] << endl;
         if (S[i] <= time + timeToRun) {
             ++count;
             --time;
@@ -50,23 +43,26 @@ T solve(T n, T m, T a, T b, T S[]) {
 }
 
 int main() {
+    std::ios_base::sync_with_stdio(false);
+    
     type t;
-    cin >> t;
+    // cin >> t;
+    scanf("%d", &t);
     // array to hold results
     type A[t];
 
+    // input state
+    type n, m, a, b;
     for (type j=0; j<t; ++j) {
-        // input state
-        type n, m, a, b;
         // cin >> n >> m >> a >> b;
-        scanf("%lld %lld %lld %lld", &n, &m, &a, &b);
+        scanf("%d %d %d %d", &n, &m, &a, &b);
 
         // input times
         type time = a<b? b-1 : n-b-1;
         vector<type> S;
         type x;
         for (type i=0; i<m; ++i) {
-            scanf("%lld", &x);
+            scanf("%d", &x);
             // cin >> x;
             if (x <= time) {
                 S.push_back(x);
@@ -80,7 +76,7 @@ int main() {
     }
 
     for (type j=0; j<t; ++j) {
-        printf("%lld\n", A[j]);
+        printf("%d\n", A[j]);
         // cout << A[j] << endl;
     }
 }
