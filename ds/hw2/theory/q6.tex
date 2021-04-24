@@ -1,0 +1,26 @@
+\proof
+برهان خلف
+
+فرض کنیم این‌گونه نباشد. یعنی بتوان نزدیک‌ترین عنصر آرایه 
+$n$
+عضوی 
+$A$
+به مقدار 
+$x$
+را در زمان 
+$o(logn)$
+٫ مثلا 
+$O(1)$
+پیدا کرد
+.
+
+آن‌گاه می‌توان الگوریتم زیر را برای مرتب کردن اعداد ارائه داد:
+\lr{
+\begin{codebox}
+	\Procname{$\proc{sort}(A, n)$}
+	\li list : LinkedList
+	\li it = list.iterator : ListIterator
+	\li list.add(A[0], it)  \Comment adds item to the list where iterator points, and iterator moves forward
+	\li \For element 
+\end{codebox}
+}

@@ -1,0 +1,134 @@
+% این تمپلیت از درس ساختمان داده ی دکتر علیمی-پاییز۹۹ برداشته شده است.
+
+\documentclass[11pt]{article}
+\usepackage{pgfplots}
+
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+
+
+\include{template}
+
+
+\begin{document}
+\lecture{1}{عنوان جلسه}{آئیریا محمدی}
+
+
+\input{q6}
+
+
+مروری کوتاه بر آن‌چه گذشت و مقدمه‌ای کوتاه بر مطالب این جلسه. 
+
+\begin{tikzpicture}
+  \begin{axis}[ 
+    xlabel=$x$,
+    ylabel={$f(x) = x^2 - x +4$}
+  ] 
+    \addplot {x^2 - x +4}; 
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \begin{axis}[ 
+    xlabel=$x$,
+    ylabel={$f(x) = x^2 - x +4$}
+  ] 
+    \addplot {x^2 - x +4}; 
+  \end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\datavisualization [school book axes,
+                    visualize as smooth line,
+                    y axis={label={$y=x^2$}},
+                    x axis={label} ]
+
+data [format=function] {
+      var x : interval [0:1] samples 7;
+      func y = \value x*\value x;
+      };
+\end{tikzpicture}
+
+\section{عنوان بخش}
+شروع بحث جلسه فعلی. 
+
+پاراگراف‌ها با یک خط خالی از هم جدا می‌شوند. لازم نیست بین هر دو پاراگراف از \verb|\par|  استفاده کنیم.
+
+می‌توانید برای نوشتن فرمول چندخطی می‌توانید از محیط \verb|align| استفاده کنید:
+\begin{align*} 
+\min \quad \| f \|_{\infty}\\ 
+f \in F_{s,t} 
+\end{align*}
+
+سعی کنید قواعد نگارش فارسی را رعایت کنید. از نیم‌فاصله
+به درستی استفاده کنید. علامت نقل قول در فارسی بدین صورت است «». پس از نقطه و ویرگول و دونقطه و پرانتزبسته‌ای که قبل از نقطه نیست و این‌گونه علامت‌ها، یک فاصله بگذارید.
+
+خوب است معادل انگلیسی اصطلاحات را در پاورقی%
+\LTRfootnote{footnote}
+بیاورید.
+
+برای نوشتن انگلیسی در میان متن فارسی، از دستور \verb+\lr{}+ استفاده کنید. 
+مثلا:
+\lr{Some English text here} 
+در میان متن درست می‌آید.
+
+استفاده از تاکید به صورت 
+\textbf{پررنگ}
+کردن یا 
+\textit{ایتالیک}
+کردن مفید است. 
+
+برای شبه کدها از پکیج
+\lr{clrscode3e}
+استفاده کنید. برای آشنایی با این پکیج
+\lr{clrscode.pdf}
+را مطالعه کنید.
+
+
+\section{محیط‌های مختلف}
+\begin{lemma}
+	یک لم.
+\end{lemma}
+\begin{theorem}
+	\label{thm:sample}
+	یک قضیه. 
+\end{theorem}
+\begin{proof}
+	بدیهی.
+\end{proof}
+
+\begin{example}
+	یک مثال. 
+\end{example}
+
+ارجاع به قضیه 
+\ref{thm:sample}.
+
+ارجاع به مراجع
+\cite{lecture1}
+و
+\cite{CLRS}.
+
+%برای قاطی نشدن متن فارسی و انگلیسی از
+% Enter
+%  زیاد استفاده کنید!
+
+\bibliographystyle{alpha}
+
+\begin{thebibliography}{99}
+	\bibitem{lecture1}
+	جزوه جلسه اوّل
+	\bibitem{dr. ghodsi}
+	قدسی، محمّد. \textit{داده ساختارها و مبانی الگوریتم‌ها}. تهران: فاطمی، ۱۳۹۵
+	
+	\begin{latin}	%english reference
+		
+		%book in MLA style: https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_page_books.html
+		\bibitem{CLRS}
+		Cormen, Thomas H., et al.
+		\textit{Introduction to Algorithms}. 
+		3rd ed., MIT Press, 2009, pp. 18-22. %page numbers
+	\end{latin}	
+\end{thebibliography}
+\end{document}
