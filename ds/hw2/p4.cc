@@ -3,6 +3,7 @@
 */
 
 #include <iostream>
+#include <stdio.h>
 #include <algorithm>
 #include <vector>
 
@@ -57,14 +58,16 @@ int main() {
     for (type j=0; j<t; ++j) {
         // input state
         type n, m, a, b;
-        cin >> n >> m >> a >> b;
+        // cin >> n >> m >> a >> b;
+        scanf("%lld %lld %lld %lld", &n, &m, &a, &b);
 
         // input times
         type time = a<b? b-1 : n-b-1;
         vector<type> S;
         type x;
         for (type i=0; i<m; ++i) {
-            cin >> x;
+            scanf("%lld", &x);
+            // cin >> x;
             if (x <= time) {
                 S.push_back(x);
                 if (x == time) {
@@ -74,15 +77,11 @@ int main() {
         }
         // solve
         A[j] = solve(n, (type)S.size(), a, b, S.data());
-        
-
-        // for (type i=0; i<m; ++i) {
-
-        // }
     }
 
     for (type j=0; j<t; ++j) {
-        cout << A[j] << endl;
+        printf("%lld\n", A[j]);
+        // cout << A[j] << endl;
     }
 }
 
