@@ -73,11 +73,90 @@ code Main
         endFor
 
     endFunction
+    
+    -----------------------------  Customer Group  ---------------------------------
+    behavior CustomerGroup
+        method Init (needed: int)
+            dicesNeeded = needed
+            isAllowed = false
+        endMethod
+        
+        method Allow ()
+            isAllowed = true
+        endMethod
+    endBehavior
+
+    -----------------------------  Front Desk  ---------------------------------   
+    behavior FrontDesk
+        method Init (numberOfDice: int)
+            dices = numberOfDice
+        endMethod
+        
+        method Request (numberOfDice: int)
+            var c : CustomerGroup
+            mut.Lock ()
+            c = self.AddCustomer (numberOfDice)
+            self.AskPermission ()
+            while !c.isAllowed ()
+                cv.Wait (&mut)
+            endWhile
+            self.Withdraw (numberOfDice)
+            mut.Unlock ()
+        endMethod
+
+        method Return (numberOfDice: int)
+            mut.Lock ()
+            self.Deposit (numberOfDice)
+            self.AskPermission ()  
+            cv.Broadcast (&mut)
+            mut.Unlock ()
+        endMethod
+
+        method AddCustomer (dicesNeeded: int) returns CustomerGroup
+            var c: CustomerGroup = new CustomerGroup
+            c.Init (dicesNeeded)
+            waiting.AddToEnd (c)
+            return c
+        endMethod
+
+        method AskPermission ()
+            var c : CustomerGroup
+            c = waiting.Remove ()
+            if c.dicesNeeded <= dices
+                c.Allow ()
+            else
+                waiting.AddToFront (c)
+            endIf
+        endMethod
+        
+        method Withdraw(x: int)
+            dices = dices - x
+        endMethod
+
+        method Deposit(x: int)
+            dices = dices + x
+        endMethod
+    endBehavior
+    -----------------------------  Games  ---------------------------------
+    const
+        Backgammon = 4
+        Risk = 5
+        Monopoly = 2
+        Pictionary = 1
+    -----------------------------  Gaming Parlor  ---------------------------------
+    function customer (game: int, iter: int)
+        var i: int
+        -- game: the number of die the game needs
+        -- iter: number of times the game is played
+        for i = 0 to iter-1 by 1
+            
+        endFor
+    endFunction
 
     -----------------------------  Main  ---------------------------------
     function main ()
         InitializeScheduler ()
-        sleepingBarber ()
+        --  sleepingBarber ()
         ThreadFinish ()
     endFunction
 
