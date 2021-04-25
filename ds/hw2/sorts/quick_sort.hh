@@ -14,11 +14,10 @@ int partition(T A[], int p, int r, int& operations) {
         if (A[j] <= x) {
             ++i;
             swap(A[i], A[j]);
-            ++operations;
         }
+        ++operations;
     }
     swap(A[i+1], A[r]);
-    ++operations;
     return i+1;
 }
 
