@@ -4,7 +4,7 @@ header Main
 
   const 
     CHAIRS = 5  
-    CUST_N = 3
+    CUST_N = 9
 
   functions
     main ()
@@ -24,6 +24,7 @@ header Main
       enter: int
       exit: int
       finished: int
+      twoDigit: bool
       --  l: List [int]
 
     methods

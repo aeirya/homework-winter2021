@@ -24,6 +24,7 @@ behavior Barbershop
         enter = -1
         exit = -1
         finished = -1
+        twoDigit = false
         --  l = new List [int]
     endMethod
 
@@ -51,25 +52,44 @@ behavior Barbershop
         endIf
         print("[")
         if current > -1
+            if twoDigit && current < 10
+                printInt(0)
+            endIf
             printInt(current)
         else
             print(" ")
+            if twoDigit
+                print(" ")
+            endIf
         endIf
         print("]")
 
         -- finished
         print(" ")
         if finished > -1
+            if twoDigit && finished < 10
+                printInt(0)
+            endIf
             printInt(finished)
         else
             print(" ")
+            if twoDigit
+                print(" ")
+            endIf
         endIf
+
         -- print wait chairs
         print("  ")
         for i=0 to chairs-1 by 1 
             if Cust[i] == -1
                 print("-")
+                if twoDigit
+                    print("-")
+                endIf
             else
+                if twoDigit && Cust[i] < 10
+                    printInt(0)
+                endIf
                 printInt(Cust[i])
             endIf
             if i != chairs-1
@@ -80,16 +100,27 @@ behavior Barbershop
         -- print door
         print("  ")
         if enter > -1
+            if twoDigit
+                if enter < 10
+                    printInt(0)
+                endIf
+            endIf
             printInt(enter)
         else   
             print(" ")
+            if twoDigit
+                print(" ")
+            endIf
         endIf
         print(" <-> ")
 
         if exit > -1
+            if twoDigit && exit < 10
+                printInt(0)
+            endIf
             printInt(exit)
         else
-            print(" ")
+            print("  ")
         endIf
         nl()
     endMethod
@@ -418,25 +449,31 @@ function customerGroup (game: int)
     ThreadFinish ()
 endFunction
 
+function test ()
+    --  var bar : Barbershop
+    --  bar = new Barbershop
+    --  bar.Init ()
+    --  bar.PrintState ()
+    --  bar.Enter (1)
+    --  bar.Sit (1)
+    --  bar.Start ()
+    --  bar.Serve (1)
+    --  bar.Standup ()
+    --  bar.Finish ()
+    --  bar.Enter (3)
+    --  bar.Exit(1)
+    --  bar.Sit (3)
+    --  bar.Enter(21)
+    --  bar.Sit(21)
+    --  bar.Serve(21)
+    --  bar.Exit (5)
+endFunction
+
 -----------------------------  Main  ---------------------------------
 function main ()
-    var bar : Barbershop
     InitializeScheduler ()
-    --  sleepingBarber ()
+    sleepingBarber ()
     --  gamingParlor (8)
-    bar = new Barbershop
-    bar.Init ()
-    bar.PrintState ()
-    bar.Enter (1)
-    bar.Sit (1)
-    bar.Start ()
-    bar.Serve (1)
-    bar.Standup ()
-    bar.Finish ()
-    bar.Enter (3)
-    bar.Exit(1)
-    bar.Sit (3)
-    bar.Exit (5)
     ThreadFinish ()
 endFunction
 
