@@ -8,8 +8,6 @@
 
 #define type long long
 
-#include "vector"
-
 /* 
     used for calculating 2^x
 */
@@ -104,14 +102,60 @@ type f(lion A[], int i, int least_good, type inc) {
         return X - A[i].value();
     else 
         return X - A[least_good].value(); 
-} 
+}
+
+/*
+    n : len(A)
+    a : number of blue pills
+
+    sorts lions,
+    distributes blue pills,
+    returns index of last chosen
+*/
+type give_blue_pills(lion A[], type n, type a) {
+    std::sort(A, A+n);
+    type i=n-1;
+    for (; i>=0, a>=0, A[i].value()>0; --i, --a) {
+        A[i].blue();
+    }
+    return --i;
+}
+
+/*
+    n : len(A)
+    b : number of red pills
+
+    returns profit gained by giving all red pills to the chosen lion
+    XXXXXXreturns index of chosen lion
+*/
+type give_red_pills(lion A[], type n, type b, type least_good) {
+    type x = power().to(b); // calc increase mult
+    
+    type best = 0;  // best lion index so far
+    type last = f(A, 0, least_good, x);
+    type y;
+    for (type i=1; i<n; ++i) {
+        y = f(A, i, least_good, x);
+        if (y > last) {
+            best = i;
+            last = y;
+        }
+    }
+    return last;
+}
 
 int main() {
-    type n,  // # of lions
-        a,  // blue pills (tail = mane)
-        b;  // red pills (2x mane)
-    std::cin >> n >> a >> b;
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie();
+    std::cout.tie();
 
+    type n,  // # of lions
+         a,  // red pills (2x mane)
+         b;  // blue pills (tail = mane)
+    
+    // get input
+    std::cin >> n >> a >> b;
+    
     lion A[n];
     type mane, tail;
     for (type i=0; i<n; ++i) {
@@ -119,29 +163,11 @@ int main() {
         A[i] = lion(tail, mane);
     }
 
-    // give lions blue pills
-    std::sort(A, A+n);
-    type i=n-1;
-    for (; i>=0, a>=0, A[i].value()>0; --i, --a) {
-        A[i].blue();
-    }
-
-    // calc increase mult
-    type x = power().to(b);
-    
-    // find red pill candidate
-    type least_good = ++i;
-    type best = 0;  // best lion index
-    type last = f(A, 0, least_good, x);
-    type y;
-    for (type i=1; i<n; ++i) {
-        y = f(A, i, least_good, x);
-        if (y > last)
-            best = i;
-    }
+    // the lion index with least value
+    type least_good = give_blue_pills(A, n, b);    
 
     // gain from eating the red pill
-    type profit = last;
+    type profit = give_red_pills(A, n, a, least_good);
 
     // calc sum of tails
     type sum_tail = 0;
