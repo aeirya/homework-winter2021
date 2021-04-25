@@ -204,3 +204,12 @@ int main() {
 /*
     aeirya mohammadi
 */
+
+
+/*
+    notes: 
+        we use pills on the ones we use blue pills on, 
+        unless it will worsen everything
+
+        the red piller is either in the blue squad or is not
+*/
