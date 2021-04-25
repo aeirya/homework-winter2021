@@ -4,8 +4,37 @@
 
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 #define type long long
+
+#include "vector"
+
+class power {
+    private:
+    std::vector<type> A;
+
+    public:
+    type to(int n) {
+        if (n==0) return 1;
+        if (n>=A.size()) {
+            A.resize(2*n, 0);
+        }
+        if (A[n] == 0) {
+            auto x = to(n/2) * to(n/2);
+            if (n%2) 
+                A[n] = 2*x;
+            else
+                A[n] = x;
+        }
+        return A[n];
+    }
+};
+
+template <typename T>
+T inline max(T a, T b) {
+    return a > b ? a : b;
+}
 
 class lion {
     private:
@@ -45,10 +74,23 @@ class lion {
         return this->value() < other.value();
     }
 
+    type bet(type mult) const {
+        return (mane * mult - tail) - max(value(), (type) 0);
+    }
+
+    void feed(type mult) {
+        mane = mane * mult;
+        update_value();
+    }
+
     // std::string to_string() {
         
     //     return "mane: " + (std::string) mane + " tail: " + (std::string) tail;
     // }
+
+    void print() {
+        std::cout << "mane: " << mane << " tail: " << tail << std::endl;
+    }
 };
 
 int main() {
@@ -69,29 +111,67 @@ int main() {
         A[i] = lion(tail, mane);
     }
 
-    std::sort(A, A+n);
-
     // prints values
     // for (int i=0; i<n; ++i) {
     //     std::cout << A[i].value() << std::endl;
     // }
 
-    // feed all reds to the best lion
-    lion& best = A[n-1];
-    for (type i=0; i<b; ++i) {
-        best.red();
-    }
+    // calc increase mult
+    power p;
+    type x = p.to(b);
 
+    // find best lion
+    type best = 0;
+    type current, last;
+    last = A[0].bet(x);
+    for (type i=1; i<n; ++i) {
+        current = A[i].bet(x);
+        if (current > last) {
+            last = current;
+            best =  i;
+        }
+    }
+    
+    // feed best lion
+    lion& bestLion = A[best];
+    bestLion.feed(x);
+    
+    // feed all reds to the best lion
+    // for (type i=0; i<b; ++i) {
+    //     best.red();
+    // }
+    // std::cout << "before\n";
+    // best.print();
+    // best.feed(x);
+    // std::cout << "after\n";
+    // best.print();
+
+    // std::cout << best.value() << std::endl;
+
+    // sort all
+    std::sort(A, A+n);
     // feed all blues, starting from the best
     for (type i=n-1; i>=0; --i) {
-        if (A[i].value() > 0)
+        if (a <= 0) break;
+
+        // std::cout << A[i].value() << std::endl;
+        if (A[i].value() > 0) {
+            // std::cout << "before\n";
+            // A[i].print();
             A[i].blue();
+            // std::cout << "after\n";
+            // A[i].print();
+
+            --a;
+        }
         else break;
     }
 
     // sum up tails
     type sum = 0;
     for (type i=0; i<n; ++i) {
+        // A[i].print();
+        // std::cout << A[i].get_tail() << std::endl;
         sum += A[i].get_tail();
     }
 
