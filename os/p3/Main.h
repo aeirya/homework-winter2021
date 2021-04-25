@@ -27,7 +27,7 @@ header Main
       mut: Mutex
       dices: int
 
-      waiting: bool
+      isDeskBusy: bool
       needed: int
     methods
       Init (numberOfDice: int)

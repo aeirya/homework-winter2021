@@ -1,77 +1,116 @@
 code Main
 
---  var
---      customers : Semaphore = new Semaphore
---      barbers   : Semaphore = new Semaphore
---      mutex     : Semaphore = new Semaphore
---      printer   : Mutex = new Mutex
---      waiting   : int = 0
---  const 
---      CHAIRS = 5  
---      CUST_N = 3
+var
+    customersSem : Semaphore = new Semaphore
+    barbers   : Semaphore = new Semaphore
+    mutex     : Semaphore = new Semaphore
+    --  printer   : Mutex = new Mutex
+    waiting   : int = 0
+const 
+    CHAIRS = 5  
+    CUST_N = 3
 
---  ---------------------------  Barber  --------------------------
---  function barber ()
---      while true
---          customers.Down ()
---          mutex.Down ()
---          waiting = waiting - 1
---          print ("barber start\n")
---          barbers.Up ()
---          mutex.Up ()
+function WasteTime (duration: int)
+    while duration > 0
+        duration = duration - 1
+    endWhile
+endFunction
+
+var
+    StartSem: Semaphore = new Semaphore
+    FinishSem: Semaphore = new Semaphore
+
+    --------------------------- Print Functions ----------------------
+function CutHair()
+    -- print start of barber work
+    StartSem.Up()
+    WasteTime(10000)
+    FinishSem.Down()
+    -- print end of barber work
+endFunction
+
+function GetHaircut()
+    StartSem.Down()
+    -- print start of customer getting haircut
+    WasteTime(10000)
+    -- print end of customer getting haircut
+    FinishSem.Up()
+endFunction
+
+---------------------------  Barber  --------------------------
+function barber ()
+    while true
+        customersSem.Down ()
+        mutex.Down ()
+        waiting = waiting - 1
+        --  print ("barber start\n")
+        barbers.Up ()
+        mutex.Up ()
         
---          -- CutHair()
---          print ("barber end\n")
---      endWhile
+        CutHair()
+        --  print ("barber end\n")
+    endWhile
 
---  endFunction
+endFunction
 
---  ---------------------------  Customer  --------------------------
---  function customer (id: int)
---      mutex.Down ()
---      print ("customer enter\n")
---      if waiting < CHAIRS
---          waiting = waiting + 1
---          customers.Up ()
---          print ("customer sit\n")
---          mutex.Up ()
---          barbers.Down ()
---          print ("customer begin\n")
+---------------------------  Customer  --------------------------
+function customer (id: int)
+    mutex.Down ()
+    --  print ("customer enter\n")
+    if waiting < CHAIRS
+        waiting = waiting + 1
+        customersSem.Up ()
+        --  print ("customer sit\n")
+        mutex.Up ()
+        barbers.Down ()
+        --  print ("customer begin\n")
 
---          -- GetHaircut ()
---          print ("customer finish\n")
---      else
---          print ("customer leave\n")
---          mutex.Up ()
---      endIf
---      ThreadFinish ()
---  endFunction
+        GetHaircut ()
+        --  print ("customer finish\n")
+    else
+        --  print ("customer leave\n")
+        mutex.Up ()
+    endIf
+    ThreadFinish ()
+endFunction
 
---  ---------------------------  Sleeping Barber  --------------------------
---  var 
---      threadB : Thread = new Thread
---      thArr: array [CUST_N] of Thread = new array of Thread {CUST_N of new Thread }
+---------------------------  Sleeping Barber  --------------------------
+var 
+    threadB : Thread = new Thread
+    thArr: array [CUST_N] of Thread = new array of Thread {CUST_N of new Thread }
 
---  function sleepingBarber ()
---      -- Iterator variable
---      var i: int = 0
---      -- Zeros waiting customer
---      customers.Init (0)
---      -- Barber not ready
---      barbers.Init (0)
---      -- Mutual Exclusion (waiting lock)
---      mutex.Init (1)
---      -- Printer lock
---      printer.Init ()
---      -- Init Barber Thread
---      threadB.Init ("Barber")
---      threadB.Fork (barber, 0)
---      -- Init Customer Threads
---      for i=0 to CUST_N-1 by 1
---          thArr[i].Init ("Customer "+i)
---          thArr[i].Fork (customer, i)
---      endFor
---  endFunction
+function sleepingBarber ()
+    var 
+        name_str: ptr to array of char = "C"
+        i: int = 0  -- Iterator variable
+
+    -- Print Semaphores
+    StartSem.Init (0)
+    FinishSem.Init (0)
+
+    
+    -- Zeros waiting customer
+    customersSem.Init (0)
+    -- Barber not ready
+    barbers.Init (0)
+    -- Mutual Exclusion (waiting lock)
+    mutex.Init (1)
+    -- Printer lock
+    --  printer.Init ()
+    -- Init Barber Thread
+    threadB.Init ("Barber")
+    threadB.Fork (barber, 0)
+    -- Init Customer Threads
+    for i=0 to CUST_N-1 by 1
+        name_str[0] = intToChar(65+i)
+        thArr[i].Init (name_str)
+        thArr[i].Fork (customer, i)
+    endFor
+endFunction
+
+--------------------------------------------------------------------------------
+-------------------- Gaming Parlor ---------------------------------------------
+--------------------------------------------------------------------------------
 
 -----------------------------  Customer Group  ---------------------------------
 --  behavior CustomerGroup
@@ -85,12 +124,8 @@ code Main
 --      endMethod
 --  endBehavior
 
------------------------------  Customer Record  ---------------------------------   
-type CustomerRecord = record
-                        dicesNeeded: int
-                        isAllowed: bool
-                      endRecord
 -----------------------------  Front Desk  ---------------------------------   
+
 behavior FrontDeskMonitor
     method Init (numberOfDice: int)
         dices = numberOfDice
@@ -103,7 +138,7 @@ behavior FrontDeskMonitor
         mut = new Mutex
         mut.Init ()
         -- Wating 
-        waiting = false
+        isDeskBusy = false
         needed = -1
     endMethod
     
@@ -111,13 +146,13 @@ behavior FrontDeskMonitor
         mut.Lock ()
         self.Print ("requests", numNeeded)
         
-        if !waiting
+        if !isDeskBusy
             mustWait.Signal (&mut)
         endIf
-        while waiting == true
+        while isDeskBusy == true
             mustWait.Wait (&mut)
         endWhile
-        waiting = true
+        isDeskBusy = true
         needed = numNeeded
         
         while numNeeded > dices
@@ -127,7 +162,7 @@ behavior FrontDeskMonitor
         self.Withdraw (numNeeded)
         self.Print ("proceeds with", numNeeded)
 
-        waiting = false
+        isDeskBusy = false
         mustWait.Signal (&mut)
 
         mut.Unlock ()
@@ -137,7 +172,7 @@ behavior FrontDeskMonitor
         mut.Lock ()
         self.Deposit (numReturned)
         self.Print ("releases and adds back", numReturned)
-        if waiting
+        if isDeskBusy
             if needed <= dices
                 dieReady.Signal (&mut)
             endIf
@@ -205,12 +240,12 @@ function gamingParlor(dieNumber: int)
     customers[7].Init ("CustomerH")
 
     for i=0 to customerN-1 by 1
-        customers[i].Fork (customer, games[i])
+        customers[i].Fork (customerGroup, games[i])
     endFor    
 endFunction
 
 --  Customer Thread  --
-function customer (game: int)
+function customerGroup (game: int)
     var i: int
     -- game: the number of die the game needs
     -- iter: number of times the game is played
