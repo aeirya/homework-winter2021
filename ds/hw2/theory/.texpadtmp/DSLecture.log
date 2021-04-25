@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.10.19)  24 APR 2021 13:04
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.10.19)  25 APR 2021 10:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1079,7 +1079,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 [][]
  []
 
-(./q6.tex
+(./heapify.tex) (./q6.tex
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 26.
 
@@ -1116,10 +1116,10 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 134.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 134.
  ) 
 Here is how much of TeX's memory you used:
- 42200 strings out of 479418
- 1036439 string characters out of 5884584
- 1490247 words of memory out of 5000000
- 58894 multiletter control sequences out of 15000+600000
+ 42204 strings out of 479418
+ 1036489 string characters out of 5884584
+ 1491247 words of memory out of 5000000
+ 58896 multiletter control sequences out of 15000+600000
  544376 words of font info for 147 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  68i,8n,103p,4822b,1869s stack positions out of 5000i,500n,10000p,200000b,80000s
