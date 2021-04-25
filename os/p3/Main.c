@@ -212,7 +212,6 @@ endFunction
 --  Customer Thread  --
 function customer (game: int)
     var i: int
-    print(currentThread.name)
     -- game: the number of die the game needs
     -- iter: number of times the game is played
     for i = 1 to gameIterations by 1
