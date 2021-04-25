@@ -32,11 +32,6 @@ class power {
         }
         return A[n];
     }
-
-    friend type to(int n) {
-        power p;
-        return p.to(n);
-    }
 };
 
 template <typename T>
@@ -78,6 +73,10 @@ class lion {
         return tail;
     }
 
+    type get_mane() const {
+        return mane;
+    }
+
     bool operator< (const lion &other) const {
         return this->value() < other.value();
     }
@@ -91,26 +90,27 @@ class lion {
         update_value();
     }
 
-    // std::string to_string() {
-        
-    //     return "mane: " + (std::string) mane + " tail: " + (std::string) tail;
-    // }
-
     void print() {
         std::cout << "mane: " << mane << " tail: " << tail << std::endl;
     }
 };
+
+type f(lion A[], int i, int least_good, type inc) {
+    type m = A[i].get_mane(),
+         t = A[i].get_tail();
+    type X = inc * m - t;
+
+    if (i >= least_good)
+        return X - A[i].value();
+    else 
+        return X - A[least_good].value(); 
+} 
 
 int main() {
     type n,  // # of lions
         a,  // blue pills (tail = mane)
         b;  // red pills (2x mane)
     std::cin >> n >> a >> b;
-
-    // type A[n][2];
-    // for (int i=0; i<n; ++i)
-    //     for (int j=0; j<2; ++j)
-    //         std::cin >> A[i][j];
 
     lion A[n];
     type mane, tail;
@@ -119,72 +119,38 @@ int main() {
         A[i] = lion(tail, mane);
     }
 
-    // prints values
-    // for (int i=0; i<n; ++i) {
-    //     std::cout << A[i].value() << std::endl;
-    // }
+    // give lions blue pills
+    std::sort(A, A+n);
+    type i=n-1;
+    for (; i>=0, a>=0, A[i].value()>0; --i, --a) {
+        A[i].blue();
+    }
 
     // calc increase mult
-    power p;
-    type x = p.to(b);
-
-    // find best lion
-    type best = 0;
-    type current, last;
-    last = A[0].bet(x);
+    type x = power().to(b);
+    
+    // find red pill candidate
+    type least_good = ++i;
+    type best = 0;  // best lion index
+    type last = f(A, 0, least_good, x);
+    type y;
     for (type i=1; i<n; ++i) {
-        current = A[i].bet(x);
-        if (current > last) {
-            last = current;
-            best =  i;
-        }
-    }
-    
-    // feed best lion
-    lion& bestLion = A[best];
-    bestLion.feed(x);
-    
-    // feed all reds to the best lion
-    // for (type i=0; i<b; ++i) {
-    //     best.red();
-    // }
-    // std::cout << "before\n";
-    // best.print();
-    // best.feed(x);
-    // std::cout << "after\n";
-    // best.print();
-
-    // std::cout << best.value() << std::endl;
-
-    // sort all
-    std::sort(A, A+n);
-    // feed all blues, starting from the best
-    for (type i=n-1; i>=0; --i) {
-        if (a <= 0) break;
-
-        // std::cout << A[i].value() << std::endl;
-        if (A[i].value() > 0) {
-            // std::cout << "before\n";
-            // A[i].print();
-            A[i].blue();
-            // std::cout << "after\n";
-            // A[i].print();
-
-            --a;
-        }
-        else break;
+        y = f(A, i, least_good, x);
+        if (y > last)
+            best = i;
     }
 
-    // sum up tails
-    type sum = 0;
+    // gain from eating the red pill
+    type profit = last;
+
+    // calc sum of tails
+    type sum_tail = 0;
     for (type i=0; i<n; ++i) {
-        // A[i].print();
-        // std::cout << A[i].get_tail() << std::endl;
-        sum += A[i].get_tail();
+        sum_tail += A[i].get_tail();
     }
 
     // print result
-    std::cout << sum << std::endl;
+    std::cout << sum_tail+profit << std::endl;
 }
 
 /*
