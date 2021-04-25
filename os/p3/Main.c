@@ -105,7 +105,10 @@ behavior FrontDeskMonitor
     method Request (numNeeded: int)
         mut.Lock ()
         self.Print ("requests", numNeeded)
-
+        
+        if !waiting
+            mustWait.Signal (&mut)
+        endIf
         while waiting == true
             mustWait.Wait (&mut)
         endWhile
