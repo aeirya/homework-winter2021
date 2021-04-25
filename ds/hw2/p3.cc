@@ -105,7 +105,7 @@ int main() {
     type n,  // # of lions
         a,  // blue pills (tail = mane)
         b;  // red pills (2x mane)
-    std::cin >> n >> a >> b;
+    std::cin >> n >> b >> a;
 
     // type A[n][2];
     // for (int i=0; i<n; ++i)
@@ -119,14 +119,8 @@ int main() {
         A[i] = lion(tail, mane);
     }
 
-    // prints values
-    // for (int i=0; i<n; ++i) {
-    //     std::cout << A[i].value() << std::endl;
-    // }
-
     // calc increase mult
-    power p;
-    type x = p.to(b);
+    type x = power().to(b);
 
     // find best lion
     type best = 0;
