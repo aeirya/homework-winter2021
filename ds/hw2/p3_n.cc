@@ -55,25 +55,14 @@ class lion {
     type tail, mane;
     type _value;
 
-    void update_value() {
+    public:
+    lion() : tail(0), mane(0) {} 
+    lion(type _tail, type _mane) : tail(_tail), mane(_mane) {
         _value = mane - tail;
     }
 
-    public:
-
-    lion() : tail(0), mane(0) {} 
-    lion(type _tail, type _mane) : tail(_tail), mane(_mane) {
-        update_value();
-    }
-
-    void red() {
-        mane *= 2;
-        update_value();
-    }
-    
     void blue() {
         tail = mane;
-        update_value();
     }
 
     type value() const {
@@ -84,26 +73,16 @@ class lion {
         return tail;
     }
 
-    type get_mane() const {
-        return mane;
-    }
-
     bool operator< (const lion &other) const {
         return this->value() < other.value();
     }
 
-    type bet(type mult) const {
-        return (mane * mult - tail) - max(value(), (type) 0);
+    type bet(type x) const {
+        return (mane * x - tail) - value();
     }
 
-    void feed(type mult) {
-        mane = mane * mult;
-        update_value();
-    }
-
-    void revert(type mult) {
-        mane = mane / mult;
-        update_value();
+    void red(type x) {
+        mane = mane * x;
     }
 
     void print() {
@@ -112,14 +91,10 @@ class lion {
 };
 
 type f(lion A[], int i, int least_good, type inc) {
-    type m = A[i].get_mane(),
-         t = A[i].get_tail();
-    type X = inc * m - t;
-    
     if (i >= least_good)
-        return X - A[i].value();
-    else 
-        return X - A[least_good].value(); 
+        return A[i].bet(inc);
+    else
+        return A[i].bet(inc) + A[i].value() - A[least_good].value();
 }
 
 /*
@@ -132,7 +107,7 @@ type f(lion A[], int i, int least_good, type inc) {
 type find_last_lion(lion A[], type n, type b) {
     std::sort(A, A+n);
     type i = n-1;
-    for (; i>=0, b>=0, A[i].value()>0; --i, --b);
+    for (; i>=0 && b>=0 && A[i].value()>0; --i, --b);
     return ++i;
 }
 
@@ -140,7 +115,7 @@ type find_last_lion(lion A[], type n, type b) {
     n : len(A)
     last lion : last eligible lion to get blue pills
 
-    distributes blue pills
+    gives out blue pills
 */
 void give_blue_pills(lion A[], type n, type last_lion) {
     for (int i=last_lion; i<n; ++i)
@@ -166,10 +141,15 @@ void give_red_pills(lion A[], type n, type a, type least_good) {
     }
 
     // give the red pill
-    A[best].feed(x);
+    A[best].red(x);
+    
+    // std::cout << "chose red:\n";
+    // A[best].print();
 
     // non-condidate for blue pill
     if (best < least_good) {
+        // std::cout << "swapping " << best << " and " << least_good << "\n";
+        
         // swap
         lion temp = A[best];
         A[best] = A[least_good];
@@ -186,7 +166,7 @@ type inline tail_sum(lion A[], int n) {
     return sum_tail;
 }
 
-void inline input_lions(int n, lion A[]) {
+void inline input_lions(lion A[], int n) {
     type mane, tail;
     for (type i=0; i<n; ++i) {
         std::cin >> mane >> tail;
@@ -207,9 +187,9 @@ int main() {
     std::cin >> n >> a >> b;
 
     lion A[n];
-    input_lions(n, A);
+    input_lions(A, n);
 
-    // the lion index with least value
+    // the chosen lion index with least value
     type last_lion = find_last_lion(A, n, b);    
 
     give_red_pills(A, n, a, last_lion);
