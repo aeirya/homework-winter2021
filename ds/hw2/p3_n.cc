@@ -88,6 +88,11 @@ class lion {
         update_value();
     }
 
+    void revert(type mult) {
+        mane = mane / mult;
+        update_value();
+    }
+
     void print() {
         std::cout << "mane: " << mane << " tail: " << tail << std::endl;
     }
@@ -125,10 +130,10 @@ type give_blue_pills(lion A[], type n, type a) {
     n : len(A)
     b : number of red pills
 
-    returns profit gained by giving all red pills to the chosen lion
-    XXXXXXreturns index of chosen lion
+    XXXXXXX returns profit gained by giving all red pills to the chosen lion
+    XXXXXXX returns index of chosen lion
 */
-type give_red_pills(lion A[], type n, type b, type least_good) {
+void give_red_pills(lion A[], type n, type b, type least_good) {
     type x = power().to(b); // calc increase mult
     
     type best = 0;  // best lion index so far
@@ -141,7 +146,14 @@ type give_red_pills(lion A[], type n, type b, type least_good) {
             last = y;
         }
     }
-    return last;
+
+    if (best < least_good) {
+        A[least_good].revert(x);
+        A[best].feed(x);
+        A[best].blue();
+    } else {
+        A[best].feed(x);
+    }
 }
 
 int main() {
@@ -166,8 +178,7 @@ int main() {
     // the lion index with least value
     type least_good = give_blue_pills(A, n, b);    
 
-    // gain from eating the red pill
-    type profit = give_red_pills(A, n, a, least_good);
+    give_red_pills(A, n, a, least_good);
 
     // calc sum of tails
     type sum_tail = 0;
@@ -176,7 +187,9 @@ int main() {
     }
 
     // print result
-    std::cout << sum_tail+profit << std::endl;
+    std::cout << sum_tail << std::endl;
+
+    return 0;
 }
 
 /*
