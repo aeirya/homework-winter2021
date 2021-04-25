@@ -2,9 +2,43 @@ header Main
 
   uses System, Thread, Synch
 
+  const 
+    CHAIRS = 5  
+    CUST_N = 3
+
   functions
     main ()
     --  sleepingBarber ()
+
+  class Barbershop
+    superclass Object
+    fields
+      Start: Semaphore
+      Fin:   Semaphore
+      Cust:  array[CHAIRS] of int
+      waitingN: int
+      mut: Mutex
+      current: int
+      working: bool
+      chairs: int
+      enter: int
+      exit: int
+      finished: int
+      --  l: List [int]
+
+    methods
+      Init ()
+      Start ()
+      Finish ()
+      PrintState ()
+      Serve (id: int)
+      Standup ()
+      Sit (id: int)
+      Unsit (id: int)
+      Enter (id: int)
+      Exit (id: int)
+  endClass
+
 
   --  class CustomerGroup
   --    superclass Listable
@@ -28,6 +62,7 @@ header Main
       dices: int
 
       isDeskBusy: bool
+      inQueue: int
       needed: int
     methods
       Init (numberOfDice: int)

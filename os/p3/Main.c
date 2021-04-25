@@ -6,9 +6,155 @@ var
     mutex     : Semaphore = new Semaphore
     --  printer   : Mutex = new Mutex
     waiting   : int = 0
-const 
-    CHAIRS = 5  
-    CUST_N = 3
+    shop      : Barbershop
+
+behavior Barbershop
+    method Init () 
+        Start = new Semaphore
+        Fin = new Semaphore
+        Start.Init (0)
+        Fin.Init (0)
+        Cust = new array of int {CHAIRS of -1}
+        mut = new Mutex
+        current = -1
+        working = false
+        waitingN = 0
+        mut.Init ()
+        chairs = CHAIRS
+        enter = -1
+        exit = -1
+        finished = -1
+        --  l = new List [int]
+    endMethod
+
+    method Start ()
+        mut.Lock ()
+            working = true
+            self.PrintState ()
+        mut.Unlock ()
+    endMethod
+
+    method Finish ()
+        mut.Lock ()
+            working = false
+            self.PrintState ()
+        mut.Unlock ()
+    endMethod
+
+    method PrintState ()
+        var i: int
+        -- print main chair
+        if !working
+            print("zZz   ")
+        else 
+            print("     !")
+        endIf
+        print("[")
+        if current > -1
+            printInt(current)
+        else
+            print(" ")
+        endIf
+        print("]")
+
+        -- finished
+        print(" ")
+        if finished > -1
+            printInt(finished)
+        else
+            print(" ")
+        endIf
+        -- print wait chairs
+        print("  ")
+        for i=0 to chairs-1 by 1 
+            if Cust[i] == -1
+                print("-")
+            else
+                printInt(Cust[i])
+            endIf
+            if i != chairs-1
+                print("|")
+            endIf
+        endFor
+
+        -- print door
+        print("  ")
+        if enter > -1
+            printInt(enter)
+        else   
+            print(" ")
+        endIf
+        print(" <-> ")
+
+        if exit > -1
+            printInt(exit)
+        else
+            print(" ")
+        endIf
+        nl()
+    endMethod
+
+    method Enter (id: int)
+        mut.Lock ()
+        enter = id
+        self.PrintState ()
+        enter = -1
+        mut.Unlock ()
+    endMethod
+
+    method Exit (id: int) 
+        mut.Lock ()
+        exit = id
+        if finished == id
+            finished = -1
+        endIf
+        self.PrintState ()
+        exit = -1
+        mut.Unlock ()
+    endMethod
+
+    method Sit (id: int) 
+        var i: int
+        mut.Lock ()
+        for i=0 to chairs-1 by 1
+            if Cust[i] == -1
+                Cust[i] = id
+                break
+            endIf
+        endFor
+        self.PrintState()
+        mut.Unlock ()
+    endMethod
+
+    method Unsit (id: int)
+        var i: int
+        for i=0 to chairs-1 by 1
+            if Cust[i] == id
+                Cust[i] = -1
+                break
+            endIf
+        endFor
+    endMethod
+
+    method Serve (id: int)
+        mut.Lock ()
+        current = id
+        self.Unsit (id)
+        self.PrintState ()
+        mut.Unlock ()
+    endMethod
+
+    -- opposite of serve
+    method Standup()
+        mut.Lock ()
+        finished = current
+        current = -1
+        self.PrintState ()
+        mut.Unlock ()
+    endMethod
+
+  endBehavior
+
 
 function WasteTime (duration: int)
     while duration > 0
@@ -23,17 +169,21 @@ var
     --------------------------- Print Functions ----------------------
 function CutHair()
     -- print start of barber work
+    shop.Start ()
     StartSem.Up()
     WasteTime(10000)
     FinishSem.Down()
     -- print end of barber work
+    shop.Finish ()
 endFunction
 
-function GetHaircut()
+function GetHaircut(id: int)
     StartSem.Down()
     -- print start of customer getting haircut
+    shop.Serve (id)
     WasteTime(10000)
     -- print end of customer getting haircut
+    shop.Standup ()
     FinishSem.Up()
 endFunction
 
@@ -57,18 +207,20 @@ endFunction
 function customer (id: int)
     mutex.Down ()
     --  print ("customer enter\n")
+    shop.Enter (id)
     if waiting < CHAIRS
         waiting = waiting + 1
         customersSem.Up ()
         --  print ("customer sit\n")
+        shop.Sit (id)
         mutex.Up ()
         barbers.Down ()
         --  print ("customer begin\n")
-
-        GetHaircut ()
+        GetHaircut (id)
         --  print ("customer finish\n")
     else
         --  print ("customer leave\n")
+        shop.Exit (id)
         mutex.Up ()
     endIf
     ThreadFinish ()
@@ -84,11 +236,13 @@ function sleepingBarber ()
         name_str: ptr to array of char = "C"
         i: int = 0  -- Iterator variable
 
+    shop = new Barbershop
+    shop.Init ()
+
     -- Print Semaphores
     StartSem.Init (0)
     FinishSem.Init (0)
 
-    
     -- Zeros waiting customer
     customersSem.Init (0)
     -- Barber not ready
@@ -108,9 +262,13 @@ function sleepingBarber ()
     endFor
 endFunction
 
---------------------------------------------------------------------------------
--------------------- Gaming Parlor ---------------------------------------------
---------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+-------------------- Gaming Parlor ------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------
 
 -----------------------------  Customer Group  ---------------------------------
 --  behavior CustomerGroup
@@ -139,19 +297,19 @@ behavior FrontDeskMonitor
         mut.Init ()
         -- Wating 
         isDeskBusy = false
+        inQueue = 0
         needed = -1
     endMethod
     
     method Request (numNeeded: int)
         mut.Lock ()
         self.Print ("requests", numNeeded)
+        inQueue = inQueue + 1
         
-        if !isDeskBusy
-            mustWait.Signal (&mut)
-        endIf
-        while isDeskBusy == true
+        if isDeskBusy
             mustWait.Wait (&mut)
-        endWhile
+        endIf
+        
         isDeskBusy = true
         needed = numNeeded
         
@@ -162,7 +320,10 @@ behavior FrontDeskMonitor
         self.Withdraw (numNeeded)
         self.Print ("proceeds with", numNeeded)
 
-        isDeskBusy = false
+        inQueue = inQueue - 1
+        if inQueue == 0
+            isDeskBusy = false
+        endIf
         mustWait.Signal (&mut)
 
         mut.Unlock ()
@@ -259,9 +420,23 @@ endFunction
 
 -----------------------------  Main  ---------------------------------
 function main ()
+    var bar : Barbershop
     InitializeScheduler ()
     --  sleepingBarber ()
-    gamingParlor (8)
+    --  gamingParlor (8)
+    bar = new Barbershop
+    bar.Init ()
+    bar.PrintState ()
+    bar.Enter (1)
+    bar.Sit (1)
+    bar.Start ()
+    bar.Serve (1)
+    bar.Standup ()
+    bar.Finish ()
+    bar.Enter (3)
+    bar.Exit(1)
+    bar.Sit (3)
+    bar.Exit (5)
     ThreadFinish ()
 endFunction
 
