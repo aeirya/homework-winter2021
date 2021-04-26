@@ -1,5 +1,8 @@
 code Main
 
+-- 
+-- varibles used by the customer and barber threads
+--
 var
     customersSem : Semaphore = new Semaphore
     barbers   : Semaphore = new Semaphore
@@ -8,25 +11,155 @@ var
     shop      : Barbershop
 
 behavior Barbershop
+    --
+    --  Class used to print the state of barbershop on every change
+    --
     method Init () 
+        -- cutting hair and getting haircut semaphores (not used)
         Start = new Semaphore
         Fin = new Semaphore
         Start.Init (0)
         Fin.Init (0)
-        Cust = new array of int {CHAIRS of -1}
+        -- mutual exclusion
         mut = new Mutex
-        current = -1
-        working = false
-        waitingN = 0
         mut.Init ()
-        chairs = CHAIRS
-        enter = -1
-        exit = -1
-        finished = -1
+        -- state variables (-1 indicates non-existance)
+        working = false     -- if the barber awake
+        current = -1        -- the current person whose hair is being cut
+        enter = -1          -- the person inside the door
+        exit = -1           -- the person outside the door
+        finished = -1       -- the person who just finished his cut
+        chairs = CHAIRS     -- number of chairs
+        -- array used to keep state of each chair
+        Cust = new array of int {CHAIRS of -1}
+        -- not used states
+        waitingN = 0        -- number of customers waiting
         
         self.PrintHeader ()
     endMethod
 
+    method Start ()
+    --
+    --  the barber wakes up
+    --
+        mut.Lock ()
+            working = true
+            self.PrintState ()
+        mut.Unlock ()
+    endMethod
+
+    --
+    --  the barber goes to sleep
+    --
+    method End ()
+        mut.Lock ()
+            working = false
+            self.PrintState ()
+        mut.Unlock ()
+    endMethod
+
+    method Enter (id: int)
+    --
+    --  customer comes inside
+    --
+        mut.Lock ()
+        enter = id
+        self.PrintState ()
+        enter = -1
+        mut.Unlock ()
+    endMethod
+
+    method Exit (id: int) 
+    --
+    --  customer goes outside
+    --
+        mut.Lock ()
+        exit = id
+        if finished == id
+            finished = -1
+        endIf
+        self.PrintState ()
+        exit = -1
+        mut.Unlock ()
+    endMethod
+
+    --  
+    --  this method assumes there is place to sit
+    --
+    method Sit (id: int) 
+    -- 
+    --  the customer sits in the queue
+    --
+        var i: int
+            flag: bool = true
+        mut.Lock ()
+        for i=0 to chairs-1 by 1
+            if Cust[i] == -1
+                Cust[i] = id
+                flag = false
+                break
+            endIf
+        endFor
+        self.PrintState()
+        if flag
+            FatalError("There was no place to sit")
+        endIf
+        mut.Unlock ()
+    endMethod
+    
+    --
+    --  method called when customer is about to be served
+    --  this method assumes id is already sitting
+    --
+    method Unsit (id: int)
+    --
+    --  customer leaves the queue
+    --
+        var i: int
+        mut.Lock ()
+        for i=0 to chairs-1 by 1
+            if Cust[i] == id
+                Cust[i] = -1
+                break
+            endIf
+        endFor
+        mut.Unlock ()
+    endMethod
+
+    method Serve (id: int)
+    --
+    --  the customer starts getting their hair cut
+    --
+        mut.Lock ()
+        current = id
+        self.Unsit (id)
+        self.PrintState ()
+        mut.Unlock ()
+    endMethod
+
+    -- 
+    -- finish/opposite of serve 
+    --
+    method Standup()
+    --
+    --  the customer being server stands up beside the chair
+    --
+        mut.Lock ()
+        if finished == -1
+            FatalError("No customer to finish")
+        endIf
+        finished = current
+        current = -1
+        self.PrintState ()
+        mut.Unlock ()
+    endMethod
+    
+    --
+    --  The output is formatted this way:
+    --  Idle    Chair   Waiting     In <-> Out
+    --  zZz     [ ]     1|2|3|4      5 <-> 6
+    --         ![1]     -|2|3|4      5 <-> 6
+    --
     method PrintHeader ()
         var i: int
         print("Idle  Chair  ")
@@ -52,28 +185,16 @@ behavior Barbershop
         nl()
     endMethod
 
-    method Start ()
-        mut.Lock ()
-            working = true
-            self.PrintState ()
-        mut.Unlock ()
-    endMethod
-
-    method End ()
-        mut.Lock ()
-            working = false
-            self.PrintState ()
-        mut.Unlock ()
-    endMethod
-
     method PrintState ()
         var i: int
-        -- print main chair
+        -- barber
         if !working
             print("zZz   ")
         else 
             print("     !")
         endIf
+
+        -- main chair
         print("[")
         if current > -1
             if twoDigit && current < 10
@@ -102,7 +223,7 @@ behavior Barbershop
             endIf
         endIf
 
-        -- print wait chairs
+        -- wait chairs
         print("  ")
         for i=0 to chairs-1 by 1 
             if Cust[i] == -1
@@ -121,7 +242,7 @@ behavior Barbershop
             endIf
         endFor
 
-        -- print door
+        -- door entrance
         print("  ")
         if enter > -1
             if twoDigit
@@ -138,6 +259,7 @@ behavior Barbershop
         endIf
         print(" <-> ")
 
+        -- door exit
         if exit > -1
             if twoDigit && exit < 10
                 printInt(0)
@@ -146,68 +268,10 @@ behavior Barbershop
         else
             print("  ")
         endIf
+
+        -- finish
         nl()
     endMethod
-
-    method Enter (id: int)
-        mut.Lock ()
-        enter = id
-        self.PrintState ()
-        enter = -1
-        mut.Unlock ()
-    endMethod
-
-    method Exit (id: int) 
-        mut.Lock ()
-        exit = id
-        if finished == id
-            finished = -1
-        endIf
-        self.PrintState ()
-        exit = -1
-        mut.Unlock ()
-    endMethod
-
-    method Sit (id: int) 
-        var i: int
-        mut.Lock ()
-        for i=0 to chairs-1 by 1
-            if Cust[i] == -1
-                Cust[i] = id
-                break
-            endIf
-        endFor
-        self.PrintState()
-        mut.Unlock ()
-    endMethod
-
-    method Unsit (id: int)
-        var i: int
-        for i=0 to chairs-1 by 1
-            if Cust[i] == id
-                Cust[i] = -1
-                break
-            endIf
-        endFor
-    endMethod
-
-    method Serve (id: int)
-        mut.Lock ()
-        current = id
-        self.Unsit (id)
-        self.PrintState ()
-        mut.Unlock ()
-    endMethod
-
-    -- finish/opposite of serve 
-    method Standup()
-        mut.Lock ()
-        finished = current
-        current = -1
-        self.PrintState ()
-        mut.Unlock ()
-    endMethod
-
   endBehavior
 
 
@@ -428,7 +492,6 @@ behavior FrontDeskMonitor
         mut.Unlock ()
     endMethod
 
-    
     method Withdraw(x: int)
         dices = dices - x
     endMethod
