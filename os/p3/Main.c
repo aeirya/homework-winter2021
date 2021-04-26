@@ -4,11 +4,19 @@ code Main
 -- varibles used by the customer and barber threads
 --
 var
-    customersSem : Semaphore = new Semaphore
-    barbers   : Semaphore = new Semaphore
-    mutex     : Semaphore = new Semaphore
+    customersSem : Semaphore = new Semaphore    -- number of waiting customers
+    barbers   : Semaphore = new Semaphore       -- number of waiting barbers
+    seats     : Semaphore = new Semaphore       -- number of empty seats
+    mutex     : Semaphore = new Semaphore       -- lock for waiting variable
     waiting   : int = 0
     shop      : Barbershop
+
+function msg(text: ptr to array of char, id: int)
+    print(text)
+    print(" ")
+    printInt(id)
+    nl()
+endFunction
 
 behavior Barbershop
     --
@@ -43,8 +51,9 @@ behavior Barbershop
     --  the barber wakes up
     --
         mut.Lock ()
-            working = true
-            self.PrintState ()
+        print("barber start\n")
+        working = true
+        self.PrintState ()
         mut.Unlock ()
     endMethod
 
@@ -53,8 +62,9 @@ behavior Barbershop
     --
     method End ()
         mut.Lock ()
-            working = false
-            self.PrintState ()
+        print("barber end\n")
+        working = false
+        self.PrintState ()
         mut.Unlock ()
     endMethod
 
@@ -63,6 +73,7 @@ behavior Barbershop
     --  customer comes inside
     --
         mut.Lock ()
+        msg("customer enter", id)
         enter = id
         self.PrintState ()
         enter = -1
@@ -93,6 +104,9 @@ behavior Barbershop
         var i: int
             flag: bool = true
         mut.Lock ()
+
+        msg("Sit", id)
+
         for i=0 to chairs-1 by 1
             if Cust[i] == -1
                 Cust[i] = id
@@ -109,21 +123,27 @@ behavior Barbershop
     
     --
     --  method called when customer is about to be served
-    --  this method assumes id is already sitting
+    --  this method assumes id is already sitting and the mutex is locked
     --
     method Unsit (id: int)
     --
     --  customer leaves the queue
     --
         var i: int
-        mut.Lock ()
+            flag: bool = true
+
+        msg("unsit", id)
+
         for i=0 to chairs-1 by 1
             if Cust[i] == id
                 Cust[i] = -1
+                flag = false
                 break
             endIf
         endFor
-        mut.Unlock ()
+        if flag
+            FatalError("Can't find customer to unsit")
+        endIf
     endMethod
 
     method Serve (id: int)
@@ -131,6 +151,8 @@ behavior Barbershop
     --  the customer starts getting their hair cut
     --
         mut.Lock ()
+        msg("serve", id)
+        
         current = id
         self.Unsit (id)
         self.PrintState ()
@@ -142,10 +164,10 @@ behavior Barbershop
     --
     method Standup()
     --
-    --  the customer being server stands up beside the chair
+    --  the customer being served stands up beside the chair
     --
         mut.Lock ()
-        if finished == -1
+        if current == -1
             FatalError("No customer to finish")
         endIf
         finished = current
@@ -333,13 +355,14 @@ function customer (id: int)
     var i: int = 0
     while i < N_CUTS
         mutex.Down ()
+        -- customer enter
         --  print ("customer enter\n")
         shop.Enter (id)
         if waiting < CHAIRS
             waiting = waiting + 1
-            customersSem.Up ()
             --  print ("customer sit\n")
             shop.Sit (id)
+            customersSem.Up ()
             mutex.Up ()
             barbers.Down ()
             --  print ("customer begin\n")
@@ -376,6 +399,7 @@ function sleepingBarber ()
     StartSem.Init (0)
     FinishSem.Init (0)
 
+    seats.Init (CHAIRS)
     -- Zeros waiting customer
     customersSem.Init (0)
     -- Barber not ready
@@ -593,8 +617,8 @@ endFunction
 -----------------------------  Main  ---------------------------------
 function main ()
     InitializeScheduler ()
-    --  sleepingBarber ()
-    gamingParlor (8)
+    sleepingBarber ()
+    --  gamingParlor (8)
     ThreadFinish ()
 endFunction
 
