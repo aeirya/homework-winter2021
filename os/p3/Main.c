@@ -4,7 +4,6 @@ var
     customersSem : Semaphore = new Semaphore
     barbers   : Semaphore = new Semaphore
     mutex     : Semaphore = new Semaphore
-    --  printer   : Mutex = new Mutex
     waiting   : int = 0
     shop      : Barbershop
 
@@ -319,8 +318,6 @@ function sleepingBarber ()
     barbers.Init (0)
     -- Mutual Exclusion (waiting lock)
     mutex.Init (1)
-    -- Printer lock
-    --  printer.Init ()
     -- Init Barber Thread
     threadB.Init ("Barber")
     threadB.Fork (barber, 0)
@@ -333,28 +330,48 @@ function sleepingBarber ()
 endFunction
 
 -----------------------------------------------------------------------------------------------------
--------------------- Gaming Parlor ------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------------------
+--------------------------------- Gaming ----------------------------------------------------------
+--------------------------------- Parlor ------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 
------------------------------  Customer Group  ---------------------------------
---  behavior CustomerGroup
---      method Init (needed: int)
---          dicesNeeded = needed
---          isAllowed = false
---      endMethod
-    
---      method Allow ()
---          isAllowed = true
---      endMethod
---  endBehavior
 
 -----------------------------  Front Desk  ---------------------------------   
-
 behavior FrontDeskMonitor
+    --
+    --  This class acts as a monitor and manages all the requests and returns of dices 
+    --  by using the state of the head of the queue, state of the queue itself,
+    --  a mutex and two conditional variables
+    --  
+    --  Init ()
+    --      dices: current dices in the desk
+    --      needed: amound of die the head of the queue demands
+    --
+    --      mustWait: holds new requests in the entrance (prevents unordered permission)
+    --      dieReady: condition variable for having enough dices to give to the head of queue
+    --      mut: monitor mutex
+    --
+    --      isDeskBusy: true when someone is in queue
+    --      inQueue: queue counter used to detect when to reset isDeskBusy
+    --      
+    --  Request ()
+    --      Permits users to enter one by one,
+    --      Gives them requested dice if available
+    --      Else waits until ready
+    --      And finally signal next waiting on exit
+    --      
+    --  Return ()
+    --      Increases number of dices 
+    --      And signals the waiting customer (if exists, and amount suffices)
+    --      
+    --  Withdraw (x)
+    --      Decrease number of dices by x
+    --
+    --  Deposite (x)
+    --      Increase number of dices by x
+    --      
+   
     method Init (numberOfDice: int)
         dices = numberOfDice
         -- Init cv
@@ -411,11 +428,20 @@ behavior FrontDeskMonitor
         mut.Unlock ()
     endMethod
 
+    
+    method Withdraw(x: int)
+        dices = dices - x
+    endMethod
+
+    method Deposit(x: int)
+        dices = dices + x
+    endMethod
+
+    method Print (str: String, count: int) 
     --
     -- This method prints the current thread's name and the arguments. 
     -- It also prints the current number of dice available.
     --
-    method Print (str: String, count: int) 
         print (currentThread.name)
         print (" ")
         print (str)
@@ -425,14 +451,6 @@ behavior FrontDeskMonitor
         print ("------------------------------Number of dice now avail = ") 
         printInt (dices)
         nl ()
-    endMethod
-    
-    method Withdraw(x: int)
-        dices = dices - x
-    endMethod
-
-    method Deposit(x: int)
-        dices = dices + x
     endMethod
 endBehavior
 
@@ -475,7 +493,7 @@ function gamingParlor(dieNumber: int)
     endFor    
 endFunction
 
---  Customer Thread  --
+-----------------------------  Customer Thread  ---------------------------------
 function customerGroup (game: int)
     var i: int
     -- game: the number of die the game needs
@@ -488,7 +506,8 @@ function customerGroup (game: int)
     ThreadFinish ()
 endFunction
 
-function test ()
+-- function used for testing functionality of barbershop class
+function barber_test ()
     --  var bar : Barbershop
     --  bar = new Barbershop
     --  bar.Init ()
@@ -511,8 +530,8 @@ endFunction
 -----------------------------  Main  ---------------------------------
 function main ()
     InitializeScheduler ()
-    sleepingBarber ()
-    --  gamingParlor (8)
+    --  sleepingBarber ()
+    gamingParlor (8)
     ThreadFinish ()
 endFunction
 
