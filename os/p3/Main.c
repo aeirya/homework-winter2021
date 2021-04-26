@@ -6,10 +6,12 @@ code Main
 var
     customersSem : Semaphore = new Semaphore    -- number of waiting customers
     barbers   : Semaphore = new Semaphore       -- number of waiting barbers
-    seats     : Semaphore = new Semaphore       -- number of empty seats
     mutex     : Semaphore = new Semaphore       -- lock for waiting variable
     waiting   : int = 0
     shop      : Barbershop
+    seats     : Semaphore = new Semaphore       -- number of empty seats
+    --  enter     : Mutex = new Mutex
+
 
 function msg(text: ptr to array of char, id: int)
     print(text)
@@ -316,21 +318,21 @@ var
     --------------------------- Print Functions ----------------------
 function CutHair()
     -- print start of barber work
-    shop.Start ()
+    --  shop.Start ()
     StartSem.Up()
     WasteTime(10000)
     FinishSem.Down()
     -- print end of barber work
-    shop.End ()
+    --  shop.End ()
 endFunction
 
 function GetHaircut(id: int)
     StartSem.Down()
     -- print start of customer getting haircut
-    shop.Serve (id)
+    --  shop.Serve (id)
     WasteTime(10000)
     -- print end of customer getting haircut
-    shop.Standup ()
+    --  shop.Standup ()
     FinishSem.Up()
 endFunction
 
@@ -351,28 +353,24 @@ function barber ()
 endFunction
 
 ---------------------------  Customer  --------------------------
+
+
 function customer (id: int)
     var i: int = 0
     while i < N_CUTS
         mutex.Down ()
-        -- customer enter
-        --  print ("customer enter\n")
-        shop.Enter (id)
+        --  shop.Enter (id)
         if waiting < CHAIRS
             waiting = waiting + 1
-            --  print ("customer sit\n")
-            shop.Sit (id)
+            --  shop.Sit (id)
             customersSem.Up ()
             mutex.Up ()
             barbers.Down ()
-            --  print ("customer begin\n")
             GetHaircut (id)
-            shop.Exit (id)
-            --  print ("customer finish\n")
+            --  shop.Exit (id)
             i = i + 1
         else
-            --  print ("customer leave\n")
-            shop.Exit (id)
+            --  shop.Exit (id)
             mutex.Up ()
             if !try_again
                 i = i + 1
