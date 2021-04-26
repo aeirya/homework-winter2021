@@ -228,3 +228,23 @@ int main() {
         maybe there is excess blue pill!
 */
 
+
+
+
+/*
+GIVE BLUE PILLS: CALC TOTAL SUM
+KEEP CURRENT TOTAL SUM 
+UPDATE IT
+
+type f(lion A[], int i, int least_good, type inc) {
+    type m = A[i].get_mane(),
+         t = A[i].get_tail();
+    type X = inc * m - t;
+
+    if (i >= least_good)
+        return X - A[i].value();
+    else 
+        return X - A[least_good].value(); 
+} 
+
+*/
