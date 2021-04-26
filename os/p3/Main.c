@@ -10,8 +10,14 @@ var
     waiting   : int = 0
     shop      : Barbershop
     seats     : Semaphore = new Semaphore       -- number of empty seats
-    --  enter     : Mutex = new Mutex
+    entrance  : Mutex = new Mutex 
+    isCrowded : bool = false
+    crowdedCV : Condition = new Condition
+    crowdInQueue: int = 0
+    seat: Condition = new Condition
 
+const
+    DEBUG = false
 
 function msg(text: ptr to array of char, id: int)
     print(text)
@@ -25,6 +31,10 @@ behavior Barbershop
     --  Class used to print the state of barbershop on every change
     --
     method Init () 
+        seats.Init (CHAIRS)
+        crowdedCV.Init ()
+        seat.Init ()
+
         -- cutting hair and getting haircut semaphores (not used)
         Start = new Semaphore
         Fin = new Semaphore
@@ -53,7 +63,9 @@ behavior Barbershop
     --  the barber wakes up
     --
         mut.Lock ()
-        print("barber start\n")
+        if DEBUG
+            print("barber start\n")
+        endIf
         working = true
         self.PrintState ()
         mut.Unlock ()
@@ -64,7 +76,9 @@ behavior Barbershop
     --
     method End ()
         mut.Lock ()
-        print("barber end\n")
+        if DEBUG
+            print("barber end\n")
+        endIf
         working = false
         self.PrintState ()
         mut.Unlock ()
@@ -75,10 +89,20 @@ behavior Barbershop
     --  customer comes inside
     --
         mut.Lock ()
-        msg("customer enter", id)
+
+        crowdInQueue = crowdInQueue + 1
+        if isCrowded
+            crowdedCV.Wait (&mut)
+        endIf
+        isCrowded = true
+
+        if DEBUG
+            msg("customer enter", id)
+        endIf
+
         enter = id
         self.PrintState ()
-        enter = -1
+
         mut.Unlock ()
     endMethod
 
@@ -87,6 +111,12 @@ behavior Barbershop
     --  customer goes outside
     --
         mut.Lock ()
+
+        if enter == id
+            enter = -1
+            self.Dequeue ()
+        endIf
+
         exit = id
         if finished == id
             finished = -1
@@ -94,6 +124,14 @@ behavior Barbershop
         self.PrintState ()
         exit = -1
         mut.Unlock ()
+    endMethod
+
+    method Dequeue ()
+        crowdInQueue = crowdInQueue - 1
+        if crowdInQueue == 0
+            isCrowded = false
+        endIf
+        crowdedCV.Signal (&mut)
     endMethod
 
     --  
@@ -107,7 +145,21 @@ behavior Barbershop
             flag: bool = true
         mut.Lock ()
 
-        msg("Sit", id)
+        if waiting > CHAIRS
+            seat.Wait (&mut)
+        endIf
+        --  seats.Down ()
+
+        if enter == id
+            enter = -1
+            self.Dequeue ()
+        else
+            FatalError ("who just sat :))")
+        endIf
+
+        if DEBUG
+            msg ("Sit", id)
+        endIf
 
         for i=0 to chairs-1 by 1
             if Cust[i] == -1
@@ -134,7 +186,13 @@ behavior Barbershop
         var i: int
             flag: bool = true
 
-        msg("unsit", id)
+        mut.Lock ()
+
+        seat.Signal (&mut)
+        --  seats.Up ()
+        if DEBUG
+            msg("unsit", id)
+        endIf
 
         for i=0 to chairs-1 by 1
             if Cust[i] == id
@@ -146,6 +204,8 @@ behavior Barbershop
         if flag
             FatalError("Can't find customer to unsit")
         endIf
+
+        mut.Unlock ()
     endMethod
 
     method Serve (id: int)
@@ -153,10 +213,11 @@ behavior Barbershop
     --  the customer starts getting their hair cut
     --
         mut.Lock ()
-        msg("serve", id)
+        if DEBUG
+            msg("serve", id)
+        endIf
         
         current = id
-        self.Unsit (id)
         self.PrintState ()
         mut.Unlock ()
     endMethod
@@ -308,6 +369,9 @@ function WasteTime (duration: int)
     while duration > 0
         --  x = x * 2
         duration = duration - 1
+        if duration % 100 == 0
+            currentThread.Yield ()
+        endIf
     endWhile
 endFunction
 
@@ -318,21 +382,21 @@ var
     --------------------------- Print Functions ----------------------
 function CutHair()
     -- print start of barber work
-    --  shop.Start ()
+    shop.Start ()
     StartSem.Up()
     WasteTime(10000)
     FinishSem.Down()
     -- print end of barber work
-    --  shop.End ()
+    shop.End ()
 endFunction
 
 function GetHaircut(id: int)
     StartSem.Down()
     -- print start of customer getting haircut
-    --  shop.Serve (id)
+    shop.Serve (id)
     WasteTime(10000)
     -- print end of customer getting haircut
-    --  shop.Standup ()
+    shop.Standup ()
     FinishSem.Up()
 endFunction
 
@@ -342,40 +406,50 @@ function barber ()
         customersSem.Down ()
         mutex.Down ()
         waiting = waiting - 1
-        --  print ("barber start\n")
         barbers.Up ()
         mutex.Up ()
-        
+
         CutHair()
-        --  print ("barber end\n")
     endWhile
 
 endFunction
 
 ---------------------------  Customer  --------------------------
 
-
 function customer (id: int)
     var i: int = 0
+        j: int
     while i < N_CUTS
         mutex.Down ()
-        --  shop.Enter (id)
+        shop.Enter (id) -- customer enter
         if waiting < CHAIRS
             waiting = waiting + 1
-            --  shop.Sit (id)
+            --  if DEBUG
+            --      msg("wating", id)
+            --  endIf
+            seats.Down ()
+            shop.Sit (id) -- customer seat
             customersSem.Up ()
             mutex.Up ()
             barbers.Down ()
+            shop.Unsit (id)
+            seats.Up ()
+
             GetHaircut (id)
-            --  shop.Exit (id)
+            shop.Exit (id) -- customer leave
             i = i + 1
         else
-            --  shop.Exit (id)
+            shop.Exit (id) -- customer leave
             mutex.Up ()
             if !try_again
                 i = i + 1
             endIf
         endIf
+        for j=0 to 100
+            j = j + 1
+            j = j - 1
+            currentThread.Yield ()
+        endFor
     endWhile
     ThreadFinish ()
 endFunction
@@ -397,7 +471,6 @@ function sleepingBarber ()
     StartSem.Init (0)
     FinishSem.Init (0)
 
-    seats.Init (CHAIRS)
     -- Zeros waiting customer
     customersSem.Init (0)
     -- Barber not ready
@@ -412,6 +485,7 @@ function sleepingBarber ()
         name_str[0] = intToChar(65+i)
         thArr[i].Init (name_str)
         thArr[i].Fork (customer, i)
+        WasteTime(10000)
     endFor
 endFunction
 
@@ -421,7 +495,6 @@ endFunction
 --------------------------------- Parlor ------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------
-
 
 -----------------------------  Front Desk  ---------------------------------   
 behavior FrontDeskMonitor

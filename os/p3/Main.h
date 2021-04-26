@@ -34,17 +34,24 @@ header Main
       finished: int
 
     methods
-      PrintHeader ()
       Init ()
+
       Start ()
       End ()
-      PrintState ()
+      
       Serve (id: int)
       Standup ()
+
       Sit (id: int)
       Unsit (id: int)
+      
       Enter (id: int)
       Exit (id: int)
+
+      PrintHeader ()
+      PrintState ()
+
+      Dequeue ()
   endClass
 
   --  class CustomerGroup
