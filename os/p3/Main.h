@@ -4,13 +4,13 @@ header Main
 
   -- sleeping barber constants
   const 
-    CHAIRS = 4        -- number of chairs :))
+    CHAIRS = 5        -- number of chairs :))
     CUST_N = 20         -- number of customers
     twoDigit = true   -- two-digit print style
   -- customer cunstants
   const 
     N_CUTS = 10       -- number of cuts each customer wants to get
-    try_again = true -- return back to shop if full
+    try_again = false -- return back to shop if full
 
   functions
     main ()
@@ -44,7 +44,7 @@ header Main
 
       Sit (id: int)
       Unsit (id: int)
-      
+
       Enter (id: int)
       Exit (id: int)
 
