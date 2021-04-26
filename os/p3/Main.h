@@ -2,13 +2,21 @@ header Main
 
   uses System, Thread, Synch
 
+  -- sleeping barber constants
   const 
-    CHAIRS = 5  
-    CUST_N = 9
+    CHAIRS = 4        -- number of chairs :))
+    CUST_N = 20         -- number of customers
+    twoDigit = true   -- two-digit print style
+  -- customer cunstants
+  const 
+    N_CUTS = 10       -- number of cuts each customer wants to get
+    try_again = true -- return back to shop if full
 
   functions
     main ()
-    --  sleepingBarber ()
+    sleepingBarber ()
+    gamingParlor (dieNumber: int)
+
 
   class Barbershop
     superclass Object
@@ -24,13 +32,12 @@ header Main
       enter: int
       exit: int
       finished: int
-      twoDigit: bool
-      --  l: List [int]
 
     methods
+      PrintHeader ()
       Init ()
       Start ()
-      Finish ()
+      End ()
       PrintState ()
       Serve (id: int)
       Standup ()
@@ -39,7 +46,6 @@ header Main
       Enter (id: int)
       Exit (id: int)
   endClass
-
 
   --  class CustomerGroup
   --    superclass Listable
@@ -56,7 +62,6 @@ header Main
   class FrontDeskMonitor
     superclass Object
     fields
-      --  status: array [5] of int             -- For each philosopher: HUNGRY, EATING, or THINKING
       mustWait: Condition
       dieReady: Condition
       mut: Mutex

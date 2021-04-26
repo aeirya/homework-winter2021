@@ -71,6 +71,8 @@
 ! Externally visible functions in this package
 	.export	_mainEntry
 	.export	main
+	.export	_P_Main_sleepingBarber
+	.export	_P_Main_gamingParlor
 ! The following class and its methods are from other packages
 	.import	_P_System_Object
 ! The following class and its methods are from other packages
@@ -99,6 +101,7 @@
 	.export	_Method_P_Main_Barbershop_8
 	.export	_Method_P_Main_Barbershop_9
 	.export	_Method_P_Main_Barbershop_10
+	.export	_Method_P_Main_Barbershop_11
 ! The following class and its methods are from this package
 	.export	_P_Main_FrontDeskMonitor
 	.export	_Method_P_Main_FrontDeskMonitor_1
@@ -142,7 +145,7 @@ _Global_mutex:
 _Global_waiting:
 	.word	0
 _Global_shop:
-	.skip	120
+	.skip	112
 _Global_StartSem:
 ! Static object
 	.word	_P_Synch_Semaphore
@@ -1184,7 +1187,11271 @@ _Global_threadB:
 	.word	0
 _Global_thArr:
 ! Static array
-	.word	9		! number of elements
+	.word	20		! number of elements
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+! Static object
+	.word	_P_Thread_Thread
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
 ! Static object
 	.word	_P_Thread_Thread
 	.word	0
@@ -18614,73 +29881,113 @@ _Global_mon:
 	.skip	72
 	.align
 ! String constants
-_StringConst_34:
+_StringConst_44:
 	.word	57			! length
 	.ascii	"------------------------------Number of dice now avail = "
 	.align
-_StringConst_33:
+_StringConst_43:
 	.word	1			! length
 	.ascii	" "
 	.align
-_StringConst_32:
+_StringConst_42:
 	.word	1			! length
 	.ascii	" "
 	.align
-_StringConst_31:
+_StringConst_41:
 	.word	22			! length
 	.ascii	"releases and adds back"
 	.align
-_StringConst_30:
+_StringConst_40:
 	.word	13			! length
 	.ascii	"proceeds with"
 	.align
-_StringConst_29:
+_StringConst_39:
 	.word	8			! length
 	.ascii	"requests"
 	.align
-_StringConst_28:
+_StringConst_38:
 	.word	2			! length
 	.ascii	"  "
 	.align
-_StringConst_27:
+_StringConst_37:
 	.word	5			! length
 	.ascii	" <-> "
 	.align
-_StringConst_26:
+_StringConst_36:
 	.word	1			! length
 	.ascii	" "
+	.align
+_StringConst_35:
+	.word	1			! length
+	.ascii	" "
+	.align
+_StringConst_34:
+	.word	2			! length
+	.ascii	"  "
+	.align
+_StringConst_33:
+	.word	1			! length
+	.ascii	"|"
+	.align
+_StringConst_32:
+	.word	1			! length
+	.ascii	"-"
+	.align
+_StringConst_31:
+	.word	1			! length
+	.ascii	"-"
+	.align
+_StringConst_30:
+	.word	2			! length
+	.ascii	"  "
+	.align
+_StringConst_29:
+	.word	1			! length
+	.ascii	" "
+	.align
+_StringConst_28:
+	.word	1			! length
+	.ascii	" "
+	.align
+_StringConst_27:
+	.word	1			! length
+	.ascii	" "
+	.align
+_StringConst_26:
+	.word	1			! length
+	.ascii	"]"
 	.align
 _StringConst_25:
 	.word	1			! length
 	.ascii	" "
 	.align
 _StringConst_24:
-	.word	2			! length
-	.ascii	"  "
+	.word	1			! length
+	.ascii	" "
 	.align
 _StringConst_23:
 	.word	1			! length
-	.ascii	"|"
+	.ascii	"["
 	.align
 _StringConst_22:
-	.word	1			! length
-	.ascii	"-"
+	.word	6			! length
+	.ascii	"     !"
 	.align
 _StringConst_21:
-	.word	1			! length
-	.ascii	"-"
+	.word	6			! length
+	.ascii	"zZz   "
 	.align
 _StringConst_20:
-	.word	2			! length
-	.ascii	"  "
+	.word	3			! length
+	.ascii	"Out"
 	.align
 _StringConst_19:
-	.word	1			! length
-	.ascii	" "
+	.word	5			! length
+	.ascii	" <-> "
 	.align
 _StringConst_18:
-	.word	1			! length
-	.ascii	" "
+	.word	2			! length
+	.ascii	"In"
 	.align
 _StringConst_17:
 	.word	1			! length
@@ -18688,27 +29995,27 @@ _StringConst_17:
 	.align
 _StringConst_16:
 	.word	1			! length
-	.ascii	"]"
+	.ascii	" "
 	.align
 _StringConst_15:
-	.word	1			! length
-	.ascii	" "
+	.word	2			! length
+	.ascii	"  "
 	.align
 _StringConst_14:
 	.word	1			! length
 	.ascii	" "
 	.align
 _StringConst_13:
-	.word	1			! length
-	.ascii	"["
+	.word	7			! length
+	.ascii	"Waiting"
 	.align
 _StringConst_12:
-	.word	6			! length
-	.ascii	"     !"
+	.word	3			! length
+	.ascii	"   "
 	.align
 _StringConst_11:
-	.word	6			! length
-	.ascii	"zZz   "
+	.word	13			! length
+	.ascii	"Idle  Chair  "
 	.align
 _StringConst_10:
 	.word	9			! length
@@ -18756,12 +30063,12 @@ _StringConst_1:
 ! 
 _mainEntry:
 	set	_packageName,r2		! Get CheckVersion started
-	set	0xa8bb43fd,r3		! .  hashVal = -1464122371
+	set	0x9a06f096,r3		! .  hashVal = -1710821226
 	call	_CheckVersion_P_Main_	! .
 	cmp	r1,0			! .
-	be	_Label_44		! .
+	be	_Label_52		! .
 	ret				! .
-_Label_44:				! .
+_Label_52:				! .
 	call	_heapInitialize
 	jmp	main
 ! 
@@ -18788,9 +30095,9 @@ _packageName:
 !
 _CheckVersion_P_Main_:
 	.export	_CheckVersion_P_Main_
-	set	0xa8bb43fd,r4		! myHashVal = -1464122371
+	set	0x9a06f096,r4		! myHashVal = -1710821226
 	cmp	r3,r4
-	be	_Label_45
+	be	_Label_53
 	set	_CVMess1,r1
 	call	_putString
 	mov	r2,r1			! print using package
@@ -18815,7 +30122,7 @@ _CheckVersion_P_Main_:
 	call	_putString
 	mov	1,r1
 	ret	
-_Label_45:
+_Label_53:
 	mov	0,r1
 ! Make sure _P_System_ has hash value 0xfe42cccc (decimal -29176628)
 	set	_packageName,r2
@@ -18823,29 +30130,29 @@ _Label_45:
 	call	_CheckVersion_P_System_
 	.import	_CheckVersion_P_System_
 	cmp	r1,0
-	bne	_Label_46
+	bne	_Label_54
 ! Make sure _P_List_ has hash value 0xafebcabb (decimal -1343501637)
 	set	_packageName,r2
 	set	0xafebcabb,r3
 	call	_CheckVersion_P_List_
 	.import	_CheckVersion_P_List_
 	cmp	r1,0
-	bne	_Label_46
+	bne	_Label_54
 ! Make sure _P_Thread_ has hash value 0xd98e6cc5 (decimal -644977467)
 	set	_packageName,r2
 	set	0xd98e6cc5,r3
 	call	_CheckVersion_P_Thread_
 	.import	_CheckVersion_P_Thread_
 	cmp	r1,0
-	bne	_Label_46
+	bne	_Label_54
 ! Make sure _P_Synch_ has hash value 0x8e356f6d (decimal -1909100691)
 	set	_packageName,r2
 	set	0x8e356f6d,r3
 	call	_CheckVersion_P_Synch_
 	.import	_CheckVersion_P_Synch_
 	cmp	r1,0
-	bne	_Label_46
-_Label_46:
+	bne	_Label_54
+_Label_54:
 	ret
 _CVMess1:	.ascii	"\nVERSION CONSISTENCY ERROR: Package '\0"
 _CVMess2:	.ascii	"' uses package '\0"
@@ -18857,31 +30164,31 @@ _CVMess6:	.ascii	"'.\n\n\0"
 ! 
 ! ===============  FUNCTION WasteTime  ===============
 ! 
-_function_43_WasteTime:
+_function_51_WasteTime:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_43_WasteTime,r1
+	set	_RoutineDescriptor__function_51_WasteTime,r1
 	push	r1
-	mov	190,r13		! source line 190
+	mov	215,r13		! source line 215
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! WHILE STATEMENT...
-	mov	191,r13		! source line 191
+	mov	221,r13		! source line 221
 	mov	"\0\0WH",r10
-_Label_47:
-!   if duration <= 0 then goto _Label_49		(int)
+_Label_55:
+!   if duration <= 0 then goto _Label_57		(int)
 	load	[r14+8],r1
 	mov	0,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	ble	_Label_49
-!	jmp	_Label_48
-_Label_48:
-	mov	191,r13		! source line 191
+	ble	_Label_57
+!	jmp	_Label_56
+_Label_56:
+	mov	221,r13		! source line 221
 	mov	"\0\0WB",r10
 ! ASSIGNMENT STATEMENT...
-	mov	192,r13		! source line 192
+	mov	223,r13		! source line 223
 	mov	"\0\0AS",r10
 !   duration = duration - 1		(int)
 	load	[r14+8],r1
@@ -18890,10 +30197,10 @@ _Label_48:
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+8]
 ! END WHILE...
-	jmp	_Label_47
-_Label_49:
+	jmp	_Label_55
+_Label_57:
 ! RETURN STATEMENT...
-	mov	191,r13		! source line 191
+	mov	221,r13		! source line 221
 	mov	"\0\0RE",r10
 	add	r15,4,r15
 	pop	r13
@@ -18902,43 +30209,43 @@ _Label_49:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_43_WasteTime:
+_RoutineDescriptor__function_51_WasteTime:
 	.word	_sourceFileName
-	.word	_Label_50
+	.word	_Label_58
 	.word	4		! total size of parameters
 	.word	0		! frame size = 0
-	.word	_Label_51
+	.word	_Label_59
 	.word	8
 	.word	4
 	.word	0
-_Label_50:
+_Label_58:
 	.ascii	"WasteTime\0"
 	.align
-_Label_51:
+_Label_59:
 	.byte	'I'
 	.ascii	"duration\0"
 	.align
 ! 
 ! ===============  FUNCTION CutHair  ===============
 ! 
-_function_42_CutHair:
+_function_50_CutHair:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_42_CutHair,r1
+	set	_RoutineDescriptor__function_50_CutHair,r1
 	push	r1
 	mov	5,r1
-_Label_586:
+_Label_643:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_586
-	mov	201,r13		! source line 201
+	bne	_Label_643
+	mov	232,r13		! source line 232
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	203,r13		! source line 203
+	mov	234,r13		! source line 234
 	mov	"\0\0SE",r10
-!   _temp_52 = &_Global_shop
+!   _temp_60 = &_Global_shop
 	set	_Global_shop,r1
 	store	r1,[r14+-24]
 !   Send message Start
@@ -18947,12 +30254,12 @@ _Label_586:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,8,r2
+	add	r2,12,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	204,r13		! source line 204
+	mov	235,r13		! source line 235
 	mov	"\0\0SE",r10
-!   _temp_53 = &_Global_StartSem
+!   _temp_61 = &_Global_StartSem
 	set	_Global_StartSem,r1
 	store	r1,[r14+-20]
 !   Send message Up
@@ -18968,13 +30275,13 @@ _Label_586:
 	mov	10000,r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	205,r13		! source line 205
+	mov	236,r13		! source line 236
 	mov	"\0\0CA",r10
-	call	_function_43_WasteTime
+	call	_function_51_WasteTime
 ! SEND STATEMENT...
-	mov	206,r13		! source line 206
+	mov	237,r13		! source line 237
 	mov	"\0\0SE",r10
-!   _temp_54 = &_Global_FinishSem
+!   _temp_62 = &_Global_FinishSem
 	set	_Global_FinishSem,r1
 	store	r1,[r14+-16]
 !   Send message Down
@@ -18986,21 +30293,21 @@ _Label_586:
 	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	208,r13		! source line 208
+	mov	239,r13		! source line 239
 	mov	"\0\0SE",r10
-!   _temp_55 = &_Global_shop
+!   _temp_63 = &_Global_shop
 	set	_Global_shop,r1
 	store	r1,[r14+-12]
-!   Send message Finish
+!   Send message End
 	load	[r14+-12],r1
 	load	[r1],r2
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,12,r2
+	add	r2,16,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	208,r13		! source line 208
+	mov	239,r13		! source line 239
 	mov	"\0\0RE",r10
 	add	r15,24,r15
 	pop	r13
@@ -19009,64 +30316,64 @@ _Label_586:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_42_CutHair:
+_RoutineDescriptor__function_50_CutHair:
 	.word	_sourceFileName
-	.word	_Label_56
+	.word	_Label_64
 	.word	0		! total size of parameters
 	.word	20		! frame size = 20
-	.word	_Label_57
+	.word	_Label_65
 	.word	-12
 	.word	4
-	.word	_Label_58
+	.word	_Label_66
 	.word	-16
 	.word	4
-	.word	_Label_59
+	.word	_Label_67
 	.word	-20
 	.word	4
-	.word	_Label_60
+	.word	_Label_68
 	.word	-24
 	.word	4
 	.word	0
-_Label_56:
+_Label_64:
 	.ascii	"CutHair\0"
 	.align
-_Label_57:
+_Label_65:
 	.byte	'?'
-	.ascii	"_temp_55\0"
+	.ascii	"_temp_63\0"
 	.align
-_Label_58:
+_Label_66:
 	.byte	'?'
-	.ascii	"_temp_54\0"
+	.ascii	"_temp_62\0"
 	.align
-_Label_59:
+_Label_67:
 	.byte	'?'
-	.ascii	"_temp_53\0"
+	.ascii	"_temp_61\0"
 	.align
-_Label_60:
+_Label_68:
 	.byte	'?'
-	.ascii	"_temp_52\0"
+	.ascii	"_temp_60\0"
 	.align
 ! 
 ! ===============  FUNCTION GetHaircut  ===============
 ! 
-_function_41_GetHaircut:
+_function_49_GetHaircut:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_41_GetHaircut,r1
+	set	_RoutineDescriptor__function_49_GetHaircut,r1
 	push	r1
 	mov	6,r1
-_Label_587:
+_Label_644:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_587
-	mov	211,r13		! source line 211
+	bne	_Label_644
+	mov	242,r13		! source line 242
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	212,r13		! source line 212
+	mov	243,r13		! source line 243
 	mov	"\0\0SE",r10
-!   _temp_61 = &_Global_StartSem
+!   _temp_69 = &_Global_StartSem
 	set	_Global_StartSem,r1
 	store	r1,[r14+-24]
 !   Send message Down
@@ -19078,9 +30385,9 @@ _Label_587:
 	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	214,r13		! source line 214
+	mov	245,r13		! source line 245
 	mov	"\0\0SE",r10
-!   _temp_62 = &_Global_shop
+!   _temp_70 = &_Global_shop
 	set	_Global_shop,r1
 	store	r1,[r14+-20]
 !   Prepare Argument: offset=12  value=id  sizeInBytes=4
@@ -19092,20 +30399,20 @@ _Label_587:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,20,r2
+	add	r2,24,r2
 	call	r2
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=10000  sizeInBytes=4
 	mov	10000,r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	215,r13		! source line 215
+	mov	246,r13		! source line 246
 	mov	"\0\0CA",r10
-	call	_function_43_WasteTime
+	call	_function_51_WasteTime
 ! SEND STATEMENT...
-	mov	217,r13		! source line 217
+	mov	248,r13		! source line 248
 	mov	"\0\0SE",r10
-!   _temp_63 = &_Global_shop
+!   _temp_71 = &_Global_shop
 	set	_Global_shop,r1
 	store	r1,[r14+-16]
 !   Send message Standup
@@ -19114,12 +30421,12 @@ _Label_587:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,24,r2
+	add	r2,28,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	218,r13		! source line 218
+	mov	249,r13		! source line 249
 	mov	"\0\0SE",r10
-!   _temp_64 = &_Global_FinishSem
+!   _temp_72 = &_Global_FinishSem
 	set	_Global_FinishSem,r1
 	store	r1,[r14+-12]
 !   Send message Up
@@ -19131,7 +30438,7 @@ _Label_587:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	218,r13		! source line 218
+	mov	249,r13		! source line 249
 	mov	"\0\0RE",r10
 	add	r15,28,r15
 	pop	r13
@@ -19140,79 +30447,79 @@ _Label_587:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_41_GetHaircut:
+_RoutineDescriptor__function_49_GetHaircut:
 	.word	_sourceFileName
-	.word	_Label_65
+	.word	_Label_73
 	.word	4		! total size of parameters
 	.word	24		! frame size = 24
-	.word	_Label_66
+	.word	_Label_74
 	.word	8
 	.word	4
-	.word	_Label_67
+	.word	_Label_75
 	.word	-12
 	.word	4
-	.word	_Label_68
+	.word	_Label_76
 	.word	-16
 	.word	4
-	.word	_Label_69
+	.word	_Label_77
 	.word	-20
 	.word	4
-	.word	_Label_70
+	.word	_Label_78
 	.word	-24
 	.word	4
 	.word	0
-_Label_65:
+_Label_73:
 	.ascii	"GetHaircut\0"
 	.align
-_Label_66:
+_Label_74:
 	.byte	'I'
 	.ascii	"id\0"
 	.align
-_Label_67:
+_Label_75:
 	.byte	'?'
-	.ascii	"_temp_64\0"
+	.ascii	"_temp_72\0"
 	.align
-_Label_68:
+_Label_76:
 	.byte	'?'
-	.ascii	"_temp_63\0"
+	.ascii	"_temp_71\0"
 	.align
-_Label_69:
+_Label_77:
 	.byte	'?'
-	.ascii	"_temp_62\0"
+	.ascii	"_temp_70\0"
 	.align
-_Label_70:
+_Label_78:
 	.byte	'?'
-	.ascii	"_temp_61\0"
+	.ascii	"_temp_69\0"
 	.align
 ! 
 ! ===============  FUNCTION barber  ===============
 ! 
-_function_40_barber:
+_function_48_barber:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_40_barber,r1
+	set	_RoutineDescriptor__function_48_barber,r1
 	push	r1
 	mov	5,r1
-_Label_588:
+_Label_645:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_588
-	mov	222,r13		! source line 222
+	bne	_Label_645
+	mov	253,r13		! source line 253
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! WHILE STATEMENT...
-	mov	223,r13		! source line 223
+	mov	254,r13		! source line 254
 	mov	"\0\0WH",r10
-_Label_71:
-!	jmp	_Label_72
-_Label_72:
-	mov	223,r13		! source line 223
+_Label_79:
+!	jmp	_Label_80
+_Label_80:
+	mov	254,r13		! source line 254
 	mov	"\0\0WB",r10
 ! SEND STATEMENT...
-	mov	224,r13		! source line 224
+	mov	255,r13		! source line 255
 	mov	"\0\0SE",r10
-!   _temp_74 = &_Global_customersSem
+!   _temp_82 = &_Global_customersSem
 	set	_Global_customersSem,r1
 	store	r1,[r14+-24]
 !   Send message Down
@@ -19224,9 +30531,9 @@ _Label_72:
 	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	225,r13		! source line 225
+	mov	256,r13		! source line 256
 	mov	"\0\0SE",r10
-!   _temp_75 = &_Global_mutex
+!   _temp_83 = &_Global_mutex
 	set	_Global_mutex,r1
 	store	r1,[r14+-20]
 !   Send message Down
@@ -19238,7 +30545,7 @@ _Label_72:
 	add	r2,8,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	226,r13		! source line 226
+	mov	257,r13		! source line 257
 	mov	"\0\0AS",r10
 !   _Global_waiting = _Global_waiting - 1		(int)
 	set	_Global_waiting,r1
@@ -19249,9 +30556,9 @@ _Label_72:
 	set	_Global_waiting,r2
 	store	r1,[r2]
 ! SEND STATEMENT...
-	mov	228,r13		! source line 228
+	mov	259,r13		! source line 259
 	mov	"\0\0SE",r10
-!   _temp_76 = &_Global_barbers
+!   _temp_84 = &_Global_barbers
 	set	_Global_barbers,r1
 	store	r1,[r14+-16]
 !   Send message Up
@@ -19263,9 +30570,9 @@ _Label_72:
 	add	r2,12,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	229,r13		! source line 229
+	mov	260,r13		! source line 260
 	mov	"\0\0SE",r10
-!   _temp_77 = &_Global_mutex
+!   _temp_85 = &_Global_mutex
 	set	_Global_mutex,r1
 	store	r1,[r14+-12]
 !   Send message Up
@@ -19278,77 +30585,95 @@ _Label_72:
 	call	r2
 ! CALL STATEMENT...
 !   Call the function
-	mov	231,r13		! source line 231
+	mov	262,r13		! source line 262
 	mov	"\0\0CA",r10
-	call	_function_42_CutHair
+	call	_function_50_CutHair
 ! END WHILE...
-	jmp	_Label_71
-_Label_73:
+	jmp	_Label_79
+_Label_81:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_40_barber:
+_RoutineDescriptor__function_48_barber:
 	.word	_sourceFileName
-	.word	_Label_78
+	.word	_Label_86
 	.word	0		! total size of parameters
 	.word	20		! frame size = 20
-	.word	_Label_79
+	.word	_Label_87
 	.word	-12
 	.word	4
-	.word	_Label_80
+	.word	_Label_88
 	.word	-16
 	.word	4
-	.word	_Label_81
+	.word	_Label_89
 	.word	-20
 	.word	4
-	.word	_Label_82
+	.word	_Label_90
 	.word	-24
 	.word	4
 	.word	0
-_Label_78:
+_Label_86:
 	.ascii	"barber\0"
 	.align
-_Label_79:
+_Label_87:
 	.byte	'?'
-	.ascii	"_temp_77\0"
+	.ascii	"_temp_85\0"
 	.align
-_Label_80:
+_Label_88:
 	.byte	'?'
-	.ascii	"_temp_76\0"
+	.ascii	"_temp_84\0"
 	.align
-_Label_81:
+_Label_89:
 	.byte	'?'
-	.ascii	"_temp_75\0"
+	.ascii	"_temp_83\0"
 	.align
-_Label_82:
+_Label_90:
 	.byte	'?'
-	.ascii	"_temp_74\0"
+	.ascii	"_temp_82\0"
 	.align
 ! 
 ! ===============  FUNCTION customer  ===============
 ! 
-_function_39_customer:
+_function_47_customer:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_39_customer,r1
+	set	_RoutineDescriptor__function_47_customer,r1
 	push	r1
-	mov	10,r1
-_Label_589:
+	mov	12,r1
+_Label_646:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_589
-	mov	238,r13		! source line 238
+	bne	_Label_646
+	mov	269,r13		! source line 269
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
+! i
+!   i = 0		(4 bytes)
+	mov	0,r1
+	store	r1,[r14+-48]
+! WHILE STATEMENT...
+	mov	271,r13		! source line 271
+	mov	"\0\0WH",r10
+_Label_91:
+!   if i >= 10 then goto _Label_93		(int)
+	load	[r14+-48],r1
+	mov	10,r2
+	cmp	r1,r2
+	bvs	_runtimeErrorOverflow
+	bge	_Label_93
+!	jmp	_Label_92
+_Label_92:
+	mov	271,r13		! source line 271
+	mov	"\0\0WB",r10
 ! SEND STATEMENT...
-	mov	239,r13		! source line 239
+	mov	272,r13		! source line 272
 	mov	"\0\0SE",r10
-!   _temp_83 = &_Global_mutex
+!   _temp_94 = &_Global_mutex
 	set	_Global_mutex,r1
-	store	r1,[r14+-40]
+	store	r1,[r14+-44]
 !   Send message Down
-	load	[r14+-40],r1
+	load	[r14+-44],r1
 	load	[r1],r2
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
@@ -19356,39 +30681,39 @@ _Label_589:
 	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	241,r13		! source line 241
+	mov	274,r13		! source line 274
 	mov	"\0\0SE",r10
-!   _temp_84 = &_Global_shop
+!   _temp_95 = &_Global_shop
 	set	_Global_shop,r1
-	store	r1,[r14+-36]
+	store	r1,[r14+-40]
 !   Prepare Argument: offset=12  value=id  sizeInBytes=4
 	load	[r14+8],r1
 	store	r1,[r15+4]
 !   Send message Enter
-	load	[r14+-36],r1
+	load	[r14+-40],r1
 	load	[r1],r2
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,36,r2
+	add	r2,40,r2
 	call	r2
 ! IF STATEMENT...
-	mov	242,r13		! source line 242
+	mov	275,r13		! source line 275
 	mov	"\0\0IF",r10
-!   if _Global_waiting >= 5 then goto _Label_86		(int)
+!   if _Global_waiting >= 4 then goto _Label_97		(int)
 	set	_Global_waiting,r1
 	load	[r1],r1
-	mov	5,r2
+	mov	4,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bge	_Label_86
-!	jmp	_Label_85
-_Label_85:
+	bge	_Label_97
+!	jmp	_Label_96
+_Label_96:
 ! THEN...
-	mov	243,r13		! source line 243
+	mov	276,r13		! source line 276
 	mov	"\0\0TN",r10
 ! ASSIGNMENT STATEMENT...
-	mov	243,r13		! source line 243
+	mov	276,r13		! source line 276
 	mov	"\0\0AS",r10
 !   _Global_waiting = _Global_waiting + 1		(int)
 	set	_Global_waiting,r1
@@ -19399,58 +30724,58 @@ _Label_85:
 	set	_Global_waiting,r2
 	store	r1,[r2]
 ! SEND STATEMENT...
-	mov	244,r13		! source line 244
+	mov	277,r13		! source line 277
 	mov	"\0\0SE",r10
-!   _temp_87 = &_Global_customersSem
+!   _temp_98 = &_Global_customersSem
 	set	_Global_customersSem,r1
-	store	r1,[r14+-32]
+	store	r1,[r14+-36]
 !   Send message Up
+	load	[r14+-36],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,12,r2
+	call	r2
+! SEND STATEMENT...
+	mov	279,r13		! source line 279
+	mov	"\0\0SE",r10
+!   _temp_99 = &_Global_shop
+	set	_Global_shop,r1
+	store	r1,[r14+-32]
+!   Prepare Argument: offset=12  value=id  sizeInBytes=4
+	load	[r14+8],r1
+	store	r1,[r15+4]
+!   Send message Sit
 	load	[r14+-32],r1
 	load	[r1],r2
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,12,r2
+	add	r2,32,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	246,r13		! source line 246
+	mov	280,r13		! source line 280
 	mov	"\0\0SE",r10
-!   _temp_88 = &_Global_shop
-	set	_Global_shop,r1
+!   _temp_100 = &_Global_mutex
+	set	_Global_mutex,r1
 	store	r1,[r14+-28]
-!   Prepare Argument: offset=12  value=id  sizeInBytes=4
-	load	[r14+8],r1
-	store	r1,[r15+4]
-!   Send message Sit
+!   Send message Up
 	load	[r14+-28],r1
 	load	[r1],r2
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,28,r2
-	call	r2
-! SEND STATEMENT...
-	mov	247,r13		! source line 247
-	mov	"\0\0SE",r10
-!   _temp_89 = &_Global_mutex
-	set	_Global_mutex,r1
-	store	r1,[r14+-24]
-!   Send message Up
-	load	[r14+-24],r1
-	load	[r1],r2
-	cmp	r2,0
-	be	 _runtimeErrorUninitializedObject
-	store	r1,[r15]
 	add	r2,12,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	248,r13		! source line 248
+	mov	281,r13		! source line 281
 	mov	"\0\0SE",r10
-!   _temp_90 = &_Global_barbers
+!   _temp_101 = &_Global_barbers
 	set	_Global_barbers,r1
-	store	r1,[r14+-20]
+	store	r1,[r14+-24]
 !   Send message Down
-	load	[r14+-20],r1
+	load	[r14+-24],r1
 	load	[r1],r2
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
@@ -19462,18 +30787,44 @@ _Label_85:
 	load	[r14+8],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	250,r13		! source line 250
+	mov	283,r13		! source line 283
 	mov	"\0\0CA",r10
-	call	_function_41_GetHaircut
-	jmp	_Label_91
-_Label_86:
+	call	_function_49_GetHaircut
+! SEND STATEMENT...
+	mov	284,r13		! source line 284
+	mov	"\0\0SE",r10
+!   _temp_102 = &_Global_shop
+	set	_Global_shop,r1
+	store	r1,[r14+-20]
+!   Prepare Argument: offset=12  value=id  sizeInBytes=4
+	load	[r14+8],r1
+	store	r1,[r15+4]
+!   Send message Exit
+	load	[r14+-20],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,44,r2
+	call	r2
+! ASSIGNMENT STATEMENT...
+	mov	286,r13		! source line 286
+	mov	"\0\0AS",r10
+!   i = i + 1		(int)
+	load	[r14+-48],r1
+	mov	1,r2
+	add	r1,r2,r1
+	bvs	_runtimeErrorOverflow
+	store	r1,[r14+-48]
+	jmp	_Label_103
+_Label_97:
 ! ELSE...
-	mov	254,r13		! source line 254
+	mov	289,r13		! source line 289
 	mov	"\0\0EL",r10
 ! SEND STATEMENT...
-	mov	254,r13		! source line 254
+	mov	289,r13		! source line 289
 	mov	"\0\0SE",r10
-!   _temp_92 = &_Global_shop
+!   _temp_104 = &_Global_shop
 	set	_Global_shop,r1
 	store	r1,[r14+-16]
 !   Prepare Argument: offset=12  value=id  sizeInBytes=4
@@ -19485,12 +30836,12 @@ _Label_86:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,40,r2
+	add	r2,44,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	255,r13		! source line 255
+	mov	290,r13		! source line 290
 	mov	"\0\0SE",r10
-!   _temp_93 = &_Global_mutex
+!   _temp_105 = &_Global_mutex
 	set	_Global_mutex,r1
 	store	r1,[r14+-12]
 !   Send message Up
@@ -19501,110 +30852,146 @@ _Label_86:
 	store	r1,[r15]
 	add	r2,12,r2
 	call	r2
+! IF STATEMENT...
+	mov	291,r13		! source line 291
+	mov	"\0\0IF",r10
+	jmp	_Label_107
+_Label_106:
+! THEN...
+	mov	292,r13		! source line 292
+	mov	"\0\0TN",r10
+! ASSIGNMENT STATEMENT...
+	mov	292,r13		! source line 292
+	mov	"\0\0AS",r10
+!   i = i + 1		(int)
+	load	[r14+-48],r1
+	mov	1,r2
+	add	r1,r2,r1
+	bvs	_runtimeErrorOverflow
+	store	r1,[r14+-48]
 ! END IF...
-_Label_91:
+_Label_107:
+! END IF...
+_Label_103:
+! END WHILE...
+	jmp	_Label_91
+_Label_93:
 ! CALL STATEMENT...
 !   Call the function
-	mov	257,r13		! source line 257
+	mov	296,r13		! source line 296
 	mov	"\0\0CA",r10
 	call	_P_Thread_ThreadFinish
 ! RETURN STATEMENT...
-	mov	257,r13		! source line 257
+	mov	296,r13		! source line 296
 	mov	"\0\0RE",r10
-	add	r15,44,r15
+	add	r15,52,r15
 	pop	r13
 	pop	r14
 	ret
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_39_customer:
+_RoutineDescriptor__function_47_customer:
 	.word	_sourceFileName
-	.word	_Label_94
+	.word	_Label_108
 	.word	4		! total size of parameters
-	.word	40		! frame size = 40
-	.word	_Label_95
+	.word	48		! frame size = 48
+	.word	_Label_109
 	.word	8
 	.word	4
-	.word	_Label_96
+	.word	_Label_110
 	.word	-12
 	.word	4
-	.word	_Label_97
+	.word	_Label_111
 	.word	-16
 	.word	4
-	.word	_Label_98
+	.word	_Label_112
 	.word	-20
 	.word	4
-	.word	_Label_99
+	.word	_Label_113
 	.word	-24
 	.word	4
-	.word	_Label_100
+	.word	_Label_114
 	.word	-28
 	.word	4
-	.word	_Label_101
+	.word	_Label_115
 	.word	-32
 	.word	4
-	.word	_Label_102
+	.word	_Label_116
 	.word	-36
 	.word	4
-	.word	_Label_103
+	.word	_Label_117
 	.word	-40
 	.word	4
+	.word	_Label_118
+	.word	-44
+	.word	4
+	.word	_Label_119
+	.word	-48
+	.word	4
 	.word	0
-_Label_94:
+_Label_108:
 	.ascii	"customer\0"
 	.align
-_Label_95:
+_Label_109:
 	.byte	'I'
 	.ascii	"id\0"
 	.align
-_Label_96:
+_Label_110:
 	.byte	'?'
-	.ascii	"_temp_93\0"
+	.ascii	"_temp_105\0"
 	.align
-_Label_97:
+_Label_111:
 	.byte	'?'
-	.ascii	"_temp_92\0"
+	.ascii	"_temp_104\0"
 	.align
-_Label_98:
+_Label_112:
 	.byte	'?'
-	.ascii	"_temp_90\0"
+	.ascii	"_temp_102\0"
 	.align
-_Label_99:
+_Label_113:
 	.byte	'?'
-	.ascii	"_temp_89\0"
+	.ascii	"_temp_101\0"
 	.align
-_Label_100:
+_Label_114:
 	.byte	'?'
-	.ascii	"_temp_88\0"
+	.ascii	"_temp_100\0"
 	.align
-_Label_101:
+_Label_115:
 	.byte	'?'
-	.ascii	"_temp_87\0"
+	.ascii	"_temp_99\0"
 	.align
-_Label_102:
+_Label_116:
 	.byte	'?'
-	.ascii	"_temp_84\0"
+	.ascii	"_temp_98\0"
 	.align
-_Label_103:
+_Label_117:
 	.byte	'?'
-	.ascii	"_temp_83\0"
+	.ascii	"_temp_95\0"
+	.align
+_Label_118:
+	.byte	'?'
+	.ascii	"_temp_94\0"
+	.align
+_Label_119:
+	.byte	'I'
+	.ascii	"i\0"
 	.align
 ! 
 ! ===============  FUNCTION sleepingBarber  ===============
 ! 
-_function_38_sleepingBarber:
+_P_Main_sleepingBarber:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_38_sleepingBarber,r1
+	set	_RoutineDescriptor__P_Main_sleepingBarber,r1
 	push	r1
 	mov	26,r1
-_Label_590:
+_Label_647:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_590
-	mov	265,r13		! source line 265
+	bne	_Label_647
+	mov	304,r13		! source line 304
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! name_str
@@ -19616,25 +31003,25 @@ _Label_590:
 	mov	0,r1
 	store	r1,[r14+-100]
 ! ASSIGNMENT STATEMENT...
-	mov	270,r13		! source line 270
+	mov	309,r13		! source line 309
 	mov	"\0\0AS",r10
 !   NEW CLASS Constructor...
-!   ZeroMemory: _Global_shop = zeros  (sizeInBytes=120)
+!   ZeroMemory: _Global_shop = zeros  (sizeInBytes=112)
 	set	_Global_shop,r4
-	mov	30,r3
-_Label_591:
+	mov	28,r3
+_Label_648:
 	store	r0,[r4]
 	add	r4,4,r4
 	sub	r3,1,r3
-	bne	_Label_591
+	bne	_Label_648
 !   _Global_shop = _P_Main_Barbershop
 	set	_P_Main_Barbershop,r1
 	set	_Global_shop,r2
 	store	r1,[r2]
 ! SEND STATEMENT...
-	mov	271,r13		! source line 271
+	mov	310,r13		! source line 310
 	mov	"\0\0SE",r10
-!   _temp_105 = &_Global_shop
+!   _temp_121 = &_Global_shop
 	set	_Global_shop,r1
 	store	r1,[r14+-88]
 !   Send message Init
@@ -19643,12 +31030,12 @@ _Label_591:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,4,r2
+	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	274,r13		! source line 274
+	mov	313,r13		! source line 313
 	mov	"\0\0SE",r10
-!   _temp_106 = &_Global_StartSem
+!   _temp_122 = &_Global_StartSem
 	set	_Global_StartSem,r1
 	store	r1,[r14+-84]
 !   Prepare Argument: offset=12  value=0  sizeInBytes=4
@@ -19663,9 +31050,9 @@ _Label_591:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	275,r13		! source line 275
+	mov	314,r13		! source line 314
 	mov	"\0\0SE",r10
-!   _temp_107 = &_Global_FinishSem
+!   _temp_123 = &_Global_FinishSem
 	set	_Global_FinishSem,r1
 	store	r1,[r14+-80]
 !   Prepare Argument: offset=12  value=0  sizeInBytes=4
@@ -19680,9 +31067,9 @@ _Label_591:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	278,r13		! source line 278
+	mov	317,r13		! source line 317
 	mov	"\0\0SE",r10
-!   _temp_108 = &_Global_customersSem
+!   _temp_124 = &_Global_customersSem
 	set	_Global_customersSem,r1
 	store	r1,[r14+-76]
 !   Prepare Argument: offset=12  value=0  sizeInBytes=4
@@ -19697,9 +31084,9 @@ _Label_591:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	280,r13		! source line 280
+	mov	319,r13		! source line 319
 	mov	"\0\0SE",r10
-!   _temp_109 = &_Global_barbers
+!   _temp_125 = &_Global_barbers
 	set	_Global_barbers,r1
 	store	r1,[r14+-72]
 !   Prepare Argument: offset=12  value=0  sizeInBytes=4
@@ -19714,9 +31101,9 @@ _Label_591:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	282,r13		! source line 282
+	mov	321,r13		! source line 321
 	mov	"\0\0SE",r10
-!   _temp_110 = &_Global_mutex
+!   _temp_126 = &_Global_mutex
 	set	_Global_mutex,r1
 	store	r1,[r14+-68]
 !   Prepare Argument: offset=12  value=1  sizeInBytes=4
@@ -19731,15 +31118,15 @@ _Label_591:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	286,r13		! source line 286
+	mov	325,r13		! source line 325
 	mov	"\0\0SE",r10
-!   _temp_111 = _StringConst_2
+!   _temp_127 = _StringConst_2
 	set	_StringConst_2,r1
 	store	r1,[r14+-64]
-!   _temp_112 = &_Global_threadB
+!   _temp_128 = &_Global_threadB
 	set	_Global_threadB,r1
 	store	r1,[r14+-60]
-!   Prepare Argument: offset=12  value=_temp_111  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_127  sizeInBytes=4
 	load	[r14+-64],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -19751,15 +31138,15 @@ _Label_591:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	287,r13		! source line 287
+	mov	326,r13		! source line 326
 	mov	"\0\0SE",r10
-!   _temp_113 = _function_40_barber
-	set	_function_40_barber,r1
+!   _temp_129 = _function_48_barber
+	set	_function_48_barber,r1
 	store	r1,[r14+-56]
-!   _temp_114 = &_Global_threadB
+!   _temp_130 = &_Global_threadB
 	set	_Global_threadB,r1
 	store	r1,[r14+-52]
-!   Prepare Argument: offset=12  value=_temp_113  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_129  sizeInBytes=4
 	load	[r14+-56],r1
 	store	r1,[r15+4]
 !   Prepare Argument: offset=16  value=0  sizeInBytes=4
@@ -19774,39 +31161,39 @@ _Label_591:
 	add	r2,8,r2
 	call	r2
 ! FOR STATEMENT...
-	mov	289,r13		! source line 289
+	mov	328,r13		! source line 328
 	mov	"\0\0FO",r10
 !   Calculate and save the FOR-LOOP starting value
-!   _temp_119 = 0		(4 bytes)
+!   _temp_135 = 0		(4 bytes)
 	mov	0,r1
 	store	r1,[r14+-48]
 !   Calculate and save the FOR-LOOP ending value
-!   _temp_120 = 8		(4 bytes)
-	mov	8,r1
+!   _temp_136 = 19		(4 bytes)
+	mov	19,r1
 	store	r1,[r14+-44]
 !   Initialize FOR-LOOP index variable
-!   Data Move: i = _temp_119  (sizeInBytes=4)
+!   Data Move: i = _temp_135  (sizeInBytes=4)
 	load	[r14+-48],r1
 	store	r1,[r14+-100]
-_Label_115:
+_Label_131:
 !   Perform the FOR-LOOP termination test
-!   if i > _temp_120 then goto _Label_118		
+!   if i > _temp_136 then goto _Label_134		
 	load	[r14+-100],r1
 	load	[r14+-44],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bg	_Label_118
-_Label_116:
-	mov	289,r13		! source line 289
+	bg	_Label_134
+_Label_132:
+	mov	328,r13		! source line 328
 	mov	"\0\0FB",r10
 ! ASSIGNMENT STATEMENT...
-	mov	290,r13		! source line 290
+	mov	329,r13		! source line 329
 	mov	"\0\0AS",r10
 !   if intIsZero (name_str) then goto _runtimeErrorNullPointer
 	load	[r14+-96],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
-!   Move address of name_str [0 ] into _temp_121
+!   Move address of name_str [0 ] into _temp_137
 !     make sure index expr is >= 0
 	mov	0,r2
 	cmp	r2,0
@@ -19825,26 +31212,26 @@ _Label_116:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-40]
-!   _temp_123 = 65 + i		(int)
+!   _temp_139 = 65 + i		(int)
 	mov	65,r1
 	load	[r14+-100],r2
 	add	r1,r2,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-36]
-!   _temp_122 = intToChar (_temp_123)
+!   _temp_138 = intToChar (_temp_139)
 	load	[r14+-36],r1
 	storeb	r1,[r14+-9]
-!   Data Move: *_temp_121 = _temp_122  (sizeInBytes=1)
+!   Data Move: *_temp_137 = _temp_138  (sizeInBytes=1)
 	loadb	[r14+-9],r1
 	load	[r14+-40],r2
 	storeb	r1,[r2]
 ! SEND STATEMENT...
-	mov	291,r13		! source line 291
+	mov	330,r13		! source line 330
 	mov	"\0\0SE",r10
-!   _temp_124 = &_Global_thArr
+!   _temp_140 = &_Global_thArr
 	set	_Global_thArr,r1
 	store	r1,[r14+-32]
-!   Move address of _temp_124 [i ] into _temp_125
+!   Move address of _temp_140 [i ] into _temp_141
 !     make sure index expr is >= 0
 	load	[r14+-100],r2
 	cmp	r2,0
@@ -19875,15 +31262,15 @@ _Label_116:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	292,r13		! source line 292
+	mov	331,r13		! source line 331
 	mov	"\0\0SE",r10
-!   _temp_126 = _function_39_customer
-	set	_function_39_customer,r1
+!   _temp_142 = _function_47_customer
+	set	_function_47_customer,r1
 	store	r1,[r14+-24]
-!   _temp_127 = &_Global_thArr
+!   _temp_143 = &_Global_thArr
 	set	_Global_thArr,r1
 	store	r1,[r14+-20]
-!   Move address of _temp_127 [i ] into _temp_128
+!   Move address of _temp_143 [i ] into _temp_144
 !     make sure index expr is >= 0
 	load	[r14+-100],r2
 	cmp	r2,0
@@ -19902,7 +31289,7 @@ _Label_116:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-16]
-!   Prepare Argument: offset=12  value=_temp_126  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_142  sizeInBytes=4
 	load	[r14+-24],r1
 	store	r1,[r15+4]
 !   Prepare Argument: offset=16  value=i  sizeInBytes=4
@@ -19917,17 +31304,17 @@ _Label_116:
 	add	r2,8,r2
 	call	r2
 !   Increment the FOR-LOOP index variable and jump back
-_Label_117:
+_Label_133:
 !   i = i + 1
 	load	[r14+-100],r1
 	add	r1,1,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-100]
-	jmp	_Label_115
+	jmp	_Label_131
 ! END FOR
-_Label_118:
+_Label_134:
 ! RETURN STATEMENT...
-	mov	289,r13		! source line 289
+	mov	328,r13		! source line 328
 	mov	"\0\0RE",r10
 	add	r15,108,r15
 	pop	r13
@@ -19936,213 +31323,213 @@ _Label_118:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_38_sleepingBarber:
+_RoutineDescriptor__P_Main_sleepingBarber:
 	.word	_sourceFileName
-	.word	_Label_129
+	.word	_Label_145
 	.word	0		! total size of parameters
 	.word	104		! frame size = 104
-	.word	_Label_130
+	.word	_Label_146
 	.word	-16
 	.word	4
-	.word	_Label_131
+	.word	_Label_147
 	.word	-20
 	.word	4
-	.word	_Label_132
+	.word	_Label_148
 	.word	-24
 	.word	4
-	.word	_Label_133
+	.word	_Label_149
 	.word	-28
 	.word	4
-	.word	_Label_134
+	.word	_Label_150
 	.word	-32
 	.word	4
-	.word	_Label_135
+	.word	_Label_151
 	.word	-36
 	.word	4
-	.word	_Label_136
+	.word	_Label_152
 	.word	-9
 	.word	1
-	.word	_Label_137
+	.word	_Label_153
 	.word	-40
 	.word	4
-	.word	_Label_138
+	.word	_Label_154
 	.word	-44
 	.word	4
-	.word	_Label_139
+	.word	_Label_155
 	.word	-48
 	.word	4
-	.word	_Label_140
+	.word	_Label_156
 	.word	-52
 	.word	4
-	.word	_Label_141
+	.word	_Label_157
 	.word	-56
 	.word	4
-	.word	_Label_142
+	.word	_Label_158
 	.word	-60
 	.word	4
-	.word	_Label_143
+	.word	_Label_159
 	.word	-64
 	.word	4
-	.word	_Label_144
+	.word	_Label_160
 	.word	-68
 	.word	4
-	.word	_Label_145
+	.word	_Label_161
 	.word	-72
 	.word	4
-	.word	_Label_146
+	.word	_Label_162
 	.word	-76
 	.word	4
-	.word	_Label_147
+	.word	_Label_163
 	.word	-80
 	.word	4
-	.word	_Label_148
+	.word	_Label_164
 	.word	-84
 	.word	4
-	.word	_Label_149
+	.word	_Label_165
 	.word	-88
 	.word	4
-	.word	_Label_150
+	.word	_Label_166
 	.word	-92
 	.word	4
-	.word	_Label_151
+	.word	_Label_167
 	.word	-96
 	.word	4
-	.word	_Label_152
+	.word	_Label_168
 	.word	-100
 	.word	4
 	.word	0
-_Label_129:
-	.ascii	"sleepingBarber\0"
-	.align
-_Label_130:
-	.byte	'?'
-	.ascii	"_temp_128\0"
-	.align
-_Label_131:
-	.byte	'?'
-	.ascii	"_temp_127\0"
-	.align
-_Label_132:
-	.byte	'?'
-	.ascii	"_temp_126\0"
-	.align
-_Label_133:
-	.byte	'?'
-	.ascii	"_temp_125\0"
-	.align
-_Label_134:
-	.byte	'?'
-	.ascii	"_temp_124\0"
-	.align
-_Label_135:
-	.byte	'?'
-	.ascii	"_temp_123\0"
-	.align
-_Label_136:
-	.byte	'C'
-	.ascii	"_temp_122\0"
-	.align
-_Label_137:
-	.byte	'?'
-	.ascii	"_temp_121\0"
-	.align
-_Label_138:
-	.byte	'?'
-	.ascii	"_temp_120\0"
-	.align
-_Label_139:
-	.byte	'?'
-	.ascii	"_temp_119\0"
-	.align
-_Label_140:
-	.byte	'?'
-	.ascii	"_temp_114\0"
-	.align
-_Label_141:
-	.byte	'?'
-	.ascii	"_temp_113\0"
-	.align
-_Label_142:
-	.byte	'?'
-	.ascii	"_temp_112\0"
-	.align
-_Label_143:
-	.byte	'?'
-	.ascii	"_temp_111\0"
-	.align
-_Label_144:
-	.byte	'?'
-	.ascii	"_temp_110\0"
-	.align
 _Label_145:
-	.byte	'?'
-	.ascii	"_temp_109\0"
+	.ascii	"sleepingBarber\0"
 	.align
 _Label_146:
 	.byte	'?'
-	.ascii	"_temp_108\0"
+	.ascii	"_temp_144\0"
 	.align
 _Label_147:
 	.byte	'?'
-	.ascii	"_temp_107\0"
+	.ascii	"_temp_143\0"
 	.align
 _Label_148:
 	.byte	'?'
-	.ascii	"_temp_106\0"
+	.ascii	"_temp_142\0"
 	.align
 _Label_149:
 	.byte	'?'
-	.ascii	"_temp_105\0"
+	.ascii	"_temp_141\0"
 	.align
 _Label_150:
 	.byte	'?'
-	.ascii	"_temp_104\0"
+	.ascii	"_temp_140\0"
 	.align
 _Label_151:
+	.byte	'?'
+	.ascii	"_temp_139\0"
+	.align
+_Label_152:
+	.byte	'C'
+	.ascii	"_temp_138\0"
+	.align
+_Label_153:
+	.byte	'?'
+	.ascii	"_temp_137\0"
+	.align
+_Label_154:
+	.byte	'?'
+	.ascii	"_temp_136\0"
+	.align
+_Label_155:
+	.byte	'?'
+	.ascii	"_temp_135\0"
+	.align
+_Label_156:
+	.byte	'?'
+	.ascii	"_temp_130\0"
+	.align
+_Label_157:
+	.byte	'?'
+	.ascii	"_temp_129\0"
+	.align
+_Label_158:
+	.byte	'?'
+	.ascii	"_temp_128\0"
+	.align
+_Label_159:
+	.byte	'?'
+	.ascii	"_temp_127\0"
+	.align
+_Label_160:
+	.byte	'?'
+	.ascii	"_temp_126\0"
+	.align
+_Label_161:
+	.byte	'?'
+	.ascii	"_temp_125\0"
+	.align
+_Label_162:
+	.byte	'?'
+	.ascii	"_temp_124\0"
+	.align
+_Label_163:
+	.byte	'?'
+	.ascii	"_temp_123\0"
+	.align
+_Label_164:
+	.byte	'?'
+	.ascii	"_temp_122\0"
+	.align
+_Label_165:
+	.byte	'?'
+	.ascii	"_temp_121\0"
+	.align
+_Label_166:
+	.byte	'?'
+	.ascii	"_temp_120\0"
+	.align
+_Label_167:
 	.byte	'P'
 	.ascii	"name_str\0"
 	.align
-_Label_152:
+_Label_168:
 	.byte	'I'
 	.ascii	"i\0"
 	.align
 ! 
 ! ===============  FUNCTION gamingParlor  ===============
 ! 
-_function_37_gamingParlor:
+_P_Main_gamingParlor:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_37_gamingParlor,r1
+	set	_RoutineDescriptor__P_Main_gamingParlor,r1
 	push	r1
 	mov	38,r1
-_Label_592:
+_Label_649:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_592
-	mov	419,r13		! source line 419
+	bne	_Label_649
+	mov	458,r13		! source line 458
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! ASSIGNMENT STATEMENT...
-	mov	422,r13		! source line 422
+	mov	461,r13		! source line 461
 	mov	"\0\0AS",r10
 !   NEW CLASS Constructor...
 !   ZeroMemory: _Global_mon = zeros  (sizeInBytes=72)
 	set	_Global_mon,r4
 	mov	18,r3
-_Label_593:
+_Label_650:
 	store	r0,[r4]
 	add	r4,4,r4
 	sub	r3,1,r3
-	bne	_Label_593
+	bne	_Label_650
 !   _Global_mon = _P_Main_FrontDeskMonitor
 	set	_P_Main_FrontDeskMonitor,r1
 	set	_Global_mon,r2
 	store	r1,[r2]
 ! SEND STATEMENT...
-	mov	423,r13		! source line 423
+	mov	462,r13		! source line 462
 	mov	"\0\0SE",r10
-!   _temp_154 = &_Global_mon
+!   _temp_170 = &_Global_mon
 	set	_Global_mon,r1
 	store	r1,[r14+-140]
 !   Prepare Argument: offset=12  value=dieNumber  sizeInBytes=4
@@ -20157,15 +31544,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	425,r13		! source line 425
+	mov	464,r13		! source line 464
 	mov	"\0\0SE",r10
-!   _temp_155 = _StringConst_3
+!   _temp_171 = _StringConst_3
 	set	_StringConst_3,r1
 	store	r1,[r14+-136]
-!   _temp_156 = &_Global_customers
+!   _temp_172 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-132]
-!   Move address of _temp_156 [0 ] into _temp_157
+!   Move address of _temp_172 [0 ] into _temp_173
 !     make sure index expr is >= 0
 	mov	0,r2
 	cmp	r2,0
@@ -20184,7 +31571,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-128]
-!   Prepare Argument: offset=12  value=_temp_155  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_171  sizeInBytes=4
 	load	[r14+-136],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20196,15 +31583,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	426,r13		! source line 426
+	mov	465,r13		! source line 465
 	mov	"\0\0SE",r10
-!   _temp_158 = _StringConst_4
+!   _temp_174 = _StringConst_4
 	set	_StringConst_4,r1
 	store	r1,[r14+-124]
-!   _temp_159 = &_Global_customers
+!   _temp_175 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-120]
-!   Move address of _temp_159 [1 ] into _temp_160
+!   Move address of _temp_175 [1 ] into _temp_176
 !     make sure index expr is >= 0
 	mov	1,r2
 	cmp	r2,0
@@ -20223,7 +31610,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-116]
-!   Prepare Argument: offset=12  value=_temp_158  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_174  sizeInBytes=4
 	load	[r14+-124],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20235,15 +31622,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	427,r13		! source line 427
+	mov	466,r13		! source line 466
 	mov	"\0\0SE",r10
-!   _temp_161 = _StringConst_5
+!   _temp_177 = _StringConst_5
 	set	_StringConst_5,r1
 	store	r1,[r14+-112]
-!   _temp_162 = &_Global_customers
+!   _temp_178 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-108]
-!   Move address of _temp_162 [2 ] into _temp_163
+!   Move address of _temp_178 [2 ] into _temp_179
 !     make sure index expr is >= 0
 	mov	2,r2
 	cmp	r2,0
@@ -20262,7 +31649,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-104]
-!   Prepare Argument: offset=12  value=_temp_161  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_177  sizeInBytes=4
 	load	[r14+-112],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20274,15 +31661,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	428,r13		! source line 428
+	mov	467,r13		! source line 467
 	mov	"\0\0SE",r10
-!   _temp_164 = _StringConst_6
+!   _temp_180 = _StringConst_6
 	set	_StringConst_6,r1
 	store	r1,[r14+-100]
-!   _temp_165 = &_Global_customers
+!   _temp_181 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-96]
-!   Move address of _temp_165 [3 ] into _temp_166
+!   Move address of _temp_181 [3 ] into _temp_182
 !     make sure index expr is >= 0
 	mov	3,r2
 	cmp	r2,0
@@ -20301,7 +31688,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-92]
-!   Prepare Argument: offset=12  value=_temp_164  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_180  sizeInBytes=4
 	load	[r14+-100],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20313,15 +31700,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	429,r13		! source line 429
+	mov	468,r13		! source line 468
 	mov	"\0\0SE",r10
-!   _temp_167 = _StringConst_7
+!   _temp_183 = _StringConst_7
 	set	_StringConst_7,r1
 	store	r1,[r14+-88]
-!   _temp_168 = &_Global_customers
+!   _temp_184 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-84]
-!   Move address of _temp_168 [4 ] into _temp_169
+!   Move address of _temp_184 [4 ] into _temp_185
 !     make sure index expr is >= 0
 	mov	4,r2
 	cmp	r2,0
@@ -20340,7 +31727,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-80]
-!   Prepare Argument: offset=12  value=_temp_167  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_183  sizeInBytes=4
 	load	[r14+-88],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20352,15 +31739,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	430,r13		! source line 430
+	mov	469,r13		! source line 469
 	mov	"\0\0SE",r10
-!   _temp_170 = _StringConst_8
+!   _temp_186 = _StringConst_8
 	set	_StringConst_8,r1
 	store	r1,[r14+-76]
-!   _temp_171 = &_Global_customers
+!   _temp_187 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-72]
-!   Move address of _temp_171 [5 ] into _temp_172
+!   Move address of _temp_187 [5 ] into _temp_188
 !     make sure index expr is >= 0
 	mov	5,r2
 	cmp	r2,0
@@ -20379,7 +31766,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-68]
-!   Prepare Argument: offset=12  value=_temp_170  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_186  sizeInBytes=4
 	load	[r14+-76],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20391,15 +31778,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	431,r13		! source line 431
+	mov	470,r13		! source line 470
 	mov	"\0\0SE",r10
-!   _temp_173 = _StringConst_9
+!   _temp_189 = _StringConst_9
 	set	_StringConst_9,r1
 	store	r1,[r14+-64]
-!   _temp_174 = &_Global_customers
+!   _temp_190 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-60]
-!   Move address of _temp_174 [6 ] into _temp_175
+!   Move address of _temp_190 [6 ] into _temp_191
 !     make sure index expr is >= 0
 	mov	6,r2
 	cmp	r2,0
@@ -20418,7 +31805,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-56]
-!   Prepare Argument: offset=12  value=_temp_173  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_189  sizeInBytes=4
 	load	[r14+-64],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20430,15 +31817,15 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	432,r13		! source line 432
+	mov	471,r13		! source line 471
 	mov	"\0\0SE",r10
-!   _temp_176 = _StringConst_10
+!   _temp_192 = _StringConst_10
 	set	_StringConst_10,r1
 	store	r1,[r14+-52]
-!   _temp_177 = &_Global_customers
+!   _temp_193 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-48]
-!   Move address of _temp_177 [7 ] into _temp_178
+!   Move address of _temp_193 [7 ] into _temp_194
 !     make sure index expr is >= 0
 	mov	7,r2
 	cmp	r2,0
@@ -20457,7 +31844,7 @@ _Label_593:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-44]
-!   Prepare Argument: offset=12  value=_temp_176  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_192  sizeInBytes=4
 	load	[r14+-52],r1
 	store	r1,[r15+4]
 !   Send message Init
@@ -20469,41 +31856,41 @@ _Label_593:
 	add	r2,4,r2
 	call	r2
 ! FOR STATEMENT...
-	mov	434,r13		! source line 434
+	mov	473,r13		! source line 473
 	mov	"\0\0FO",r10
 !   Calculate and save the FOR-LOOP starting value
-!   _temp_183 = 0		(4 bytes)
+!   _temp_199 = 0		(4 bytes)
 	mov	0,r1
 	store	r1,[r14+-40]
 !   Calculate and save the FOR-LOOP ending value
-!   _temp_184 = 7		(4 bytes)
+!   _temp_200 = 7		(4 bytes)
 	mov	7,r1
 	store	r1,[r14+-36]
 !   Initialize FOR-LOOP index variable
-!   Data Move: i = _temp_183  (sizeInBytes=4)
+!   Data Move: i = _temp_199  (sizeInBytes=4)
 	load	[r14+-40],r1
 	store	r1,[r14+-148]
-_Label_179:
+_Label_195:
 !   Perform the FOR-LOOP termination test
-!   if i > _temp_184 then goto _Label_182		
+!   if i > _temp_200 then goto _Label_198		
 	load	[r14+-148],r1
 	load	[r14+-36],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bg	_Label_182
-_Label_180:
-	mov	434,r13		! source line 434
+	bg	_Label_198
+_Label_196:
+	mov	473,r13		! source line 473
 	mov	"\0\0FB",r10
 ! SEND STATEMENT...
-	mov	435,r13		! source line 435
+	mov	474,r13		! source line 474
 	mov	"\0\0SE",r10
-!   _temp_185 = _function_36_customerGroup
-	set	_function_36_customerGroup,r1
+!   _temp_201 = _function_46_customerGroup
+	set	_function_46_customerGroup,r1
 	store	r1,[r14+-32]
-!   _temp_187 = &_Global_games
+!   _temp_203 = &_Global_games
 	set	_Global_games,r1
 	store	r1,[r14+-24]
-!   Move address of _temp_187 [i ] into _temp_188
+!   Move address of _temp_203 [i ] into _temp_204
 !     make sure index expr is >= 0
 	load	[r14+-148],r2
 	cmp	r2,0
@@ -20522,14 +31909,14 @@ _Label_180:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-20]
-!   Data Move: _temp_186 = *_temp_188  (sizeInBytes=4)
+!   Data Move: _temp_202 = *_temp_204  (sizeInBytes=4)
 	load	[r14+-20],r1
 	load	[r1],r1
 	store	r1,[r14+-28]
-!   _temp_189 = &_Global_customers
+!   _temp_205 = &_Global_customers
 	set	_Global_customers,r1
 	store	r1,[r14+-16]
-!   Move address of _temp_189 [i ] into _temp_190
+!   Move address of _temp_205 [i ] into _temp_206
 !     make sure index expr is >= 0
 	load	[r14+-148],r2
 	cmp	r2,0
@@ -20548,10 +31935,10 @@ _Label_180:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-12]
-!   Prepare Argument: offset=12  value=_temp_185  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_201  sizeInBytes=4
 	load	[r14+-32],r1
 	store	r1,[r15+4]
-!   Prepare Argument: offset=16  value=_temp_186  sizeInBytes=4
+!   Prepare Argument: offset=16  value=_temp_202  sizeInBytes=4
 	load	[r14+-28],r1
 	store	r1,[r15+8]
 !   Send message Fork
@@ -20563,17 +31950,17 @@ _Label_180:
 	add	r2,8,r2
 	call	r2
 !   Increment the FOR-LOOP index variable and jump back
-_Label_181:
+_Label_197:
 !   i = i + 1
 	load	[r14+-148],r1
 	add	r1,1,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-148]
-	jmp	_Label_179
+	jmp	_Label_195
 ! END FOR
-_Label_182:
+_Label_198:
 ! RETURN STATEMENT...
-	mov	434,r13		! source line 434
+	mov	473,r13		! source line 473
 	mov	"\0\0RE",r10
 	add	r15,156,r15
 	pop	r13
@@ -20582,314 +31969,314 @@ _Label_182:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_37_gamingParlor:
+_RoutineDescriptor__P_Main_gamingParlor:
 	.word	_sourceFileName
-	.word	_Label_191
+	.word	_Label_207
 	.word	4		! total size of parameters
 	.word	152		! frame size = 152
-	.word	_Label_192
+	.word	_Label_208
 	.word	8
 	.word	4
-	.word	_Label_193
+	.word	_Label_209
 	.word	-12
 	.word	4
-	.word	_Label_194
+	.word	_Label_210
 	.word	-16
 	.word	4
-	.word	_Label_195
+	.word	_Label_211
 	.word	-20
 	.word	4
-	.word	_Label_196
+	.word	_Label_212
 	.word	-24
 	.word	4
-	.word	_Label_197
+	.word	_Label_213
 	.word	-28
 	.word	4
-	.word	_Label_198
+	.word	_Label_214
 	.word	-32
 	.word	4
-	.word	_Label_199
+	.word	_Label_215
 	.word	-36
 	.word	4
-	.word	_Label_200
+	.word	_Label_216
 	.word	-40
 	.word	4
-	.word	_Label_201
+	.word	_Label_217
 	.word	-44
 	.word	4
-	.word	_Label_202
+	.word	_Label_218
 	.word	-48
 	.word	4
-	.word	_Label_203
+	.word	_Label_219
 	.word	-52
 	.word	4
-	.word	_Label_204
+	.word	_Label_220
 	.word	-56
 	.word	4
-	.word	_Label_205
+	.word	_Label_221
 	.word	-60
 	.word	4
-	.word	_Label_206
+	.word	_Label_222
 	.word	-64
 	.word	4
-	.word	_Label_207
+	.word	_Label_223
 	.word	-68
 	.word	4
-	.word	_Label_208
+	.word	_Label_224
 	.word	-72
 	.word	4
-	.word	_Label_209
+	.word	_Label_225
 	.word	-76
 	.word	4
-	.word	_Label_210
+	.word	_Label_226
 	.word	-80
 	.word	4
-	.word	_Label_211
+	.word	_Label_227
 	.word	-84
 	.word	4
-	.word	_Label_212
+	.word	_Label_228
 	.word	-88
 	.word	4
-	.word	_Label_213
+	.word	_Label_229
 	.word	-92
 	.word	4
-	.word	_Label_214
+	.word	_Label_230
 	.word	-96
 	.word	4
-	.word	_Label_215
+	.word	_Label_231
 	.word	-100
 	.word	4
-	.word	_Label_216
+	.word	_Label_232
 	.word	-104
 	.word	4
-	.word	_Label_217
+	.word	_Label_233
 	.word	-108
 	.word	4
-	.word	_Label_218
+	.word	_Label_234
 	.word	-112
 	.word	4
-	.word	_Label_219
+	.word	_Label_235
 	.word	-116
 	.word	4
-	.word	_Label_220
+	.word	_Label_236
 	.word	-120
 	.word	4
-	.word	_Label_221
+	.word	_Label_237
 	.word	-124
 	.word	4
-	.word	_Label_222
+	.word	_Label_238
 	.word	-128
 	.word	4
-	.word	_Label_223
+	.word	_Label_239
 	.word	-132
 	.word	4
-	.word	_Label_224
+	.word	_Label_240
 	.word	-136
 	.word	4
-	.word	_Label_225
+	.word	_Label_241
 	.word	-140
 	.word	4
-	.word	_Label_226
+	.word	_Label_242
 	.word	-144
 	.word	4
-	.word	_Label_227
+	.word	_Label_243
 	.word	-148
 	.word	4
 	.word	0
-_Label_191:
+_Label_207:
 	.ascii	"gamingParlor\0"
 	.align
-_Label_192:
+_Label_208:
 	.byte	'I'
 	.ascii	"dieNumber\0"
 	.align
-_Label_193:
-	.byte	'?'
-	.ascii	"_temp_190\0"
-	.align
-_Label_194:
-	.byte	'?'
-	.ascii	"_temp_189\0"
-	.align
-_Label_195:
-	.byte	'?'
-	.ascii	"_temp_188\0"
-	.align
-_Label_196:
-	.byte	'?'
-	.ascii	"_temp_187\0"
-	.align
-_Label_197:
-	.byte	'?'
-	.ascii	"_temp_186\0"
-	.align
-_Label_198:
-	.byte	'?'
-	.ascii	"_temp_185\0"
-	.align
-_Label_199:
-	.byte	'?'
-	.ascii	"_temp_184\0"
-	.align
-_Label_200:
-	.byte	'?'
-	.ascii	"_temp_183\0"
-	.align
-_Label_201:
-	.byte	'?'
-	.ascii	"_temp_178\0"
-	.align
-_Label_202:
-	.byte	'?'
-	.ascii	"_temp_177\0"
-	.align
-_Label_203:
-	.byte	'?'
-	.ascii	"_temp_176\0"
-	.align
-_Label_204:
-	.byte	'?'
-	.ascii	"_temp_175\0"
-	.align
-_Label_205:
-	.byte	'?'
-	.ascii	"_temp_174\0"
-	.align
-_Label_206:
-	.byte	'?'
-	.ascii	"_temp_173\0"
-	.align
-_Label_207:
-	.byte	'?'
-	.ascii	"_temp_172\0"
-	.align
-_Label_208:
-	.byte	'?'
-	.ascii	"_temp_171\0"
-	.align
 _Label_209:
 	.byte	'?'
-	.ascii	"_temp_170\0"
+	.ascii	"_temp_206\0"
 	.align
 _Label_210:
 	.byte	'?'
-	.ascii	"_temp_169\0"
+	.ascii	"_temp_205\0"
 	.align
 _Label_211:
 	.byte	'?'
-	.ascii	"_temp_168\0"
+	.ascii	"_temp_204\0"
 	.align
 _Label_212:
 	.byte	'?'
-	.ascii	"_temp_167\0"
+	.ascii	"_temp_203\0"
 	.align
 _Label_213:
 	.byte	'?'
-	.ascii	"_temp_166\0"
+	.ascii	"_temp_202\0"
 	.align
 _Label_214:
 	.byte	'?'
-	.ascii	"_temp_165\0"
+	.ascii	"_temp_201\0"
 	.align
 _Label_215:
 	.byte	'?'
-	.ascii	"_temp_164\0"
+	.ascii	"_temp_200\0"
 	.align
 _Label_216:
 	.byte	'?'
-	.ascii	"_temp_163\0"
+	.ascii	"_temp_199\0"
 	.align
 _Label_217:
 	.byte	'?'
-	.ascii	"_temp_162\0"
+	.ascii	"_temp_194\0"
 	.align
 _Label_218:
 	.byte	'?'
-	.ascii	"_temp_161\0"
+	.ascii	"_temp_193\0"
 	.align
 _Label_219:
 	.byte	'?'
-	.ascii	"_temp_160\0"
+	.ascii	"_temp_192\0"
 	.align
 _Label_220:
 	.byte	'?'
-	.ascii	"_temp_159\0"
+	.ascii	"_temp_191\0"
 	.align
 _Label_221:
 	.byte	'?'
-	.ascii	"_temp_158\0"
+	.ascii	"_temp_190\0"
 	.align
 _Label_222:
 	.byte	'?'
-	.ascii	"_temp_157\0"
+	.ascii	"_temp_189\0"
 	.align
 _Label_223:
 	.byte	'?'
-	.ascii	"_temp_156\0"
+	.ascii	"_temp_188\0"
 	.align
 _Label_224:
 	.byte	'?'
-	.ascii	"_temp_155\0"
+	.ascii	"_temp_187\0"
 	.align
 _Label_225:
 	.byte	'?'
-	.ascii	"_temp_154\0"
+	.ascii	"_temp_186\0"
 	.align
 _Label_226:
 	.byte	'?'
-	.ascii	"_temp_153\0"
+	.ascii	"_temp_185\0"
 	.align
 _Label_227:
+	.byte	'?'
+	.ascii	"_temp_184\0"
+	.align
+_Label_228:
+	.byte	'?'
+	.ascii	"_temp_183\0"
+	.align
+_Label_229:
+	.byte	'?'
+	.ascii	"_temp_182\0"
+	.align
+_Label_230:
+	.byte	'?'
+	.ascii	"_temp_181\0"
+	.align
+_Label_231:
+	.byte	'?'
+	.ascii	"_temp_180\0"
+	.align
+_Label_232:
+	.byte	'?'
+	.ascii	"_temp_179\0"
+	.align
+_Label_233:
+	.byte	'?'
+	.ascii	"_temp_178\0"
+	.align
+_Label_234:
+	.byte	'?'
+	.ascii	"_temp_177\0"
+	.align
+_Label_235:
+	.byte	'?'
+	.ascii	"_temp_176\0"
+	.align
+_Label_236:
+	.byte	'?'
+	.ascii	"_temp_175\0"
+	.align
+_Label_237:
+	.byte	'?'
+	.ascii	"_temp_174\0"
+	.align
+_Label_238:
+	.byte	'?'
+	.ascii	"_temp_173\0"
+	.align
+_Label_239:
+	.byte	'?'
+	.ascii	"_temp_172\0"
+	.align
+_Label_240:
+	.byte	'?'
+	.ascii	"_temp_171\0"
+	.align
+_Label_241:
+	.byte	'?'
+	.ascii	"_temp_170\0"
+	.align
+_Label_242:
+	.byte	'?'
+	.ascii	"_temp_169\0"
+	.align
+_Label_243:
 	.byte	'I'
 	.ascii	"i\0"
 	.align
 ! 
 ! ===============  FUNCTION customerGroup  ===============
 ! 
-_function_36_customerGroup:
+_function_46_customerGroup:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_36_customerGroup,r1
+	set	_RoutineDescriptor__function_46_customerGroup,r1
 	push	r1
 	mov	7,r1
-_Label_594:
+_Label_651:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_594
-	mov	440,r13		! source line 440
+	bne	_Label_651
+	mov	479,r13		! source line 479
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! FOR STATEMENT...
-	mov	444,r13		! source line 444
+	mov	483,r13		! source line 483
 	mov	"\0\0FO",r10
 !   Calculate and save the FOR-LOOP starting value
-!   _temp_232 = 1		(4 bytes)
+!   _temp_248 = 1		(4 bytes)
 	mov	1,r1
 	store	r1,[r14+-24]
 !   Calculate and save the FOR-LOOP ending value
-!   _temp_233 = 5		(4 bytes)
+!   _temp_249 = 5		(4 bytes)
 	mov	5,r1
 	store	r1,[r14+-20]
 !   Initialize FOR-LOOP index variable
-!   Data Move: i = _temp_232  (sizeInBytes=4)
+!   Data Move: i = _temp_248  (sizeInBytes=4)
 	load	[r14+-24],r1
 	store	r1,[r14+-28]
-_Label_228:
+_Label_244:
 !   Perform the FOR-LOOP termination test
-!   if i > _temp_233 then goto _Label_231		
+!   if i > _temp_249 then goto _Label_247		
 	load	[r14+-28],r1
 	load	[r14+-20],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bg	_Label_231
-_Label_229:
-	mov	444,r13		! source line 444
+	bg	_Label_247
+_Label_245:
+	mov	483,r13		! source line 483
 	mov	"\0\0FB",r10
 ! SEND STATEMENT...
-	mov	445,r13		! source line 445
+	mov	484,r13		! source line 484
 	mov	"\0\0SE",r10
-!   _temp_234 = &_Global_mon
+!   _temp_250 = &_Global_mon
 	set	_Global_mon,r1
 	store	r1,[r14+-16]
 !   Prepare Argument: offset=12  value=game  sizeInBytes=4
@@ -20904,7 +32291,7 @@ _Label_229:
 	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	446,r13		! source line 446
+	mov	485,r13		! source line 485
 	mov	"\0\0SE",r10
 !   if intIsZero (_P_Thread_currentThread) then goto _runtimeErrorNullPointer
 	set	_P_Thread_currentThread,r1
@@ -20921,9 +32308,9 @@ _Label_229:
 	add	r2,12,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	447,r13		! source line 447
+	mov	486,r13		! source line 486
 	mov	"\0\0SE",r10
-!   _temp_235 = &_Global_mon
+!   _temp_251 = &_Global_mon
 	set	_Global_mon,r1
 	store	r1,[r14+-12]
 !   Prepare Argument: offset=12  value=game  sizeInBytes=4
@@ -20938,22 +32325,22 @@ _Label_229:
 	add	r2,12,r2
 	call	r2
 !   Increment the FOR-LOOP index variable and jump back
-_Label_230:
+_Label_246:
 !   i = i + 1
 	load	[r14+-28],r1
 	add	r1,1,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-28]
-	jmp	_Label_228
+	jmp	_Label_244
 ! END FOR
-_Label_231:
+_Label_247:
 ! CALL STATEMENT...
 !   Call the function
-	mov	449,r13		! source line 449
+	mov	488,r13		! source line 488
 	mov	"\0\0CA",r10
 	call	_P_Thread_ThreadFinish
 ! RETURN STATEMENT...
-	mov	449,r13		! source line 449
+	mov	488,r13		! source line 488
 	mov	"\0\0RE",r10
 	add	r15,32,r15
 	pop	r13
@@ -20962,71 +32349,71 @@ _Label_231:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_36_customerGroup:
+_RoutineDescriptor__function_46_customerGroup:
 	.word	_sourceFileName
-	.word	_Label_236
+	.word	_Label_252
 	.word	4		! total size of parameters
 	.word	28		! frame size = 28
-	.word	_Label_237
+	.word	_Label_253
 	.word	8
 	.word	4
-	.word	_Label_238
+	.word	_Label_254
 	.word	-12
 	.word	4
-	.word	_Label_239
+	.word	_Label_255
 	.word	-16
 	.word	4
-	.word	_Label_240
+	.word	_Label_256
 	.word	-20
 	.word	4
-	.word	_Label_241
+	.word	_Label_257
 	.word	-24
 	.word	4
-	.word	_Label_242
+	.word	_Label_258
 	.word	-28
 	.word	4
 	.word	0
-_Label_236:
+_Label_252:
 	.ascii	"customerGroup\0"
 	.align
-_Label_237:
+_Label_253:
 	.byte	'I'
 	.ascii	"game\0"
 	.align
-_Label_238:
+_Label_254:
 	.byte	'?'
-	.ascii	"_temp_235\0"
+	.ascii	"_temp_251\0"
 	.align
-_Label_239:
+_Label_255:
 	.byte	'?'
-	.ascii	"_temp_234\0"
+	.ascii	"_temp_250\0"
 	.align
-_Label_240:
+_Label_256:
 	.byte	'?'
-	.ascii	"_temp_233\0"
+	.ascii	"_temp_249\0"
 	.align
-_Label_241:
+_Label_257:
 	.byte	'?'
-	.ascii	"_temp_232\0"
+	.ascii	"_temp_248\0"
 	.align
-_Label_242:
+_Label_258:
 	.byte	'I'
 	.ascii	"i\0"
 	.align
 ! 
 ! ===============  FUNCTION test  ===============
 ! 
-_function_35_test:
+_function_45_test:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__function_35_test,r1
+	set	_RoutineDescriptor__function_45_test,r1
 	push	r1
-	mov	452,r13		! source line 452
+	mov	491,r13		! source line 491
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! RETURN STATEMENT...
-	mov	452,r13		! source line 452
+	mov	491,r13		! source line 491
 	mov	"\0\0RE",r10
 	add	r15,4,r15
 	pop	r13
@@ -21035,13 +32422,13 @@ _function_35_test:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__function_35_test:
+_RoutineDescriptor__function_45_test:
 	.word	_sourceFileName
-	.word	_Label_243
+	.word	_Label_259
 	.word	0		! total size of parameters
 	.word	0		! frame size = 0
 	.word	0
-_Label_243:
+_Label_259:
 	.ascii	"test\0"
 	.align
 ! 
@@ -21053,26 +32440,26 @@ main:
 	push	r13
 	set	_RoutineDescriptor_main,r1
 	push	r1
-	mov	473,r13		! source line 473
+	mov	512,r13		! source line 512
 	mov	"\0\0FU",r10
 ! VARIABLE INITIALIZATION...
 ! CALL STATEMENT...
 !   Call the function
-	mov	474,r13		! source line 474
+	mov	513,r13		! source line 513
 	mov	"\0\0CA",r10
 	call	_P_Thread_InitializeScheduler
 ! CALL STATEMENT...
 !   Call the function
-	mov	475,r13		! source line 475
+	mov	514,r13		! source line 514
 	mov	"\0\0CA",r10
-	call	_function_38_sleepingBarber
+	call	_P_Main_sleepingBarber
 ! CALL STATEMENT...
 !   Call the function
-	mov	477,r13		! source line 477
+	mov	516,r13		! source line 516
 	mov	"\0\0CA",r10
 	call	_P_Thread_ThreadFinish
 ! RETURN STATEMENT...
-	mov	477,r13		! source line 477
+	mov	516,r13		! source line 516
 	mov	"\0\0RE",r10
 	add	r15,4,r15
 	pop	r13
@@ -21083,11 +32470,11 @@ main:
 ! 
 _RoutineDescriptor_main:
 	.word	_sourceFileName
-	.word	_Label_244
+	.word	_Label_260
 	.word	0		! total size of parameters
 	.word	0		! frame size = 0
 	.word	0
-_Label_244:
+_Label_260:
 	.ascii	"main\0"
 	.align
 ! 
@@ -21096,31 +32483,32 @@ _Label_244:
 ! Dispatch Table:
 ! 
 _P_Main_Barbershop:
-	.word	_Label_245
-	jmp	_Method_P_Main_Barbershop_1	! 4:	Init
-	jmp	_Method_P_Main_Barbershop_2	! 8:	Start
-	jmp	_Method_P_Main_Barbershop_3	! 12:	Finish
-	jmp	_Method_P_Main_Barbershop_4	! 16:	PrintState
-	jmp	_Method_P_Main_Barbershop_9	! 20:	Serve
-	jmp	_Method_P_Main_Barbershop_10	! 24:	Standup
-	jmp	_Method_P_Main_Barbershop_7	! 28:	Sit
-	jmp	_Method_P_Main_Barbershop_8	! 32:	Unsit
-	jmp	_Method_P_Main_Barbershop_5	! 36:	Enter
-	jmp	_Method_P_Main_Barbershop_6	! 40:	Exit
+	.word	_Label_261
+	jmp	_Method_P_Main_Barbershop_2	! 4:	PrintHeader
+	jmp	_Method_P_Main_Barbershop_1	! 8:	Init
+	jmp	_Method_P_Main_Barbershop_3	! 12:	Start
+	jmp	_Method_P_Main_Barbershop_4	! 16:	End
+	jmp	_Method_P_Main_Barbershop_5	! 20:	PrintState
+	jmp	_Method_P_Main_Barbershop_10	! 24:	Serve
+	jmp	_Method_P_Main_Barbershop_11	! 28:	Standup
+	jmp	_Method_P_Main_Barbershop_8	! 32:	Sit
+	jmp	_Method_P_Main_Barbershop_9	! 36:	Unsit
+	jmp	_Method_P_Main_Barbershop_6	! 40:	Enter
+	jmp	_Method_P_Main_Barbershop_7	! 44:	Exit
 	.word	0
 ! 
 ! Class descriptor:
 ! 
-_Label_245:
+_Label_261:
 	.word	1129070931		! Magic number 0x434c4153 == 'CLAS'
-	.word	_Label_246
+	.word	_Label_262
 	.word	_sourceFileName
-	.word	13		! line number
-	.word	120		! size of instances, in bytes
+	.word	21		! line number
+	.word	112		! size of instances, in bytes
 	.word	_P_Main_Barbershop
 	.word	_P_System_Object
 	.word	0
-_Label_246:
+_Label_262:
 	.ascii	"Barbershop\0"
 	.align
 ! 
@@ -21133,10 +32521,10 @@ _Method_P_Main_Barbershop_1:
 	set	_RoutineDescriptor__Method_P_Main_Barbershop_1,r1
 	push	r1
 	mov	18,r1
-_Label_595:
+_Label_652:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_595
+	bne	_Label_652
 	mov	12,r13		! source line 12
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
@@ -21175,7 +32563,7 @@ _Label_595:
 ! SEND STATEMENT...
 	mov	15,r13		! source line 15
 	mov	"\0\0SE",r10
-!   _temp_249 = &Start
+!   _temp_265 = &Start
 	load	[r14+8],r1
 	add	r1,4,r1
 	store	r1,[r14+-64]
@@ -21193,7 +32581,7 @@ _Label_595:
 ! SEND STATEMENT...
 	mov	16,r13		! source line 16
 	mov	"\0\0SE",r10
-!   _temp_250 = &Fin
+!   _temp_266 = &Fin
 	load	[r14+8],r1
 	add	r1,24,r1
 	store	r1,[r14+-60]
@@ -21211,63 +32599,63 @@ _Label_595:
 ! ASSIGNMENT STATEMENT...
 	mov	17,r13		! source line 17
 	mov	"\0\0AS",r10
-!   _temp_251 = &Cust
+!   _temp_267 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-56]
 !   NEW ARRAY Constructor...
-!   _temp_253 = &_temp_252
+!   _temp_269 = &_temp_268
 	add	r14,-52,r1
-	store	r1,[r14+-28]
-!   _temp_253 = _temp_253 + 4
-	load	[r14+-28],r1
+	store	r1,[r14+-32]
+!   _temp_269 = _temp_269 + 4
+	load	[r14+-32],r1
 	add	r1,4,r1
-	store	r1,[r14+-28]
+	store	r1,[r14+-32]
 !   Next value...
-	mov	5,r1
-	store	r1,[r14+-24]
-_Label_255:
-!   Data Move: *_temp_253 = -1  (sizeInBytes=4)
-	mov	-1,r1
-	load	[r14+-28],r2
-	store	r1,[r2]
-!   _temp_253 = _temp_253 + 4
-	load	[r14+-28],r1
-	add	r1,4,r1
+	mov	4,r1
 	store	r1,[r14+-28]
-!   _temp_254 = _temp_254 + -1
-	load	[r14+-24],r1
+_Label_271:
+!   Data Move: *_temp_269 = -1  (sizeInBytes=4)
+	mov	-1,r1
+	load	[r14+-32],r2
+	store	r1,[r2]
+!   _temp_269 = _temp_269 + 4
+	load	[r14+-32],r1
+	add	r1,4,r1
+	store	r1,[r14+-32]
+!   _temp_270 = _temp_270 + -1
+	load	[r14+-28],r1
 	add	r1,-1,r1
-	store	r1,[r14+-24]
-!   if intNotZero (_temp_254) then goto _Label_255
-	load	[r14+-24],r1
+	store	r1,[r14+-28]
+!   if intNotZero (_temp_270) then goto _Label_271
+	load	[r14+-28],r1
 	cmp	r1,r0
-	bne	_Label_255
+	bne	_Label_271
 !   Initialize the array size...
-	mov	5,r1
+	mov	4,r1
 	store	r1,[r14+-52]
-!   _temp_256 = &_temp_252
+!   _temp_272 = &_temp_268
 	add	r14,-52,r1
-	store	r1,[r14+-20]
-!   make sure array has size 5
+	store	r1,[r14+-24]
+!   make sure array has size 4
 	load	[r14+-56],r1
 	load	[r1],r1
-	set	5, r2
+	set	4, r2
 	cmp	r1,0
-	be	_Label_596
+	be	_Label_653
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
 	bne	_runtimeErrorWrongArraySize
-_Label_596:
-!   make sure array has size 5
-	load	[r14+-20],r1
+_Label_653:
+!   make sure array has size 4
+	load	[r14+-24],r1
 	load	[r1],r1
-	set	5, r2
+	set	4, r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
 	bne	_runtimeErrorWrongArraySize
-!   Data Move: *_temp_251 = *_temp_256  (sizeInBytes=24)
-	load	[r14+-20],r5
+!   Data Move: *_temp_267 = *_temp_272  (sizeInBytes=20)
+	load	[r14+-24],r5
 	load	[r14+-56],r4
 	load	[r5],r1
 	store	r1,[r4]
@@ -21279,15 +32667,13 @@ _Label_596:
 	store	r1,[r4+12]
 	load	[r5+16],r1
 	store	r1,[r4+16]
-	load	[r5+20],r1
-	store	r1,[r4+20]
 ! ASSIGNMENT STATEMENT...
 	mov	18,r13		! source line 18
 	mov	"\0\0AS",r10
 !   NEW CLASS Constructor...
 !   ZeroMemory: mut = zeros  (sizeInBytes=20)
 	load	[r14+8],r4
-	add	r4,72,r4
+	add	r4,68,r4
 	store	r0,[r4]
 	store	r0,[r4+4]
 	store	r0,[r4+8]
@@ -21296,37 +32682,37 @@ _Label_596:
 !   mut = _P_Synch_Mutex
 	set	_P_Synch_Mutex,r1
 	load	[r14+8],r2
-	store	r1,[r2+72]
+	store	r1,[r2+68]
 ! ASSIGNMENT STATEMENT...
 	mov	19,r13		! source line 19
 	mov	"\0\0AS",r10
 !   current = -1		(4 bytes)
 	mov	-1,r1
 	load	[r14+8],r2
-	store	r1,[r2+92]
+	store	r1,[r2+88]
 ! ASSIGNMENT STATEMENT...
 	mov	20,r13		! source line 20
 	mov	"\0\0AS",r10
 !   working = 0		(1 byte)
 	mov	0,r1
 	load	[r14+8],r2
-	storeb	r1,[r2+96]
+	storeb	r1,[r2+92]
 ! ASSIGNMENT STATEMENT...
 	mov	21,r13		! source line 21
 	mov	"\0\0AS",r10
 !   waitingN = 0		(4 bytes)
 	mov	0,r1
 	load	[r14+8],r2
-	store	r1,[r2+68]
+	store	r1,[r2+64]
 ! SEND STATEMENT...
 	mov	22,r13		! source line 22
 	mov	"\0\0SE",r10
-!   _temp_258 = &mut
+!   _temp_274 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
-	store	r1,[r14+-12]
+	add	r1,68,r1
+	store	r1,[r14+-16]
 !   Send message Init
-	load	[r14+-12],r1
+	load	[r14+-16],r1
 	load	[r1],r2
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
@@ -21336,40 +32722,50 @@ _Label_596:
 ! ASSIGNMENT STATEMENT...
 	mov	23,r13		! source line 23
 	mov	"\0\0AS",r10
-!   chairs = 5		(4 bytes)
-	mov	5,r1
+!   chairs = 4		(4 bytes)
+	mov	4,r1
 	load	[r14+8],r2
-	store	r1,[r2+100]
+	store	r1,[r2+96]
 ! ASSIGNMENT STATEMENT...
 	mov	24,r13		! source line 24
 	mov	"\0\0AS",r10
 !   enter = -1		(4 bytes)
 	mov	-1,r1
 	load	[r14+8],r2
-	store	r1,[r2+104]
+	store	r1,[r2+100]
 ! ASSIGNMENT STATEMENT...
 	mov	25,r13		! source line 25
 	mov	"\0\0AS",r10
 !   exit = -1		(4 bytes)
 	mov	-1,r1
 	load	[r14+8],r2
-	store	r1,[r2+108]
+	store	r1,[r2+104]
 ! ASSIGNMENT STATEMENT...
 	mov	26,r13		! source line 26
 	mov	"\0\0AS",r10
 !   finished = -1		(4 bytes)
 	mov	-1,r1
 	load	[r14+8],r2
-	store	r1,[r2+112]
-! ASSIGNMENT STATEMENT...
-	mov	27,r13		! source line 27
-	mov	"\0\0AS",r10
-!   twoDigit = 0		(1 byte)
-	mov	0,r1
-	load	[r14+8],r2
-	storeb	r1,[r2+116]
+	store	r1,[r2+108]
+! SEND STATEMENT...
+	mov	28,r13		! source line 28
+	mov	"\0\0SE",r10
+	load	[r14+8],r1
+	store	r1,[r14+-12]
+!   if intIsZero (_temp_275) then goto _runtimeErrorNullPointer
+	load	[r14+-12],r1
+	cmp	r1,r0
+	be	_runtimeErrorNullPointer
+!   Send message PrintHeader
+	load	[r14+-12],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,4,r2
+	call	r2
 ! RETURN STATEMENT...
-	mov	27,r13		! source line 27
+	mov	28,r13		! source line 28
 	mov	"\0\0RE",r10
 	add	r15,76,r15
 	pop	r13
@@ -21380,100 +32776,107 @@ _Label_596:
 ! 
 _RoutineDescriptor__Method_P_Main_Barbershop_1:
 	.word	_sourceFileName
-	.word	_Label_259
+	.word	_Label_276
 	.word	4		! total size of parameters
 	.word	72		! frame size = 72
-	.word	_Label_260
+	.word	_Label_277
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_261
+	.word	_Label_278
 	.word	-12
 	.word	4
-	.word	_Label_262
+	.word	_Label_279
 	.word	-16
 	.word	4
-	.word	_Label_263
+	.word	_Label_280
 	.word	-20
 	.word	4
-	.word	_Label_264
+	.word	_Label_281
 	.word	-24
 	.word	4
-	.word	_Label_265
+	.word	_Label_282
 	.word	-28
 	.word	4
-	.word	_Label_266
+	.word	_Label_283
+	.word	-32
+	.word	4
+	.word	_Label_284
 	.word	-52
-	.word	24
-	.word	_Label_267
+	.word	20
+	.word	_Label_285
 	.word	-56
 	.word	4
-	.word	_Label_268
+	.word	_Label_286
 	.word	-60
 	.word	4
-	.word	_Label_269
+	.word	_Label_287
 	.word	-64
 	.word	4
-	.word	_Label_270
+	.word	_Label_288
 	.word	-68
 	.word	4
-	.word	_Label_271
+	.word	_Label_289
 	.word	-72
 	.word	4
 	.word	0
-_Label_259:
+_Label_276:
 	.ascii	"Barbershop"
 	.ascii	"::"
 	.ascii	"Init\0"
 	.align
-_Label_260:
+_Label_277:
 	.ascii	"Pself\0"
 	.align
-_Label_261:
+_Label_278:
 	.byte	'?'
-	.ascii	"_temp_258\0"
+	.ascii	"_temp_275\0"
 	.align
-_Label_262:
+_Label_279:
 	.byte	'?'
-	.ascii	"_temp_257\0"
+	.ascii	"_temp_274\0"
 	.align
-_Label_263:
+_Label_280:
 	.byte	'?'
-	.ascii	"_temp_256\0"
+	.ascii	"_temp_273\0"
 	.align
-_Label_264:
+_Label_281:
 	.byte	'?'
-	.ascii	"_temp_254\0"
+	.ascii	"_temp_272\0"
 	.align
-_Label_265:
+_Label_282:
 	.byte	'?'
-	.ascii	"_temp_253\0"
+	.ascii	"_temp_270\0"
 	.align
-_Label_266:
+_Label_283:
 	.byte	'?'
-	.ascii	"_temp_252\0"
+	.ascii	"_temp_269\0"
 	.align
-_Label_267:
+_Label_284:
 	.byte	'?'
-	.ascii	"_temp_251\0"
+	.ascii	"_temp_268\0"
 	.align
-_Label_268:
+_Label_285:
 	.byte	'?'
-	.ascii	"_temp_250\0"
+	.ascii	"_temp_267\0"
 	.align
-_Label_269:
+_Label_286:
 	.byte	'?'
-	.ascii	"_temp_249\0"
+	.ascii	"_temp_266\0"
 	.align
-_Label_270:
+_Label_287:
 	.byte	'?'
-	.ascii	"_temp_248\0"
+	.ascii	"_temp_265\0"
 	.align
-_Label_271:
+_Label_288:
 	.byte	'?'
-	.ascii	"_temp_247\0"
+	.ascii	"_temp_264\0"
+	.align
+_Label_289:
+	.byte	'?'
+	.ascii	"_temp_263\0"
 	.align
 ! 
-! ===============  METHOD Start  ===============
+! ===============  METHOD PrintHeader  ===============
 ! 
 _Method_P_Main_Barbershop_2:
 	push	r14
@@ -21481,72 +32884,214 @@ _Method_P_Main_Barbershop_2:
 	push	r13
 	set	_RoutineDescriptor__Method_P_Main_Barbershop_2,r1
 	push	r1
-	mov	4,r1
-_Label_597:
+	mov	14,r1
+_Label_654:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_597
+	bne	_Label_654
 	mov	31,r13		! source line 31
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
-! SEND STATEMENT...
-	mov	32,r13		! source line 32
-	mov	"\0\0SE",r10
-!   _temp_272 = &mut
-	load	[r14+8],r1
-	add	r1,72,r1
-	store	r1,[r14+-20]
-!   Send message Lock
-	load	[r14+-20],r1
-	load	[r1],r2
-	cmp	r2,0
-	be	 _runtimeErrorUninitializedObject
-	store	r1,[r15]
-	add	r2,8,r2
-	call	r2
-! ASSIGNMENT STATEMENT...
+! CALL STATEMENT...
+!   _temp_290 = _StringConst_11
+	set	_StringConst_11,r1
+	store	r1,[r14+-56]
+!   Prepare Argument: offset=8  value=_temp_290  sizeInBytes=4
+	load	[r14+-56],r1
+	store	r1,[r15+0]
+!   Call the function
 	mov	33,r13		! source line 33
-	mov	"\0\0AS",r10
-!   working = 1		(1 byte)
-	mov	1,r1
-	load	[r14+8],r2
-	storeb	r1,[r2+96]
-! SEND STATEMENT...
+	mov	"\0\0CE",r10
+	call	print
+! IF STATEMENT...
 	mov	34,r13		! source line 34
-	mov	"\0\0SE",r10
-	load	[r14+8],r1
+	mov	"\0\0IF",r10
+!	jmp	_Label_291
+_Label_291:
+! THEN...
+	mov	35,r13		! source line 35
+	mov	"\0\0TN",r10
+! CALL STATEMENT...
+!   _temp_293 = _StringConst_12
+	set	_StringConst_12,r1
+	store	r1,[r14+-52]
+!   Prepare Argument: offset=8  value=_temp_293  sizeInBytes=4
+	load	[r14+-52],r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	35,r13		! source line 35
+	mov	"\0\0CE",r10
+	call	print
+! END IF...
+_Label_292:
+! CALL STATEMENT...
+!   _temp_294 = _StringConst_13
+	set	_StringConst_13,r1
+	store	r1,[r14+-48]
+!   Prepare Argument: offset=8  value=_temp_294  sizeInBytes=4
+	load	[r14+-48],r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	37,r13		! source line 37
+	mov	"\0\0CE",r10
+	call	print
+! FOR STATEMENT...
+	mov	38,r13		! source line 38
+	mov	"\0\0FO",r10
+!   Calculate and save the FOR-LOOP starting value
+!   _temp_299 = 1		(4 bytes)
+	mov	1,r1
+	store	r1,[r14+-44]
+!   Calculate and save the FOR-LOOP ending value
+!   _temp_300 = 1		(4 bytes)
+	mov	1,r1
+	store	r1,[r14+-40]
+!   Initialize FOR-LOOP index variable
+!   Data Move: i = _temp_299  (sizeInBytes=4)
+	load	[r14+-44],r1
+	store	r1,[r14+-60]
+_Label_295:
+!   Perform the FOR-LOOP termination test
+!   if i > _temp_300 then goto _Label_298		
+	load	[r14+-60],r1
+	load	[r14+-40],r2
+	cmp	r1,r2
+	bvs	_runtimeErrorOverflow
+	bg	_Label_298
+_Label_296:
+	mov	38,r13		! source line 38
+	mov	"\0\0FB",r10
+! IF STATEMENT...
+	mov	39,r13		! source line 39
+	mov	"\0\0IF",r10
+!	jmp	_Label_301
+_Label_301:
+! THEN...
+	mov	40,r13		! source line 40
+	mov	"\0\0TN",r10
+! CALL STATEMENT...
+!   _temp_303 = _StringConst_14
+	set	_StringConst_14,r1
+	store	r1,[r14+-36]
+!   Prepare Argument: offset=8  value=_temp_303  sizeInBytes=4
+	load	[r14+-36],r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	40,r13		! source line 40
+	mov	"\0\0CE",r10
+	call	print
+! END IF...
+_Label_302:
+! IF STATEMENT...
+	mov	42,r13		! source line 42
+	mov	"\0\0IF",r10
+!   if i == 1 then goto _Label_305		(int)
+	load	[r14+-60],r1
+	mov	1,r2
+	cmp	r1,r2
+	be	_Label_305
+!	jmp	_Label_304
+_Label_304:
+! THEN...
+	mov	43,r13		! source line 43
+	mov	"\0\0TN",r10
+! CALL STATEMENT...
+!   _temp_306 = _StringConst_15
+	set	_StringConst_15,r1
+	store	r1,[r14+-32]
+!   Prepare Argument: offset=8  value=_temp_306  sizeInBytes=4
+	load	[r14+-32],r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	43,r13		! source line 43
+	mov	"\0\0CE",r10
+	call	print
+! END IF...
+_Label_305:
+!   Increment the FOR-LOOP index variable and jump back
+_Label_297:
+!   i = i + 1
+	load	[r14+-60],r1
+	add	r1,1,r1
+	bvs	_runtimeErrorOverflow
+	store	r1,[r14+-60]
+	jmp	_Label_295
+! END FOR
+_Label_298:
+! CALL STATEMENT...
+!   _temp_307 = _StringConst_16
+	set	_StringConst_16,r1
+	store	r1,[r14+-28]
+!   Prepare Argument: offset=8  value=_temp_307  sizeInBytes=4
+	load	[r14+-28],r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	46,r13		! source line 46
+	mov	"\0\0CE",r10
+	call	print
+! IF STATEMENT...
+	mov	47,r13		! source line 47
+	mov	"\0\0IF",r10
+!	jmp	_Label_308
+_Label_308:
+! THEN...
+	mov	48,r13		! source line 48
+	mov	"\0\0TN",r10
+! CALL STATEMENT...
+!   _temp_310 = _StringConst_17
+	set	_StringConst_17,r1
+	store	r1,[r14+-24]
+!   Prepare Argument: offset=8  value=_temp_310  sizeInBytes=4
+	load	[r14+-24],r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	48,r13		! source line 48
+	mov	"\0\0CE",r10
+	call	print
+! END IF...
+_Label_309:
+! CALL STATEMENT...
+!   _temp_311 = _StringConst_18
+	set	_StringConst_18,r1
+	store	r1,[r14+-20]
+!   Prepare Argument: offset=8  value=_temp_311  sizeInBytes=4
+	load	[r14+-20],r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	50,r13		! source line 50
+	mov	"\0\0CE",r10
+	call	print
+! CALL STATEMENT...
+!   _temp_312 = _StringConst_19
+	set	_StringConst_19,r1
 	store	r1,[r14+-16]
-!   if intIsZero (_temp_273) then goto _runtimeErrorNullPointer
+!   Prepare Argument: offset=8  value=_temp_312  sizeInBytes=4
 	load	[r14+-16],r1
-	cmp	r1,r0
-	be	_runtimeErrorNullPointer
-!   Send message PrintState
-	load	[r14+-16],r1
-	load	[r1],r2
-	cmp	r2,0
-	be	 _runtimeErrorUninitializedObject
-	store	r1,[r15]
-	add	r2,16,r2
-	call	r2
-! SEND STATEMENT...
-	mov	35,r13		! source line 35
-	mov	"\0\0SE",r10
-!   _temp_274 = &mut
-	load	[r14+8],r1
-	add	r1,72,r1
+	store	r1,[r15+0]
+!   Call the function
+	mov	51,r13		! source line 51
+	mov	"\0\0CE",r10
+	call	print
+! CALL STATEMENT...
+!   _temp_313 = _StringConst_20
+	set	_StringConst_20,r1
 	store	r1,[r14+-12]
-!   Send message Unlock
+!   Prepare Argument: offset=8  value=_temp_313  sizeInBytes=4
 	load	[r14+-12],r1
-	load	[r1],r2
-	cmp	r2,0
-	be	 _runtimeErrorUninitializedObject
-	store	r1,[r15]
-	add	r2,12,r2
-	call	r2
+	store	r1,[r15+0]
+!   Call the function
+	mov	52,r13		! source line 52
+	mov	"\0\0CE",r10
+	call	print
+! CALL STATEMENT...
+!   Call the function
+	mov	53,r13		! source line 53
+	mov	"\0\0CA",r10
+	call	_P_System_nl
 ! RETURN STATEMENT...
-	mov	35,r13		! source line 35
+	mov	53,r13		! source line 53
 	mov	"\0\0RE",r10
-	add	r15,20,r15
+	add	r15,60,r15
 	pop	r13
 	pop	r14
 	ret
@@ -21555,44 +33100,114 @@ _Label_597:
 ! 
 _RoutineDescriptor__Method_P_Main_Barbershop_2:
 	.word	_sourceFileName
-	.word	_Label_275
+	.word	_Label_314
 	.word	4		! total size of parameters
-	.word	16		! frame size = 16
-	.word	_Label_276
+	.word	56		! frame size = 56
+	.word	_Label_315
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_277
+	.word	_Label_316
 	.word	-12
 	.word	4
-	.word	_Label_278
+	.word	_Label_317
 	.word	-16
 	.word	4
-	.word	_Label_279
+	.word	_Label_318
 	.word	-20
 	.word	4
+	.word	_Label_319
+	.word	-24
+	.word	4
+	.word	_Label_320
+	.word	-28
+	.word	4
+	.word	_Label_321
+	.word	-32
+	.word	4
+	.word	_Label_322
+	.word	-36
+	.word	4
+	.word	_Label_323
+	.word	-40
+	.word	4
+	.word	_Label_324
+	.word	-44
+	.word	4
+	.word	_Label_325
+	.word	-48
+	.word	4
+	.word	_Label_326
+	.word	-52
+	.word	4
+	.word	_Label_327
+	.word	-56
+	.word	4
+	.word	_Label_328
+	.word	-60
+	.word	4
 	.word	0
-_Label_275:
+_Label_314:
 	.ascii	"Barbershop"
 	.ascii	"::"
-	.ascii	"Start\0"
+	.ascii	"PrintHeader\0"
 	.align
-_Label_276:
+_Label_315:
 	.ascii	"Pself\0"
 	.align
-_Label_277:
+_Label_316:
 	.byte	'?'
-	.ascii	"_temp_274\0"
+	.ascii	"_temp_313\0"
 	.align
-_Label_278:
+_Label_317:
 	.byte	'?'
-	.ascii	"_temp_273\0"
+	.ascii	"_temp_312\0"
 	.align
-_Label_279:
+_Label_318:
 	.byte	'?'
-	.ascii	"_temp_272\0"
+	.ascii	"_temp_311\0"
+	.align
+_Label_319:
+	.byte	'?'
+	.ascii	"_temp_310\0"
+	.align
+_Label_320:
+	.byte	'?'
+	.ascii	"_temp_307\0"
+	.align
+_Label_321:
+	.byte	'?'
+	.ascii	"_temp_306\0"
+	.align
+_Label_322:
+	.byte	'?'
+	.ascii	"_temp_303\0"
+	.align
+_Label_323:
+	.byte	'?'
+	.ascii	"_temp_300\0"
+	.align
+_Label_324:
+	.byte	'?'
+	.ascii	"_temp_299\0"
+	.align
+_Label_325:
+	.byte	'?'
+	.ascii	"_temp_294\0"
+	.align
+_Label_326:
+	.byte	'?'
+	.ascii	"_temp_293\0"
+	.align
+_Label_327:
+	.byte	'?'
+	.ascii	"_temp_290\0"
+	.align
+_Label_328:
+	.byte	'I'
+	.ascii	"i\0"
 	.align
 ! 
-! ===============  METHOD Finish  ===============
+! ===============  METHOD Start  ===============
 ! 
 _Method_P_Main_Barbershop_3:
 	push	r14
@@ -21601,19 +33216,19 @@ _Method_P_Main_Barbershop_3:
 	set	_RoutineDescriptor__Method_P_Main_Barbershop_3,r1
 	push	r1
 	mov	4,r1
-_Label_598:
+_Label_655:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_598
-	mov	38,r13		! source line 38
+	bne	_Label_655
+	mov	56,r13		! source line 56
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	39,r13		! source line 39
+	mov	57,r13		! source line 57
 	mov	"\0\0SE",r10
-!   _temp_280 = &mut
+!   _temp_329 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-20]
 !   Send message Lock
 	load	[r14+-20],r1
@@ -21624,18 +33239,18 @@ _Label_598:
 	add	r2,8,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	40,r13		! source line 40
+	mov	58,r13		! source line 58
 	mov	"\0\0AS",r10
-!   working = 0		(1 byte)
-	mov	0,r1
+!   working = 1		(1 byte)
+	mov	1,r1
 	load	[r14+8],r2
-	storeb	r1,[r2+96]
+	storeb	r1,[r2+92]
 ! SEND STATEMENT...
-	mov	41,r13		! source line 41
+	mov	59,r13		! source line 59
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-16]
-!   if intIsZero (_temp_281) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_330) then goto _runtimeErrorNullPointer
 	load	[r14+-16],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -21645,14 +33260,14 @@ _Label_598:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,16,r2
+	add	r2,20,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	42,r13		! source line 42
+	mov	60,r13		! source line 60
 	mov	"\0\0SE",r10
-!   _temp_282 = &mut
+!   _temp_331 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-12]
 !   Send message Unlock
 	load	[r14+-12],r1
@@ -21663,7 +33278,7 @@ _Label_598:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	42,r13		! source line 42
+	mov	60,r13		! source line 60
 	mov	"\0\0RE",r10
 	add	r15,20,r15
 	pop	r13
@@ -21674,44 +33289,44 @@ _Label_598:
 ! 
 _RoutineDescriptor__Method_P_Main_Barbershop_3:
 	.word	_sourceFileName
-	.word	_Label_283
+	.word	_Label_332
 	.word	4		! total size of parameters
 	.word	16		! frame size = 16
-	.word	_Label_284
+	.word	_Label_333
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_285
+	.word	_Label_334
 	.word	-12
 	.word	4
-	.word	_Label_286
+	.word	_Label_335
 	.word	-16
 	.word	4
-	.word	_Label_287
+	.word	_Label_336
 	.word	-20
 	.word	4
 	.word	0
-_Label_283:
+_Label_332:
 	.ascii	"Barbershop"
 	.ascii	"::"
-	.ascii	"Finish\0"
+	.ascii	"Start\0"
 	.align
-_Label_284:
+_Label_333:
 	.ascii	"Pself\0"
 	.align
-_Label_285:
+_Label_334:
 	.byte	'?'
-	.ascii	"_temp_282\0"
+	.ascii	"_temp_331\0"
 	.align
-_Label_286:
+_Label_335:
 	.byte	'?'
-	.ascii	"_temp_281\0"
+	.ascii	"_temp_330\0"
 	.align
-_Label_287:
+_Label_336:
 	.byte	'?'
-	.ascii	"_temp_280\0"
+	.ascii	"_temp_329\0"
 	.align
 ! 
-! ===============  METHOD PrintState  ===============
+! ===============  METHOD End  ===============
 ! 
 _Method_P_Main_Barbershop_4:
 	push	r14
@@ -21719,338 +33334,437 @@ _Method_P_Main_Barbershop_4:
 	push	r13
 	set	_RoutineDescriptor__Method_P_Main_Barbershop_4,r1
 	push	r1
-	mov	32,r1
-_Label_599:
+	mov	4,r1
+_Label_656:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_599
-	mov	45,r13		! source line 45
+	bne	_Label_656
+	mov	63,r13		! source line 63
+	mov	"\0\0ME",r10
+! VARIABLE INITIALIZATION...
+! SEND STATEMENT...
+	mov	64,r13		! source line 64
+	mov	"\0\0SE",r10
+!   _temp_337 = &mut
+	load	[r14+8],r1
+	add	r1,68,r1
+	store	r1,[r14+-20]
+!   Send message Lock
+	load	[r14+-20],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,8,r2
+	call	r2
+! ASSIGNMENT STATEMENT...
+	mov	65,r13		! source line 65
+	mov	"\0\0AS",r10
+!   working = 0		(1 byte)
+	mov	0,r1
+	load	[r14+8],r2
+	storeb	r1,[r2+92]
+! SEND STATEMENT...
+	mov	66,r13		! source line 66
+	mov	"\0\0SE",r10
+	load	[r14+8],r1
+	store	r1,[r14+-16]
+!   if intIsZero (_temp_338) then goto _runtimeErrorNullPointer
+	load	[r14+-16],r1
+	cmp	r1,r0
+	be	_runtimeErrorNullPointer
+!   Send message PrintState
+	load	[r14+-16],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,20,r2
+	call	r2
+! SEND STATEMENT...
+	mov	67,r13		! source line 67
+	mov	"\0\0SE",r10
+!   _temp_339 = &mut
+	load	[r14+8],r1
+	add	r1,68,r1
+	store	r1,[r14+-12]
+!   Send message Unlock
+	load	[r14+-12],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,12,r2
+	call	r2
+! RETURN STATEMENT...
+	mov	67,r13		! source line 67
+	mov	"\0\0RE",r10
+	add	r15,20,r15
+	pop	r13
+	pop	r14
+	ret
+! 
+! Routine Descriptor
+! 
+_RoutineDescriptor__Method_P_Main_Barbershop_4:
+	.word	_sourceFileName
+	.word	_Label_340
+	.word	4		! total size of parameters
+	.word	16		! frame size = 16
+	.word	_Label_341
+	.word	4		! size of self
+	.word	8		! offset of self
+	.word	_Label_342
+	.word	-12
+	.word	4
+	.word	_Label_343
+	.word	-16
+	.word	4
+	.word	_Label_344
+	.word	-20
+	.word	4
+	.word	0
+_Label_340:
+	.ascii	"Barbershop"
+	.ascii	"::"
+	.ascii	"End\0"
+	.align
+_Label_341:
+	.ascii	"Pself\0"
+	.align
+_Label_342:
+	.byte	'?'
+	.ascii	"_temp_339\0"
+	.align
+_Label_343:
+	.byte	'?'
+	.ascii	"_temp_338\0"
+	.align
+_Label_344:
+	.byte	'?'
+	.ascii	"_temp_337\0"
+	.align
+! 
+! ===============  METHOD PrintState  ===============
+! 
+_Method_P_Main_Barbershop_5:
+	push	r14
+	mov	r15,r14
+	push	r13
+	set	_RoutineDescriptor__Method_P_Main_Barbershop_5,r1
+	push	r1
+	mov	32,r1
+_Label_657:
+	push	r0
+	sub	r1,1,r1
+	bne	_Label_657
+	mov	70,r13		! source line 70
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! IF STATEMENT...
-	mov	48,r13		! source line 48
+	mov	73,r13		! source line 73
 	mov	"\0\0IF",r10
-!   if working then goto _Label_289 else goto _Label_288
+!   if working then goto _Label_346 else goto _Label_345
 	load	[r14+8],r1
-	loadb	[r1+96],r1
+	loadb	[r1+92],r1
 	cmp	r1,0
-	be	_Label_288
-	jmp	_Label_289
-_Label_288:
+	be	_Label_345
+	jmp	_Label_346
+_Label_345:
 ! THEN...
-	mov	49,r13		! source line 49
+	mov	74,r13		! source line 74
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
-!   _temp_290 = _StringConst_11
-	set	_StringConst_11,r1
+!   _temp_347 = _StringConst_21
+	set	_StringConst_21,r1
 	store	r1,[r14+-128]
-!   Prepare Argument: offset=8  value=_temp_290  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_347  sizeInBytes=4
 	load	[r14+-128],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	49,r13		! source line 49
+	mov	74,r13		! source line 74
 	mov	"\0\0CE",r10
 	call	print
-	jmp	_Label_291
-_Label_289:
+	jmp	_Label_348
+_Label_346:
 ! ELSE...
-	mov	51,r13		! source line 51
+	mov	76,r13		! source line 76
 	mov	"\0\0EL",r10
 ! CALL STATEMENT...
-!   _temp_292 = _StringConst_12
-	set	_StringConst_12,r1
+!   _temp_349 = _StringConst_22
+	set	_StringConst_22,r1
 	store	r1,[r14+-124]
-!   Prepare Argument: offset=8  value=_temp_292  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_349  sizeInBytes=4
 	load	[r14+-124],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	51,r13		! source line 51
+	mov	76,r13		! source line 76
 	mov	"\0\0CE",r10
 	call	print
 ! END IF...
-_Label_291:
+_Label_348:
 ! CALL STATEMENT...
-!   _temp_293 = _StringConst_13
-	set	_StringConst_13,r1
+!   _temp_350 = _StringConst_23
+	set	_StringConst_23,r1
 	store	r1,[r14+-120]
-!   Prepare Argument: offset=8  value=_temp_293  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_350  sizeInBytes=4
 	load	[r14+-120],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	53,r13		! source line 53
+	mov	78,r13		! source line 78
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	54,r13		! source line 54
+	mov	79,r13		! source line 79
 	mov	"\0\0IF",r10
-!   if current <= -1 then goto _Label_295		(int)
+!   if current <= -1 then goto _Label_352		(int)
 	load	[r14+8],r1
-	load	[r1+92],r1
+	load	[r1+88],r1
 	mov	-1,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	ble	_Label_295
-!	jmp	_Label_294
-_Label_294:
+	ble	_Label_352
+!	jmp	_Label_351
+_Label_351:
 ! THEN...
-	mov	55,r13		! source line 55
+	mov	80,r13		! source line 80
 	mov	"\0\0TN",r10
 ! IF STATEMENT...
-	mov	55,r13		! source line 55
+	mov	80,r13		! source line 80
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_298 else goto _Label_297
+!	jmp	_Label_355
+_Label_355:
+!   if current >= 10 then goto _Label_354		(int)
 	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_297
-	jmp	_Label_298
-_Label_298:
-!   if current >= 10 then goto _Label_297		(int)
-	load	[r14+8],r1
-	load	[r1+92],r1
+	load	[r1+88],r1
 	mov	10,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bge	_Label_297
-!	jmp	_Label_296
-_Label_296:
+	bge	_Label_354
+!	jmp	_Label_353
+_Label_353:
 ! THEN...
-	mov	56,r13		! source line 56
+	mov	81,r13		! source line 81
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=0  sizeInBytes=4
 	mov	0,r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	56,r13		! source line 56
+	mov	81,r13		! source line 81
 	mov	"\0\0CE",r10
 	call	printInt
 ! END IF...
-_Label_297:
+_Label_354:
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=current  sizeInBytes=4
 	load	[r14+8],r1
-	load	[r1+92],r1
+	load	[r1+88],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	58,r13		! source line 58
+	mov	83,r13		! source line 83
 	mov	"\0\0CE",r10
 	call	printInt
-	jmp	_Label_299
-_Label_295:
+	jmp	_Label_356
+_Label_352:
 ! ELSE...
-	mov	60,r13		! source line 60
+	mov	85,r13		! source line 85
 	mov	"\0\0EL",r10
 ! CALL STATEMENT...
-!   _temp_300 = _StringConst_14
-	set	_StringConst_14,r1
+!   _temp_357 = _StringConst_24
+	set	_StringConst_24,r1
 	store	r1,[r14+-116]
-!   Prepare Argument: offset=8  value=_temp_300  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_357  sizeInBytes=4
 	load	[r14+-116],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	60,r13		! source line 60
+	mov	85,r13		! source line 85
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	61,r13		! source line 61
+	mov	86,r13		! source line 86
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_301 else goto _Label_302
-	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_302
-	jmp	_Label_301
-_Label_301:
+!	jmp	_Label_358
+_Label_358:
 ! THEN...
-	mov	62,r13		! source line 62
+	mov	87,r13		! source line 87
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
-!   _temp_303 = _StringConst_15
-	set	_StringConst_15,r1
+!   _temp_360 = _StringConst_25
+	set	_StringConst_25,r1
 	store	r1,[r14+-112]
-!   Prepare Argument: offset=8  value=_temp_303  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_360  sizeInBytes=4
 	load	[r14+-112],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	62,r13		! source line 62
+	mov	87,r13		! source line 87
 	mov	"\0\0CE",r10
 	call	print
 ! END IF...
-_Label_302:
+_Label_359:
 ! END IF...
-_Label_299:
+_Label_356:
 ! CALL STATEMENT...
-!   _temp_304 = _StringConst_16
-	set	_StringConst_16,r1
+!   _temp_361 = _StringConst_26
+	set	_StringConst_26,r1
 	store	r1,[r14+-108]
-!   Prepare Argument: offset=8  value=_temp_304  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_361  sizeInBytes=4
 	load	[r14+-108],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	65,r13		! source line 65
+	mov	90,r13		! source line 90
 	mov	"\0\0CE",r10
 	call	print
 ! CALL STATEMENT...
-!   _temp_305 = _StringConst_17
-	set	_StringConst_17,r1
+!   _temp_362 = _StringConst_27
+	set	_StringConst_27,r1
 	store	r1,[r14+-104]
-!   Prepare Argument: offset=8  value=_temp_305  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_362  sizeInBytes=4
 	load	[r14+-104],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	68,r13		! source line 68
+	mov	93,r13		! source line 93
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	69,r13		! source line 69
+	mov	94,r13		! source line 94
 	mov	"\0\0IF",r10
-!   if finished <= -1 then goto _Label_307		(int)
+!   if finished <= -1 then goto _Label_364		(int)
 	load	[r14+8],r1
-	load	[r1+112],r1
+	load	[r1+108],r1
 	mov	-1,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	ble	_Label_307
-!	jmp	_Label_306
-_Label_306:
+	ble	_Label_364
+!	jmp	_Label_363
+_Label_363:
 ! THEN...
-	mov	70,r13		! source line 70
+	mov	95,r13		! source line 95
 	mov	"\0\0TN",r10
 ! IF STATEMENT...
-	mov	70,r13		! source line 70
+	mov	95,r13		! source line 95
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_310 else goto _Label_309
+!	jmp	_Label_367
+_Label_367:
+!   if finished >= 10 then goto _Label_366		(int)
 	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_309
-	jmp	_Label_310
-_Label_310:
-!   if finished >= 10 then goto _Label_309		(int)
-	load	[r14+8],r1
-	load	[r1+112],r1
+	load	[r1+108],r1
 	mov	10,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bge	_Label_309
-!	jmp	_Label_308
-_Label_308:
+	bge	_Label_366
+!	jmp	_Label_365
+_Label_365:
 ! THEN...
-	mov	71,r13		! source line 71
+	mov	96,r13		! source line 96
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=0  sizeInBytes=4
 	mov	0,r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	71,r13		! source line 71
+	mov	96,r13		! source line 96
 	mov	"\0\0CE",r10
 	call	printInt
 ! END IF...
-_Label_309:
+_Label_366:
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=finished  sizeInBytes=4
 	load	[r14+8],r1
-	load	[r1+112],r1
+	load	[r1+108],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	73,r13		! source line 73
+	mov	98,r13		! source line 98
 	mov	"\0\0CE",r10
 	call	printInt
-	jmp	_Label_311
-_Label_307:
+	jmp	_Label_368
+_Label_364:
 ! ELSE...
-	mov	75,r13		! source line 75
+	mov	100,r13		! source line 100
 	mov	"\0\0EL",r10
 ! CALL STATEMENT...
-!   _temp_312 = _StringConst_18
-	set	_StringConst_18,r1
+!   _temp_369 = _StringConst_28
+	set	_StringConst_28,r1
 	store	r1,[r14+-100]
-!   Prepare Argument: offset=8  value=_temp_312  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_369  sizeInBytes=4
 	load	[r14+-100],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	75,r13		! source line 75
+	mov	100,r13		! source line 100
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	76,r13		! source line 76
+	mov	101,r13		! source line 101
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_313 else goto _Label_314
-	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_314
-	jmp	_Label_313
-_Label_313:
+!	jmp	_Label_370
+_Label_370:
 ! THEN...
-	mov	77,r13		! source line 77
+	mov	102,r13		! source line 102
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
-!   _temp_315 = _StringConst_19
-	set	_StringConst_19,r1
+!   _temp_372 = _StringConst_29
+	set	_StringConst_29,r1
 	store	r1,[r14+-96]
-!   Prepare Argument: offset=8  value=_temp_315  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_372  sizeInBytes=4
 	load	[r14+-96],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	77,r13		! source line 77
+	mov	102,r13		! source line 102
 	mov	"\0\0CE",r10
 	call	print
 ! END IF...
-_Label_314:
+_Label_371:
 ! END IF...
-_Label_311:
+_Label_368:
 ! CALL STATEMENT...
-!   _temp_316 = _StringConst_20
-	set	_StringConst_20,r1
+!   _temp_373 = _StringConst_30
+	set	_StringConst_30,r1
 	store	r1,[r14+-92]
-!   Prepare Argument: offset=8  value=_temp_316  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_373  sizeInBytes=4
 	load	[r14+-92],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	82,r13		! source line 82
+	mov	107,r13		! source line 107
 	mov	"\0\0CE",r10
 	call	print
 ! FOR STATEMENT...
-	mov	83,r13		! source line 83
+	mov	108,r13		! source line 108
 	mov	"\0\0FO",r10
 !   Calculate and save the FOR-LOOP starting value
-!   _temp_321 = 0		(4 bytes)
+!   _temp_378 = 0		(4 bytes)
 	mov	0,r1
 	store	r1,[r14+-88]
 !   Calculate and save the FOR-LOOP ending value
-!   _temp_322 = chairs - 1		(int)
+!   _temp_379 = chairs - 1		(int)
 	load	[r14+8],r1
-	load	[r1+100],r1
+	load	[r1+96],r1
 	mov	1,r2
 	sub	r1,r2,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-84]
 !   Initialize FOR-LOOP index variable
-!   Data Move: i = _temp_321  (sizeInBytes=4)
+!   Data Move: i = _temp_378  (sizeInBytes=4)
 	load	[r14+-88],r1
 	store	r1,[r14+-132]
-_Label_317:
+_Label_374:
 !   Perform the FOR-LOOP termination test
-!   if i > _temp_322 then goto _Label_320		
+!   if i > _temp_379 then goto _Label_377		
 	load	[r14+-132],r1
 	load	[r14+-84],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bg	_Label_320
-_Label_318:
-	mov	83,r13		! source line 83
+	bg	_Label_377
+_Label_375:
+	mov	108,r13		! source line 108
 	mov	"\0\0FB",r10
 ! IF STATEMENT...
-	mov	84,r13		! source line 84
+	mov	109,r13		! source line 109
 	mov	"\0\0IF",r10
-!   _temp_326 = &Cust
+!   _temp_383 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-76]
-!   Move address of _temp_326 [i ] into _temp_327
+!   Move address of _temp_383 [i ] into _temp_384
 !     make sure index expr is >= 0
 	load	[r14+-132],r2
 	cmp	r2,0
@@ -22069,77 +33783,67 @@ _Label_318:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-72]
-!   Data Move: _temp_325 = *_temp_327  (sizeInBytes=4)
+!   Data Move: _temp_382 = *_temp_384  (sizeInBytes=4)
 	load	[r14+-72],r1
 	load	[r1],r1
 	store	r1,[r14+-80]
-!   if _temp_325 != -1 then goto _Label_324		(int)
+!   if _temp_382 != -1 then goto _Label_381		(int)
 	load	[r14+-80],r1
 	mov	-1,r2
 	cmp	r1,r2
-	bne	_Label_324
-!	jmp	_Label_323
-_Label_323:
+	bne	_Label_381
+!	jmp	_Label_380
+_Label_380:
 ! THEN...
-	mov	85,r13		! source line 85
+	mov	110,r13		! source line 110
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
-!   _temp_328 = _StringConst_21
-	set	_StringConst_21,r1
+!   _temp_385 = _StringConst_31
+	set	_StringConst_31,r1
 	store	r1,[r14+-68]
-!   Prepare Argument: offset=8  value=_temp_328  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_385  sizeInBytes=4
 	load	[r14+-68],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	85,r13		! source line 85
+	mov	110,r13		! source line 110
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	86,r13		! source line 86
+	mov	111,r13		! source line 111
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_329 else goto _Label_330
-	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_330
-	jmp	_Label_329
-_Label_329:
+!	jmp	_Label_386
+_Label_386:
 ! THEN...
-	mov	87,r13		! source line 87
+	mov	112,r13		! source line 112
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
-!   _temp_331 = _StringConst_22
-	set	_StringConst_22,r1
+!   _temp_388 = _StringConst_32
+	set	_StringConst_32,r1
 	store	r1,[r14+-64]
-!   Prepare Argument: offset=8  value=_temp_331  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_388  sizeInBytes=4
 	load	[r14+-64],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	87,r13		! source line 87
+	mov	112,r13		! source line 112
 	mov	"\0\0CE",r10
 	call	print
 ! END IF...
-_Label_330:
-	jmp	_Label_332
-_Label_324:
+_Label_387:
+	jmp	_Label_389
+_Label_381:
 ! ELSE...
-	mov	90,r13		! source line 90
+	mov	115,r13		! source line 115
 	mov	"\0\0EL",r10
 ! IF STATEMENT...
-	mov	90,r13		! source line 90
+	mov	115,r13		! source line 115
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_335 else goto _Label_334
-	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_334
-	jmp	_Label_335
-_Label_335:
-!   _temp_337 = &Cust
+!	jmp	_Label_392
+_Label_392:
+!   _temp_394 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-56]
-!   Move address of _temp_337 [i ] into _temp_338
+!   Move address of _temp_394 [i ] into _temp_395
 !     make sure index expr is >= 0
 	load	[r14+-132],r2
 	cmp	r2,0
@@ -22158,37 +33862,37 @@ _Label_335:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-52]
-!   Data Move: _temp_336 = *_temp_338  (sizeInBytes=4)
+!   Data Move: _temp_393 = *_temp_395  (sizeInBytes=4)
 	load	[r14+-52],r1
 	load	[r1],r1
 	store	r1,[r14+-60]
-!   if _temp_336 >= 10 then goto _Label_334		(int)
+!   if _temp_393 >= 10 then goto _Label_391		(int)
 	load	[r14+-60],r1
 	mov	10,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bge	_Label_334
-!	jmp	_Label_333
-_Label_333:
+	bge	_Label_391
+!	jmp	_Label_390
+_Label_390:
 ! THEN...
-	mov	91,r13		! source line 91
+	mov	116,r13		! source line 116
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=0  sizeInBytes=4
 	mov	0,r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	91,r13		! source line 91
+	mov	116,r13		! source line 116
 	mov	"\0\0CE",r10
 	call	printInt
 ! END IF...
-_Label_334:
+_Label_391:
 ! CALL STATEMENT...
-!   _temp_340 = &Cust
+!   _temp_397 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-44]
-!   Move address of _temp_340 [i ] into _temp_341
+!   Move address of _temp_397 [i ] into _temp_398
 !     make sure index expr is >= 0
 	load	[r14+-132],r2
 	cmp	r2,0
@@ -22207,273 +33911,258 @@ _Label_334:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-40]
-!   Data Move: _temp_339 = *_temp_341  (sizeInBytes=4)
+!   Data Move: _temp_396 = *_temp_398  (sizeInBytes=4)
 	load	[r14+-40],r1
 	load	[r1],r1
 	store	r1,[r14+-48]
-!   Prepare Argument: offset=8  value=_temp_339  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_396  sizeInBytes=4
 	load	[r14+-48],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	93,r13		! source line 93
+	mov	118,r13		! source line 118
 	mov	"\0\0CE",r10
 	call	printInt
 ! END IF...
-_Label_332:
+_Label_389:
 ! IF STATEMENT...
-	mov	95,r13		! source line 95
+	mov	120,r13		! source line 120
 	mov	"\0\0IF",r10
-!   _temp_344 = chairs - 1		(int)
+!   _temp_401 = chairs - 1		(int)
 	load	[r14+8],r1
-	load	[r1+100],r1
+	load	[r1+96],r1
 	mov	1,r2
 	sub	r1,r2,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-36]
-!   if i == _temp_344 then goto _Label_343		(int)
+!   if i == _temp_401 then goto _Label_400		(int)
 	load	[r14+-132],r1
 	load	[r14+-36],r2
 	cmp	r1,r2
-	be	_Label_343
-!	jmp	_Label_342
-_Label_342:
+	be	_Label_400
+!	jmp	_Label_399
+_Label_399:
 ! THEN...
-	mov	96,r13		! source line 96
+	mov	121,r13		! source line 121
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
-!   _temp_345 = _StringConst_23
-	set	_StringConst_23,r1
+!   _temp_402 = _StringConst_33
+	set	_StringConst_33,r1
 	store	r1,[r14+-32]
-!   Prepare Argument: offset=8  value=_temp_345  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_402  sizeInBytes=4
 	load	[r14+-32],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	96,r13		! source line 96
+	mov	121,r13		! source line 121
 	mov	"\0\0CE",r10
 	call	print
 ! END IF...
-_Label_343:
+_Label_400:
 !   Increment the FOR-LOOP index variable and jump back
-_Label_319:
+_Label_376:
 !   i = i + 1
 	load	[r14+-132],r1
 	add	r1,1,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-132]
-	jmp	_Label_317
+	jmp	_Label_374
 ! END FOR
-_Label_320:
+_Label_377:
 ! CALL STATEMENT...
-!   _temp_346 = _StringConst_24
-	set	_StringConst_24,r1
+!   _temp_403 = _StringConst_34
+	set	_StringConst_34,r1
 	store	r1,[r14+-28]
-!   Prepare Argument: offset=8  value=_temp_346  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_403  sizeInBytes=4
 	load	[r14+-28],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	101,r13		! source line 101
+	mov	126,r13		! source line 126
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	102,r13		! source line 102
+	mov	127,r13		! source line 127
 	mov	"\0\0IF",r10
-!   if enter <= -1 then goto _Label_348		(int)
+!   if enter <= -1 then goto _Label_405		(int)
 	load	[r14+8],r1
-	load	[r1+104],r1
+	load	[r1+100],r1
 	mov	-1,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	ble	_Label_348
-!	jmp	_Label_347
-_Label_347:
+	ble	_Label_405
+!	jmp	_Label_404
+_Label_404:
 ! THEN...
-	mov	103,r13		! source line 103
+	mov	128,r13		! source line 128
 	mov	"\0\0TN",r10
 ! IF STATEMENT...
-	mov	103,r13		! source line 103
+	mov	128,r13		! source line 128
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_349 else goto _Label_350
-	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_350
-	jmp	_Label_349
-_Label_349:
+!	jmp	_Label_406
+_Label_406:
 ! THEN...
-	mov	104,r13		! source line 104
+	mov	129,r13		! source line 129
 	mov	"\0\0TN",r10
 ! IF STATEMENT...
-	mov	104,r13		! source line 104
+	mov	129,r13		! source line 129
 	mov	"\0\0IF",r10
-!   if enter >= 10 then goto _Label_352		(int)
+!   if enter >= 10 then goto _Label_409		(int)
 	load	[r14+8],r1
-	load	[r1+104],r1
+	load	[r1+100],r1
 	mov	10,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bge	_Label_352
-!	jmp	_Label_351
-_Label_351:
+	bge	_Label_409
+!	jmp	_Label_408
+_Label_408:
 ! THEN...
-	mov	105,r13		! source line 105
+	mov	130,r13		! source line 130
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=0  sizeInBytes=4
 	mov	0,r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	105,r13		! source line 105
+	mov	130,r13		! source line 130
 	mov	"\0\0CE",r10
 	call	printInt
 ! END IF...
-_Label_352:
+_Label_409:
 ! END IF...
-_Label_350:
+_Label_407:
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=enter  sizeInBytes=4
 	load	[r14+8],r1
-	load	[r1+104],r1
+	load	[r1+100],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	108,r13		! source line 108
+	mov	133,r13		! source line 133
 	mov	"\0\0CE",r10
 	call	printInt
-	jmp	_Label_353
-_Label_348:
+	jmp	_Label_410
+_Label_405:
 ! ELSE...
-	mov	110,r13		! source line 110
+	mov	135,r13		! source line 135
 	mov	"\0\0EL",r10
 ! CALL STATEMENT...
-!   _temp_354 = _StringConst_25
-	set	_StringConst_25,r1
+!   _temp_411 = _StringConst_35
+	set	_StringConst_35,r1
 	store	r1,[r14+-24]
-!   Prepare Argument: offset=8  value=_temp_354  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_411  sizeInBytes=4
 	load	[r14+-24],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	110,r13		! source line 110
+	mov	135,r13		! source line 135
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	111,r13		! source line 111
+	mov	136,r13		! source line 136
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_355 else goto _Label_356
-	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_356
-	jmp	_Label_355
-_Label_355:
+!	jmp	_Label_412
+_Label_412:
 ! THEN...
-	mov	112,r13		! source line 112
+	mov	137,r13		! source line 137
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
-!   _temp_357 = _StringConst_26
-	set	_StringConst_26,r1
+!   _temp_414 = _StringConst_36
+	set	_StringConst_36,r1
 	store	r1,[r14+-20]
-!   Prepare Argument: offset=8  value=_temp_357  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_414  sizeInBytes=4
 	load	[r14+-20],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	112,r13		! source line 112
+	mov	137,r13		! source line 137
 	mov	"\0\0CE",r10
 	call	print
 ! END IF...
-_Label_356:
+_Label_413:
 ! END IF...
-_Label_353:
+_Label_410:
 ! CALL STATEMENT...
-!   _temp_358 = _StringConst_27
-	set	_StringConst_27,r1
+!   _temp_415 = _StringConst_37
+	set	_StringConst_37,r1
 	store	r1,[r14+-16]
-!   Prepare Argument: offset=8  value=_temp_358  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_415  sizeInBytes=4
 	load	[r14+-16],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	115,r13		! source line 115
+	mov	140,r13		! source line 140
 	mov	"\0\0CE",r10
 	call	print
 ! IF STATEMENT...
-	mov	117,r13		! source line 117
+	mov	142,r13		! source line 142
 	mov	"\0\0IF",r10
-!   if exit <= -1 then goto _Label_360		(int)
+!   if exit <= -1 then goto _Label_417		(int)
 	load	[r14+8],r1
-	load	[r1+108],r1
+	load	[r1+104],r1
 	mov	-1,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	ble	_Label_360
-!	jmp	_Label_359
-_Label_359:
+	ble	_Label_417
+!	jmp	_Label_416
+_Label_416:
 ! THEN...
-	mov	118,r13		! source line 118
+	mov	143,r13		! source line 143
 	mov	"\0\0TN",r10
 ! IF STATEMENT...
-	mov	118,r13		! source line 118
+	mov	143,r13		! source line 143
 	mov	"\0\0IF",r10
-!   if twoDigit then goto _Label_363 else goto _Label_362
+!	jmp	_Label_420
+_Label_420:
+!   if exit >= 10 then goto _Label_419		(int)
 	load	[r14+8],r1
-	loadb	[r1+116],r1
-	cmp	r1,0
-	be	_Label_362
-	jmp	_Label_363
-_Label_363:
-!   if exit >= 10 then goto _Label_362		(int)
-	load	[r14+8],r1
-	load	[r1+108],r1
+	load	[r1+104],r1
 	mov	10,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bge	_Label_362
-!	jmp	_Label_361
-_Label_361:
+	bge	_Label_419
+!	jmp	_Label_418
+_Label_418:
 ! THEN...
-	mov	119,r13		! source line 119
+	mov	144,r13		! source line 144
 	mov	"\0\0TN",r10
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=0  sizeInBytes=4
 	mov	0,r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	119,r13		! source line 119
+	mov	144,r13		! source line 144
 	mov	"\0\0CE",r10
 	call	printInt
 ! END IF...
-_Label_362:
+_Label_419:
 ! CALL STATEMENT...
 !   Prepare Argument: offset=8  value=exit  sizeInBytes=4
 	load	[r14+8],r1
-	load	[r1+108],r1
+	load	[r1+104],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	121,r13		! source line 121
+	mov	146,r13		! source line 146
 	mov	"\0\0CE",r10
 	call	printInt
-	jmp	_Label_364
-_Label_360:
+	jmp	_Label_421
+_Label_417:
 ! ELSE...
-	mov	123,r13		! source line 123
+	mov	148,r13		! source line 148
 	mov	"\0\0EL",r10
 ! CALL STATEMENT...
-!   _temp_365 = _StringConst_28
-	set	_StringConst_28,r1
+!   _temp_422 = _StringConst_38
+	set	_StringConst_38,r1
 	store	r1,[r14+-12]
-!   Prepare Argument: offset=8  value=_temp_365  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_422  sizeInBytes=4
 	load	[r14+-12],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	123,r13		! source line 123
+	mov	148,r13		! source line 148
 	mov	"\0\0CE",r10
 	call	print
 ! END IF...
-_Label_364:
+_Label_421:
 ! CALL STATEMENT...
 !   Call the function
-	mov	125,r13		! source line 125
+	mov	150,r13		! source line 150
 	mov	"\0\0CA",r10
 	call	_P_System_nl
 ! RETURN STATEMENT...
-	mov	125,r13		! source line 125
+	mov	150,r13		! source line 150
 	mov	"\0\0RE",r10
 	add	r15,132,r15
 	pop	r13
@@ -22482,375 +34171,242 @@ _Label_364:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__Method_P_Main_Barbershop_4:
+_RoutineDescriptor__Method_P_Main_Barbershop_5:
 	.word	_sourceFileName
-	.word	_Label_366
+	.word	_Label_423
 	.word	4		! total size of parameters
 	.word	128		! frame size = 128
-	.word	_Label_367
+	.word	_Label_424
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_368
+	.word	_Label_425
 	.word	-12
 	.word	4
-	.word	_Label_369
+	.word	_Label_426
 	.word	-16
 	.word	4
-	.word	_Label_370
+	.word	_Label_427
 	.word	-20
 	.word	4
-	.word	_Label_371
+	.word	_Label_428
 	.word	-24
 	.word	4
-	.word	_Label_372
+	.word	_Label_429
 	.word	-28
 	.word	4
-	.word	_Label_373
+	.word	_Label_430
 	.word	-32
 	.word	4
-	.word	_Label_374
+	.word	_Label_431
 	.word	-36
 	.word	4
-	.word	_Label_375
+	.word	_Label_432
 	.word	-40
 	.word	4
-	.word	_Label_376
+	.word	_Label_433
 	.word	-44
 	.word	4
-	.word	_Label_377
+	.word	_Label_434
 	.word	-48
 	.word	4
-	.word	_Label_378
+	.word	_Label_435
 	.word	-52
 	.word	4
-	.word	_Label_379
+	.word	_Label_436
 	.word	-56
 	.word	4
-	.word	_Label_380
+	.word	_Label_437
 	.word	-60
 	.word	4
-	.word	_Label_381
+	.word	_Label_438
 	.word	-64
 	.word	4
-	.word	_Label_382
+	.word	_Label_439
 	.word	-68
 	.word	4
-	.word	_Label_383
+	.word	_Label_440
 	.word	-72
 	.word	4
-	.word	_Label_384
+	.word	_Label_441
 	.word	-76
 	.word	4
-	.word	_Label_385
+	.word	_Label_442
 	.word	-80
 	.word	4
-	.word	_Label_386
+	.word	_Label_443
 	.word	-84
 	.word	4
-	.word	_Label_387
+	.word	_Label_444
 	.word	-88
 	.word	4
-	.word	_Label_388
+	.word	_Label_445
 	.word	-92
 	.word	4
-	.word	_Label_389
+	.word	_Label_446
 	.word	-96
 	.word	4
-	.word	_Label_390
+	.word	_Label_447
 	.word	-100
 	.word	4
-	.word	_Label_391
+	.word	_Label_448
 	.word	-104
 	.word	4
-	.word	_Label_392
+	.word	_Label_449
 	.word	-108
 	.word	4
-	.word	_Label_393
+	.word	_Label_450
 	.word	-112
 	.word	4
-	.word	_Label_394
+	.word	_Label_451
 	.word	-116
 	.word	4
-	.word	_Label_395
+	.word	_Label_452
 	.word	-120
 	.word	4
-	.word	_Label_396
+	.word	_Label_453
 	.word	-124
 	.word	4
-	.word	_Label_397
+	.word	_Label_454
 	.word	-128
 	.word	4
-	.word	_Label_398
+	.word	_Label_455
 	.word	-132
 	.word	4
 	.word	0
-_Label_366:
+_Label_423:
 	.ascii	"Barbershop"
 	.ascii	"::"
 	.ascii	"PrintState\0"
 	.align
-_Label_367:
+_Label_424:
 	.ascii	"Pself\0"
 	.align
-_Label_368:
+_Label_425:
 	.byte	'?'
-	.ascii	"_temp_365\0"
+	.ascii	"_temp_422\0"
 	.align
-_Label_369:
+_Label_426:
 	.byte	'?'
-	.ascii	"_temp_358\0"
+	.ascii	"_temp_415\0"
 	.align
-_Label_370:
+_Label_427:
+	.byte	'?'
+	.ascii	"_temp_414\0"
+	.align
+_Label_428:
+	.byte	'?'
+	.ascii	"_temp_411\0"
+	.align
+_Label_429:
+	.byte	'?'
+	.ascii	"_temp_403\0"
+	.align
+_Label_430:
+	.byte	'?'
+	.ascii	"_temp_402\0"
+	.align
+_Label_431:
+	.byte	'?'
+	.ascii	"_temp_401\0"
+	.align
+_Label_432:
+	.byte	'?'
+	.ascii	"_temp_398\0"
+	.align
+_Label_433:
+	.byte	'?'
+	.ascii	"_temp_397\0"
+	.align
+_Label_434:
+	.byte	'?'
+	.ascii	"_temp_396\0"
+	.align
+_Label_435:
+	.byte	'?'
+	.ascii	"_temp_395\0"
+	.align
+_Label_436:
+	.byte	'?'
+	.ascii	"_temp_394\0"
+	.align
+_Label_437:
+	.byte	'?'
+	.ascii	"_temp_393\0"
+	.align
+_Label_438:
+	.byte	'?'
+	.ascii	"_temp_388\0"
+	.align
+_Label_439:
+	.byte	'?'
+	.ascii	"_temp_385\0"
+	.align
+_Label_440:
+	.byte	'?'
+	.ascii	"_temp_384\0"
+	.align
+_Label_441:
+	.byte	'?'
+	.ascii	"_temp_383\0"
+	.align
+_Label_442:
+	.byte	'?'
+	.ascii	"_temp_382\0"
+	.align
+_Label_443:
+	.byte	'?'
+	.ascii	"_temp_379\0"
+	.align
+_Label_444:
+	.byte	'?'
+	.ascii	"_temp_378\0"
+	.align
+_Label_445:
+	.byte	'?'
+	.ascii	"_temp_373\0"
+	.align
+_Label_446:
+	.byte	'?'
+	.ascii	"_temp_372\0"
+	.align
+_Label_447:
+	.byte	'?'
+	.ascii	"_temp_369\0"
+	.align
+_Label_448:
+	.byte	'?'
+	.ascii	"_temp_362\0"
+	.align
+_Label_449:
+	.byte	'?'
+	.ascii	"_temp_361\0"
+	.align
+_Label_450:
+	.byte	'?'
+	.ascii	"_temp_360\0"
+	.align
+_Label_451:
 	.byte	'?'
 	.ascii	"_temp_357\0"
 	.align
-_Label_371:
+_Label_452:
 	.byte	'?'
-	.ascii	"_temp_354\0"
+	.ascii	"_temp_350\0"
 	.align
-_Label_372:
+_Label_453:
 	.byte	'?'
-	.ascii	"_temp_346\0"
+	.ascii	"_temp_349\0"
 	.align
-_Label_373:
+_Label_454:
 	.byte	'?'
-	.ascii	"_temp_345\0"
+	.ascii	"_temp_347\0"
 	.align
-_Label_374:
-	.byte	'?'
-	.ascii	"_temp_344\0"
-	.align
-_Label_375:
-	.byte	'?'
-	.ascii	"_temp_341\0"
-	.align
-_Label_376:
-	.byte	'?'
-	.ascii	"_temp_340\0"
-	.align
-_Label_377:
-	.byte	'?'
-	.ascii	"_temp_339\0"
-	.align
-_Label_378:
-	.byte	'?'
-	.ascii	"_temp_338\0"
-	.align
-_Label_379:
-	.byte	'?'
-	.ascii	"_temp_337\0"
-	.align
-_Label_380:
-	.byte	'?'
-	.ascii	"_temp_336\0"
-	.align
-_Label_381:
-	.byte	'?'
-	.ascii	"_temp_331\0"
-	.align
-_Label_382:
-	.byte	'?'
-	.ascii	"_temp_328\0"
-	.align
-_Label_383:
-	.byte	'?'
-	.ascii	"_temp_327\0"
-	.align
-_Label_384:
-	.byte	'?'
-	.ascii	"_temp_326\0"
-	.align
-_Label_385:
-	.byte	'?'
-	.ascii	"_temp_325\0"
-	.align
-_Label_386:
-	.byte	'?'
-	.ascii	"_temp_322\0"
-	.align
-_Label_387:
-	.byte	'?'
-	.ascii	"_temp_321\0"
-	.align
-_Label_388:
-	.byte	'?'
-	.ascii	"_temp_316\0"
-	.align
-_Label_389:
-	.byte	'?'
-	.ascii	"_temp_315\0"
-	.align
-_Label_390:
-	.byte	'?'
-	.ascii	"_temp_312\0"
-	.align
-_Label_391:
-	.byte	'?'
-	.ascii	"_temp_305\0"
-	.align
-_Label_392:
-	.byte	'?'
-	.ascii	"_temp_304\0"
-	.align
-_Label_393:
-	.byte	'?'
-	.ascii	"_temp_303\0"
-	.align
-_Label_394:
-	.byte	'?'
-	.ascii	"_temp_300\0"
-	.align
-_Label_395:
-	.byte	'?'
-	.ascii	"_temp_293\0"
-	.align
-_Label_396:
-	.byte	'?'
-	.ascii	"_temp_292\0"
-	.align
-_Label_397:
-	.byte	'?'
-	.ascii	"_temp_290\0"
-	.align
-_Label_398:
+_Label_455:
 	.byte	'I'
 	.ascii	"i\0"
 	.align
 ! 
 ! ===============  METHOD Enter  ===============
-! 
-_Method_P_Main_Barbershop_5:
-	push	r14
-	mov	r15,r14
-	push	r13
-	set	_RoutineDescriptor__Method_P_Main_Barbershop_5,r1
-	push	r1
-	mov	4,r1
-_Label_600:
-	push	r0
-	sub	r1,1,r1
-	bne	_Label_600
-	mov	128,r13		! source line 128
-	mov	"\0\0ME",r10
-! VARIABLE INITIALIZATION...
-! SEND STATEMENT...
-	mov	129,r13		! source line 129
-	mov	"\0\0SE",r10
-!   _temp_399 = &mut
-	load	[r14+8],r1
-	add	r1,72,r1
-	store	r1,[r14+-20]
-!   Send message Lock
-	load	[r14+-20],r1
-	load	[r1],r2
-	cmp	r2,0
-	be	 _runtimeErrorUninitializedObject
-	store	r1,[r15]
-	add	r2,8,r2
-	call	r2
-! ASSIGNMENT STATEMENT...
-	mov	130,r13		! source line 130
-	mov	"\0\0AS",r10
-!   enter = id		(4 bytes)
-	load	[r14+12],r1
-	load	[r14+8],r2
-	store	r1,[r2+104]
-! SEND STATEMENT...
-	mov	131,r13		! source line 131
-	mov	"\0\0SE",r10
-	load	[r14+8],r1
-	store	r1,[r14+-16]
-!   if intIsZero (_temp_400) then goto _runtimeErrorNullPointer
-	load	[r14+-16],r1
-	cmp	r1,r0
-	be	_runtimeErrorNullPointer
-!   Send message PrintState
-	load	[r14+-16],r1
-	load	[r1],r2
-	cmp	r2,0
-	be	 _runtimeErrorUninitializedObject
-	store	r1,[r15]
-	add	r2,16,r2
-	call	r2
-! ASSIGNMENT STATEMENT...
-	mov	132,r13		! source line 132
-	mov	"\0\0AS",r10
-!   enter = -1		(4 bytes)
-	mov	-1,r1
-	load	[r14+8],r2
-	store	r1,[r2+104]
-! SEND STATEMENT...
-	mov	133,r13		! source line 133
-	mov	"\0\0SE",r10
-!   _temp_401 = &mut
-	load	[r14+8],r1
-	add	r1,72,r1
-	store	r1,[r14+-12]
-!   Send message Unlock
-	load	[r14+-12],r1
-	load	[r1],r2
-	cmp	r2,0
-	be	 _runtimeErrorUninitializedObject
-	store	r1,[r15]
-	add	r2,12,r2
-	call	r2
-! RETURN STATEMENT...
-	mov	133,r13		! source line 133
-	mov	"\0\0RE",r10
-	add	r15,20,r15
-	pop	r13
-	pop	r14
-	ret
-! 
-! Routine Descriptor
-! 
-_RoutineDescriptor__Method_P_Main_Barbershop_5:
-	.word	_sourceFileName
-	.word	_Label_402
-	.word	8		! total size of parameters
-	.word	16		! frame size = 16
-	.word	_Label_403
-	.word	4		! size of self
-	.word	8		! offset of self
-	.word	_Label_404
-	.word	12
-	.word	4
-	.word	_Label_405
-	.word	-12
-	.word	4
-	.word	_Label_406
-	.word	-16
-	.word	4
-	.word	_Label_407
-	.word	-20
-	.word	4
-	.word	0
-_Label_402:
-	.ascii	"Barbershop"
-	.ascii	"::"
-	.ascii	"Enter\0"
-	.align
-_Label_403:
-	.ascii	"Pself\0"
-	.align
-_Label_404:
-	.byte	'I'
-	.ascii	"id\0"
-	.align
-_Label_405:
-	.byte	'?'
-	.ascii	"_temp_401\0"
-	.align
-_Label_406:
-	.byte	'?'
-	.ascii	"_temp_400\0"
-	.align
-_Label_407:
-	.byte	'?'
-	.ascii	"_temp_399\0"
-	.align
-! 
-! ===============  METHOD Exit  ===============
 ! 
 _Method_P_Main_Barbershop_6:
 	push	r14
@@ -22859,19 +34415,19 @@ _Method_P_Main_Barbershop_6:
 	set	_RoutineDescriptor__Method_P_Main_Barbershop_6,r1
 	push	r1
 	mov	4,r1
-_Label_601:
+_Label_658:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_601
-	mov	136,r13		! source line 136
+	bne	_Label_658
+	mov	153,r13		! source line 153
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	137,r13		! source line 137
+	mov	154,r13		! source line 154
 	mov	"\0\0SE",r10
-!   _temp_408 = &mut
+!   _temp_456 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-20]
 !   Send message Lock
 	load	[r14+-20],r1
@@ -22882,41 +34438,18 @@ _Label_601:
 	add	r2,8,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	138,r13		! source line 138
+	mov	155,r13		! source line 155
 	mov	"\0\0AS",r10
-!   exit = id		(4 bytes)
+!   enter = id		(4 bytes)
 	load	[r14+12],r1
 	load	[r14+8],r2
-	store	r1,[r2+108]
-! IF STATEMENT...
-	mov	139,r13		! source line 139
-	mov	"\0\0IF",r10
-!   if finished != id then goto _Label_410		(int)
-	load	[r14+8],r1
-	load	[r1+112],r1
-	load	[r14+12],r2
-	cmp	r1,r2
-	bne	_Label_410
-!	jmp	_Label_409
-_Label_409:
-! THEN...
-	mov	140,r13		! source line 140
-	mov	"\0\0TN",r10
-! ASSIGNMENT STATEMENT...
-	mov	140,r13		! source line 140
-	mov	"\0\0AS",r10
-!   finished = -1		(4 bytes)
-	mov	-1,r1
-	load	[r14+8],r2
-	store	r1,[r2+112]
-! END IF...
-_Label_410:
+	store	r1,[r2+100]
 ! SEND STATEMENT...
-	mov	142,r13		! source line 142
+	mov	156,r13		! source line 156
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-16]
-!   if intIsZero (_temp_411) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_457) then goto _runtimeErrorNullPointer
 	load	[r14+-16],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -22926,21 +34459,21 @@ _Label_410:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,16,r2
+	add	r2,20,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	143,r13		! source line 143
+	mov	157,r13		! source line 157
 	mov	"\0\0AS",r10
-!   exit = -1		(4 bytes)
+!   enter = -1		(4 bytes)
 	mov	-1,r1
 	load	[r14+8],r2
-	store	r1,[r2+108]
+	store	r1,[r2+100]
 ! SEND STATEMENT...
-	mov	144,r13		! source line 144
+	mov	158,r13		! source line 158
 	mov	"\0\0SE",r10
-!   _temp_412 = &mut
+!   _temp_458 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-12]
 !   Send message Unlock
 	load	[r14+-12],r1
@@ -22951,7 +34484,7 @@ _Label_410:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	144,r13		! source line 144
+	mov	158,r13		! source line 158
 	mov	"\0\0RE",r10
 	add	r15,20,r15
 	pop	r13
@@ -22962,51 +34495,51 @@ _Label_410:
 ! 
 _RoutineDescriptor__Method_P_Main_Barbershop_6:
 	.word	_sourceFileName
-	.word	_Label_413
+	.word	_Label_459
 	.word	8		! total size of parameters
 	.word	16		! frame size = 16
-	.word	_Label_414
+	.word	_Label_460
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_415
+	.word	_Label_461
 	.word	12
 	.word	4
-	.word	_Label_416
+	.word	_Label_462
 	.word	-12
 	.word	4
-	.word	_Label_417
+	.word	_Label_463
 	.word	-16
 	.word	4
-	.word	_Label_418
+	.word	_Label_464
 	.word	-20
 	.word	4
 	.word	0
-_Label_413:
+_Label_459:
 	.ascii	"Barbershop"
 	.ascii	"::"
-	.ascii	"Exit\0"
+	.ascii	"Enter\0"
 	.align
-_Label_414:
+_Label_460:
 	.ascii	"Pself\0"
 	.align
-_Label_415:
+_Label_461:
 	.byte	'I'
 	.ascii	"id\0"
 	.align
-_Label_416:
+_Label_462:
 	.byte	'?'
-	.ascii	"_temp_412\0"
+	.ascii	"_temp_458\0"
 	.align
-_Label_417:
+_Label_463:
 	.byte	'?'
-	.ascii	"_temp_411\0"
+	.ascii	"_temp_457\0"
 	.align
-_Label_418:
+_Label_464:
 	.byte	'?'
-	.ascii	"_temp_408\0"
+	.ascii	"_temp_456\0"
 	.align
 ! 
-! ===============  METHOD Sit  ===============
+! ===============  METHOD Exit  ===============
 ! 
 _Method_P_Main_Barbershop_7:
 	push	r14
@@ -23014,20 +34547,176 @@ _Method_P_Main_Barbershop_7:
 	push	r13
 	set	_RoutineDescriptor__Method_P_Main_Barbershop_7,r1
 	push	r1
-	mov	12,r1
-_Label_602:
+	mov	4,r1
+_Label_659:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_602
-	mov	147,r13		! source line 147
+	bne	_Label_659
+	mov	161,r13		! source line 161
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	149,r13		! source line 149
+	mov	162,r13		! source line 162
 	mov	"\0\0SE",r10
-!   _temp_419 = &mut
+!   _temp_465 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
+	store	r1,[r14+-20]
+!   Send message Lock
+	load	[r14+-20],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,8,r2
+	call	r2
+! ASSIGNMENT STATEMENT...
+	mov	163,r13		! source line 163
+	mov	"\0\0AS",r10
+!   exit = id		(4 bytes)
+	load	[r14+12],r1
+	load	[r14+8],r2
+	store	r1,[r2+104]
+! IF STATEMENT...
+	mov	164,r13		! source line 164
+	mov	"\0\0IF",r10
+!   if finished != id then goto _Label_467		(int)
+	load	[r14+8],r1
+	load	[r1+108],r1
+	load	[r14+12],r2
+	cmp	r1,r2
+	bne	_Label_467
+!	jmp	_Label_466
+_Label_466:
+! THEN...
+	mov	165,r13		! source line 165
+	mov	"\0\0TN",r10
+! ASSIGNMENT STATEMENT...
+	mov	165,r13		! source line 165
+	mov	"\0\0AS",r10
+!   finished = -1		(4 bytes)
+	mov	-1,r1
+	load	[r14+8],r2
+	store	r1,[r2+108]
+! END IF...
+_Label_467:
+! SEND STATEMENT...
+	mov	167,r13		! source line 167
+	mov	"\0\0SE",r10
+	load	[r14+8],r1
+	store	r1,[r14+-16]
+!   if intIsZero (_temp_468) then goto _runtimeErrorNullPointer
+	load	[r14+-16],r1
+	cmp	r1,r0
+	be	_runtimeErrorNullPointer
+!   Send message PrintState
+	load	[r14+-16],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,20,r2
+	call	r2
+! ASSIGNMENT STATEMENT...
+	mov	168,r13		! source line 168
+	mov	"\0\0AS",r10
+!   exit = -1		(4 bytes)
+	mov	-1,r1
+	load	[r14+8],r2
+	store	r1,[r2+104]
+! SEND STATEMENT...
+	mov	169,r13		! source line 169
+	mov	"\0\0SE",r10
+!   _temp_469 = &mut
+	load	[r14+8],r1
+	add	r1,68,r1
+	store	r1,[r14+-12]
+!   Send message Unlock
+	load	[r14+-12],r1
+	load	[r1],r2
+	cmp	r2,0
+	be	 _runtimeErrorUninitializedObject
+	store	r1,[r15]
+	add	r2,12,r2
+	call	r2
+! RETURN STATEMENT...
+	mov	169,r13		! source line 169
+	mov	"\0\0RE",r10
+	add	r15,20,r15
+	pop	r13
+	pop	r14
+	ret
+! 
+! Routine Descriptor
+! 
+_RoutineDescriptor__Method_P_Main_Barbershop_7:
+	.word	_sourceFileName
+	.word	_Label_470
+	.word	8		! total size of parameters
+	.word	16		! frame size = 16
+	.word	_Label_471
+	.word	4		! size of self
+	.word	8		! offset of self
+	.word	_Label_472
+	.word	12
+	.word	4
+	.word	_Label_473
+	.word	-12
+	.word	4
+	.word	_Label_474
+	.word	-16
+	.word	4
+	.word	_Label_475
+	.word	-20
+	.word	4
+	.word	0
+_Label_470:
+	.ascii	"Barbershop"
+	.ascii	"::"
+	.ascii	"Exit\0"
+	.align
+_Label_471:
+	.ascii	"Pself\0"
+	.align
+_Label_472:
+	.byte	'I'
+	.ascii	"id\0"
+	.align
+_Label_473:
+	.byte	'?'
+	.ascii	"_temp_469\0"
+	.align
+_Label_474:
+	.byte	'?'
+	.ascii	"_temp_468\0"
+	.align
+_Label_475:
+	.byte	'?'
+	.ascii	"_temp_465\0"
+	.align
+! 
+! ===============  METHOD Sit  ===============
+! 
+_Method_P_Main_Barbershop_8:
+	push	r14
+	mov	r15,r14
+	push	r13
+	set	_RoutineDescriptor__Method_P_Main_Barbershop_8,r1
+	push	r1
+	mov	12,r1
+_Label_660:
+	push	r0
+	sub	r1,1,r1
+	bne	_Label_660
+	mov	172,r13		! source line 172
+	mov	"\0\0ME",r10
+! VARIABLE INITIALIZATION...
+! SEND STATEMENT...
+	mov	174,r13		! source line 174
+	mov	"\0\0SE",r10
+!   _temp_476 = &mut
+	load	[r14+8],r1
+	add	r1,68,r1
 	store	r1,[r14+-48]
 !   Send message Lock
 	load	[r14+-48],r1
@@ -23038,43 +34727,43 @@ _Label_602:
 	add	r2,8,r2
 	call	r2
 ! FOR STATEMENT...
-	mov	150,r13		! source line 150
+	mov	175,r13		! source line 175
 	mov	"\0\0FO",r10
 !   Calculate and save the FOR-LOOP starting value
-!   _temp_424 = 0		(4 bytes)
+!   _temp_481 = 0		(4 bytes)
 	mov	0,r1
 	store	r1,[r14+-44]
 !   Calculate and save the FOR-LOOP ending value
-!   _temp_425 = chairs - 1		(int)
+!   _temp_482 = chairs - 1		(int)
 	load	[r14+8],r1
-	load	[r1+100],r1
+	load	[r1+96],r1
 	mov	1,r2
 	sub	r1,r2,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-40]
 !   Initialize FOR-LOOP index variable
-!   Data Move: i = _temp_424  (sizeInBytes=4)
+!   Data Move: i = _temp_481  (sizeInBytes=4)
 	load	[r14+-44],r1
 	store	r1,[r14+-52]
-_Label_420:
+_Label_477:
 !   Perform the FOR-LOOP termination test
-!   if i > _temp_425 then goto _Label_423		
+!   if i > _temp_482 then goto _Label_480		
 	load	[r14+-52],r1
 	load	[r14+-40],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bg	_Label_423
-_Label_421:
-	mov	150,r13		! source line 150
+	bg	_Label_480
+_Label_478:
+	mov	175,r13		! source line 175
 	mov	"\0\0FB",r10
 ! IF STATEMENT...
-	mov	151,r13		! source line 151
+	mov	176,r13		! source line 176
 	mov	"\0\0IF",r10
-!   _temp_429 = &Cust
+!   _temp_486 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-32]
-!   Move address of _temp_429 [i ] into _temp_430
+!   Move address of _temp_486 [i ] into _temp_487
 !     make sure index expr is >= 0
 	load	[r14+-52],r2
 	cmp	r2,0
@@ -23093,28 +34782,28 @@ _Label_421:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-28]
-!   Data Move: _temp_428 = *_temp_430  (sizeInBytes=4)
+!   Data Move: _temp_485 = *_temp_487  (sizeInBytes=4)
 	load	[r14+-28],r1
 	load	[r1],r1
 	store	r1,[r14+-36]
-!   if _temp_428 != -1 then goto _Label_427		(int)
+!   if _temp_485 != -1 then goto _Label_484		(int)
 	load	[r14+-36],r1
 	mov	-1,r2
 	cmp	r1,r2
-	bne	_Label_427
-!	jmp	_Label_426
-_Label_426:
+	bne	_Label_484
+!	jmp	_Label_483
+_Label_483:
 ! THEN...
-	mov	152,r13		! source line 152
+	mov	177,r13		! source line 177
 	mov	"\0\0TN",r10
 ! ASSIGNMENT STATEMENT...
-	mov	152,r13		! source line 152
+	mov	177,r13		! source line 177
 	mov	"\0\0AS",r10
-!   _temp_431 = &Cust
+!   _temp_488 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-24]
-!   Move address of _temp_431 [i ] into _temp_432
+!   Move address of _temp_488 [i ] into _temp_489
 !     make sure index expr is >= 0
 	load	[r14+-52],r2
 	cmp	r2,0
@@ -23133,32 +34822,32 @@ _Label_426:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-20]
-!   Data Move: *_temp_432 = id  (sizeInBytes=4)
+!   Data Move: *_temp_489 = id  (sizeInBytes=4)
 	load	[r14+12],r1
 	load	[r14+-20],r2
 	store	r1,[r2]
 ! BREAK STATEMENT...
-	mov	153,r13		! source line 153
+	mov	178,r13		! source line 178
 	mov	"\0\0BR",r10
-	jmp	_Label_423
+	jmp	_Label_480
 ! END IF...
-_Label_427:
+_Label_484:
 !   Increment the FOR-LOOP index variable and jump back
-_Label_422:
+_Label_479:
 !   i = i + 1
 	load	[r14+-52],r1
 	add	r1,1,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-52]
-	jmp	_Label_420
+	jmp	_Label_477
 ! END FOR
-_Label_423:
+_Label_480:
 ! SEND STATEMENT...
-	mov	156,r13		! source line 156
+	mov	181,r13		! source line 181
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-16]
-!   if intIsZero (_temp_433) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_490) then goto _runtimeErrorNullPointer
 	load	[r14+-16],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -23168,14 +34857,14 @@ _Label_423:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,16,r2
+	add	r2,20,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	157,r13		! source line 157
+	mov	182,r13		! source line 182
 	mov	"\0\0SE",r10
-!   _temp_434 = &mut
+!   _temp_491 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-12]
 !   Send message Unlock
 	load	[r14+-12],r1
@@ -23186,7 +34875,7 @@ _Label_423:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	157,r13		! source line 157
+	mov	182,r13		! source line 182
 	mov	"\0\0RE",r10
 	add	r15,52,r15
 	pop	r13
@@ -23195,162 +34884,162 @@ _Label_423:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__Method_P_Main_Barbershop_7:
+_RoutineDescriptor__Method_P_Main_Barbershop_8:
 	.word	_sourceFileName
-	.word	_Label_435
+	.word	_Label_492
 	.word	8		! total size of parameters
 	.word	48		! frame size = 48
-	.word	_Label_436
+	.word	_Label_493
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_437
+	.word	_Label_494
 	.word	12
 	.word	4
-	.word	_Label_438
+	.word	_Label_495
 	.word	-12
 	.word	4
-	.word	_Label_439
+	.word	_Label_496
 	.word	-16
 	.word	4
-	.word	_Label_440
+	.word	_Label_497
 	.word	-20
 	.word	4
-	.word	_Label_441
+	.word	_Label_498
 	.word	-24
 	.word	4
-	.word	_Label_442
+	.word	_Label_499
 	.word	-28
 	.word	4
-	.word	_Label_443
+	.word	_Label_500
 	.word	-32
 	.word	4
-	.word	_Label_444
+	.word	_Label_501
 	.word	-36
 	.word	4
-	.word	_Label_445
+	.word	_Label_502
 	.word	-40
 	.word	4
-	.word	_Label_446
+	.word	_Label_503
 	.word	-44
 	.word	4
-	.word	_Label_447
+	.word	_Label_504
 	.word	-48
 	.word	4
-	.word	_Label_448
+	.word	_Label_505
 	.word	-52
 	.word	4
 	.word	0
-_Label_435:
+_Label_492:
 	.ascii	"Barbershop"
 	.ascii	"::"
 	.ascii	"Sit\0"
 	.align
-_Label_436:
+_Label_493:
 	.ascii	"Pself\0"
 	.align
-_Label_437:
+_Label_494:
 	.byte	'I'
 	.ascii	"id\0"
 	.align
-_Label_438:
+_Label_495:
 	.byte	'?'
-	.ascii	"_temp_434\0"
+	.ascii	"_temp_491\0"
 	.align
-_Label_439:
+_Label_496:
 	.byte	'?'
-	.ascii	"_temp_433\0"
+	.ascii	"_temp_490\0"
 	.align
-_Label_440:
+_Label_497:
 	.byte	'?'
-	.ascii	"_temp_432\0"
+	.ascii	"_temp_489\0"
 	.align
-_Label_441:
+_Label_498:
 	.byte	'?'
-	.ascii	"_temp_431\0"
+	.ascii	"_temp_488\0"
 	.align
-_Label_442:
+_Label_499:
 	.byte	'?'
-	.ascii	"_temp_430\0"
+	.ascii	"_temp_487\0"
 	.align
-_Label_443:
+_Label_500:
 	.byte	'?'
-	.ascii	"_temp_429\0"
+	.ascii	"_temp_486\0"
 	.align
-_Label_444:
+_Label_501:
 	.byte	'?'
-	.ascii	"_temp_428\0"
+	.ascii	"_temp_485\0"
 	.align
-_Label_445:
+_Label_502:
 	.byte	'?'
-	.ascii	"_temp_425\0"
+	.ascii	"_temp_482\0"
 	.align
-_Label_446:
+_Label_503:
 	.byte	'?'
-	.ascii	"_temp_424\0"
+	.ascii	"_temp_481\0"
 	.align
-_Label_447:
+_Label_504:
 	.byte	'?'
-	.ascii	"_temp_419\0"
+	.ascii	"_temp_476\0"
 	.align
-_Label_448:
+_Label_505:
 	.byte	'I'
 	.ascii	"i\0"
 	.align
 ! 
 ! ===============  METHOD Unsit  ===============
 ! 
-_Method_P_Main_Barbershop_8:
+_Method_P_Main_Barbershop_9:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__Method_P_Main_Barbershop_8,r1
+	set	_RoutineDescriptor__Method_P_Main_Barbershop_9,r1
 	push	r1
 	mov	8,r1
-_Label_603:
+_Label_661:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_603
-	mov	160,r13		! source line 160
+	bne	_Label_661
+	mov	185,r13		! source line 185
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! FOR STATEMENT...
-	mov	162,r13		! source line 162
+	mov	187,r13		! source line 187
 	mov	"\0\0FO",r10
 !   Calculate and save the FOR-LOOP starting value
-!   _temp_453 = 0		(4 bytes)
+!   _temp_510 = 0		(4 bytes)
 	mov	0,r1
 	store	r1,[r14+-36]
 !   Calculate and save the FOR-LOOP ending value
-!   _temp_454 = chairs - 1		(int)
+!   _temp_511 = chairs - 1		(int)
 	load	[r14+8],r1
-	load	[r1+100],r1
+	load	[r1+96],r1
 	mov	1,r2
 	sub	r1,r2,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-32]
 !   Initialize FOR-LOOP index variable
-!   Data Move: i = _temp_453  (sizeInBytes=4)
+!   Data Move: i = _temp_510  (sizeInBytes=4)
 	load	[r14+-36],r1
 	store	r1,[r14+-40]
-_Label_449:
+_Label_506:
 !   Perform the FOR-LOOP termination test
-!   if i > _temp_454 then goto _Label_452		
+!   if i > _temp_511 then goto _Label_509		
 	load	[r14+-40],r1
 	load	[r14+-32],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bg	_Label_452
-_Label_450:
-	mov	162,r13		! source line 162
+	bg	_Label_509
+_Label_507:
+	mov	187,r13		! source line 187
 	mov	"\0\0FB",r10
 ! IF STATEMENT...
-	mov	163,r13		! source line 163
+	mov	188,r13		! source line 188
 	mov	"\0\0IF",r10
-!   _temp_458 = &Cust
+!   _temp_515 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-24]
-!   Move address of _temp_458 [i ] into _temp_459
+!   Move address of _temp_515 [i ] into _temp_516
 !     make sure index expr is >= 0
 	load	[r14+-40],r2
 	cmp	r2,0
@@ -23369,28 +35058,28 @@ _Label_450:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-20]
-!   Data Move: _temp_457 = *_temp_459  (sizeInBytes=4)
+!   Data Move: _temp_514 = *_temp_516  (sizeInBytes=4)
 	load	[r14+-20],r1
 	load	[r1],r1
 	store	r1,[r14+-28]
-!   if _temp_457 != id then goto _Label_456		(int)
+!   if _temp_514 != id then goto _Label_513		(int)
 	load	[r14+-28],r1
 	load	[r14+12],r2
 	cmp	r1,r2
-	bne	_Label_456
-!	jmp	_Label_455
-_Label_455:
+	bne	_Label_513
+!	jmp	_Label_512
+_Label_512:
 ! THEN...
-	mov	164,r13		! source line 164
+	mov	189,r13		! source line 189
 	mov	"\0\0TN",r10
 ! ASSIGNMENT STATEMENT...
-	mov	164,r13		! source line 164
+	mov	189,r13		! source line 189
 	mov	"\0\0AS",r10
-!   _temp_460 = &Cust
+!   _temp_517 = &Cust
 	load	[r14+8],r1
 	add	r1,44,r1
 	store	r1,[r14+-16]
-!   Move address of _temp_460 [i ] into _temp_461
+!   Move address of _temp_517 [i ] into _temp_518
 !     make sure index expr is >= 0
 	load	[r14+-40],r2
 	cmp	r2,0
@@ -23409,28 +35098,28 @@ _Label_455:
 	add	r2,4,r2
 	add	r2,r1,r2
 	store	r2,[r14+-12]
-!   Data Move: *_temp_461 = -1  (sizeInBytes=4)
+!   Data Move: *_temp_518 = -1  (sizeInBytes=4)
 	mov	-1,r1
 	load	[r14+-12],r2
 	store	r1,[r2]
 ! BREAK STATEMENT...
-	mov	165,r13		! source line 165
+	mov	190,r13		! source line 190
 	mov	"\0\0BR",r10
-	jmp	_Label_452
+	jmp	_Label_509
 ! END IF...
-_Label_456:
+_Label_513:
 !   Increment the FOR-LOOP index variable and jump back
-_Label_451:
+_Label_508:
 !   i = i + 1
 	load	[r14+-40],r1
 	add	r1,1,r1
 	bvs	_runtimeErrorOverflow
 	store	r1,[r14+-40]
-	jmp	_Label_449
+	jmp	_Label_506
 ! END FOR
-_Label_452:
+_Label_509:
 ! RETURN STATEMENT...
-	mov	162,r13		! source line 162
+	mov	187,r13		! source line 187
 	mov	"\0\0RE",r10
 	add	r15,36,r15
 	pop	r13
@@ -23439,109 +35128,109 @@ _Label_452:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__Method_P_Main_Barbershop_8:
+_RoutineDescriptor__Method_P_Main_Barbershop_9:
 	.word	_sourceFileName
-	.word	_Label_462
+	.word	_Label_519
 	.word	8		! total size of parameters
 	.word	32		! frame size = 32
-	.word	_Label_463
+	.word	_Label_520
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_464
+	.word	_Label_521
 	.word	12
 	.word	4
-	.word	_Label_465
+	.word	_Label_522
 	.word	-12
 	.word	4
-	.word	_Label_466
+	.word	_Label_523
 	.word	-16
 	.word	4
-	.word	_Label_467
+	.word	_Label_524
 	.word	-20
 	.word	4
-	.word	_Label_468
+	.word	_Label_525
 	.word	-24
 	.word	4
-	.word	_Label_469
+	.word	_Label_526
 	.word	-28
 	.word	4
-	.word	_Label_470
+	.word	_Label_527
 	.word	-32
 	.word	4
-	.word	_Label_471
+	.word	_Label_528
 	.word	-36
 	.word	4
-	.word	_Label_472
+	.word	_Label_529
 	.word	-40
 	.word	4
 	.word	0
-_Label_462:
+_Label_519:
 	.ascii	"Barbershop"
 	.ascii	"::"
 	.ascii	"Unsit\0"
 	.align
-_Label_463:
+_Label_520:
 	.ascii	"Pself\0"
 	.align
-_Label_464:
+_Label_521:
 	.byte	'I'
 	.ascii	"id\0"
 	.align
-_Label_465:
+_Label_522:
 	.byte	'?'
-	.ascii	"_temp_461\0"
+	.ascii	"_temp_518\0"
 	.align
-_Label_466:
+_Label_523:
 	.byte	'?'
-	.ascii	"_temp_460\0"
+	.ascii	"_temp_517\0"
 	.align
-_Label_467:
+_Label_524:
 	.byte	'?'
-	.ascii	"_temp_459\0"
+	.ascii	"_temp_516\0"
 	.align
-_Label_468:
+_Label_525:
 	.byte	'?'
-	.ascii	"_temp_458\0"
+	.ascii	"_temp_515\0"
 	.align
-_Label_469:
+_Label_526:
 	.byte	'?'
-	.ascii	"_temp_457\0"
+	.ascii	"_temp_514\0"
 	.align
-_Label_470:
+_Label_527:
 	.byte	'?'
-	.ascii	"_temp_454\0"
+	.ascii	"_temp_511\0"
 	.align
-_Label_471:
+_Label_528:
 	.byte	'?'
-	.ascii	"_temp_453\0"
+	.ascii	"_temp_510\0"
 	.align
-_Label_472:
+_Label_529:
 	.byte	'I'
 	.ascii	"i\0"
 	.align
 ! 
 ! ===============  METHOD Serve  ===============
 ! 
-_Method_P_Main_Barbershop_9:
+_Method_P_Main_Barbershop_10:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__Method_P_Main_Barbershop_9,r1
+	set	_RoutineDescriptor__Method_P_Main_Barbershop_10,r1
 	push	r1
 	mov	6,r1
-_Label_604:
+_Label_662:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_604
-	mov	170,r13		! source line 170
+	bne	_Label_662
+	mov	195,r13		! source line 195
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	171,r13		! source line 171
+	mov	196,r13		! source line 196
 	mov	"\0\0SE",r10
-!   _temp_473 = &mut
+!   _temp_530 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-24]
 !   Send message Lock
 	load	[r14+-24],r1
@@ -23552,18 +35241,18 @@ _Label_604:
 	add	r2,8,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	172,r13		! source line 172
+	mov	197,r13		! source line 197
 	mov	"\0\0AS",r10
 !   current = id		(4 bytes)
 	load	[r14+12],r1
 	load	[r14+8],r2
-	store	r1,[r2+92]
+	store	r1,[r2+88]
 ! SEND STATEMENT...
-	mov	173,r13		! source line 173
+	mov	198,r13		! source line 198
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-20]
-!   if intIsZero (_temp_474) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_531) then goto _runtimeErrorNullPointer
 	load	[r14+-20],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -23576,14 +35265,14 @@ _Label_604:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,32,r2
+	add	r2,36,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	174,r13		! source line 174
+	mov	199,r13		! source line 199
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-16]
-!   if intIsZero (_temp_475) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_532) then goto _runtimeErrorNullPointer
 	load	[r14+-16],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -23593,14 +35282,14 @@ _Label_604:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,16,r2
+	add	r2,20,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	175,r13		! source line 175
+	mov	200,r13		! source line 200
 	mov	"\0\0SE",r10
-!   _temp_476 = &mut
+!   _temp_533 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-12]
 !   Send message Unlock
 	load	[r14+-12],r1
@@ -23611,7 +35300,7 @@ _Label_604:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	175,r13		! source line 175
+	mov	200,r13		! source line 200
 	mov	"\0\0RE",r10
 	add	r15,28,r15
 	pop	r13
@@ -23620,81 +35309,81 @@ _Label_604:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__Method_P_Main_Barbershop_9:
+_RoutineDescriptor__Method_P_Main_Barbershop_10:
 	.word	_sourceFileName
-	.word	_Label_477
+	.word	_Label_534
 	.word	8		! total size of parameters
 	.word	24		! frame size = 24
-	.word	_Label_478
+	.word	_Label_535
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_479
+	.word	_Label_536
 	.word	12
 	.word	4
-	.word	_Label_480
+	.word	_Label_537
 	.word	-12
 	.word	4
-	.word	_Label_481
+	.word	_Label_538
 	.word	-16
 	.word	4
-	.word	_Label_482
+	.word	_Label_539
 	.word	-20
 	.word	4
-	.word	_Label_483
+	.word	_Label_540
 	.word	-24
 	.word	4
 	.word	0
-_Label_477:
+_Label_534:
 	.ascii	"Barbershop"
 	.ascii	"::"
 	.ascii	"Serve\0"
 	.align
-_Label_478:
+_Label_535:
 	.ascii	"Pself\0"
 	.align
-_Label_479:
+_Label_536:
 	.byte	'I'
 	.ascii	"id\0"
 	.align
-_Label_480:
+_Label_537:
 	.byte	'?'
-	.ascii	"_temp_476\0"
+	.ascii	"_temp_533\0"
 	.align
-_Label_481:
+_Label_538:
 	.byte	'?'
-	.ascii	"_temp_475\0"
+	.ascii	"_temp_532\0"
 	.align
-_Label_482:
+_Label_539:
 	.byte	'?'
-	.ascii	"_temp_474\0"
+	.ascii	"_temp_531\0"
 	.align
-_Label_483:
+_Label_540:
 	.byte	'?'
-	.ascii	"_temp_473\0"
+	.ascii	"_temp_530\0"
 	.align
 ! 
 ! ===============  METHOD Standup  ===============
 ! 
-_Method_P_Main_Barbershop_10:
+_Method_P_Main_Barbershop_11:
 	push	r14
 	mov	r15,r14
 	push	r13
-	set	_RoutineDescriptor__Method_P_Main_Barbershop_10,r1
+	set	_RoutineDescriptor__Method_P_Main_Barbershop_11,r1
 	push	r1
 	mov	4,r1
-_Label_605:
+_Label_663:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_605
-	mov	179,r13		! source line 179
+	bne	_Label_663
+	mov	204,r13		! source line 204
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	180,r13		! source line 180
+	mov	205,r13		! source line 205
 	mov	"\0\0SE",r10
-!   _temp_484 = &mut
+!   _temp_541 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-20]
 !   Send message Lock
 	load	[r14+-20],r1
@@ -23705,26 +35394,26 @@ _Label_605:
 	add	r2,8,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	181,r13		! source line 181
+	mov	206,r13		! source line 206
 	mov	"\0\0AS",r10
 !   finished = current		(4 bytes)
 	load	[r14+8],r1
-	load	[r1+92],r1
+	load	[r1+88],r1
 	load	[r14+8],r2
-	store	r1,[r2+112]
+	store	r1,[r2+108]
 ! ASSIGNMENT STATEMENT...
-	mov	182,r13		! source line 182
+	mov	207,r13		! source line 207
 	mov	"\0\0AS",r10
 !   current = -1		(4 bytes)
 	mov	-1,r1
 	load	[r14+8],r2
-	store	r1,[r2+92]
+	store	r1,[r2+88]
 ! SEND STATEMENT...
-	mov	183,r13		! source line 183
+	mov	208,r13		! source line 208
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-16]
-!   if intIsZero (_temp_485) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_542) then goto _runtimeErrorNullPointer
 	load	[r14+-16],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -23734,14 +35423,14 @@ _Label_605:
 	cmp	r2,0
 	be	 _runtimeErrorUninitializedObject
 	store	r1,[r15]
-	add	r2,16,r2
+	add	r2,20,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	184,r13		! source line 184
+	mov	209,r13		! source line 209
 	mov	"\0\0SE",r10
-!   _temp_486 = &mut
+!   _temp_543 = &mut
 	load	[r14+8],r1
-	add	r1,72,r1
+	add	r1,68,r1
 	store	r1,[r14+-12]
 !   Send message Unlock
 	load	[r14+-12],r1
@@ -23752,7 +35441,7 @@ _Label_605:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	184,r13		! source line 184
+	mov	209,r13		! source line 209
 	mov	"\0\0RE",r10
 	add	r15,20,r15
 	pop	r13
@@ -23761,43 +35450,43 @@ _Label_605:
 ! 
 ! Routine Descriptor
 ! 
-_RoutineDescriptor__Method_P_Main_Barbershop_10:
+_RoutineDescriptor__Method_P_Main_Barbershop_11:
 	.word	_sourceFileName
-	.word	_Label_487
+	.word	_Label_544
 	.word	4		! total size of parameters
 	.word	16		! frame size = 16
-	.word	_Label_488
+	.word	_Label_545
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_489
+	.word	_Label_546
 	.word	-12
 	.word	4
-	.word	_Label_490
+	.word	_Label_547
 	.word	-16
 	.word	4
-	.word	_Label_491
+	.word	_Label_548
 	.word	-20
 	.word	4
 	.word	0
-_Label_487:
+_Label_544:
 	.ascii	"Barbershop"
 	.ascii	"::"
 	.ascii	"Standup\0"
 	.align
-_Label_488:
+_Label_545:
 	.ascii	"Pself\0"
 	.align
-_Label_489:
+_Label_546:
 	.byte	'?'
-	.ascii	"_temp_486\0"
+	.ascii	"_temp_543\0"
 	.align
-_Label_490:
+_Label_547:
 	.byte	'?'
-	.ascii	"_temp_485\0"
+	.ascii	"_temp_542\0"
 	.align
-_Label_491:
+_Label_548:
 	.byte	'?'
-	.ascii	"_temp_484\0"
+	.ascii	"_temp_541\0"
 	.align
 ! 
 ! ===============  CLASS FrontDeskMonitor  ===============
@@ -23805,7 +35494,7 @@ _Label_491:
 ! Dispatch Table:
 ! 
 _P_Main_FrontDeskMonitor:
-	.word	_Label_492
+	.word	_Label_549
 	jmp	_Method_P_Main_FrontDeskMonitor_1	! 4:	Init
 	jmp	_Method_P_Main_FrontDeskMonitor_2	! 8:	Request
 	jmp	_Method_P_Main_FrontDeskMonitor_3	! 12:	Return
@@ -23816,16 +35505,16 @@ _P_Main_FrontDeskMonitor:
 ! 
 ! Class descriptor:
 ! 
-_Label_492:
+_Label_549:
 	.word	1129070931		! Magic number 0x434c4153 == 'CLAS'
-	.word	_Label_493
+	.word	_Label_550
 	.word	_sourceFileName
-	.word	56		! line number
+	.word	62		! line number
 	.word	72		! size of instances, in bytes
 	.word	_P_Main_FrontDeskMonitor
 	.word	_P_System_Object
 	.word	0
-_Label_493:
+_Label_550:
 	.ascii	"FrontDeskMonitor\0"
 	.align
 ! 
@@ -23838,22 +35527,22 @@ _Method_P_Main_FrontDeskMonitor_1:
 	set	_RoutineDescriptor__Method_P_Main_FrontDeskMonitor_1,r1
 	push	r1
 	mov	7,r1
-_Label_606:
+_Label_664:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_606
-	mov	319,r13		! source line 319
+	bne	_Label_664
+	mov	358,r13		! source line 358
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! ASSIGNMENT STATEMENT...
-	mov	320,r13		! source line 320
+	mov	359,r13		! source line 359
 	mov	"\0\0AS",r10
 !   dices = numberOfDice		(4 bytes)
 	load	[r14+12],r1
 	load	[r14+8],r2
 	store	r1,[r2+56]
 ! ASSIGNMENT STATEMENT...
-	mov	322,r13		! source line 322
+	mov	361,r13		! source line 361
 	mov	"\0\0AS",r10
 !   NEW CLASS Constructor...
 !   ZeroMemory: mustWait = zeros  (sizeInBytes=16)
@@ -23868,9 +35557,9 @@ _Label_606:
 	load	[r14+8],r2
 	store	r1,[r2+4]
 ! SEND STATEMENT...
-	mov	323,r13		! source line 323
+	mov	362,r13		! source line 362
 	mov	"\0\0SE",r10
-!   _temp_495 = &mustWait
+!   _temp_552 = &mustWait
 	load	[r14+8],r1
 	add	r1,4,r1
 	store	r1,[r14+-28]
@@ -23883,7 +35572,7 @@ _Label_606:
 	add	r2,4,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	324,r13		! source line 324
+	mov	363,r13		! source line 363
 	mov	"\0\0AS",r10
 !   NEW CLASS Constructor...
 !   ZeroMemory: dieReady = zeros  (sizeInBytes=16)
@@ -23898,9 +35587,9 @@ _Label_606:
 	load	[r14+8],r2
 	store	r1,[r2+20]
 ! SEND STATEMENT...
-	mov	325,r13		! source line 325
+	mov	364,r13		! source line 364
 	mov	"\0\0SE",r10
-!   _temp_497 = &dieReady
+!   _temp_554 = &dieReady
 	load	[r14+8],r1
 	add	r1,20,r1
 	store	r1,[r14+-20]
@@ -23913,7 +35602,7 @@ _Label_606:
 	add	r2,4,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	327,r13		! source line 327
+	mov	366,r13		! source line 366
 	mov	"\0\0AS",r10
 !   NEW CLASS Constructor...
 !   ZeroMemory: mut = zeros  (sizeInBytes=20)
@@ -23929,9 +35618,9 @@ _Label_606:
 	load	[r14+8],r2
 	store	r1,[r2+36]
 ! SEND STATEMENT...
-	mov	328,r13		! source line 328
+	mov	367,r13		! source line 367
 	mov	"\0\0SE",r10
-!   _temp_499 = &mut
+!   _temp_556 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-12]
@@ -23944,28 +35633,28 @@ _Label_606:
 	add	r2,4,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	330,r13		! source line 330
+	mov	369,r13		! source line 369
 	mov	"\0\0AS",r10
 !   isDeskBusy = 0		(1 byte)
 	mov	0,r1
 	load	[r14+8],r2
 	storeb	r1,[r2+60]
 ! ASSIGNMENT STATEMENT...
-	mov	331,r13		! source line 331
+	mov	370,r13		! source line 370
 	mov	"\0\0AS",r10
 !   inQueue = 0		(4 bytes)
 	mov	0,r1
 	load	[r14+8],r2
 	store	r1,[r2+64]
 ! ASSIGNMENT STATEMENT...
-	mov	332,r13		! source line 332
+	mov	371,r13		! source line 371
 	mov	"\0\0AS",r10
 !   needed = -1		(4 bytes)
 	mov	-1,r1
 	load	[r14+8],r2
 	store	r1,[r2+68]
 ! RETURN STATEMENT...
-	mov	332,r13		! source line 332
+	mov	371,r13		! source line 371
 	mov	"\0\0RE",r10
 	add	r15,32,r15
 	pop	r13
@@ -23976,69 +35665,69 @@ _Label_606:
 ! 
 _RoutineDescriptor__Method_P_Main_FrontDeskMonitor_1:
 	.word	_sourceFileName
-	.word	_Label_500
+	.word	_Label_557
 	.word	8		! total size of parameters
 	.word	28		! frame size = 28
-	.word	_Label_501
+	.word	_Label_558
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_502
+	.word	_Label_559
 	.word	12
 	.word	4
-	.word	_Label_503
+	.word	_Label_560
 	.word	-12
 	.word	4
-	.word	_Label_504
+	.word	_Label_561
 	.word	-16
 	.word	4
-	.word	_Label_505
+	.word	_Label_562
 	.word	-20
 	.word	4
-	.word	_Label_506
+	.word	_Label_563
 	.word	-24
 	.word	4
-	.word	_Label_507
+	.word	_Label_564
 	.word	-28
 	.word	4
-	.word	_Label_508
+	.word	_Label_565
 	.word	-32
 	.word	4
 	.word	0
-_Label_500:
+_Label_557:
 	.ascii	"FrontDeskMonitor"
 	.ascii	"::"
 	.ascii	"Init\0"
 	.align
-_Label_501:
+_Label_558:
 	.ascii	"Pself\0"
 	.align
-_Label_502:
+_Label_559:
 	.byte	'I'
 	.ascii	"numberOfDice\0"
 	.align
-_Label_503:
+_Label_560:
 	.byte	'?'
-	.ascii	"_temp_499\0"
+	.ascii	"_temp_556\0"
 	.align
-_Label_504:
+_Label_561:
 	.byte	'?'
-	.ascii	"_temp_498\0"
+	.ascii	"_temp_555\0"
 	.align
-_Label_505:
+_Label_562:
 	.byte	'?'
-	.ascii	"_temp_497\0"
+	.ascii	"_temp_554\0"
 	.align
-_Label_506:
+_Label_563:
 	.byte	'?'
-	.ascii	"_temp_496\0"
+	.ascii	"_temp_553\0"
 	.align
-_Label_507:
+_Label_564:
 	.byte	'?'
-	.ascii	"_temp_495\0"
+	.ascii	"_temp_552\0"
 	.align
-_Label_508:
+_Label_565:
 	.byte	'?'
-	.ascii	"_temp_494\0"
+	.ascii	"_temp_551\0"
 	.align
 ! 
 ! ===============  METHOD Request  ===============
@@ -24050,17 +35739,17 @@ _Method_P_Main_FrontDeskMonitor_2:
 	set	_RoutineDescriptor__Method_P_Main_FrontDeskMonitor_2,r1
 	push	r1
 	mov	16,r1
-_Label_607:
+_Label_665:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_607
-	mov	335,r13		! source line 335
+	bne	_Label_665
+	mov	374,r13		! source line 374
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	336,r13		! source line 336
+	mov	375,r13		! source line 375
 	mov	"\0\0SE",r10
-!   _temp_509 = &mut
+!   _temp_566 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-60]
@@ -24073,18 +35762,18 @@ _Label_607:
 	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	337,r13		! source line 337
+	mov	376,r13		! source line 376
 	mov	"\0\0SE",r10
-!   _temp_510 = _StringConst_29
-	set	_StringConst_29,r1
+!   _temp_567 = _StringConst_39
+	set	_StringConst_39,r1
 	store	r1,[r14+-56]
 	load	[r14+8],r1
 	store	r1,[r14+-52]
-!   if intIsZero (_temp_511) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_568) then goto _runtimeErrorNullPointer
 	load	[r14+-52],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
-!   Prepare Argument: offset=12  value=_temp_510  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_567  sizeInBytes=4
 	load	[r14+-56],r1
 	store	r1,[r15+4]
 !   Prepare Argument: offset=16  value=numNeeded  sizeInBytes=4
@@ -24099,7 +35788,7 @@ _Label_607:
 	add	r2,16,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	338,r13		! source line 338
+	mov	377,r13		! source line 377
 	mov	"\0\0AS",r10
 !   inQueue = inQueue + 1		(int)
 	load	[r14+8],r1
@@ -24110,30 +35799,30 @@ _Label_607:
 	load	[r14+8],r2
 	store	r1,[r2+64]
 ! IF STATEMENT...
-	mov	340,r13		! source line 340
+	mov	379,r13		! source line 379
 	mov	"\0\0IF",r10
-!   if isDeskBusy then goto _Label_512 else goto _Label_513
+!   if isDeskBusy then goto _Label_569 else goto _Label_570
 	load	[r14+8],r1
 	loadb	[r1+60],r1
 	cmp	r1,0
-	be	_Label_513
-	jmp	_Label_512
-_Label_512:
+	be	_Label_570
+	jmp	_Label_569
+_Label_569:
 ! THEN...
-	mov	341,r13		! source line 341
+	mov	380,r13		! source line 380
 	mov	"\0\0TN",r10
 ! SEND STATEMENT...
-	mov	341,r13		! source line 341
+	mov	380,r13		! source line 380
 	mov	"\0\0SE",r10
-!   _temp_514 = &mut
+!   _temp_571 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-48]
-!   _temp_515 = &mustWait
+!   _temp_572 = &mustWait
 	load	[r14+8],r1
 	add	r1,4,r1
 	store	r1,[r14+-44]
-!   Prepare Argument: offset=12  value=_temp_514  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_571  sizeInBytes=4
 	load	[r14+-48],r1
 	store	r1,[r15+4]
 !   Send message Wait
@@ -24145,48 +35834,48 @@ _Label_512:
 	add	r2,8,r2
 	call	r2
 ! END IF...
-_Label_513:
+_Label_570:
 ! ASSIGNMENT STATEMENT...
-	mov	344,r13		! source line 344
+	mov	383,r13		! source line 383
 	mov	"\0\0AS",r10
 !   isDeskBusy = 1		(1 byte)
 	mov	1,r1
 	load	[r14+8],r2
 	storeb	r1,[r2+60]
 ! ASSIGNMENT STATEMENT...
-	mov	345,r13		! source line 345
+	mov	384,r13		! source line 384
 	mov	"\0\0AS",r10
 !   needed = numNeeded		(4 bytes)
 	load	[r14+12],r1
 	load	[r14+8],r2
 	store	r1,[r2+68]
 ! WHILE STATEMENT...
-	mov	347,r13		! source line 347
+	mov	386,r13		! source line 386
 	mov	"\0\0WH",r10
-_Label_516:
-!   if numNeeded <= dices then goto _Label_518		(int)
+_Label_573:
+!   if numNeeded <= dices then goto _Label_575		(int)
 	load	[r14+12],r1
 	load	[r14+8],r2
 	load	[r2+56],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	ble	_Label_518
-!	jmp	_Label_517
-_Label_517:
-	mov	347,r13		! source line 347
+	ble	_Label_575
+!	jmp	_Label_574
+_Label_574:
+	mov	386,r13		! source line 386
 	mov	"\0\0WB",r10
 ! SEND STATEMENT...
-	mov	348,r13		! source line 348
+	mov	387,r13		! source line 387
 	mov	"\0\0SE",r10
-!   _temp_519 = &mut
+!   _temp_576 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-40]
-!   _temp_520 = &dieReady
+!   _temp_577 = &dieReady
 	load	[r14+8],r1
 	add	r1,20,r1
 	store	r1,[r14+-36]
-!   Prepare Argument: offset=12  value=_temp_519  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_576  sizeInBytes=4
 	load	[r14+-40],r1
 	store	r1,[r15+4]
 !   Send message Wait
@@ -24198,14 +35887,14 @@ _Label_517:
 	add	r2,8,r2
 	call	r2
 ! END WHILE...
-	jmp	_Label_516
-_Label_518:
+	jmp	_Label_573
+_Label_575:
 ! SEND STATEMENT...
-	mov	351,r13		! source line 351
+	mov	390,r13		! source line 390
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-32]
-!   if intIsZero (_temp_521) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_578) then goto _runtimeErrorNullPointer
 	load	[r14+-32],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -24221,18 +35910,18 @@ _Label_518:
 	add	r2,20,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	352,r13		! source line 352
+	mov	391,r13		! source line 391
 	mov	"\0\0SE",r10
-!   _temp_522 = _StringConst_30
-	set	_StringConst_30,r1
+!   _temp_579 = _StringConst_40
+	set	_StringConst_40,r1
 	store	r1,[r14+-28]
 	load	[r14+8],r1
 	store	r1,[r14+-24]
-!   if intIsZero (_temp_523) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_580) then goto _runtimeErrorNullPointer
 	load	[r14+-24],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
-!   Prepare Argument: offset=12  value=_temp_522  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_579  sizeInBytes=4
 	load	[r14+-28],r1
 	store	r1,[r15+4]
 !   Prepare Argument: offset=16  value=numNeeded  sizeInBytes=4
@@ -24247,7 +35936,7 @@ _Label_518:
 	add	r2,16,r2
 	call	r2
 ! ASSIGNMENT STATEMENT...
-	mov	354,r13		! source line 354
+	mov	393,r13		! source line 393
 	mov	"\0\0AS",r10
 !   inQueue = inQueue - 1		(int)
 	load	[r14+8],r1
@@ -24258,39 +35947,39 @@ _Label_518:
 	load	[r14+8],r2
 	store	r1,[r2+64]
 ! IF STATEMENT...
-	mov	355,r13		! source line 355
+	mov	394,r13		! source line 394
 	mov	"\0\0IF",r10
-!   if intIsZero (inQueue) then goto _Label_524
+!   if intIsZero (inQueue) then goto _Label_581
 	load	[r14+8],r1
 	load	[r1+64],r1
 	cmp	r1,r0
-	be	_Label_524
-	jmp	_Label_525
-_Label_524:
+	be	_Label_581
+	jmp	_Label_582
+_Label_581:
 ! THEN...
-	mov	356,r13		! source line 356
+	mov	395,r13		! source line 395
 	mov	"\0\0TN",r10
 ! ASSIGNMENT STATEMENT...
-	mov	356,r13		! source line 356
+	mov	395,r13		! source line 395
 	mov	"\0\0AS",r10
 !   isDeskBusy = 0		(1 byte)
 	mov	0,r1
 	load	[r14+8],r2
 	storeb	r1,[r2+60]
 ! END IF...
-_Label_525:
+_Label_582:
 ! SEND STATEMENT...
-	mov	358,r13		! source line 358
+	mov	397,r13		! source line 397
 	mov	"\0\0SE",r10
-!   _temp_526 = &mut
+!   _temp_583 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-20]
-!   _temp_527 = &mustWait
+!   _temp_584 = &mustWait
 	load	[r14+8],r1
 	add	r1,4,r1
 	store	r1,[r14+-16]
-!   Prepare Argument: offset=12  value=_temp_526  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_583  sizeInBytes=4
 	load	[r14+-20],r1
 	store	r1,[r15+4]
 !   Send message Signal
@@ -24302,9 +35991,9 @@ _Label_525:
 	add	r2,12,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	360,r13		! source line 360
+	mov	399,r13		! source line 399
 	mov	"\0\0SE",r10
-!   _temp_528 = &mut
+!   _temp_585 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-12]
@@ -24317,7 +36006,7 @@ _Label_525:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	360,r13		! source line 360
+	mov	399,r13		! source line 399
 	mov	"\0\0RE",r10
 	add	r15,68,r15
 	pop	r13
@@ -24328,118 +36017,118 @@ _Label_525:
 ! 
 _RoutineDescriptor__Method_P_Main_FrontDeskMonitor_2:
 	.word	_sourceFileName
-	.word	_Label_529
+	.word	_Label_586
 	.word	8		! total size of parameters
 	.word	64		! frame size = 64
-	.word	_Label_530
+	.word	_Label_587
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_531
+	.word	_Label_588
 	.word	12
 	.word	4
-	.word	_Label_532
+	.word	_Label_589
 	.word	-12
 	.word	4
-	.word	_Label_533
+	.word	_Label_590
 	.word	-16
 	.word	4
-	.word	_Label_534
+	.word	_Label_591
 	.word	-20
 	.word	4
-	.word	_Label_535
+	.word	_Label_592
 	.word	-24
 	.word	4
-	.word	_Label_536
+	.word	_Label_593
 	.word	-28
 	.word	4
-	.word	_Label_537
+	.word	_Label_594
 	.word	-32
 	.word	4
-	.word	_Label_538
+	.word	_Label_595
 	.word	-36
 	.word	4
-	.word	_Label_539
+	.word	_Label_596
 	.word	-40
 	.word	4
-	.word	_Label_540
+	.word	_Label_597
 	.word	-44
 	.word	4
-	.word	_Label_541
+	.word	_Label_598
 	.word	-48
 	.word	4
-	.word	_Label_542
+	.word	_Label_599
 	.word	-52
 	.word	4
-	.word	_Label_543
+	.word	_Label_600
 	.word	-56
 	.word	4
-	.word	_Label_544
+	.word	_Label_601
 	.word	-60
 	.word	4
 	.word	0
-_Label_529:
+_Label_586:
 	.ascii	"FrontDeskMonitor"
 	.ascii	"::"
 	.ascii	"Request\0"
 	.align
-_Label_530:
+_Label_587:
 	.ascii	"Pself\0"
 	.align
-_Label_531:
+_Label_588:
 	.byte	'I'
 	.ascii	"numNeeded\0"
 	.align
-_Label_532:
+_Label_589:
 	.byte	'?'
-	.ascii	"_temp_528\0"
+	.ascii	"_temp_585\0"
 	.align
-_Label_533:
+_Label_590:
 	.byte	'?'
-	.ascii	"_temp_527\0"
+	.ascii	"_temp_584\0"
 	.align
-_Label_534:
+_Label_591:
 	.byte	'?'
-	.ascii	"_temp_526\0"
+	.ascii	"_temp_583\0"
 	.align
-_Label_535:
+_Label_592:
 	.byte	'?'
-	.ascii	"_temp_523\0"
+	.ascii	"_temp_580\0"
 	.align
-_Label_536:
+_Label_593:
 	.byte	'?'
-	.ascii	"_temp_522\0"
+	.ascii	"_temp_579\0"
 	.align
-_Label_537:
+_Label_594:
 	.byte	'?'
-	.ascii	"_temp_521\0"
+	.ascii	"_temp_578\0"
 	.align
-_Label_538:
+_Label_595:
 	.byte	'?'
-	.ascii	"_temp_520\0"
+	.ascii	"_temp_577\0"
 	.align
-_Label_539:
+_Label_596:
 	.byte	'?'
-	.ascii	"_temp_519\0"
+	.ascii	"_temp_576\0"
 	.align
-_Label_540:
+_Label_597:
 	.byte	'?'
-	.ascii	"_temp_515\0"
+	.ascii	"_temp_572\0"
 	.align
-_Label_541:
+_Label_598:
 	.byte	'?'
-	.ascii	"_temp_514\0"
+	.ascii	"_temp_571\0"
 	.align
-_Label_542:
+_Label_599:
 	.byte	'?'
-	.ascii	"_temp_511\0"
+	.ascii	"_temp_568\0"
 	.align
-_Label_543:
+_Label_600:
 	.byte	'?'
-	.ascii	"_temp_510\0"
+	.ascii	"_temp_567\0"
 	.align
-_Label_544:
+_Label_601:
 	.byte	'?'
-	.ascii	"_temp_509\0"
+	.ascii	"_temp_566\0"
 	.align
 ! 
 ! ===============  METHOD Return  ===============
@@ -24451,17 +36140,17 @@ _Method_P_Main_FrontDeskMonitor_3:
 	set	_RoutineDescriptor__Method_P_Main_FrontDeskMonitor_3,r1
 	push	r1
 	mov	10,r1
-_Label_608:
+_Label_666:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_608
-	mov	363,r13		! source line 363
+	bne	_Label_666
+	mov	402,r13		! source line 402
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! SEND STATEMENT...
-	mov	364,r13		! source line 364
+	mov	403,r13		! source line 403
 	mov	"\0\0SE",r10
-!   _temp_545 = &mut
+!   _temp_602 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-36]
@@ -24474,11 +36163,11 @@ _Label_608:
 	add	r2,8,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	365,r13		! source line 365
+	mov	404,r13		! source line 404
 	mov	"\0\0SE",r10
 	load	[r14+8],r1
 	store	r1,[r14+-32]
-!   if intIsZero (_temp_546) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_603) then goto _runtimeErrorNullPointer
 	load	[r14+-32],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
@@ -24494,18 +36183,18 @@ _Label_608:
 	add	r2,24,r2
 	call	r2
 ! SEND STATEMENT...
-	mov	366,r13		! source line 366
+	mov	405,r13		! source line 405
 	mov	"\0\0SE",r10
-!   _temp_547 = _StringConst_31
-	set	_StringConst_31,r1
+!   _temp_604 = _StringConst_41
+	set	_StringConst_41,r1
 	store	r1,[r14+-28]
 	load	[r14+8],r1
 	store	r1,[r14+-24]
-!   if intIsZero (_temp_548) then goto _runtimeErrorNullPointer
+!   if intIsZero (_temp_605) then goto _runtimeErrorNullPointer
 	load	[r14+-24],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
-!   Prepare Argument: offset=12  value=_temp_547  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_604  sizeInBytes=4
 	load	[r14+-28],r1
 	store	r1,[r15+4]
 !   Prepare Argument: offset=16  value=numReturned  sizeInBytes=4
@@ -24520,46 +36209,46 @@ _Label_608:
 	add	r2,16,r2
 	call	r2
 ! IF STATEMENT...
-	mov	367,r13		! source line 367
+	mov	406,r13		! source line 406
 	mov	"\0\0IF",r10
-!   if isDeskBusy then goto _Label_549 else goto _Label_550
+!   if isDeskBusy then goto _Label_606 else goto _Label_607
 	load	[r14+8],r1
 	loadb	[r1+60],r1
 	cmp	r1,0
-	be	_Label_550
-	jmp	_Label_549
-_Label_549:
+	be	_Label_607
+	jmp	_Label_606
+_Label_606:
 ! THEN...
-	mov	368,r13		! source line 368
+	mov	407,r13		! source line 407
 	mov	"\0\0TN",r10
 ! IF STATEMENT...
-	mov	368,r13		! source line 368
+	mov	407,r13		! source line 407
 	mov	"\0\0IF",r10
-!   if needed > dices then goto _Label_552		(int)
+!   if needed > dices then goto _Label_609		(int)
 	load	[r14+8],r1
 	load	[r1+68],r1
 	load	[r14+8],r2
 	load	[r2+56],r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
-	bg	_Label_552
-!	jmp	_Label_551
-_Label_551:
+	bg	_Label_609
+!	jmp	_Label_608
+_Label_608:
 ! THEN...
-	mov	369,r13		! source line 369
+	mov	408,r13		! source line 408
 	mov	"\0\0TN",r10
 ! SEND STATEMENT...
-	mov	369,r13		! source line 369
+	mov	408,r13		! source line 408
 	mov	"\0\0SE",r10
-!   _temp_553 = &mut
+!   _temp_610 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-20]
-!   _temp_554 = &dieReady
+!   _temp_611 = &dieReady
 	load	[r14+8],r1
 	add	r1,20,r1
 	store	r1,[r14+-16]
-!   Prepare Argument: offset=12  value=_temp_553  sizeInBytes=4
+!   Prepare Argument: offset=12  value=_temp_610  sizeInBytes=4
 	load	[r14+-20],r1
 	store	r1,[r15+4]
 !   Send message Signal
@@ -24571,13 +36260,13 @@ _Label_551:
 	add	r2,12,r2
 	call	r2
 ! END IF...
-_Label_552:
+_Label_609:
 ! END IF...
-_Label_550:
+_Label_607:
 ! SEND STATEMENT...
-	mov	372,r13		! source line 372
+	mov	411,r13		! source line 411
 	mov	"\0\0SE",r10
-!   _temp_555 = &mut
+!   _temp_612 = &mut
 	load	[r14+8],r1
 	add	r1,36,r1
 	store	r1,[r14+-12]
@@ -24590,7 +36279,7 @@ _Label_550:
 	add	r2,12,r2
 	call	r2
 ! RETURN STATEMENT...
-	mov	372,r13		! source line 372
+	mov	411,r13		! source line 411
 	mov	"\0\0RE",r10
 	add	r15,44,r15
 	pop	r13
@@ -24601,76 +36290,76 @@ _Label_550:
 ! 
 _RoutineDescriptor__Method_P_Main_FrontDeskMonitor_3:
 	.word	_sourceFileName
-	.word	_Label_556
+	.word	_Label_613
 	.word	8		! total size of parameters
 	.word	40		! frame size = 40
-	.word	_Label_557
+	.word	_Label_614
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_558
+	.word	_Label_615
 	.word	12
 	.word	4
-	.word	_Label_559
+	.word	_Label_616
 	.word	-12
 	.word	4
-	.word	_Label_560
+	.word	_Label_617
 	.word	-16
 	.word	4
-	.word	_Label_561
+	.word	_Label_618
 	.word	-20
 	.word	4
-	.word	_Label_562
+	.word	_Label_619
 	.word	-24
 	.word	4
-	.word	_Label_563
+	.word	_Label_620
 	.word	-28
 	.word	4
-	.word	_Label_564
+	.word	_Label_621
 	.word	-32
 	.word	4
-	.word	_Label_565
+	.word	_Label_622
 	.word	-36
 	.word	4
 	.word	0
-_Label_556:
+_Label_613:
 	.ascii	"FrontDeskMonitor"
 	.ascii	"::"
 	.ascii	"Return\0"
 	.align
-_Label_557:
+_Label_614:
 	.ascii	"Pself\0"
 	.align
-_Label_558:
+_Label_615:
 	.byte	'I'
 	.ascii	"numReturned\0"
 	.align
-_Label_559:
+_Label_616:
 	.byte	'?'
-	.ascii	"_temp_555\0"
+	.ascii	"_temp_612\0"
 	.align
-_Label_560:
+_Label_617:
 	.byte	'?'
-	.ascii	"_temp_554\0"
+	.ascii	"_temp_611\0"
 	.align
-_Label_561:
+_Label_618:
 	.byte	'?'
-	.ascii	"_temp_553\0"
+	.ascii	"_temp_610\0"
 	.align
-_Label_562:
+_Label_619:
 	.byte	'?'
-	.ascii	"_temp_548\0"
+	.ascii	"_temp_605\0"
 	.align
-_Label_563:
+_Label_620:
 	.byte	'?'
-	.ascii	"_temp_547\0"
+	.ascii	"_temp_604\0"
 	.align
-_Label_564:
+_Label_621:
 	.byte	'?'
-	.ascii	"_temp_546\0"
+	.ascii	"_temp_603\0"
 	.align
-_Label_565:
+_Label_622:
 	.byte	'?'
-	.ascii	"_temp_545\0"
+	.ascii	"_temp_602\0"
 	.align
 ! 
 ! ===============  METHOD Print  ===============
@@ -24682,11 +36371,11 @@ _Method_P_Main_FrontDeskMonitor_4:
 	set	_RoutineDescriptor__Method_P_Main_FrontDeskMonitor_4,r1
 	push	r1
 	mov	6,r1
-_Label_609:
+_Label_667:
 	push	r0
 	sub	r1,1,r1
-	bne	_Label_609
-	mov	379,r13		! source line 379
+	bne	_Label_667
+	mov	418,r13		! source line 418
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! CALL STATEMENT...
@@ -24695,31 +36384,31 @@ _Label_609:
 	load	[r1],r1
 	cmp	r1,r0
 	be	_runtimeErrorNullPointer
-!   _temp_567 = _P_Thread_currentThread + 72
+!   _temp_624 = _P_Thread_currentThread + 72
 	set	_P_Thread_currentThread,r1
 	load	[r1],r1
 	add	r1,72,r1
 	store	r1,[r14+-24]
-!   Data Move: _temp_566 = *_temp_567  (sizeInBytes=4)
+!   Data Move: _temp_623 = *_temp_624  (sizeInBytes=4)
 	load	[r14+-24],r1
 	load	[r1],r1
 	store	r1,[r14+-28]
-!   Prepare Argument: offset=8  value=_temp_566  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_623  sizeInBytes=4
 	load	[r14+-28],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	380,r13		! source line 380
+	mov	419,r13		! source line 419
 	mov	"\0\0CE",r10
 	call	print
 ! CALL STATEMENT...
-!   _temp_568 = _StringConst_32
-	set	_StringConst_32,r1
+!   _temp_625 = _StringConst_42
+	set	_StringConst_42,r1
 	store	r1,[r14+-20]
-!   Prepare Argument: offset=8  value=_temp_568  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_625  sizeInBytes=4
 	load	[r14+-20],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	381,r13		! source line 381
+	mov	420,r13		! source line 420
 	mov	"\0\0CE",r10
 	call	print
 ! CALL STATEMENT...
@@ -24727,18 +36416,18 @@ _Label_609:
 	load	[r14+12],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	382,r13		! source line 382
+	mov	421,r13		! source line 421
 	mov	"\0\0CE",r10
 	call	print
 ! CALL STATEMENT...
-!   _temp_569 = _StringConst_33
-	set	_StringConst_33,r1
+!   _temp_626 = _StringConst_43
+	set	_StringConst_43,r1
 	store	r1,[r14+-16]
-!   Prepare Argument: offset=8  value=_temp_569  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_626  sizeInBytes=4
 	load	[r14+-16],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	383,r13		! source line 383
+	mov	422,r13		! source line 422
 	mov	"\0\0CE",r10
 	call	print
 ! CALL STATEMENT...
@@ -24746,23 +36435,23 @@ _Label_609:
 	load	[r14+16],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	384,r13		! source line 384
+	mov	423,r13		! source line 423
 	mov	"\0\0CE",r10
 	call	printInt
 ! CALL STATEMENT...
 !   Call the function
-	mov	385,r13		! source line 385
+	mov	424,r13		! source line 424
 	mov	"\0\0CA",r10
 	call	_P_System_nl
 ! CALL STATEMENT...
-!   _temp_570 = _StringConst_34
-	set	_StringConst_34,r1
+!   _temp_627 = _StringConst_44
+	set	_StringConst_44,r1
 	store	r1,[r14+-12]
-!   Prepare Argument: offset=8  value=_temp_570  sizeInBytes=4
+!   Prepare Argument: offset=8  value=_temp_627  sizeInBytes=4
 	load	[r14+-12],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	386,r13		! source line 386
+	mov	425,r13		! source line 425
 	mov	"\0\0CE",r10
 	call	print
 ! CALL STATEMENT...
@@ -24771,16 +36460,16 @@ _Label_609:
 	load	[r1+56],r1
 	store	r1,[r15+0]
 !   Call the function
-	mov	387,r13		! source line 387
+	mov	426,r13		! source line 426
 	mov	"\0\0CE",r10
 	call	printInt
 ! CALL STATEMENT...
 !   Call the function
-	mov	388,r13		! source line 388
+	mov	427,r13		! source line 427
 	mov	"\0\0CA",r10
 	call	_P_System_nl
 ! RETURN STATEMENT...
-	mov	388,r13		! source line 388
+	mov	427,r13		! source line 427
 	mov	"\0\0RE",r10
 	add	r15,28,r15
 	pop	r13
@@ -24791,69 +36480,69 @@ _Label_609:
 ! 
 _RoutineDescriptor__Method_P_Main_FrontDeskMonitor_4:
 	.word	_sourceFileName
-	.word	_Label_571
+	.word	_Label_628
 	.word	12		! total size of parameters
 	.word	24		! frame size = 24
-	.word	_Label_572
+	.word	_Label_629
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_573
+	.word	_Label_630
 	.word	12
 	.word	4
-	.word	_Label_574
+	.word	_Label_631
 	.word	16
 	.word	4
-	.word	_Label_575
+	.word	_Label_632
 	.word	-12
 	.word	4
-	.word	_Label_576
+	.word	_Label_633
 	.word	-16
 	.word	4
-	.word	_Label_577
+	.word	_Label_634
 	.word	-20
 	.word	4
-	.word	_Label_578
+	.word	_Label_635
 	.word	-24
 	.word	4
-	.word	_Label_579
+	.word	_Label_636
 	.word	-28
 	.word	4
 	.word	0
-_Label_571:
+_Label_628:
 	.ascii	"FrontDeskMonitor"
 	.ascii	"::"
 	.ascii	"Print\0"
 	.align
-_Label_572:
+_Label_629:
 	.ascii	"Pself\0"
 	.align
-_Label_573:
+_Label_630:
 	.byte	'P'
 	.ascii	"str\0"
 	.align
-_Label_574:
+_Label_631:
 	.byte	'I'
 	.ascii	"count\0"
 	.align
-_Label_575:
+_Label_632:
 	.byte	'?'
-	.ascii	"_temp_570\0"
+	.ascii	"_temp_627\0"
 	.align
-_Label_576:
+_Label_633:
 	.byte	'?'
-	.ascii	"_temp_569\0"
+	.ascii	"_temp_626\0"
 	.align
-_Label_577:
+_Label_634:
 	.byte	'?'
-	.ascii	"_temp_568\0"
+	.ascii	"_temp_625\0"
 	.align
-_Label_578:
+_Label_635:
 	.byte	'?'
-	.ascii	"_temp_567\0"
+	.ascii	"_temp_624\0"
 	.align
-_Label_579:
+_Label_636:
 	.byte	'?'
-	.ascii	"_temp_566\0"
+	.ascii	"_temp_623\0"
 	.align
 ! 
 ! ===============  METHOD Withdraw  ===============
@@ -24864,11 +36553,11 @@ _Method_P_Main_FrontDeskMonitor_5:
 	push	r13
 	set	_RoutineDescriptor__Method_P_Main_FrontDeskMonitor_5,r1
 	push	r1
-	mov	391,r13		! source line 391
+	mov	430,r13		! source line 430
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! ASSIGNMENT STATEMENT...
-	mov	392,r13		! source line 392
+	mov	431,r13		! source line 431
 	mov	"\0\0AS",r10
 !   dices = dices - x		(int)
 	load	[r14+8],r1
@@ -24879,7 +36568,7 @@ _Method_P_Main_FrontDeskMonitor_5:
 	load	[r14+8],r2
 	store	r1,[r2+56]
 ! RETURN STATEMENT...
-	mov	392,r13		! source line 392
+	mov	431,r13		! source line 431
 	mov	"\0\0RE",r10
 	add	r15,4,r15
 	pop	r13
@@ -24890,25 +36579,25 @@ _Method_P_Main_FrontDeskMonitor_5:
 ! 
 _RoutineDescriptor__Method_P_Main_FrontDeskMonitor_5:
 	.word	_sourceFileName
-	.word	_Label_580
+	.word	_Label_637
 	.word	8		! total size of parameters
 	.word	0		! frame size = 0
-	.word	_Label_581
+	.word	_Label_638
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_582
+	.word	_Label_639
 	.word	12
 	.word	4
 	.word	0
-_Label_580:
+_Label_637:
 	.ascii	"FrontDeskMonitor"
 	.ascii	"::"
 	.ascii	"Withdraw\0"
 	.align
-_Label_581:
+_Label_638:
 	.ascii	"Pself\0"
 	.align
-_Label_582:
+_Label_639:
 	.byte	'I'
 	.ascii	"x\0"
 	.align
@@ -24921,11 +36610,11 @@ _Method_P_Main_FrontDeskMonitor_6:
 	push	r13
 	set	_RoutineDescriptor__Method_P_Main_FrontDeskMonitor_6,r1
 	push	r1
-	mov	395,r13		! source line 395
+	mov	434,r13		! source line 434
 	mov	"\0\0ME",r10
 ! VARIABLE INITIALIZATION...
 ! ASSIGNMENT STATEMENT...
-	mov	396,r13		! source line 396
+	mov	435,r13		! source line 435
 	mov	"\0\0AS",r10
 !   dices = dices + x		(int)
 	load	[r14+8],r1
@@ -24936,7 +36625,7 @@ _Method_P_Main_FrontDeskMonitor_6:
 	load	[r14+8],r2
 	store	r1,[r2+56]
 ! RETURN STATEMENT...
-	mov	396,r13		! source line 396
+	mov	435,r13		! source line 435
 	mov	"\0\0RE",r10
 	add	r15,4,r15
 	pop	r13
@@ -24947,25 +36636,25 @@ _Method_P_Main_FrontDeskMonitor_6:
 ! 
 _RoutineDescriptor__Method_P_Main_FrontDeskMonitor_6:
 	.word	_sourceFileName
-	.word	_Label_583
+	.word	_Label_640
 	.word	8		! total size of parameters
 	.word	0		! frame size = 0
-	.word	_Label_584
+	.word	_Label_641
 	.word	4		! size of self
 	.word	8		! offset of self
-	.word	_Label_585
+	.word	_Label_642
 	.word	12
 	.word	4
 	.word	0
-_Label_583:
+_Label_640:
 	.ascii	"FrontDeskMonitor"
 	.ascii	"::"
 	.ascii	"Deposit\0"
 	.align
-_Label_584:
+_Label_641:
 	.ascii	"Pself\0"
 	.align
-_Label_585:
+_Label_642:
 	.byte	'I'
 	.ascii	"x\0"
 	.align

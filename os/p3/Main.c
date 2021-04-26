@@ -24,8 +24,33 @@ behavior Barbershop
         enter = -1
         exit = -1
         finished = -1
-        twoDigit = false
-        --  l = new List [int]
+        
+        self.PrintHeader ()
+    endMethod
+
+    method PrintHeader ()
+        var i: int
+        print("Idle  Chair  ")
+        if twoDigit 
+            print("   ")
+        endIf
+        print("Waiting")
+        for i = 1 to CHAIRS-3 by 1
+            if twoDigit
+                print(" ")
+            endIf
+            if i != CHAIRS-3
+                print("  ")
+            endIf
+        endFor
+        print(" ")
+        if twoDigit
+            print(" ")
+        endIf
+        print("In")
+        print(" <-> ")
+        print("Out")
+        nl()
     endMethod
 
     method Start ()
@@ -35,7 +60,7 @@ behavior Barbershop
         mut.Unlock ()
     endMethod
 
-    method Finish ()
+    method End ()
         mut.Lock ()
             working = false
             self.PrintState ()
@@ -175,7 +200,7 @@ behavior Barbershop
         mut.Unlock ()
     endMethod
 
-    -- opposite of serve
+    -- finish/opposite of serve 
     method Standup()
         mut.Lock ()
         finished = current
@@ -188,7 +213,13 @@ behavior Barbershop
 
 
 function WasteTime (duration: int)
+    --  var x : int = 0
+    --  while duration > 2000
+    --      currentThread.Yield ()
+    --      duration = duration - 2000
+    --  endWhile
     while duration > 0
+        --  x = x * 2
         duration = duration - 1
     endWhile
 endFunction
@@ -205,7 +236,7 @@ function CutHair()
     WasteTime(10000)
     FinishSem.Down()
     -- print end of barber work
-    shop.Finish ()
+    shop.End ()
 endFunction
 
 function GetHaircut(id: int)
@@ -236,24 +267,32 @@ endFunction
 
 ---------------------------  Customer  --------------------------
 function customer (id: int)
-    mutex.Down ()
-    --  print ("customer enter\n")
-    shop.Enter (id)
-    if waiting < CHAIRS
-        waiting = waiting + 1
-        customersSem.Up ()
-        --  print ("customer sit\n")
-        shop.Sit (id)
-        mutex.Up ()
-        barbers.Down ()
-        --  print ("customer begin\n")
-        GetHaircut (id)
-        --  print ("customer finish\n")
-    else
-        --  print ("customer leave\n")
-        shop.Exit (id)
-        mutex.Up ()
-    endIf
+    var i: int = 0
+    while i < N_CUTS
+        mutex.Down ()
+        --  print ("customer enter\n")
+        shop.Enter (id)
+        if waiting < CHAIRS
+            waiting = waiting + 1
+            customersSem.Up ()
+            --  print ("customer sit\n")
+            shop.Sit (id)
+            mutex.Up ()
+            barbers.Down ()
+            --  print ("customer begin\n")
+            GetHaircut (id)
+            shop.Exit (id)
+            --  print ("customer finish\n")
+            i = i + 1
+        else
+            --  print ("customer leave\n")
+            shop.Exit (id)
+            mutex.Up ()
+            if !try_again
+                i = i + 1
+            endIf
+        endIf
+    endWhile
     ThreadFinish ()
 endFunction
 
