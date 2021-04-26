@@ -1,4 +1,9 @@
 code Main
+  -- OS Class: Project 3
+  --
+  -- AEIRYA MOHAMMADI
+  -- 97103779
+
 
 -- 
 -- varibles used by the customer and barber threads (sleeping barber problem)
