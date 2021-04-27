@@ -42,10 +42,10 @@ class power {
 //     b = temp;
 // }
 
-// template <typename T>
-// T inline max(T a, T b) {
-//     return a > b ? a : b;
-// }
+template <typename T>
+T inline min(T a, T b) {
+    return a < b ? a : b;
+}
 
 /*
     data class for lion
@@ -97,10 +97,10 @@ type f(lion A[], int i, int least_good, type inc, bool haveExcessBlue) {
         return A[i].bet(inc);
         // (x * mane_i - tail_i) - (mane_i - tail_i)
     else if (haveExcessBlue)
-        return A[i].bet(inc) + A[i].value();
+        return A[i].bet(inc) + min(A[i].value(),(type) 0);
         // (x*mane_i - tail_i)
     else
-        return (A[i].bet(inc) + A[i].value()) - A[least_good].value();
+        return (A[i].bet(inc) + min(A[i].value(),(type)0)) - A[least_good].value();
         // (new value of A[i]) - (value of last lion)
         // (x*mane_i - tail_i) - (mane_b - tail_b)
 }
@@ -135,7 +135,7 @@ void give_blue_pills(lion A[], type n, type last_lion) {
     n : len(A)
     a : number of red pills
 */
-void give_red_pills(lion A[], type n, type a, type& least_good, bool excess_blue) {    
+void give_red_pills(lion A[], type n, type a, type& least_good, type sum_tail, bool excess_blue) {    
     type x = power().to(a); // calc increase mult
 
     type best = 0;  // best lion index so far
@@ -172,6 +172,7 @@ void give_red_pills(lion A[], type n, type a, type& least_good, bool excess_blue
 type inline tail_sum(lion A[], int n) {
     type sum_tail = 0;
     for (type i=0; i<n; ++i) {
+        // std::cout << A[i].get_tail() << std::endl;
         sum_tail += A[i].get_tail();
     }
     return sum_tail;
@@ -204,11 +205,13 @@ int main() {
     bool haveExcessBlue;
     type last_lion = find_last_lion(A, n, b, haveExcessBlue);    
 
-    give_red_pills(A, n, a, last_lion, haveExcessBlue);
+    type sum = 0;
+    give_red_pills(A, n, a, last_lion, sum, haveExcessBlue);
     give_blue_pills(A, n, last_lion);
 
+    type result = tail_sum(A, n);
     // print result
-    std::cout << tail_sum(A, n) << std::endl;
+    std::cout << result << std::endl;
 
     return 0;
 }
