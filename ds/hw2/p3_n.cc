@@ -35,12 +35,12 @@ class power {
 /*
     other util
 */
-// template <typename T>
-// void inline swap(T& a, T& b) {
-//     T temp = a;
-//     a = b;
-//     b = temp;
-// }
+template <typename T>
+void inline swap(T* a, T* b) {
+    T temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
 template <typename T>
 T inline min(T a, T b) {
@@ -98,11 +98,12 @@ type f(lion A[], int i, int least_good, type inc, bool haveExcessBlue) {
         // (x * mane_i - tail_i) - (mane_i - tail_i)
     else if (haveExcessBlue)
         return A[i].bet(inc) + min(A[i].value(),(type) 0);
-        // (x*mane_i - tail_i)
+        // (x * mane_i - tail_i) if value < 0
+        // (x * mane_i - tail_i) - (mane_i - tail_i) if value > 0 
     else
-        return (A[i].bet(inc) + min(A[i].value(),(type)0)) - A[least_good].value();
+        return (A[i].bet(inc) + A[i].value()) - A[least_good].value();
         // (new value of A[i]) - (value of last lion)
-        // (x*mane_i - tail_i) - (mane_b - tail_b)
+        // (x * mane_i - tail_i) - (mane_b - tail_b)
 }
 
 /*
@@ -115,7 +116,7 @@ type f(lion A[], int i, int least_good, type inc, bool haveExcessBlue) {
 type find_last_lion(lion A[], type n, type b, bool& haveExcessBlue) {
     std::sort(A, A+n);
     type i = n-1;
-    for (; i>=0 && b>=0 && A[i].value()>0; --i, --b);
+    for (; i>=0 && b>0 && A[i].value()>0; --i, --b);
     haveExcessBlue = b > 0;
     return ++i;
 }
@@ -135,12 +136,14 @@ void give_blue_pills(lion A[], type n, type last_lion) {
     n : len(A)
     a : number of red pills
 */
-void give_red_pills(lion A[], type n, type a, type& least_good, type sum_tail, bool excess_blue) {    
+void give_red_pills(lion A[], type n, type a, type& least_good, bool excess_blue) {    
     type x = power().to(a); // calc increase mult
 
     type best = 0;  // best lion index so far
     type last = f(A, 0, least_good, x, excess_blue);
     type y;
+
+    // maximize f(x) on lions, to choose the 'red' lion
     for (type i=1; i<n; ++i) {
         y = f(A, i, least_good, x, excess_blue);
         if (y > last) {
@@ -151,20 +154,14 @@ void give_red_pills(lion A[], type n, type a, type& least_good, type sum_tail, b
 
     // give the red pill
     A[best].red(x);
-    
-    // std::cout << "chose red:\n";
-    // A[best].print();
 
     // non-condidate for blue pill
     if (best < least_good) {
         if (excess_blue) {
             --least_good;
         }
-        // std::cout << "swapping " << best << " and " << least_good << "\n";
         // swap
-        lion temp = A[best];
-        A[best] = A[least_good];
-        A[least_good] = temp;
+        swap(&A[best], &A[least_good]);
     }
 }
 
@@ -172,7 +169,6 @@ void give_red_pills(lion A[], type n, type a, type& least_good, type sum_tail, b
 type inline tail_sum(lion A[], int n) {
     type sum_tail = 0;
     for (type i=0; i<n; ++i) {
-        // std::cout << A[i].get_tail() << std::endl;
         sum_tail += A[i].get_tail();
     }
     return sum_tail;
@@ -201,17 +197,18 @@ int main() {
     lion A[n];
     input_lions(A, n);
 
-    // the chosen lion index with least value
+    // if have excess blue pills to spare (for the 'red' lion)
     bool haveExcessBlue;
+    // the chosen lion index with least value
     type last_lion = find_last_lion(A, n, b, haveExcessBlue);    
 
-    type sum = 0;
-    give_red_pills(A, n, a, last_lion, sum, haveExcessBlue);
-    give_blue_pills(A, n, last_lion);
+    if (b > 0) {
+        give_red_pills(A, n, a, last_lion, haveExcessBlue);
+        give_blue_pills(A, n, last_lion);
+    }
 
-    type result = tail_sum(A, n);
     // print result
-    std::cout << result << std::endl;
+    std::cout << tail_sum(A, n) << std::endl;
 
     return 0;
 }
