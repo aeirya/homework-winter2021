@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.10.19)  28 APR 2021 12:58
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.10.19)  28 APR 2021 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1079,23 +1079,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 [][]
  []
 
-(./q5.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.text.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.text.code.tex
+(./q5.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/se-ascii-print.def
+File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
+)
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 11.
+ [1
+
+
+
+] [2] (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.text.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.text.code.tex
 \pgf@lib@dec@text@box=\box90
 )
 \tikz@lib@dec@te@box=\box91
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/se-ascii-print.def
-File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
-) [1
-
-
-
-] [2]
+) [3] [4]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 132.
+(amsmath)                 on input line 197.
 
-) [3]
+) [5]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 23.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 23.
  (/Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw2/theory/.texpadtmp/DSLecture.aux)
@@ -1104,12 +1107,12 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 23.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 23.
  ) 
 Here is how much of TeX's memory you used:
- 41850 strings out of 479418
- 1028785 string characters out of 5884584
+ 41867 strings out of 479418
+ 1029225 string characters out of 5884584
  1482909 words of memory out of 5000000
- 58578 multiletter control sequences out of 15000+600000
- 538072 words of font info for 97 fonts, out of 8000000 for 9000
+ 58588 multiletter control sequences out of 15000+600000
+ 538112 words of font info for 102 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  68i,7n,98p,4822b,1082s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw2/theory/.texpadtmp/DSLecture.pdf (3 pages).
+Output written on /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw2/theory/.texpadtmp/DSLecture.pdf (5 pages).

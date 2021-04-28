@@ -1,5 +1,70 @@
-\usetikzlibrary{positioning, decorations.text}
+\section{}
+\proof برهان خلف
+فرض کنیم 
+چنین آرایه‌ای را می‌توان در زمان خطی با الگوریتمی به اسم lin-sort مرتب کرد. 
 
+الگوریتم زیر را 
+تبدیل هر آرایه دلخواه به شکل مورد نظر ارائه می‌دهیم
+\begin{latin}
+\begin{codebox}
+	\Procname{$f(B, n)$}
+\li condition = true \Comment true for greater, false for smaller
+\li	\For $i=1:n$ \Then
+	\li \If condition and B[i] < B[i-1] \Then 
+	\li	swap B[i], B[i-1]
+	\End
+	\li \If not condition and B[i] > B[i-1] \Then
+	\li swap B[i], B[i-1]
+	\End
+	condition = not condition
+	\End
+\end{codebox}
+\end{latin}
+
+\paragraph{تحلیل زمانی الگوریتم}
+ الگوریتم هر عضو از آرایه A را یک بار می‌بیند و در هر دور $O(1)$ عملیات انجام می‌دهد.
+پس از 
+$O(n)$ 
+است.
+
+\paragraph{درستی الگوریتم}
+اثبات با استقرا.
+
+برای $n=1$ درستی آن بدیهی است 
+$(B = A = \{ x \})$
+.
+
+اگر برای آرایه‌های با اندازه کمتر از 
+$n$
+الگوریتم را درست فرض کنیم٫ برای آرایه به اندازه 
+$n$
+خواهیم داشت:
+???
+
+حال می‌توانیم هر آرایه دلخواه را با الگوریتم زیر مرتب کنیم:
+\begin{latin}
+\begin{codebox}
+	\Procname{$sort(A, n)$}
+	\li f(A, n)	\Comment O(n)
+	\li lin-sort(A, n) \Comment O(n)
+\end{codebox}
+\end{latin}
+
+\paragraph{تحلیل زمانی و درستی}
+الگوریتم از مرتبه‌زمانی 
+$O(n)$ 
+است و درستی آن بنا بر درستی الگوریتم‌های استفاده شده و برقراری شرط مطرح شده درست است.
+
+در حالی که می‌دانیم نمی‌توان چنین الگوریتمی با مرتبه زمانی کمتر از 
+$O(n\cdot logn)$
+داشت. 
+پس فرض غلط است و الگوریتم 
+lin-sort
+نمی‌تواند وجود داشته باشد.
+
+\newpage
+\usetikzlibrary{positioning, decorations.text}
+\section{}
 دایره مورد نظر را به $n$ بخش با مساحت‌های مساوی تقسیم می‌کنیم.
 مساحت هر بخش برابر با 
 $ \pi (1^2)/n = \pi / n $
