@@ -26,3 +26,10 @@ int main() {
     int op = quicksort(A, n);
     std::cout << op << std::endl;
 }
+
+/*
+    1 2 3 4 5 6
+    1 2 6 4 5 3
+    1 2 6 4 5 3
+    
+*/
