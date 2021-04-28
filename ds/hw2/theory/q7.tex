@@ -1,0 +1,49 @@
+\section{جایگشت با کمترین عملیات}
+
+\newcommand{\co}[2]{\textcolor{#1}{#2}}
+
+\begin{equation*}
+	A = \{1,3,2,6,5,7,4\}
+\end{equation*}
+
+مراحل اجرای الگوریتم:
+\begin{align*}
+	&A = \{\co{red}{1},3,2,6,5,7,\co{blue}{4}\} \\
+	&A = \{1,\co{red}{3},2,6,5,7,\co{blue}{4}\} \\
+	&A = \{1,3,\co{red}{2},6,5,7,\co{blue}{4}\} \\
+	&A = \{1,3,\co{red}{2},\co{green}{6},5,7,\co{blue}{4}\} \\
+	&A = \{1,3,\co{red}{2},6,\co{green}{5},7,\co{blue}{4}\} \\
+	&A = \{1,3,\co{red}{2},6,5,\co{green}{7},\co{blue}{4}\} \\
+	&A = \{1,3,\co{red}{2},6,5,\co{green}{7},\co{blue}{4}\} \\
+	&A = \{1,3,2,\co{blue}{4},5,7,6\} \\
+	&A = \{\co{red}{1},3,\co{blue}{2},4,5,7,6\} \\
+	&A = \{\co{red}{1},\co{green}{3},\co{blue}{2},4,5,7,6\} \\
+	&A = \{1,\co{blue}{2},3,4,5,7,6\} \\
+	&A = \{1,2,3,4,\co{red}{5},7,\co{blue}{6}\} \\
+	&A = \{1,2,3,4,\co{red}{5},\co{green}{7},\co{blue}{6}\} \\
+	&A = \{1,2,3,4,5,\co{blue}{6},7\} \\
+\end{align*}
+
+\section{
+یافتن جایگشت با کمترین عملیات برای هر n دلخواه
+}
+
+\begin{latin}
+\begin{codebox} \Procname{$\proc{scramble}(A=\{1,\cdots,n\}, start = 1, end = length[A])$} 
+\li		x = (end-start+1)
+\li		\If x == 1 \Then
+\li			\Return
+ 		\End
+\li		i = x/2 - 1
+\li		\If x \% 2 = 1 \Then
+\li		scramble(start, start+i)
+\li		scramble(end-i, end)
+\li		swap(A[start+i+1], A[end])	
+\li		\Else
+\li		scramble(start, start+i-1)
+\li		scramble(end-i, end)	
+\li		swap(A[start+i], A[end])	
+		\End
+
+\end{codebox}
+\end{latin}

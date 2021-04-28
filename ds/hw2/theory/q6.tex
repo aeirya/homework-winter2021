@@ -13,14 +13,62 @@ $o(logn)$
 $O(1)$
 پیدا کرد
 .
+به عبارتی رابطه زیر برقرار باشد
+\begin{equation}
+	\exists c, n_0 > 0 , \forall x > n_0, T(x) < c\cdot logn
+\end{equation}
 
 آن‌گاه می‌توان الگوریتم زیر را برای مرتب کردن اعداد ارائه داد:
 \lr{
 \begin{codebox}
 	\Procname{$\proc{sort}(A, n)$}
-	\li list : LinkedList
-	\li it = list.iterator : ListIterator
-	\li list.add(A[0], it)  \Comment adds item to the list where iterator points, and iterator moves forward
-	\li \For element 
+	\li B[n]
+	\li \Comment find index of minimum and maximum
+	\li min = 0
+	\li max = 0
+	\li \For i=0 to n \Comment exclusive \Then
+	\li \If A[i] < A[min] \Then 
+	\li min = i
+	\End
+	\li \If A[i] > A[max] \Then 
+	\li max = i
+	\End
+	\End
+	\li B[0] = A[min]
+	\li \For i=1 to n \Then
+	\li	x = nearest(B[i-1]) \Comment index of nearest item
+	\li	B[i] = A[x]
+	\li	A[x] = A[max]
+	\End
+	\li \Return B
+	\End
 \end{codebox}
 }
+
+این الگوریتم از دو بخش پیدا کردن مینیمم و ماکسیمم (در زمان خطی) و پیدا کردن نزدیک‌ترین عنصر هر عدد (در زمان 
+$o(logn)$
+)
+است.
+اردر این الگوریتم
+برابر است با
+
+\begin{equation*}
+	O(n) + n * o(logn) = o(nlogn)
+\end{equation*}
+و داریم 
+$o(n\cdot log n) < O(n\cdot log n)$
+.
+در حالی که می‌دانیم الگوریتم‌ مرتب‌‌سازی مقایسه‌ای از مرتبه خطی وجود ندارد.
+
+پس فرض غلط است.
+یعنی مقادیر مثبت $c$ و $n_0$ 
+در رابطه ۱ با ویژگی‌های خواسته شده وجود ندارد و خواهیم داشت
+\begin{equation}
+	\neg (\exists c, n_0 > 0 , \forall x > n_0, T(x) < c\cdot logn)
+\end{equation}
+که می‌دهد
+\begin{equation}
+	\forall c, n_0 > 0 , \exists x > n_0, T(x) \geq c\cdot logn
+\end{equation}
+که بنابرتعریف به معنای این است 
+$T \in \Omega(n\cdot logn)$
