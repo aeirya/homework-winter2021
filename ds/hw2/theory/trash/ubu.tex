@@ -1,0 +1,117 @@
+\noindent\label{TR_01}1. \answer{$n^2$}
+
+\noindent\textbf{Solution.}
+Let $A$ be the first player and $B$ the second one. Since $A$ plays first, they can reach point $C$ sooner, making $n$ moves downwards and then $n$ moves to the left. Then they can get back to their start point, making $n$ moves upwards and $n$ moves to the right. In this case, the first player wins the upper right square with an area of $n^2$. Now we prove that the second player can play in a way that the first player won't be able to win an area of more than $n^2$.
+\begin{wrapfigure}{r}{.31\textwidth}
+	\vspace{-.6cm}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,scale=.31]
+	\clip(-7.7,-4.5) rectangle (4,6.5);
+	\draw[line width=1.2pt] (-6,-4) -- (3,-4) -- (3,5) -- (-6,5) -- cycle;
+	\draw [line width=.8pt] (-1.5,5)-- (-1.5,-4);
+	\draw [line width=.8pt] (-6,0.5)-- (3,0.5);
+	\draw [line width=1.2pt] (-6,5)-- (-1.5,5);
+	\draw [line width=1.2pt] (-1.5,5)-- (3,5);
+	\draw [line width=1.2pt] (-6,5)-- (-6,0.5);
+	\draw [line width=1.2pt] (-6,0.5)-- (-6,-4);
+	\draw (3.1,5.55) node {$A$};
+	\draw (-6.6,-4) node {$B$};
+	\draw (-3.68,5.4) node {$n$};
+	\draw (0.82,5.4) node {$n$};
+	\draw (-6.54,2.99) node {$n$};
+	\draw (-6.54,-1.51) node {$n$};
+	\draw (-0.9,1.1) node {$C$};
+	\begin{scriptsize}
+	\draw [fill=black] (-6,-4) circle (1.5pt);
+	\draw [fill=black] (3,-4) circle (1.5pt);
+	\draw [fill=black] (3,5) circle (1.5pt);
+	\draw[fill=black] (-6,5) circle (1.5pt);
+	\draw[fill=black] (-1.5,5) circle (1.5pt);
+	\draw[fill=black] (3,0.5) circle (1.5pt);
+	\draw[fill=black] (-1.5,-4) circle (1.5pt);
+	\draw[fill=black] (-6,0.5) circle (1.5pt);
+	\draw[fill=black] (-1.5,0.5) circle (1.5pt);
+	\end{scriptsize}
+	\end{tikzpicture}
+	\vspace{-.8cm}
+\end{wrapfigure}
+	Without loss of generality, assume that $A$ moves down in their first move. Their distance from $X$ will be $2n - 1$, while $B$ is $2n$ moves away from $X$. Clearly $B$ can make their $2n$ first moves upwards and $A$ won't be able to stop them. After $B$ has reached $X$, he/she shall move right. If they can make $2n$ moves in that direction, $A$ will not be able to go back to their start point. So let's assume $B$ has come to	
+a halt after moving $x$ times on the upper side of the square. Thus the area that $A$ has won, will be a subset of the hatching area and therefore, less than it. The circumference of the hatching area equals $4n$, since $A$ has reached point $K$ after $2n + x + 1$ moves and $|AK| = 2n - x + 1$.
+\begin{wrapfigure}{r}{.31\textwidth}
+	\vspace{-.55cm}
+	\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,scale=.31]
+	\clip(-7.7,-4.5) rectangle (4,6.5);
+	\draw[line width=1.2pt] (-6,-4) -- (3,-4) -- (3,5) -- (-6,5) -- cycle;
+	\draw [line width=.8pt] (-1.5,5)-- (-1.5,-4);
+	\draw [line width=.8pt] (-6,0.5)-- (3,0.5);
+	\draw (3.1,5.55) node {$A$};
+	\draw (-6.6,-4) node {$B$};
+	\draw (-6.5,5.55) node {$X$};
+	\begin{scriptsize}
+	\draw [fill=black] (-6,-4) circle (1.5pt);
+	\draw [fill=black] (3,-4) circle (1.5pt);
+	\draw [fill=black] (3,5) circle (1.5pt);
+	\draw [fill=black] (-6,5) circle (1.5pt);
+	\draw [fill=black] (-1.5,5) circle (1.5pt);
+	\draw [fill=black] (3,0.5) circle (1.5pt);
+	\draw [fill=black] (-1.5,-4) circle (1.5pt);
+	\draw [fill=black] (-6,0.5) circle (1.5pt);
+	\end{scriptsize}
+	\end{tikzpicture}
+\end{wrapfigure}
+
+\noindent	Thus it suffices to prove that the area of a shape, which its circumference equals $4n$, would be $n^2$ at most. Assume one has started moving from $S$, making $x$ moves upwards, $x$ moves downwards, $y$ moves to the right and $y$ moves to the left( in some order) where $2x + 2y =4n$ , and then they has reached $S$ after all. So the final shape fits in a rectangle with $x,y$ as its length and height; which
+means the area of the final shape is less than $xy$ and we have
+\begin{align*}
+& 2x+2y = 4n \Longrightarrow x+y = 2n \Longrightarrow 2n = x + y \ge 2\sqrt{xy}\\
+\Longrightarrow \;& xy \le n^2
+\end{align*}
+The proof is completed.  
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm,scale=.4]
+\clip(-14.5,-5) rectangle (11.48,6);
+\draw [line width=1.2pt] (-5.5,-4.48) -- (3.5,-4.48) -- (3.5,4.52) -- (-5.5,4.52) -- cycle;
+\fill[line width=2pt,fill=black,pattern=north east lines,pattern color=black] (-3.3,4.52) -- (-3.3,3.66) -- (-2,3.64) -- (-2,2) -- (0,2) -- (0,1) -- (2,1) -- (2,3) -- (3,3) -- (2.98,3.92) -- (3.5,3.92) -- (3.5,4.52) -- cycle;
+\draw [line width=.8pt] (-1,4.52)-- (-1,-4.48);
+\draw [line width=.8pt] (-5.5,0.02)-- (3.5,0.02);
+\draw [line width=.8pt] (-3.3,4.52)-- (-3.3,3.66);
+\draw [line width=.8pt] (-3.3,3.66)-- (-2,3.64);
+\draw [line width=.8pt] (-2,3.64)-- (-2,2);
+\draw [line width=.8pt] (-2,2)-- (0,2);
+\draw [line width=.8pt] (0,2)-- (0,1);
+\draw [line width=.8pt] (0,1)-- (2,1);
+\draw [line width=.8pt] (2,1)-- (2,3);
+\draw [line width=.8pt] (2,3)-- (3,3);
+\draw [line width=.8pt] (3,3)-- (2.98,3.92);
+\draw [line width=.8pt] (2.98,3.92)-- (3.5,3.92);
+\draw [line width=.8pt] (3.5,3.92)-- (3.5,4.52);
+\draw [line width=.8pt] (3.5,4.52)-- (-3.3,4.52);
+\draw [line width=.8pt] (-5.5,4.52)-- (-3.3,4.52);
+\draw [line width=.8pt] (-3.3,4.52)-- (3.5,4.52);
+\draw (3.66,5.1) node {$A$};
+\draw (-3.14,5.1) node {$B$};
+\draw (-4.34,5) node {$x$};
+\draw (0.35,5.1) node {$2n-x-1$};
+\begin{scriptsize}
+\draw [fill=black] (-5.5,-4.48) circle (1.5pt);
+\draw [fill=black] (3.5,-4.48) circle (1.5pt);
+\draw [fill=black] (3.5,4.52) circle (1.5pt);
+\draw [fill=black] (-5.5,4.52) circle (1.5pt);
+\draw [fill=black] (-1,4.52) circle (1.5pt);
+\draw [fill=black] (3.5,0.02) circle (1.5pt);
+\draw [fill=black] (-1,-4.48) circle (1.5pt);
+\draw [fill=black] (-5.5,0.02) circle (1.5pt);
+\draw [fill=black] (-3.3,4.52) circle (1.5pt);
+\draw [fill=black] (-3.3,3.66) circle (1.5pt);
+\draw [fill=black] (-2,3.64) circle (1.5pt);
+\draw [fill=black] (-2,2) circle (1.5pt);
+\draw [fill=black] (0,2) circle (1.5pt);
+\draw [fill=black] (0,1) circle (1.5pt);
+\draw [fill=black] (2,1) circle (1.5pt);
+\draw [fill=black] (2,3) circle (1.5pt);
+\draw [fill=black] (3,3) circle (1.5pt);
+\draw [fill=black] (2.98,3.92) circle (1.5pt);
+\draw [fill=black] (3.5,3.92) circle (1.5pt);
+\end{scriptsize}
+\end{tikzpicture}
+\hfill$\blacksquare$
+\addtocounter{N}{1}

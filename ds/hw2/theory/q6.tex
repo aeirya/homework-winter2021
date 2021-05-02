@@ -9,14 +9,8 @@ $A$
 $x$
 را در زمان 
 $o(logn)$
-٫ مثلا 
-$O(1)$
 پیدا کرد
 .
-به عبارتی رابطه زیر برقرار باشد
-\begin{equation}
-	\exists c, n_0 > 0 , \forall x > n_0, T(x) < c\cdot logn
-\end{equation}
 
 آن‌گاه می‌توان الگوریتم زیر را برای مرتب کردن اعداد ارائه داد:
 \lr{
@@ -51,24 +45,23 @@ $o(logn)$
 است.
 اردر این الگوریتم
 برابر است با
-
 \begin{equation*}
 	O(n) + n * o(logn) = o(nlogn)
 \end{equation*}
 و داریم 
 $o(n\cdot log n) < O(n\cdot log n)$
 .
-در حالی که می‌دانیم الگوریتم‌ مرتب‌‌سازی مقایسه‌ای از مرتبه خطی وجود ندارد.
+
+در حالی که می‌دانیم الگوریتم‌ مرتب‌‌سازی از مرتبه قطعی کمتر از $O(nlogn)$ وجود ندارد.
 
 پس فرض غلط است.
-یعنی مقادیر مثبت $c$ و $n_0$ 
-در رابطه ۱ با ویژگی‌های خواسته شده وجود ندارد و خواهیم داشت
-\begin{equation}
-	\neg (\exists c, n_0 > 0 , \forall x > n_0, T(x) < c\cdot logn)
-\end{equation}
-که می‌دهد
-\begin{equation}
-	\forall c, n_0 > 0 , \exists x > n_0, T(x) \geq c\cdot logn
-\end{equation}
-که بنابرتعریف به معنای این است 
-$T \in \Omega(n\cdot logn)$
+یعنی هیچ الگوریتمی نیست که از 
+$o(nlogn)$
+باشد یا به عبارتی برای هر الگوریتم مورد نظر (برای پیدا کردن نزدیک ترین عنصر) 
+داریم:
+
+\begin{equation*}
+T \in \Omega(n\cdot logn)
+\end{equation*}
+
+\newpage

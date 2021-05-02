@@ -1,13 +1,13 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw2/theory/.texpadtmp/DSLecture.aux
+The top-level auxiliary file: /Users/madscientist/Documents/homework/ds/hw2/theory/.texpadtmp/DSLecture.aux
 The style file: alpha.bst
-I found no \bibdata command---while reading file /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw2/theory/.texpadtmp/DSLecture.aux
+I found no \bibdata command---while reading file /Users/madscientist/Documents/homework/ds/hw2/theory/.texpadtmp/DSLecture.aux
 Warning--I didn't find a database entry for "lecture1"
 Warning--I didn't find a database entry for "CLRS"
 You've used 0 entries,
             2543 wiz_defined-function locations,
-            560 strings with 4661 characters,
+            560 strings with 4581 characters,
 and the built_in function-call counts, 24 in all, are:
 = -- 0
 > -- 0
