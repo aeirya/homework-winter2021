@@ -1,0 +1,65 @@
+1-
+
+\begin{latin}
+\subsection*{sender}
+\paragraph{data from above}
+	\begin{itemize}
+		\item if next available sequence number in window, send packet.
+	\end{itemize}
+
+\paragraph{timeout(n)}
+	\begin{itemize}
+		\item mark packet $n$ as received.
+		\item if $n$ smallest unreceived packet, advance window base to next unreceived sequence number.
+	\end{itemize}
+
+\paragraph{NACK(n)}
+	\begin{itemize}
+		\item resend packet $n$, restart timer.
+	\end{itemize}	
+	
+\hline
+
+\subsection*{receiver}
+\paragraph{packet $n$ in [text{rcvbase, rcvbase}+N-1] }
+\begin{itemize}
+	\item test
+\end{itemize}
+
+%\paragraph{}
+
+\paragraph{otherwise}
+	\begin{itemize}
+		\item ignore
+	\end{itemize}
+
+\paragraph{timeout(n)}
+	hmm
+	
+\end{latin}
+
+2-
+\begin{enumerate}[label = \alph*]
+	\item مثلا درخواست دو فایل 
+	$A$ و $B$
+		را می‌دهیم 
+و پاسخ 
+$A$
+یا گم می‌شود یا زمانی که باید به ما می‌رسید سیستم ما خاموش شده است.
+زمانی که روشن می‌شویم همچنان منتظر پاسخ $A$ هستیم اما پاسخ $B$ را دریافت می‌کنیم.
+
+یا مثلا وقتی که درخواست این دو فایل را می‌دهیم اما پاسخ $B$ زودتر می‌رسد.
+
+	\item راه حل این است که به هر درخواست قبل ارسال یک شماره‌ای نسبت بدهیم 
+	و سرور در پاسخ‌هایش مشخص کند که این پاسخ به چه فایلی است.
+	و بدین ترتیب کلاینت می‌تواند تشخیص دهد پاسخ کدام فایل را گرفته است.
+\end{enumerate}
+
+3- 
+\begin{enumerate}[label = \alph*]
+	\item بسته سوم (۲۰۰) با موفقیت ارسال شده اما قبل از رسیدن پاسخ مثبت آن سرور تایم‌اوت شده و آن را دوباره می‌فرستد. و پاسخی مثبت اولیه کلاینت در زمانی بعد ۳۰۰ میرسد پس سرور دیگر برای بار سوم ارسال نمی‌کند. \\
+	بسته چهارم نیز 
+	
+\end{enumerate}}
+
+\newpage
