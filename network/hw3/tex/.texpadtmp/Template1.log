@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  2 MAY 2021 19:55
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.10.19)  3 MAY 2021 05:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -798,18 +798,6 @@ Package fontspec Info: Font family 'lmroman10-regular(0)' created for font
 
 )
 
-Package fontspec Info: Could not resolve font "XB Niloofar/BI" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "XB Niloofar/B" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "XB Niloofar/I" (it probably
-(fontspec)             doesn't exist).
-
-
 Package fontspec Info: Font family 'XBNiloofar(0)' created for font 'XB
 (fontspec)             Niloofar' with options
 (fontspec)             [Script=Persian,Ligatures=PersianTeX].
@@ -820,6 +808,15 @@ Package fontspec Info: Font family 'XBNiloofar(0)' created for font 'XB
 (fontspec)             - 'normal' (m/n) with NFSS spec.: <->"XB
 (fontspec)             Niloofar/OT:script=arab;language=dflt;mapping=persian-tex-text;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.: <->"XB
+(fontspec)             Niloofar/B/OT:script=arab;language=dflt;mapping=persian-tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.: <->"XB
+(fontspec)             Niloofar/I/OT:script=arab;language=dflt;mapping=persian-tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.: <->"XB
+(fontspec)             Niloofar/BI/OT:script=arab;language=dflt;mapping=persian-tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
  (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryautomata.code.tex
 File: tikzlibraryautomata.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -905,7 +902,7 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \sift@deathcycles=\count377
 \@vwid@loff=\dimen316
 \@vwid@roff=\dimen317
-)) (/Users/madscientist/Documents/homework/network/hw3/tex/.texpadtmp/Template1.aux)
+)) (/Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/network/hw3/tex/.texpadtmp/Template1.aux)
 \openout1 = `Template1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
@@ -981,7 +978,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 35.
 LaTeX Info: Redefining \pageref on input line 35.
 LaTeX Info: Redefining \nameref on input line 35.
- (/Users/madscientist/Documents/homework/network/hw3/tex/.texpadtmp/Template1.out) (/Users/madscientist/Documents/homework/network/hw3/tex/.texpadtmp/Template1.out)
+ (/Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/network/hw3/tex/.texpadtmp/Template1.out) (/Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/network/hw3/tex/.texpadtmp/Template1.out)
 \@outlinefile=\write6
 \openout6 = `Template1.out'.
 
@@ -999,10 +996,6 @@ File: sharif-logo.png Graphic file (type bmp)
 Overfull \vbox (15.26527pt too high) detected at line 43
  []
 
-
-LaTeX Font Warning: Font shape `TU/XBNiloofar(0)/b/n' undefined
-(Font)              using `TU/XBNiloofar(0)/m/n' instead on input line 43.
-
 (./theory.tex
 ./theory.tex:21: Misplaced \noalign.
 \hline ->\noalign 
@@ -1012,37 +1005,265 @@ l.21 \hline
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
-./theory.tex:63: Too many }'s.
-l.63 \end{enumerate}}
-                     
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
 (/usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 ) [1
 
-])
+]
+Overfull \hbox (5.33678pt too wide) in paragraph at lines 78--79
+[][]|\TU/lmroman10-regular(0)/m/n/12 Receive| []
+ []
+
+./theory.tex:104: Missing $ inserted.
+<inserted text> 
+                $
+l.104  - & \alpha
+                  = 0 & \alpha = 0.125 & \alpha = 1\\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./theory.tex:104: Missing $ inserted.
+<inserted text> 
+                $
+l.104  - & \alpha = 0 &
+                        \alpha = 0.125 & \alpha = 1\\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./theory.tex:104: Missing $ inserted.
+<inserted text> 
+                $
+l.104  - & \alpha = 0 & \alpha
+                               = 0.125 & \alpha = 1\\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./theory.tex:104: Missing $ inserted.
+<inserted text> 
+                $
+l.104  - & \alpha = 0 & \alpha = 0.125 &
+                                         \alpha = 1\\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./theory.tex:104: Missing $ inserted.
+<inserted text> 
+                $
+l.104  - & \alpha = 0 & \alpha = 0.125 & \alpha
+                                                = 1\\
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./theory.tex:105: Missing $ inserted.
+<inserted text> 
+                $
+l.105  \hline
+             
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[2]) (./hw2.tex
+File: s1.png Graphic file (type bmp)
+<s1.png>
+File: s2.png Graphic file (type bmp)
+<s2.png>
+File: s3.png Graphic file (type bmp)
+<s3.png>
+File: s4.png Graphic file (type bmp)
+<s4.png>
+ [3]
+File: s5.png Graphic file (type bmp)
+<s5.png>
+File: s6.png Graphic file (type bmp)
+<s6.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
+[][]
+ []
+
+[4]
+./hw2.tex:72: Too many }'s.
+l.72 }
+      
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+File: s7.png Graphic file (type bmp)
+<s7.png>
+File: tcp-graph.png Graphic file (type bmp)
+<tcp-graph.png>
+File: s8-1.png Graphic file (type bmp)
+<s8-1.png>
+
+Overfull \hbox (6.81851pt too wide) in paragraph at lines 110--111
+ [][][][][][] 
+ []
+
+File: s8-2.png Graphic file (type bmp)
+<s8-2.png>
+
+Overfull \hbox (3.09442pt too wide) in paragraph at lines 116--117
+ [][][][][][] 
+ []
+
+File: s8.png Graphic file (type bmp)
+<s8.png>
+
+Overfull \hbox (16.92673pt too wide) in paragraph at lines 122--123
+ [][][][][][] 
+ []
+
+File: s9.png Graphic file (type bmp)
+<s9.png>
+
+Overfull \hbox (33.36536pt too wide) in paragraph at lines 128--129
+ [][][][][][] 
+ []
+
+File: s10.png Graphic file (type bmp)
+<s10.png>
+File: s11.png Graphic file (type bmp)
+<s11.png>
+
+Overfull \hbox (184.82317pt too wide) in paragraph at lines 145--146
+ [][][][][][] 
+ []
+
+File: s12.png Graphic file (type bmp)
+<s12.png>
+
+Overfull \hbox (40.2783pt too wide) in paragraph at lines 153--154
+ [][][][][][] 
+ []
+
+./hw2.tex:154: Extra }, or forgotten $.
+<recently read> }
+                 
+l.154 ...(5.8058 - 4.624886) = 64.091 Kbyte/sec$.}
+                                                  }
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./hw2.tex:154: Missing } inserted.
+<inserted text> 
+                }
+l.154 ...(5.8058 - 4.624886) = 64.091 Kbyte/sec$.}
+                                                  }
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./hw2.tex:155: Extra }, or forgotten \endgroup.
+\@endfloatbox ...pagefalse \outer@nobreak \egroup 
+                                                  \color@endbox 
+l.155 \end{figure}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[5] [6] [7] [8]
+File: u1.png Graphic file (type bmp)
+<u1.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+[][]
+ []
+
+File: u2.png Graphic file (type bmp)
+<u2.png>
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+[][]
+ []
+
+File: u2.png Graphic file (type bmp)
+<u2.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--193
+
+ []
+
+
+./hw2.tex:196: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.196 \lr
+         {
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./hw2.tex:201: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.201 \\\\
+          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./hw2.tex:202: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.202 \paragraph
+                {5- biggest port number}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+[][]
+ []
+
+File: u_l.png Graphic file (type bmp)
+<u_l.png>
+) [10]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 48.
- (/Users/madscientist/Documents/homework/network/hw3/tex/.texpadtmp/Template1.aux)
+ (/Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/network/hw3/tex/.texpadtmp/Template1.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 48.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 48.
 Package rerunfilecheck Info: File `Template1.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
+(rerunfilecheck)             Checksum: 4A794C1A9BCFB448C22C387F117BC6CE;76.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 48.
  ) 
 Here is how much of TeX's memory you used:
- 41475 strings out of 479418
- 978253 string characters out of 5884586
- 1451617 words of memory out of 5000000
- 58331 multiletter control sequences out of 15000+600000
- 537519 words of font info for 65 fonts, out of 8000000 for 9000
+ 41663 strings out of 479418
+ 981171 string characters out of 5884584
+ 1454991 words of memory out of 5000000
+ 58495 multiletter control sequences out of 15000+600000
+ 537607 words of font info for 76 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 68i,16n,98p,4828b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,16n,98p,4828b,461s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/madscientist/Documents/homework/network/hw3/tex/.texpadtmp/Template1.pdf (1 page).
+Output written on /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/network/hw3/tex/.texpadtmp/Template1.pdf (10 pages).

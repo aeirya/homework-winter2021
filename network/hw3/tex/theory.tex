@@ -23,10 +23,11 @@
 \subsection*{receiver}
 \paragraph{packet $n$ in [text{rcvbase, rcvbase}+N-1] }
 \begin{itemize}
-	\item test
+	\item out-of-oder: buffer, NACK(n-1), set timer.
+	\item in-order: deliver
+	(deliver buffered, in order packets and advance window to not-yet-received packet).
+	
 \end{itemize}
-
-%\paragraph{}
 
 \paragraph{otherwise}
 	\begin{itemize}
@@ -34,9 +35,16 @@
 	\end{itemize}
 
 \paragraph{timeout(n)}
-	hmm
+	\begin{itemize}
+		\item NACK(n)
+		\item reset timer
+	\end{itemize}
+	
 	
 \end{latin}
+
+هربار که درخواستی گم می‌شود باید گیرنده متوجه آن شود (در حین دریافت بسته های بعدی) و آن را دوباره بخواهد و اگر بسته بعدی بسیار بعد از بسته گم شده ارسال شده باشد زمان تکمیل بسته های ما هم بسیار طولانی می‌شود.
+اما در شرایطی که درخواست‌های زیادی گم نمی‌شوند این پروتکل بسیار خوب عمل میکند و در اکثر مواقع نیازی به پاسخ ندارد.
 
 2-
 \begin{enumerate}[label = \alph*]
@@ -58,8 +66,52 @@ $A$
 3- 
 \begin{enumerate}[label = \alph*]
 	\item بسته سوم (۲۰۰) با موفقیت ارسال شده اما قبل از رسیدن پاسخ مثبت آن سرور تایم‌اوت شده و آن را دوباره می‌فرستد. و پاسخی مثبت اولیه کلاینت در زمانی بعد ۳۰۰ میرسد پس سرور دیگر برای بار سوم ارسال نمی‌کند. \\
-	بسته چهارم نیز 
-	
-\end{enumerate}}
+	برای بسته چهارم نیز سناریو کاملا مشابه رخ می‌دهد و ده میلی ثانیه قبل رسیدن ack آن دوباره retransmit 
+	می‌شود.	
+\end{enumerate}
+
+ج)
+
+\begin{latin}
+\begin{tabular}{ |p{1.2cm}|p{1.2cm}|p{1.2cm}|p{5.2cm}|p{1.5cm}|p{2cm}|  }
+ \hline
+Send &Receive
+ &
+ RTT & Estimated RTT & dif & DevRTT\\
+ \hline
+ 0	&	200 & 200 & 100*7/8 + 200/8 = 112.5 & 87.5 & 21.875 \\
+ 10	&	220 & 210 & 112.5*7/8 + 210/8 = 124.7 & 85.3&  37.73 \\
+ 20	&	310  & - & - & - & -\\
+ 30	&	320 & - & - & - & -\\
+ 320 &	340 & 20 & 124.7 *7/8 + 20/8= 111.6 & 91.6 &  51.19 \\
+ \hline
+\end{tabular}
+\end{latin}
+
+قابل توجه است برای بسته های ۳ و ۴ که retransmit شدند دیگر EstimatedRTT محاسبه نکردیم.
+
+
+د)
+
+ه)
+
+\begin{latin}
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{1}{|c|}{RTT} &
+ \multicolumn{3}{||c|}{Estimated RTT} \\
+ \hline
+ - & \alpha = 0 & \alpha = 0.125 & \alpha = 1\\
+ \hline
+ 200 & 100	& 112.5 & 200 \\
+ 210 & 100 & 124.7 & 210 \\
+ 20 & 100 & 111.6 & 20 \\
+  \hline
+\end{tabular}
+\end{latin}
+
+از تغییرات زیاد 
+\lr{estimated rtt}
+جلوگیری می‌کند و مقداری بینابین حدس قبلی و  اخرین rtt میدهد.
 
 \newpage

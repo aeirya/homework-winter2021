@@ -67,100 +67,148 @@ the syn and ack fields being set to 1.
 \centering
 \includegraphics[scale = 0.39]{s6.png}} \\
 \begin{latin}
-a) sequence number = 1	
+sequence number = 1	
 \end{latin}
 }
 
+\problem{}
+
+\begin{latin}
+\begin{tabular}{ |p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{3cm}|  }
+ \hline
+Seq \# & Send &Receive
+ &
+ RTT & Estimated RTT \\
+ \hline
+ 1 & 4.427811 & 4.626372 & 0.198561 & 0.198561 \\ 
+ 735 & 4.427931 & 4.629205 & 0.201274 & 0.198900 \\
+ 2123 & 4.427931 & 4.631127 & 0.203196 & 0.199437 \\
+ 3511 & 4.626465 & 4.933905 & 0.307440 & 0.212937 \\
+ 4899 & 4.629273 & 4.933909 & 0.304636 & 0.224399 \\
+ 6287 & 4.629273 & 4.933910 & 0.304636 & 0.234429 \\
+ \hline
+\end{tabular}
+\end{latin}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.35]{s7}
+	\caption{\lr{packets of http message shown with dot} }
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.32]{tcp-graph}
+\caption{\lr{RTT Change}}
+\end{figure}
 
 \problem{}
-\begin{equation*}
-	\text{ظرفیت لینک }= 4 \unit{ Mb/s} * \frac{1 \unit{ MB}}{8 \unit{ Mb}} = 500 \unit{ Kb/s}
-\end{equation*}
+ 
+ 
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.53]{s8-1.png}
+	\caption{\lr{tcp segment len: 734} }
+\end{figure}
 
-\subproblem{}
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.53]{s8-2.png}
+	\caption{\lr{tcp segment len of the rest: 1388} }
+\end{figure}
 
-\begin{equation*}
-	500 \unit{ Kb/s} \div 25 \unit{ Kb/s} = 20 \unit { نفر}
-\end{equation*}
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.53]{s8.png}
+	\caption{\lr{len with headers: 800, 1454, 1454, 1454, 1454, 1454} }
+\end{figure}
 
-
-\subproblem{}
-
-\begin{equation*}
-	P [X > N] = 1 - P [X \leq N]
-\end{equation*}
-
-\begin{equation*}
-	P [X \leq N] = \sum_{x=0}^{N} P[x = N] = \sum_{i=0}^{N} {100 \choose i} p^i (1-p)^{100-i}
-\end{equation*}
-
-و داریم 
-$p = 10\% = 0.1$
-.	 
-پس
-
-\begin{equation*}
-	P [X \leq N] = \sum_{i=0}^{N} {100 \choose i} (0.1)^i (0.9)^{100-i} = (0.1)^{100} \sum_{i=0}^{N} {100 \choose i} 9^{100-i}
-\end{equation*}
-	
-که شکل باز شده آن این گونه خواهد بود:
-
-\begin{equation*}
-	P [X \leq N] = 0.9^{100} * [1 + 100/9 + 10000/18 + ...]
-\end{equation*}
-
-در نهایت داریم:
-
-\begin{equation*}
-	P [X > N] = 1 - 0.1^{100} \sum_{i=0}^{N} {100 \choose i} 9^{100-i} 
-\end{equation*}
-
-\subproblem{}
-در روش 
-\lr{circuit swtching}
-این مزیت وجود دارد که بسته ما بدون نیاز به این 
-که منتظر بسته‌های غیرمرتبط دیگر بماند به سمت مقصد می‌رود.
-این ویژگی باعث می‌شود برای کارهای
-\lr{real time}
-مثل تماس‌ صوتی یا تصویری
-گزینه‌ای مناسب باشد
-.
-
-از طرفی رزرو (اشغال) بودن لینک به آن معنا است که اگر دو کابری که به هم متصل شده‌اند برای مدتی اطلاعاتی
-رد و بدل نکنند٫ لینک بین آن‌ها 
-\lr{idle}
-باقی میماند و از آن پهنای باند استفاده مفید دیگری نمی‌شود. 
-
-در روش 
-\lr{packet switching}
-از طرفی می‌توان در هر لحظه از کل پهنای باند در دسترس استفاده کرد. در نتیجه اگر شبکه ما تعداد کاربر زیادی نداشته باشد یا تعداد زیادی در آن واحد از آن استفاده فعال نکنند٫
-در عمل مانند 
-\lr{circuit switching}
-عمل می‌کند٫ بدون آن که هزینه‌های آن را پرداخت کرده باشد.
-و تعداد کاربرهای بیشتری را در  پهنای باند مشابه پشتیبانی می‌کند.
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.30]{s9.png}
+	\caption{\lr{initial receiver window size of 28960 bytes.\\ sender never throttles because receiver's window size is (far) smaller.}}
+\end{figure}
 
 
-همان‌طور که اشاره شد در روش circuit switching خود رزرو کردن لینک و هماهنگ کردن مبدا و مقصد هزینه‌بر و هم به زمان مورد نیاز برای انتقال داده و هم به پیچیدگی شبکه می‌افزاید. در حالی که 
-\lr{packet switching}
-به نسبت ساده‌تر و کم هزینه‌تر است.
+\problem{}
 
-و در نهایت بزرگ‌‌‌ترین بدی 
-\lr{packet switching}
-(و شاید تنها بدی آن به نسبت)
-این است که عملکرد آن با توجه به 
-\lr{congestion} 
-شبکه می‌تواند متفاوت باشد و در ارتباط
-\lr{delay}
-وجود خواهد داشت و 
-\lr{best effort}
-بودن 
-\lr{ip‌}
-و عبور 
-\lr{packet}
-ها از مسیرهای مختلف
-باعث می‌شود ترتیب رسیدن آن‌ها
-(و یا حتی رسیدن آن‌ها)
-تضمین نشود
-.
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.30]{s10.png}
+	\caption{\lr{no, the sequence numbers are only increasing.}}
+\end{figure}
 
+\problem{}
 
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.40]{s11.png}
+	\caption{\lr{typically it's 1388 bytes. sometimes (as highlightet) it's more. as it can be seen here more than a packet (two) was acked altogether here.}}
+\end{figure}
+
+\problem{}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale= 0.40]{s12.png}
+	\caption{\lr$75687 / (5.8058 - 4.624886) = 64.091 Kbyte/sec$.}}
+\end{figure}
+
+\newpage
+
+\section{UDP}
+
+1-\\\\
+{
+	\centering
+	\includegraphics[scale=0.4]{u1}
+	\lr{
+	\paragraph{fields}
+	source port, destination port, length, checksum
+	}
+}
+
+2- \\\\
+
+{
+	\centering
+	\includegraphics[scale=0.4]{u2}
+	\lr{
+	\paragraph{length of header fields}
+	each 2 bytes in size, with a total of 8
+	}
+}
+
+3- \\\\
+
+{
+	\centering
+	\includegraphics[scale=0.4]{u2}
+	\lr{
+	\paragraph{length field}
+	it's sum of udp header length and payload (8 + 25 bytes payload)	.
+	}
+}
+\\
+\begin{latin}
+
+\paragraph{4- max payload size} \\
+\lr{
+ 2 bytes for showing length, resulting in $2^{16}$ distinct numbers.
+(excluding 8 bytes for header)
+}
+
+\\\\
+\paragraph{5- biggest port number}
+$2^{16}$ bytes = 64 KB
+\\
+\paragraph{6- protocol number}
+17 (0x11)
+
+\paragraph{7- ports} ports from each ip stays the same. \\
+{
+	\centering
+	\includegraphics[scale=0.4]{u_l}
+}
+
+\end{latin}
