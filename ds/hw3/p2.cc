@@ -59,8 +59,15 @@ class binary_tree {
 };
 
 int main() {
-    binary_tree<type> bin;
+    #define ONLINE_JUDGE false
+    #ifndef ONLINE_JUDGE
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    freopen("input.txt", "r", stdin);
+    freopen("error.txt", "w", stderr);
+    freopen("output.txt", "w", stdout);
+    #endif
 
+    binary_tree<type> bin;
     type out;
     bool is_valid;
 
