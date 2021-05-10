@@ -56,6 +56,8 @@ class binary_tree {
 
     private:
     node* root;
+    node* min;
+    node* max;
 };
 
 int main() {

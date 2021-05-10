@@ -12,9 +12,8 @@ class binary_tree {
     class node {
         node* lchild;
         node* rchild;
-        node* parent;
         T value;
-        T max_right;
+        // node* parent;
 
         node(T _value, node* _parent) : 
             lchild(0), rchild(0), parent(_parent), value(_value) {}
@@ -28,6 +27,8 @@ class binary_tree {
 
     private:
     node* root;
+    node* max;
+    node* min;
 };
 
 int main() {
