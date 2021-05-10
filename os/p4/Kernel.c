@@ -691,7 +691,10 @@ code Kernel
         -- the one and only "ThreadManager" object.
         -- 
           print ("Initializing Thread Manager...\n")
-          -- NOT IMPLEMENTED
+          lock = new Mutex
+          lock.Init ()
+          bell = new Condition
+          bell.Init ()
         endMethod
 
       ----------  ThreadManager . Print  ----------
@@ -724,8 +727,15 @@ code Kernel
         -- This method returns a new Thread; it will wait
         -- until one is available.
         -- 
-          -- NOT IMPLEMENTED
-          return null
+          var th: ptr to Thread
+          lock.Lock ()
+          while freeList.IsEmpty ()
+              bell.Wait (&lock)
+            endWhile
+          th = freeList.Remove()
+          th.status = JUST_CREATED
+          lock.Unlock ()
+          return th
         endMethod
 
       ----------  ThreadManager . FreeThread  ----------
@@ -735,7 +745,11 @@ code Kernel
         -- This method is passed a ptr to a Thread;  It moves it
         -- to the FREE list.
         -- 
-          -- NOT IMPLEMENTED
+          lock.Lock ()
+          th.status = UNUSED
+          freeList.AddToEnd (th)
+          bell.Broadcast (&lock)
+          lock.Unlock ()
         endMethod
 
     endBehavior

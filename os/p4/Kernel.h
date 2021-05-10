@@ -193,6 +193,9 @@ header Kernel
     fields
       threadTable: array [MAX_NUMBER_OF_PROCESSES] of Thread
       freeList: List [Thread]
+      lock: Mutex
+      bell: Condition
+
     methods
       Init ()
       Print ()
