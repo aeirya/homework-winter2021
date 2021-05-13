@@ -20975,9 +20975,9 @@ _Label_718:
 	call	_P_Thread_InitializeScheduler
 ! CALL STATEMENT...
 !   Call the function
-	mov	29,r13		! source line 29
+	mov	28,r13		! source line 28
 	mov	"\0\0CA",r10
-	call	_function_46_DiningPhilosophers
+	call	_function_50_ProducerConsumer
 ! CALL STATEMENT...
 !   Call the function
 	mov	31,r13		! source line 31
