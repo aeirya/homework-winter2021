@@ -112,7 +112,7 @@ code Main
       --  RunThreadManagerTests ()
       --  RunProcessManagerTests ()
       --  RunFrameManagerTests ()
-      RunConditionTests ()
+      --  RunConditionTests ()
 
       RuntimeExit ()
 

@@ -159,6 +159,20 @@ header Kernel
       Broadcast (mutex: ptr to Mutex)
   endClass
 
+  ---------------  HoareCondition  ---------------
+
+  class HoareCondition
+    superclass Object
+    fields
+      waitingThreads: List [Thread]
+      waitingSignallers: List [Thread]
+    methods
+      Init ()
+      Wait (mutex: ptr to Mutex)
+      Signal (mutex: ptr to Mutex)
+  endClass
+
+
   ---------------  Thread  ---------------
 
   class Thread
