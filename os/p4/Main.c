@@ -109,9 +109,9 @@ code Main
 */
 
       -- Run more thorough tests.
-      --  RunThreadManagerTests ()
-      --  RunProcessManagerTests ()
-      --  RunFrameManagerTests ()
+      RunThreadManagerTests ()
+      RunProcessManagerTests ()
+      RunFrameManagerTests ()
       --  RunConditionTests ()
 
       RuntimeExit ()
@@ -473,18 +473,20 @@ code Main
 -----------------------------  ConditionTests  ---------------------------------
   var cmut: Mutex = new Mutex
       flag : bool = true
-      c : Condition = new Condition
+      c : HoareCondition = new HoareCondition
 
   function ConditionTestFoo (id: int) 
       var i: int 
-          --  j: int = 0
+          j: int = 0
 
       -- Waste time
-      for i = 0 to 4
-        currentThread.Yield ()
+      for i = 0 to 20
+        j = j+1
+        j = j-1
       endFor 
 
       cmut.Lock ()
+
       -- Say Hi
       print ("I'm a pie ")
       printInt (id)
@@ -494,12 +496,6 @@ code Main
         c.Wait (&cmut)
       endIf
       flag = false
-
-      -- Waste time
-      --  for i = 0 to 10
-        --  currentThread.Yield ()
-      --  endFor 
-
       -- Say Bye
       print ("Bye pie ")
       printInt (id)
@@ -518,11 +514,10 @@ code Main
     c.Init ()
     cmut.Init ()
 
-    for i = 0 to 15
+    for i = 0 to 20
         t = alloc Thread
         t.Init ("ConditionTestThread")
         t.Fork (ConditionTestFoo, i)
-        --  currentThread.Yield ()
     endFor
 
     endFunction
