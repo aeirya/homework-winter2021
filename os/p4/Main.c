@@ -109,9 +109,10 @@ code Main
 */
 
       -- Run more thorough tests.
-      RunThreadManagerTests ()
-      RunProcessManagerTests ()
-      RunFrameManagerTests ()
+      --  RunThreadManagerTests ()
+      --  RunProcessManagerTests ()
+      --  RunFrameManagerTests ()
+      RunConditionTests ()
 
       RuntimeExit ()
 
@@ -467,6 +468,63 @@ code Main
           FatalError ("Data corruption, indicating that frame was shared")
         endIf
       endFor
+    endFunction
+
+-----------------------------  ConditionTests  ---------------------------------
+  var cmut: Mutex = new Mutex
+      flag : bool = true
+      c : Condition = new Condition
+
+  function ConditionTestFoo (id: int) 
+      var i: int 
+          --  j: int = 0
+
+      -- Waste time
+      for i = 0 to 4
+        currentThread.Yield ()
+      endFor 
+
+      cmut.Lock ()
+      -- Say Hi
+      print ("I'm a pie ")
+      printInt (id)
+      nl ()
+      -- Entry Permission
+      if !flag
+        c.Wait (&cmut)
+      endIf
+      flag = false
+
+      -- Waste time
+      --  for i = 0 to 10
+        --  currentThread.Yield ()
+      --  endFor 
+
+      -- Say Bye
+      print ("Bye pie ")
+      printInt (id)
+      nl ()
+      -- Reset flag and call others
+      flag = true
+      c.Signal (&cmut)
+
+      cmut.Unlock ()
+    endFunction
+  
+  function RunConditionTests ()
+
+    var i: int
+        t: ptr to Thread
+    c.Init ()
+    cmut.Init ()
+
+    for i = 0 to 15
+        t = alloc Thread
+        t.Init ("ConditionTestThread")
+        t.Fork (ConditionTestFoo, i)
+        --  currentThread.Yield ()
+    endFor
+
     endFunction
 
 endCode

@@ -30138,7 +30138,7 @@ _StringConst_1:
 ! 
 _mainEntry:
 	set	_packageName,r2		! Get CheckVersion started
-	set	0x9a26b713,r3		! .  hashVal = -1708738797
+	set	0x9bc13713,r3		! .  hashVal = -1681836269
 	call	_CheckVersion_P_Main_	! .
 	cmp	r1,0			! .
 	be	_Label_64		! .
@@ -30170,7 +30170,7 @@ _packageName:
 !
 _CheckVersion_P_Main_:
 	.export	_CheckVersion_P_Main_
-	set	0x9a26b713,r4		! myHashVal = -1708738797
+	set	0x9bc13713,r4		! myHashVal = -1681836269
 	cmp	r3,r4
 	be	_Label_65
 	set	_CVMess1,r1
@@ -30871,9 +30871,9 @@ _Label_765:
 	mov	425,r13		! source line 425
 	mov	"\0\0WH",r10
 _Label_112:
-!   if i >= 10 then goto _Label_114		(int)
+!   if i >= 1 then goto _Label_114		(int)
 	load	[r14+-68],r1
-	mov	10,r2
+	mov	1,r2
 	cmp	r1,r2
 	bvs	_runtimeErrorOverflow
 	bge	_Label_114

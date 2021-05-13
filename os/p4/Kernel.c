@@ -391,6 +391,7 @@ code Kernel
           endIf
           oldIntStat = SetInterruptsTo (DISABLED)
           mutex.Unlock ()
+          --  waitingThreads.AddToFront (currentThread)
           waitingThreads.AddToEnd (currentThread)
           currentThread.Sleep ()
           mutex.Lock ()
@@ -410,6 +411,7 @@ code Kernel
           t = waitingThreads.Remove ()
           if t
             t.status = READY
+            --  readyList.AddToFront (t)
             readyList.AddToEnd (t)
           endIf
           oldIntStat = SetInterruptsTo (oldIntStat)

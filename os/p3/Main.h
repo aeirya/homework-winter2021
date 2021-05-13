@@ -9,7 +9,7 @@ header Main
     twoDigit = true   -- two-digit print style
   -- customer cunstants
   const 
-    N_CUTS = 10       -- number of cuts each customer wants to get
+    N_CUTS = 1       -- number of cuts each customer wants to get
     try_again = false -- return back to shop if full
 
   functions
