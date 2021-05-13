@@ -690,7 +690,22 @@ code Kernel
         -- This method is called once at kernel startup time to initialize
         -- the one and only "ThreadManager" object.
         -- 
+          var i: int
+              th : ptr to Thread
+              name : String
           print ("Initializing Thread Manager...\n")
+          threadTable = new array of Thread {MAX_NUMBER_OF_PROCESSES of new Thread}
+          freeList = new List [Thread]
+          for i = 0 to MAX_NUMBER_OF_PROCESSES - 1
+            name = "Thread  "
+            name[7] = intToChar (i + 26)
+    
+            th = & threadTable[i]
+            th.Init (name)
+            th.status = UNUSED
+            freeList.AddToEnd (th)
+          endFor
+
           lock = new Mutex
           lock.Init ()
           bell = new Condition
@@ -837,7 +852,22 @@ code Kernel
         -- This method is called once at kernel startup time to initialize
         -- the one and only "processManager" object.  
         --
-        -- NOT IMPLEMENTED
+          var i: int = 0
+          nextPid = 1
+          processManagerLock = new Mutex
+          processManagerLock.Init ()
+          aProcessBecameFree = new Condition
+          aProcessBecameFree.Init ()
+          aProcessDied = new Condition
+          aProcessDied.Init ()
+          freeList = new List [ProcessControlBlock]
+          processTable = new array of ProcessControlBlock {MAX_NUMBER_OF_PROCESSES of new ProcessControlBlock}
+          -- init process control blocks
+          for i = 0 to MAX_NUMBER_OF_PROCESSES-1
+            processTable[i].Init ()
+            processTable[i].status = FREE
+            freeList.AddToFront (&processTable[i])
+          endFor
         endMethod
 
       ----------  ProcessManager . Print  ----------
@@ -892,8 +922,19 @@ code Kernel
         -- This method returns a new ProcessControlBlock; it will wait
         -- until one is available.
         --
-          -- NOT IMPLEMENTED
-          return null
+          var p : ptr to ProcessControlBlock
+          processManagerLock.Lock ()
+          -- wait for free block to return
+          while freeList.IsEmpty ()
+              aProcessBecameFree.Wait (&processManagerLock)
+            endWhile
+          p = freeList.Remove ()
+          p.status = ACTIVE
+          -- set pid and update next pid
+          p.pid = nextPid
+          nextPid = nextPid + 1
+          processManagerLock.Unlock ()
+          return p
         endMethod
 
       ----------  ProcessManager . FreeProcess  ----------
@@ -903,7 +944,11 @@ code Kernel
         -- This method is passed a ptr to a Process;  It moves it
         -- to the FREE list.
         --
-          -- NOT IMPLEMENTED
+          processManagerLock.Lock ()
+          p.status = FREE
+          freeList.AddToEnd (p)
+          aProcessBecameFree.Signal (&processManagerLock)
+          processManagerLock.Unlock ()
         endMethod
 
 
@@ -1011,13 +1056,72 @@ code Kernel
       ----------  FrameManager . GetNewFrames  ----------
 
       method GetNewFrames (aPageTable: ptr to AddrSpace, numFramesNeeded: int)
-          -- NOT IMPLEMENTED
+        ---
+        --- Allocate numFramesNeeded frames and store info in address space.
+        --- If not enough frames ready, wait
+        ---
+          var i, f, frameAddr: int
+
+          -- Acquire mutex lock
+          frameManagerLock.Lock ()
+          
+          -- Wait for enough frames
+          while numberFreeFrames < numFramesNeeded
+            newFramesAvailable.Wait (&frameManagerLock)
+          endWhile
+          
+          -- for each frame needed
+          for i = 0 to numFramesNeeded - 1
+
+            -- Find a free frame and allocate it
+            f = framesInUse.FindZeroAndSet ()
+            
+            -- physical address of the frame
+            frameAddr = PHYSICAL_ADDRESS_OF_FIRST_PAGE_FRAME + (f * PAGE_SIZE)
+
+            -- store address in table
+            aPageTable.SetFrameAddr (i, frameAddr)
+          endFor
+          
+          -- update free frames number
+          numberFreeFrames = numberFreeFrames - numFramesNeeded
+          -- set number of frames allocated
+          aPageTable.numberOfPages = numFramesNeeded
+
+          -- Release mutex lock
+          frameManagerLock.Unlock()
         endMethod
 
       ----------  FrameManager . ReturnAllFrames  ----------
 
       method ReturnAllFrames (aPageTable: ptr to AddrSpace)
-          -- NOT IMPLEMENTED
+        --
+        --  This method releases frames used by the adress space.
+        --  for each frame it clears the bit 
+        --
+          var i, frameAddr, bitNumber, numFramesReturned: int
+          
+          -- Acquire lock
+          frameManagerLock.Lock ()
+
+          -- returning all of address space pages
+          numFramesReturned = aPageTable.numberOfPages
+
+          for i = 0 to numFramesReturned - 1
+            -- get address
+            frameAddr = aPageTable.ExtractFrameAddr (i)
+            -- dev note: compare to line 1080
+            bitNumber = (frameAddr - PHYSICAL_ADDRESS_OF_FIRST_PAGE_FRAME) / PAGE_SIZE
+            -- clear 'is used' bit
+            framesInUse.ClearBit (bitNumber)
+          endFor
+
+          -- update number of free frames
+          numberFreeFrames = numberFreeFrames + numFramesReturned
+          -- call all waiting threads (starvation alert!)
+          newFramesAvailable.Broadcast (&frameManagerLock)
+          -- unlock lock
+          frameManagerLock.Unlock ()
         endMethod
 
     endBehavior
