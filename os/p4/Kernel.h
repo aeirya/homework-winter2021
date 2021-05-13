@@ -170,6 +170,7 @@ header Kernel
       Init ()
       Wait (mutex: ptr to Mutex)
       Signal (mutex: ptr to Mutex)
+      Farewell (mutex: ptr to Mutex)
   endClass
 
 

@@ -116,6 +116,8 @@
 ! The following class and its methods are from other packages
 	.import	_P_Kernel_Condition
 ! The following class and its methods are from other packages
+	.import	_P_Kernel_HoareCondition
+! The following class and its methods are from other packages
 	.import	_P_Kernel_Thread
 ! The following class and its methods are from other packages
 	.import	_P_Kernel_ThreadManager
@@ -408,9 +410,9 @@ _Label_38:
 	.import	_CheckVersion_P_List_
 	cmp	r1,0
 	bne	_Label_39
-! Make sure _P_Kernel_ has hash value 0x4469e735 (decimal 1147791157)
+! Make sure _P_Kernel_ has hash value 0x86e782dd (decimal -2031648035)
 	set	_packageName,r2
-	set	0x4469e735,r3
+	set	0x86e782dd,r3
 	call	_CheckVersion_P_Kernel_
 	.import	_CheckVersion_P_Kernel_
 	cmp	r1,0
@@ -550,11 +552,6 @@ _Label_540:
 	store	r1,[r15]
 	add	r2,4,r2
 	call	r2
-! CALL STATEMENT...
-!   Call the function
-	mov	115,r13		! source line 115
-	mov	"\0\0CA",r10
-	call	_function_26_RunConditionTests
 ! CALL STATEMENT...
 !   Call the function
 	mov	117,r13		! source line 117
