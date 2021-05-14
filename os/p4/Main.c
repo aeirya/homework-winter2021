@@ -109,10 +109,11 @@ code Main
 */
 
       -- Run more thorough tests.
-      RunThreadManagerTests ()
-      RunProcessManagerTests ()
-      RunFrameManagerTests ()
+      --  RunThreadManagerTests ()
+      --  RunProcessManagerTests ()
+      --  RunFrameManagerTests ()
       --  RunConditionTests ()
+      --  RunHoareTest ()
 
       RuntimeExit ()
 
@@ -470,56 +471,153 @@ code Main
       endFor
     endFunction
 
------------------------------  ConditionTests  ---------------------------------
-  var cmut: Mutex = new Mutex
-      flag : bool = true
-      c : HoareCondition = new HoareCondition
+--  -----------------------------  ConditionTests  ---------------------------------
+--    var cmut: Mutex = new Mutex
+--        flag : bool = true
+--        c : HoareCondition = new HoareCondition
 
-  function ConditionTestFoo (id: int) 
-      var i: int 
-          j: int = 0
+--    function ConditionTestFoo (id: int) 
+--        var i: int 
+--            j: int = 0
 
-      -- Waste time
-      for i = 0 to 20
-        j = j+1
-        j = j-1
-      endFor 
+--        -- Waste time
+--        for i = 0 to 20
+--          j = j+1
+--          j = j-1
+--        endFor 
 
-      cmut.Lock ()
+--        cmut.Lock ()
 
-      -- Say Hi
-      print ("I'm a pie ")
-      printInt (id)
-      nl ()
-      -- Entry Permission
-      if !flag
-        c.Wait (&cmut)
-      endIf
-      flag = false
-      -- Say Bye
-      print ("Bye pie ")
-      printInt (id)
-      nl ()
-      -- Reset flag and call others
-      flag = true
-      c.Signal (&cmut)
+--        -- Say Hi
+--        print ("I'm a pie ")
+--        printInt (id)
+--        nl ()
+--        -- Entry Permission
+--        if !flag
+--          c.Wait (&cmut)
+--        endIf
+--        flag = false
+--        -- Say Bye
+--        print ("Bye pie ")
+--        printInt (id)
+--        nl ()
+--        -- Reset flag and call others
+--        flag = true
+--        c.Signal (&cmut)
 
-      cmut.Unlock ()
-    endFunction
+--        cmut.Unlock ()
+--      endFunction
   
-  function RunConditionTests ()
+--    function RunConditionTests ()
 
-    var i: int
-        t: ptr to Thread
-    c.Init ()
-    cmut.Init ()
+--      var i: int
+--          t: ptr to Thread
+--      c.Init ()
+--      cmut.Init ()
 
-    for i = 0 to 20
-        t = alloc Thread
-        t.Init ("ConditionTestThread")
-        t.Fork (ConditionTestFoo, i)
-    endFor
+--      for i = 0 to 20
+--          t = alloc Thread
+--          t.Init ("ConditionTestThread")
+--          t.Fork (ConditionTestFoo, i)
+--      endFor
 
-    endFunction
+--      endFunction
 
-endCode
+--  ------------------ Hoare Monitor Sample  -------------------
+--    class HoareMonitor
+--      superclass Object
+--      fields
+--        mut: Mutex
+--        cv: HoareCondition
+--        dices: int
+--        wanted: int
+--      methods
+--        Init ()
+--        GetDice (n: int)
+--        Return (n: int)
+--        Print ()
+      
+--    endClass
+
+--    behavior HoareMonitor
+--      method Init ()
+--        mut = new Mutex
+--        mut.Init ()
+--        cv = new HoareCondition
+--        cv.Init ()
+--        dices = 0
+--        wanted = -1
+--      endMethod
+
+--      method GetDice (n: int)
+--        mut.Lock ()
+
+--        if dices < n
+--          cv.Wait (&mut)
+--        endIf
+
+--        dices = dices - n
+
+--        mut.Unlock ()
+--      endMethod
+
+--      method Return (n: int)
+--        mut.Lock ()
+--        dices = dices + n
+--        if dices >= wanted
+--          cv.Signal (&mut)
+--        endIf
+--        cv.Farewell (&mut)
+--      endMethod
+
+--      method Print ()
+--        print ("rem: ")
+--        printInt (dices)
+--        nl()
+--      endMethod
+
+--    endBehavior
+
+--  -- Gaming parlor hoare test
+
+--  var mon: HoareMonitor = new HoareMonitor
+
+--  function HoareTestCustomer(id: int)
+--    var amount: int
+--        i: int
+
+--    for i = 0 to 10
+--      amount = 2*i + 1
+--      printInt (id)
+--      print (" requests ")
+--      printInt (amount)
+--      nl()
+--      mon.GetDice (amount)
+--      mon.Print ()
+--      currentThread.Yield()
+--      mon.Return (amount)
+--      printInt (id)
+--      print (" returns ")
+--      printInt (amount)
+--      nl()
+--      mon.Print ()
+--    endFor
+  
+--  endFunction
+
+--  function RunHoareTest ()
+--    var
+--        j: int
+--        t: ptr to Thread
+--    mon.Init ()
+--    mon.Return (10)
+
+--    for j = 0 to 12
+--      t = alloc Thread
+--      t.Init ("Thread")
+--      t.Fork (HoareTestCustomer, j)
+--    endFor 
+  
+--  endFunction
+
+--  endCode
