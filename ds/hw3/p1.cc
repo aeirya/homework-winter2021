@@ -119,16 +119,6 @@ int test() {
     return 0;
 }
 
-// template <typename T>
-// class printer {
-//     class printable {
-//         virtual void print();  
-//     };
-//     class type_a(printable) {
-            // void print()
-//     };
-// };
-
 template <typename T>
 class printer {
     private:
@@ -165,12 +155,12 @@ int main() {
     type x;
     int cmd;
     type count, pop;
+
     printer<type> p;
     for (int i=0; i<n; ++i) {
         cin >> cmd;
         if (cmd == 1) {
             count = 0;
-            // cout << h.pop(count) << " " << count << endl;
             pop = h.pop(count);
             p.pop(pop, count);
         }
@@ -178,10 +168,8 @@ int main() {
             cin >> x;
             count = 0;
             h.add(x, count);
-            // cout << count << endl;
             p.add(count);
         }
     }
     p.print();
-    // h.print();
 }
