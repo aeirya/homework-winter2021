@@ -17,12 +17,19 @@ class binary_tree {
     public:
     binary_tree() : root(0) {}
 
+    bool add(T item, T& out) {
+        return add_rec(item, out);
+        // return add_proc(item, out);
+    }
+
+    private:
+
     /*
         add the value 'item' into binary tree,
         set the value of out, value of parent of the new node,
         return value indicates validity of 'out'.
     */
-    bool add(T item, T& out) {
+    bool add_proc(T item, T& out) {
         node* nod = new node {0,0,item};
         if (root == 0) {
             root = nod;
@@ -51,10 +58,50 @@ class binary_tree {
                 }
             }
         }
-
     }
 
-    private:
+    /*
+        the same method as add_proc, but in recursive style
+    */
+    bool add_rec(T item, T& out) {
+        if (root == 0) {
+            root = max = min = create_node(item);
+            return true;
+        } else if (item < min->value) {
+            node* n = create_node(item);
+            min->lchild = n;
+            out = min->value;
+            min = n; 
+            return true;
+        } else if(item > max->value) {
+            node* n = create_node(item);
+            max->rchild = n;
+            out = max->value;
+            max = n;
+            return true;
+        }
+        else return add_rec(item, root, out);
+    }
+
+    bool add_rec(T item, node* n, T& out) {
+        if (n->value == item) return false;
+        if (item < n->value) {
+            if (n->lchild) 
+                return add_rec(item, n->lchild, out);
+            else n->lchild = create_node(item);
+        } else {
+            if (n->rchild)
+                return add_rec(item, n->rchild, out);
+            else n->rchild = create_node(item);
+        }
+        out = n->value;
+        return true;
+    }
+
+    node* create_node(T item) {
+        return new node {0,0, item};
+    }
+    
     node* root;
     node* min;
     node* max;
