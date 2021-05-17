@@ -12,7 +12,12 @@ using std::endl;
 
 template <typename T>
 T inline max(const T& a, const T& b)
-{ return a < b ? a : b; }
+{ return a > b ? a : b; }
+
+int count = 0;
+
+void rc()
+{ cout << "rc! " << count++ << endl; }
 
 namespace avl_tree
 {
@@ -71,7 +76,9 @@ namespace avl_tree
                 insert_right(n, parent);
 
             update_height(parent);
-            n = balance(parent, n<parent);
+            bool is_root = parent == *root;
+            parent = balance(parent, n<parent);
+            if (is_root) root = &parent;
         }
 
         void inline insert_left(node& n, node& parent) 
@@ -90,7 +97,7 @@ namespace avl_tree
         
         void inline update_height(node& n)
         {
-            n.height = max(
+            n.height = 1+max(
                 n.left ? n.left->height : 0,
                 n.right ? n.right->height : 0
             );
@@ -98,11 +105,11 @@ namespace avl_tree
 
         node& balance(node& p, bool left) 
         {
-            const int i = p.dif();
+            int i = p.dif();
             if (left)
             {
                 if (i < -1) 
-                    right_rotate(p);
+                    return right_rotate(p);
             } 
             else 
             {
@@ -118,10 +125,11 @@ namespace avl_tree
 
         node& right_rotate(node& p) 
         {
-            node& new_mid = *p.left;
-            p.left = new_mid.right;
-            new_mid.right = &p;
-            return new_mid;
+            cout << "right rotate" << endl;
+            node* new_mid = p.left;
+            p.left = new_mid->right;
+            new_mid->right = &p;
+            return *new_mid;
         }
 
         void print(node& p) 
@@ -140,6 +148,8 @@ namespace avl_tree
         tree.add(11);
         tree.add(9);
         tree.add(8);
+        tree.add(7);
+        rc();
         tree.print();
         return 0;
     }
