@@ -60,7 +60,7 @@ class heap {
     }
 
     void bubble_down(type i, type& op) {
-        if (i >= v.size()) return;
+        if (lchild_i(i) >= v.size()) return;
 
         bool left, right = false;
         if (lchild(i) > v[i]) {
