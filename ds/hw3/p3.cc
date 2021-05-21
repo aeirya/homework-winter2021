@@ -91,16 +91,21 @@ class heap {
         bubble_up(n-1);
     }
 
-    T& pop() {
-        T& m = v[0];
+    T pop() {
+        T m = v[0];
         v[0] = v.back();
         v.pop_back();
         bubble_down(0);
         return m;
     }
 
-    type size() const {
+    type size() {
         return v.size();
+    }
+
+    void print() {
+        for (auto& item : v) cout << item << " ";
+        cout << endl;
     }
 
     private:
@@ -239,7 +244,7 @@ vector<int>& solve(int n, int m, vector<person> people, converter f) {
     // start giving cells
     for (int i=0; i<m; ++i) {
         merge_heaps(queue, cells[i]);
-        auto& p = queue.pop();
+        auto p = queue.pop();
         (*result)[p.get_index()] = i;
     }
     return *result;
@@ -272,11 +277,46 @@ void print(vector<point>& points) {
     }
 }
 
+int test_heap() {
+    heap<int> h;
+    h.add(10);
+    h.add(9);
+    h.add(11);
+    h.add(20);
+    h.add(30);
+    h.add(40);
+    while (h.size() > 0) {
+        cout << h.pop() << endl;
+    }
+    // h.print();
+    return 0;
+}
+
+int test_input(vector<person>& people) {
+    for (auto& p : people)
+        cout << p.index << " " 
+            << p.x_interval.start << " " << p.x_interval.end << " " 
+            << p.y_interval.start << " " << p.y_interval.end << endl;
+    return 0;
+}
+
+int test_1d_solve(int n, int m, vector<person>& people) {
+    vector<int> x = solve(n, m, people, [](person& p){ return person_1d(p.x_interval, p); });
+    for (auto& i : x)
+        cout << i << " ";
+    cout << endl;
+    return 0;
+}
+
 int main() {
+    // tests
+    // return test_heap();
+    // return test_input(people);
     // input
     int n, m;
     cin >> n >> m;
     vector<person>& people = input_people(n);
+    return test_1d_solve(n, m, people);
 
     // solve and print
     auto& answer = solve(n, m, people);
