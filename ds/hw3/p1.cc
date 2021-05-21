@@ -14,6 +14,11 @@ void inline swp(T* a, T* b) {
     *b = temp;
 }
 
+template <typename T>
+T inline max(T const a, T const b) {
+    return a < b ? a : b;
+}
+
 void rc() {
     cout << "checkpoint" << endl;
 }
@@ -61,22 +66,15 @@ class heap {
 
     void bubble_down(type i, type& op) {
         if (lchild_i(i) >= v.size()) return;
-
-        bool left, right = false;
-        if (lchild(i) > v[i]) {
-            swp(&v[i], &lchild(i));
+        bool left = lchild(i) > rchild(i);
+        T& child = left ? lchild(i) : rchild(i);
+        type child_i = left ? lchild_i(i) : rchild_i(i);
+        
+        if (v[i] < child) {
+            swp(&v[i], &child);
+            bubble_down(child_i, op);
             ++op;
-            left = true;
         }
-        if (rchild(i) > v[i]) {
-            swp(&v[i], &rchild(i));
-            ++op;
-            right = true;
-        }
-        if (left)
-            bubble_down(lchild_i(i), op);
-        if (right)
-            bubble_down(rchild_i(i), op);
     }
 
     type inline parent_i(type i) const {
