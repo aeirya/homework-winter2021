@@ -68,6 +68,13 @@ vector<person>& input_people(int n) {
 #pragma region heap impl
 
 template <typename T>
+void inline swp(T* a, T* b) {
+    T temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+template <typename T>
 /*
     min heap implementation using arrays
     methods:
@@ -85,7 +92,7 @@ class heap {
     }
 
     T& pop() {
-        T m = v[0];
+        T& m = v[0];
         v[0] = v.back();
         v.pop_back();
         bubble_down(0);
@@ -97,7 +104,7 @@ class heap {
     }
 
     private:
-    vector<type> v;
+    vector<T> v;
 
     void bubble_up(type i) {
         if (v[i] < parent(i))
@@ -113,7 +120,7 @@ class heap {
         T& child = left ? lchild(i) : rchild(i);
         type child_i = left ? lchild_i(i) : rchild_i(i);
         
-        if (v[i] > child) {
+        if (child < v[i]) {
             swp(&v[i], &child);
             bubble_down(child_i);
         }
@@ -168,7 +175,29 @@ class comparable {
     T get_value() { return value; }
 };
 
-using person_1d = comparable<person, interval>;
+class person_1d {
+    private:
+    person* p;
+    interval* intvl;
+
+    public:
+    bool operator <(person_1d& other) const {
+        return *intvl < *other.intvl;
+    }
+
+    interval& get_interval() const { return *intvl; }
+
+    int start() const { return get_interval().start; }
+
+    int& get_index() const { return p->index; }
+
+    person& get_person() const { return *p; }
+
+    person_1d(interval& _intvl, person& _p) : intvl(&_intvl), p(&_p) {}
+    person_1d() : intvl(0), p(0) {}
+};
+
+// using person_1d = comparable<person, interval>;
 
 // template <typename mapper>
 // class comparable_person {
@@ -191,39 +220,41 @@ using person_1d = comparable<person, interval>;
 
 template <typename converter>
 /*
-    f: person -> interval (x or y)
+    f: person -> person_1d (x or y)
 */
-vector<int> solve(int n, int m, vector<person> people, converter f) {
+vector<int>& solve(int n, int m, vector<person> people, converter f) {
+    vector<int>* result = new vector<int>(n);
+    
     // people requesting for cell[i]
     heap<person_1d> cells[m];
     // make list of heaps
-    interval intvl;
-    comparable comp;
+    person_1d proj;
     for (auto& p : people) {
-        intvl = f(p);
-        comp = person_1d(p, intvl)
-        cells[intvl.start].add(comp);
+        proj = f(p);
+        cells[proj.start()].add(proj);
     }
 
     // as current point proceeds queue gets bigger
     heap<person_1d> queue;
     // start giving cells
-    for (auto& cell : cells) {
-        merge_heaps(queue, cell);
+    for (int i=0; i<m; ++i) {
+        merge_heaps(queue, cells[i]);
         auto& p = queue.pop();
-        f(p.get_value())
+        (*result)[p.get_index()] = i;
     }
+    return *result;
 }
 
-vector<point>& solve(int n, int m, vector<person> people) {
+vector<point>& solve(int n, int m, vector<person>& people) {
     vector<point> *v;
-    vector<int> x = solve(n, m, people, [](person& p){ return p.x_interval; });
-    vector<int> y = solve(n, m, people, [](person& p){ return p.y_interval; });
+    vector<int> x = solve(n, m, people, [](person& p){ return person_1d(p.x_interval, p); });
+    vector<int> y = solve(n, m, people, [](person& p){ return person_1d(p.y_interval, p); });
     point* p;
     for (int i=0; i<n; ++i) {
         p = new point {x[i], y[i]};
         v->push_back(*p);
     }
+    // empty the vectors
     for (int i=0; i<n; ++i) {
         x.pop_back();
         y.pop_back();
@@ -255,7 +286,7 @@ int main() {
     delete &answer;
 
     // note
-    bool isGreater = [](int a, int b){ return a > b; };
+    // bool isGreater = [](int a, int b){ return a > b; };
 
     return 0;
 }
