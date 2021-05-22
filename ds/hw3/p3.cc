@@ -31,6 +31,9 @@ struct interval {
     }
 };
 
+class person_x;
+class person_y;
+
 struct person {
     interval x_interval;
     interval y_interval;
@@ -40,13 +43,16 @@ struct person {
 /*
     person classes
 */
-class person_1d {
+class person_1d : public person {
     protected:
-    const person* p;
+    // const person* p;
     virtual interval& get_interval() const;
 
+    // public:
+    // person_1d(const person& p) : p(&p) { }
+    
     public:
-    person_1d(person& p) : p(&p) { }
+    person_1d(const person& p) : person(p) { }
     
     _int start() const
     { return get_interval().start; }
@@ -54,26 +60,29 @@ class person_1d {
     _int end() const 
     { return get_interval().end; }
 
+    // _int index() const
+    // { return  }
+
     bool operator <(person_1d& other) const {
         return get_interval() < other.get_interval();
     }
 };
 
-class person_x : person_1d {
+class person_x : public person_1d {
     public:
-    person_x(person& p) : person_1d(p) { }
-
-    virtual interval get_interval() {
-        return p->x_interval;
+    person_x(const person& p) : person_1d(p) { }
+    
+    virtual interval& get_interval() {
+        return x_interval;
     }
 };
 
-class person_y : person_1d {
+class person_y : public person_1d {
     public:
-    person_y(person& p) : person_1d(p) { }
+    person_y(const person& p) : person_1d(p) { }
 
-    virtual interval get_interval() {
-        return p->y_interval;
+    virtual interval& get_interval() {
+        return y_interval;
     }
 };
 
@@ -231,7 +240,7 @@ void insert(heap<T>& to, list<T>& from) {
     for (auto& item : from) to.add(item);
 }
 
-template <typename caster>
+template <class person_type>
 /*
     n: # of people
     m: # of cells
@@ -239,15 +248,15 @@ template <typename caster>
     has_answer: validity of 'out'
     out: output result
 */
-void solve_1d(_int n, _int m, vector<person> people, caster cast, bool& has_answer, vector<_int>& out) {
+void solve_1d(_int n, _int m, vector<person_type> people, bool& has_answer, vector<_int>& out) {
     /*
         generate a list of people for every cell (if there is a request)
     */
-    list<person_1d> cells[m];
+    list<person_type> cells[m];
 
     // make list of list
     for (auto& p : people) {
-        auto& proj = cast(p);
+        auto proj = cast(p);
         cells[proj.start()].push_back(proj);
     }
 
@@ -262,7 +271,7 @@ void solve_1d(_int n, _int m, vector<person> people, caster cast, bool& has_answ
                 has_answer = false;
                 return;
             }
-            out[p.get_index()] = i;
+            out[p.index] = i;
         }
     }
 }
@@ -271,10 +280,10 @@ void solve(_int n, _int m, vector<person>& people, bool& has_answer, vector<poin
     has_answer = true;
 
     vector<_int> x, y;
-    solve_1d(n, m, people, [](person& p){ return person_x(p); }, has_answer, x);
+    solve_1d<person_x>(n, m, people, has_answer, x);
     if (!has_answer) return;
 
-    solve_1d(n, m, people, [](person& p){ return person_y(p); }, has_answer, y);
+    solve_1d<person_y>(n, m, people, has_answer, y);
     if (!has_answer) return;
 
     for (_int i=0; i<n; ++i) {
@@ -282,7 +291,22 @@ void solve(_int n, _int m, vector<person>& people, bool& has_answer, vector<poin
     }
 }
 
+int cast_test() {
+    person p;
+    person_x x(p);
+    person p2(x);
+    // person_1d d;
+    // person p3(d);
+    ((person_x) p).start();
+
+    vector<person> pp;
+    // vector<person_x> px(pp);
+    return 0;
+}
+
 int main() {
+    return cast_test();
+
     // input
     _int n, m;
     cin >> n >> m;
