@@ -246,9 +246,8 @@ void solve_1d(_int n, _int m, vector<person> people, caster cast, bool& has_answ
     list<person_1d> cells[m];
 
     // make list of list
-    person_1d proj;
     for (auto& p : people) {
-        proj = cast(p);
+        auto& proj = cast(p);
         cells[proj.start()].push_back(proj);
     }
 
@@ -261,7 +260,7 @@ void solve_1d(_int n, _int m, vector<person> people, caster cast, bool& has_answ
             auto p = queue.pop();
             if (p.end() < i) {
                 has_answer = false;
-                return *result;
+                return;
             }
             out[p.get_index()] = i;
         }
