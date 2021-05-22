@@ -31,9 +31,6 @@ struct interval {
     }
 };
 
-class person_x;
-class person_y;
-
 struct person {
     interval x_interval;
     interval y_interval;
@@ -111,6 +108,16 @@ vector<person>& input_people(_int n) {
         people->push_back(*p);
     }
     return *people;
+}
+
+void input_people_fast(_int n, vector<person>& out) {
+    out.reserve(n);
+    _int x0, y0, x1, y1;
+    for (_int i=0; i<n; ++i) {
+        cin >> x0 >> y0 >> x1 >> y1;
+        out.push_back(
+            person{interval{x0-1,x1-1}, interval{y0-1,y1-1}, i});
+    }
 }
 
 #pragma endregion
@@ -227,11 +234,6 @@ class heap {
 };
 #pragma endregion min heap
 
-// template <typename T>
-// void insert(heap<T>& to, vector<T>& from) {
-//     for (auto& item : from) to.add(item);
-// }
-
 template <typename T>
 void insert(heap<T>& to, list<T>& from) {
     for (auto& item : from) to.add(item);
@@ -306,7 +308,8 @@ int main() {
     // input
     _int n, m;
     cin >> n >> m;
-    vector<person>& people = input_people(n);
+    vector<person> people;
+    input_people_fast(n, people);
 
     // solve and print
     bool has_answer;
@@ -406,4 +409,9 @@ int main() {
 //     vector<person> pp;
 //     // vector<person_x> px(pp);
 //     return 0;
+// }
+
+// template <typename T>
+// void insert(heap<T>& to, vector<T>& from) {
+//     for (auto& item : from) to.add(item);
 // }
