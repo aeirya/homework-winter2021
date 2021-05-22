@@ -10,7 +10,6 @@ using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
-using std::array;
 
 #define type long long
 
@@ -38,7 +37,7 @@ struct person {
 point* input_point() {
     int x,y;
     cin >> x >> y;
-    return new point {x,y};
+    return new point {x-1,y-1};
 }
 
 person* new_person(point& up_left, point& down_right, int index) {
@@ -64,6 +63,17 @@ vector<person>& input_people(int n) {
 }
 
 #pragma endregion
+
+void print(vector<point>& points) {
+    if (points.size() == 0) {
+        cout << -1 << endl;
+        return;
+    }
+    // cout << "points size is " << points.size() << endl;
+    for (point& p : points) {
+        cout << p.x+1 << " " << p.y+1 << endl;
+    }
+}
 
 #pragma region heap impl
 
@@ -99,8 +109,12 @@ class heap {
         return m;
     }
 
-    type size() {
+    type size() const {
         return v.size();
+    }
+
+    bool has_item() const {
+        return size() > 0;
     }
 
     void print() {
@@ -193,7 +207,7 @@ class person_1d {
     interval& get_interval() const { return *intvl; }
 
     int start() const { return get_interval().start; }
-
+    int end() const { return get_interval().end; }
     int& get_index() const { return p->index; }
 
     person& get_person() const { return *p; }
@@ -223,12 +237,16 @@ class person_1d {
 //     virtual bool operator <(aug_person& other) const;
 // };
 
+void rc() {
+    cout << "checkpoint!" << endl;
+}
+
 template <typename converter>
 /*
     f: person -> person_1d (x or y)
 */
-vector<int>& solve(int n, int m, vector<person> people, converter f) {
-    vector<int>* result = new vector<int>(n);
+vector<int>& solve(int n, int m, vector<person> people, converter f, bool& has_answer) {
+    vector<int>* result = new vector<int>(n, 0);
     
     // people requesting for cell[i]
     heap<person_1d> cells[m];
@@ -244,16 +262,34 @@ vector<int>& solve(int n, int m, vector<person> people, converter f) {
     // start giving cells
     for (int i=0; i<m; ++i) {
         merge_heaps(queue, cells[i]);
-        auto p = queue.pop();
-        (*result)[p.get_index()] = i;
+        if (queue.has_item()) {
+            auto p = queue.pop();
+            if (p.end() < i) {
+                has_answer = false;
+                return *result;
+            }
+            (*result)[p.get_index()] = i;
+        }
     }
     return *result;
 }
 
-vector<point>& solve(int n, int m, vector<person>& people) {
-    vector<point> *v;
-    vector<int> x = solve(n, m, people, [](person& p){ return person_1d(p.x_interval, p); });
-    vector<int> y = solve(n, m, people, [](person& p){ return person_1d(p.y_interval, p); });
+vector<point>& solve(int n, int m, vector<person>& people, bool& has_answer) {
+    has_answer = true;
+    auto *v = new vector<point>(n);
+    v->clear();
+
+    vector<int> x = solve(n, m, people, [](person& p){ return person_1d(p.x_interval, p); }, has_answer);
+    if (!has_answer) return *v;
+
+    vector<int> y = solve(n, m, people, [](person& p){ return person_1d(p.y_interval, p); }, has_answer);
+    if (!has_answer) return *v;
+
+    // cout << "n is " << n << endl;
+    // cout << "x,y size is " << x.size() << "," << y.size() << endl;
+
+    // cout << "points size before: " << v->size() << endl;
+
     point* p;
     for (int i=0; i<n; ++i) {
         p = new point {x[i], y[i]};
@@ -264,17 +300,10 @@ vector<point>& solve(int n, int m, vector<person>& people) {
         x.pop_back();
         y.pop_back();
     }
-    return *v;
-}
 
-void print(vector<point>& points) {
-    if (points.size() == 0) {
-        cout << -1 << endl;
-        return;
-    }
-    for (point& p : points) {
-        cout << p.x << " " << p.y << endl;
-    }
+    // cout << "points size after: " << v->size() << endl;
+
+    return *v;
 }
 
 int test_heap() {
@@ -301,10 +330,15 @@ int test_input(vector<person>& people) {
 }
 
 int test_1d_solve(int n, int m, vector<person>& people) {
-    vector<int> x = solve(n, m, people, [](person& p){ return person_1d(p.x_interval, p); });
-    for (auto& i : x)
-        cout << i << " ";
-    cout << endl;
+    bool has_answer = true;
+    vector<int> x = solve(n, m, people, [](person& p){ return person_1d(p.x_interval, p); }, has_answer);
+    rc();
+    if (!has_answer) cout << -1 << endl;
+    else {
+        for (auto& i : x)
+            cout << i+1 << " ";
+        cout << endl;
+    }
     return 0;
 }
 
@@ -312,14 +346,16 @@ int main() {
     // tests
     // return test_heap();
     // return test_input(people);
+    // return test_1d_solve(n, m, people);
+
     // input
     int n, m;
     cin >> n >> m;
     vector<person>& people = input_people(n);
-    return test_1d_solve(n, m, people);
 
     // solve and print
-    auto& answer = solve(n, m, people);
+    bool has_answer;
+    auto& answer = solve(n, m, people, has_answer);
     print(answer);
 
     // free memoery
