@@ -45,26 +45,23 @@ struct person {
 */
 class person_1d : public person {
     protected:
-    // const person* p;
-    virtual interval& get_interval() const;
+    virtual interval& get_interval() = 0;
 
-    // public:
-    // person_1d(const person& p) : p(&p) { }
-    
     public:
     person_1d(const person& p) : person(p) { }
     
-    _int start() const
+    _int start()
     { return get_interval().start; }
 
-    _int end() const 
+    _int end()
     { return get_interval().end; }
 
-    // _int index() const
-    // { return  }
-
-    bool operator <(person_1d& other) const {
+    bool operator <(person_1d& other) {
         return get_interval() < other.get_interval();
+    }
+
+    void print() {
+        cout << "person: " << index << ", " << start() << ":" << end() << endl;
     }
 };
 
@@ -72,7 +69,7 @@ class person_x : public person_1d {
     public:
     person_x(const person& p) : person_1d(p) { }
     
-    virtual interval& get_interval() {
+    interval& get_interval() {
         return x_interval;
     }
 };
@@ -81,7 +78,7 @@ class person_y : public person_1d {
     public:
     person_y(const person& p) : person_1d(p) { }
 
-    virtual interval& get_interval() {
+    interval& get_interval() {
         return y_interval;
     }
 };
@@ -94,7 +91,7 @@ point* input_point() {
     return new point {x-1,y-1};
 }
 
-person* new_person(point& up_left, point& down_right, _int index) {
+person* new_person(const point& up_left, const point& down_right, _int index) {
     interval *x = new interval {up_left.x, down_right.x},
              *y = new interval {up_left.y, down_right.y};
     return new person {*x, *y, index};
@@ -230,10 +227,10 @@ class heap {
 };
 #pragma endregion min heap
 
-template <typename T>
-void insert(heap<T>& to, vector<T>& from) {
-    for (auto& item : from) to.add(item);
-}
+// template <typename T>
+// void insert(heap<T>& to, vector<T>& from) {
+//     for (auto& item : from) to.add(item);
+// }
 
 template <typename T>
 void insert(heap<T>& to, list<T>& from) {
@@ -248,65 +245,64 @@ template <class person_type>
     has_answer: validity of 'out'
     out: output result
 */
-void solve_1d(_int n, _int m, vector<person_type> people, bool& has_answer, vector<_int>& out) {
+void solve_1d(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<_int>& out) {
     /*
         generate a list of people for every cell (if there is a request)
     */
     list<person_type> cells[m];
-
     // make list of list
-    for (auto& p : people) {
-        auto proj = cast(p);
+    for (auto& p : people) { 
+        auto proj = person_type(p);
         cells[proj.start()].push_back(proj);
     }
 
     // as current point proceeds queue gets bigger
-    heap<person_1d> queue;
+    heap<person_type> queue;
     // start giving cells
     for (_int i=0; i<m; ++i) {
         insert(queue, cells[i]);
         if (queue.has_item()) {
+            // the minimum
             auto p = queue.pop();
+            // check if valid
             if (p.end() < i) {
                 has_answer = false;
                 return;
             }
+            // p.print();
             out[p.index] = i;
         }
     }
 }
 
-void solve(_int n, _int m, vector<person>& people, bool& has_answer, vector<point> out) {
+void print_answer(_int n, const vector<_int>& x, const vector<_int>& y, bool has_anwer) {
+    if (! has_anwer) {
+        cout << -1 << endl;
+        return;
+    }
+    for (int i=0; i<n; ++i) {
+        cout << x[i]+1 << " " << y[i]+1 << endl;
+    }
+}
+
+void solve(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<point>& out) {
     has_answer = true;
 
-    vector<_int> x, y;
+    vector<_int> x(n), y(n);
     solve_1d<person_x>(n, m, people, has_answer, x);
     if (!has_answer) return;
 
     solve_1d<person_y>(n, m, people, has_answer, y);
     if (!has_answer) return;
 
-    for (_int i=0; i<n; ++i) {
-        out.push_back(point {x[i], y[i]});
-    }
-}
+    print_answer(n, x, y, has_answer);
 
-int cast_test() {
-    person p;
-    person_x x(p);
-    person p2(x);
-    // person_1d d;
-    // person p3(d);
-    ((person_x) p).start();
-
-    vector<person> pp;
-    // vector<person_x> px(pp);
-    return 0;
+    // for (_int i=0; i<n; ++i) {
+    //     out.push_back(point {x[i], y[i]});
+    // }
 }
 
 int main() {
-    return cast_test();
-
     // input
     _int n, m;
     cin >> n >> m;
@@ -316,10 +312,7 @@ int main() {
     bool has_answer;
     vector<point> answer;
     solve(n, m, people, has_answer, answer);
-    print(answer);
-
-    // free memoery
-    delete &answer;
+    // print(answer);
 
     return 0;
 }
@@ -401,3 +394,16 @@ int main() {
 // return test_heap();
 // return test_input(people);
 // return test_1d_solve(n, m, people);
+
+// int cast_test() {
+//     person p;
+//     person_x x(p);
+//     person p2(x);
+//     // person_1d d;
+//     // person p3(d);
+//     ((person_x) p).start();
+
+//     vector<person> pp;
+//     // vector<person_x> px(pp);
+//     return 0;
+// }
