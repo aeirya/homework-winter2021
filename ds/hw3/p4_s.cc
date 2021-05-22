@@ -67,32 +67,34 @@ namespace avl_tree
         private:
         node* root;
 
-        void insert(node& n, node& parent)
+        node& insert(node& n, node parent)
         {
-            if (n == parent) return;
-            if (n < parent) 
-                insert_left(n, parent);
-            else
-                insert_right(n, parent);
-
-            update_height(parent);
+            if (n == parent) return n;
             bool is_root = parent == *root;
-            parent = balance(parent, n<parent);
+            if (n < parent) 
+                parent = insert_left(n, parent);
+            else
+                parent = insert_right(n, parent);
+            
             if (is_root) root = &parent;
+            update_height(parent);
+            return balance(parent, n<parent);
         }
 
-        void inline insert_left(node& n, node& parent) 
+        inline node& insert_left(node& n, node& parent) 
         {
             if (parent.left)
-                insert(n, *parent.left);
-            else parent.left = &n;
+                return insert(n, *parent.left);
+            parent.left = &n;
+            return parent;
         }
 
-        void inline insert_right(node& n, node& parent) 
+        inline node& insert_right(node& n, node& parent) 
         {
             if (parent.right) 
-                insert(n, *parent.right);
-            else parent.right = &n; 
+                return insert(n, *parent.right);
+            parent.right = &n; 
+            return parent;
         }
         
         void inline update_height(node& n)

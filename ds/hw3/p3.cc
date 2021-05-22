@@ -277,34 +277,34 @@ template <class person_type>
     out: output result
 */
 void solve_1d(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<_int>& out) {
-    // if (m < n) {
-    //     /*
-    //         generate a list of people for every cell (if there is a request)
-    //     */
-    //     list<person_type> cells[m];
-    //     // make list of list
-    //     for (auto& p : people) { 
-    //         auto proj = person_type(p);
-    //         cells[proj.start()].push_back(proj);
-    //     }
+    if (m < n) {
+        /*
+            generate a list of people for every cell (if there is a request)
+        */
+        list<person_type> cells[m];
+        // make list of list
+        for (auto& p : people) { 
+            auto proj = person_type(p);
+            cells[proj.start()].push_back(proj);
+        }
 
-    //     // as current point proceeds queue gets bigger
-    //     heap<person_type> queue;
-    //     // start giving cells
-    //     for (_int i=0; i<m; ++i) {
-    //         insert(queue, cells[i]);
-    //         if (queue.has_item()) {
-    //             // the minimum
-    //             auto p = queue.pop();
-    //             // check if valid
-    //             if (p.end() < i) {
-    //                 has_answer = false;
-    //                 return;
-    //             }
-    //             out[p.index] = i;
-    //         }
-    //     }
-    // } else {
+        // as current point proceeds queue gets bigger
+        heap<person_type> queue;
+        // start giving cells
+        for (_int i=0; i<m; ++i) {
+            insert(queue, cells[i]);
+            if (queue.has_item()) {
+                // the minimum
+                auto p = queue.pop();
+                // check if valid
+                if (p.end() < i) {
+                    has_answer = false;
+                    return;
+                }
+                out[p.index] = i;
+            }
+        }
+    } else {
         person_type plist[n];
         for (int i=0; i<n; ++i) 
             plist[i] = (person_type)(people[i]);
@@ -319,7 +319,7 @@ void solve_1d(const _int n, const _int m, const vector<person>& people, bool& ha
             last_cell = p.start() <= last_cell ? last_cell + 1 : p.start();
             out[i] = last_cell;
         }
-    // }
+    }
 }
 
 void solve(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<point>& out) {

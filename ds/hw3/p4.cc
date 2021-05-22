@@ -3,17 +3,42 @@
     AVL
 */
 
-#define type long long
+#define LONG long long
 
-template <typename T>
+template <typename E>
 class avl_tree {
-    struct node
-    {
-        T data;
-        
+    struct node {
+        E data;
+        node* left;
+        node* right;
+        int height;
     };
     
-    void add(T item) {
+    public:  
+    // void add
+
+
+    // private:
+
+
+};
+
+template <typename E>
+class super_avl_tree {
+    public: 
+    void add(E e) {
+        
+    }
+
+    void remove(E e) {
+        
+    }
+
+    E ceiling(E e) {
+
+    }
+
+    E floor(E e) {
 
     }
 

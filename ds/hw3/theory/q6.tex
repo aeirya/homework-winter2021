@@ -1,0 +1,26 @@
+الف)
+الگریتم زیر را ارائه می‌دهیم
+
+\begin{latin}
+\begin{codebox}
+	\Procname{$\proc{find k'th biggest(M: MaxHeap, k: int)}$}
+		\li let m : MaxHeap
+		\li m.add(M.rootNode)
+		\li let count = 0
+		\li let node : Node
+		\li \While $\text{count} < k$ \Then
+			\li node = m.pop() \Comment extract max
+			\li count = count + 1
+			\li m.add(node.leftchild)
+			\li m.add(node.rightchild)
+		\End
+		\li \Return node.value
+	\End
+\end{codebox}
+\end{latin}
+
+\proof{}
+بدیهی است.
+
+ب)
+
