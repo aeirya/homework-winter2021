@@ -130,6 +130,7 @@ vector<person>& input_people(_int n) {
 }
 
 void input_people_fast(_int n, vector<person>& out) {
+    // reserve n space
     out.reserve(n);
     _int x0, y0, x1, y1;
     for (_int i=0; i<n; ++i) {
@@ -340,6 +341,38 @@ void solve(const _int n, const _int m, const vector<person>& people, bool& has_a
         out.push_back(point {x[i], y[i]});
     }
 }
+
+void solve_2d(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<point>& out) {
+    list<person_x> cells_x[m];
+    list<person_y> cells_y[m];
+
+    // make list of list
+    person_1d proj;
+    for (auto& p : people) { 
+        proj = (person_x) p;
+        cells_x[proj.start()].push_back(proj);
+        proj = (person_y) p;
+        cells_y[proj.start()].push_back(proj);
+    }
+
+    // as current point proceeds queue gets bigger
+    heap<person_type> queue;
+    // start giving cells
+    for (_int i=0; i<m; ++i) {
+        insert(queue, cells[i]);
+        if (queue.has_item()) {
+            // the minimum
+            auto p = queue.pop();
+            // check if valid
+            if (p.end() < i) {
+                has_answer = false;
+                return;
+            }
+            out[p.index] = i;
+        }
+    }
+}
+
 
 #pragma endregion algorithm
 
