@@ -36,8 +36,11 @@ struct interval {
     _int start, end;
 
     bool operator <(interval& other) const { 
-        return start < other.start 
-            || (start == other.start && end < other.end);
+        // return start < other.start 
+        //     || (start == other.start && end < other.end);
+        // return end < other.end 
+        //     || (end == other.end && start < other.start);
+        return end < other.end;
     }
 };
 
@@ -277,7 +280,7 @@ template <class person_type>
     out: output result
 */
 void solve_1d(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<_int>& out) {
-    if (m < n) {
+    // if (m < n) {
         /*
             generate a list of people for every cell (if there is a request)
         */
@@ -304,22 +307,23 @@ void solve_1d(const _int n, const _int m, const vector<person>& people, bool& ha
                 out[p.index] = i;
             }
         }
-    } else {
-        person_type plist[n];
-        for (int i=0; i<n; ++i) 
-            plist[i] = (person_type)(people[i]);
-        merge_sort(plist, n);
-        _int last_cell = -1;
-        for (_int i=0; i<n; ++i) {
-            auto& p = plist[i];
-            if (p.end() <= last_cell) {
-                has_answer = false;
-                return;
-            }
-            last_cell = p.start() <= last_cell ? last_cell + 1 : p.start();
-            out[i] = last_cell;
-        }
-    }
+    // } 
+    // else {
+    //     person_type plist[n];
+    //     for (int i=0; i<n; ++i) 
+    //         plist[i] = (person_type)(people[i]);
+    //     merge_sort(plist, n);
+    //     _int last_cell = -1;
+    //     for (_int i=0; i<n; ++i) {
+    //         auto& p = plist[i];
+    //         if (p.end() <= last_cell) {
+    //             has_answer = false;
+    //             return;
+    //         }
+    //         last_cell = p.start() <= last_cell ? last_cell + 1 : p.start();
+    //         out[i] = last_cell;
+    //     }
+    // }
 }
 
 void solve(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<point>& out) {
