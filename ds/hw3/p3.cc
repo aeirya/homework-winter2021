@@ -5,15 +5,25 @@
 #include <iostream>
 #include <vector>
 #include <list>
+// #include <algorithm>
 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
 using std::list;
+// using std::sort;
 
 #define _int long long
 #define type long long
+
+template <typename T>
+void quicksort(T A[], int n);
+
+template <typename T>
+void merge_sort(T A[], _int n);
+
+#pragma region structures
 
 /*
     structures
@@ -46,6 +56,7 @@ class person_1d : public person {
 
     public:
     person_1d(const person& p) : person(p) { }
+    person_1d() {}
     
     _int start()
     { return get_interval().start; }
@@ -65,7 +76,8 @@ class person_1d : public person {
 class person_x : public person_1d {
     public:
     person_x(const person& p) : person_1d(p) { }
-    
+    person_x() : person_1d() {}
+
     interval& get_interval() {
         return x_interval;
     }
@@ -73,12 +85,16 @@ class person_x : public person_1d {
 
 class person_y : public person_1d {
     public:
+
     person_y(const person& p) : person_1d(p) { }
+    person_y() : person_1d() {}
 
     interval& get_interval() {
         return y_interval;
     }
 };
+
+#pragma endregion structures
 
 #pragma region input
 
@@ -136,6 +152,17 @@ void print(vector<point>& points) {
 void rc() {
     cout << "checkpoint!" << endl;
 }
+
+void print_answer(_int n, const vector<_int>& x, const vector<_int>& y, bool has_anwer) {
+    if (! has_anwer) {
+        cout << -1 << endl;
+        return;
+    }
+    for (int i=0; i<n; ++i) {
+        cout << x[i]+1 << " " << y[i]+1 << endl;
+    }
+}
+
 #pragma endregion print
 
 #pragma region heap impl
@@ -234,6 +261,8 @@ class heap {
 };
 #pragma endregion min heap
 
+#pragma region algorithm
+
 template <typename T>
 void insert(heap<T>& to, list<T>& from) {
     for (auto& item : from) to.add(item);
@@ -248,43 +277,49 @@ template <class person_type>
     out: output result
 */
 void solve_1d(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<_int>& out) {
-    /*
-        generate a list of people for every cell (if there is a request)
-    */
-    list<person_type> cells[m];
-    // make list of list
-    for (auto& p : people) { 
-        auto proj = person_type(p);
-        cells[proj.start()].push_back(proj);
-    }
+    // if (m < n) {
+    //     /*
+    //         generate a list of people for every cell (if there is a request)
+    //     */
+    //     list<person_type> cells[m];
+    //     // make list of list
+    //     for (auto& p : people) { 
+    //         auto proj = person_type(p);
+    //         cells[proj.start()].push_back(proj);
+    //     }
 
-    // as current point proceeds queue gets bigger
-    heap<person_type> queue;
-    // start giving cells
-    for (_int i=0; i<m; ++i) {
-        insert(queue, cells[i]);
-        if (queue.has_item()) {
-            // the minimum
-            auto p = queue.pop();
-            // check if valid
-            if (p.end() < i) {
+    //     // as current point proceeds queue gets bigger
+    //     heap<person_type> queue;
+    //     // start giving cells
+    //     for (_int i=0; i<m; ++i) {
+    //         insert(queue, cells[i]);
+    //         if (queue.has_item()) {
+    //             // the minimum
+    //             auto p = queue.pop();
+    //             // check if valid
+    //             if (p.end() < i) {
+    //                 has_answer = false;
+    //                 return;
+    //             }
+    //             out[p.index] = i;
+    //         }
+    //     }
+    // } else {
+        person_type plist[n];
+        for (int i=0; i<n; ++i) 
+            plist[i] = (person_type)(people[i]);
+        merge_sort(plist, n);
+        _int last_cell = -1;
+        for (_int i=0; i<n; ++i) {
+            auto& p = plist[i];
+            if (p.end() <= last_cell) {
                 has_answer = false;
                 return;
             }
-            // p.print();
-            out[p.index] = i;
+            last_cell = p.start() <= last_cell ? last_cell + 1 : p.start();
+            out[i] = last_cell;
         }
-    }
-}
-
-void print_answer(_int n, const vector<_int>& x, const vector<_int>& y, bool has_anwer) {
-    if (! has_anwer) {
-        cout << -1 << endl;
-        return;
-    }
-    for (int i=0; i<n; ++i) {
-        cout << x[i]+1 << " " << y[i]+1 << endl;
-    }
+    // }
 }
 
 void solve(const _int n, const _int m, const vector<person>& people, bool& has_answer, vector<point>& out) {
@@ -297,12 +332,50 @@ void solve(const _int n, const _int m, const vector<person>& people, bool& has_a
     solve_1d<person_y>(n, m, people, has_answer, y);
     if (!has_answer) return;
 
-    print_answer(n, x, y, has_answer);
-
-    // for (_int i=0; i<n; ++i) {
-    //     out.push_back(point {x[i], y[i]});
-    // }
+    for (_int i=0; i<n; ++i) {
+        out.push_back(point {x[i], y[i]});
+    }
 }
+
+#pragma endregion algorithm
+
+#pragma region sorts
+
+template <typename T>
+void merge(T A[], T out[], _int start, _int middle, _int end) {
+    _int i = start, 
+        j = middle,
+        x = start;
+    while (i < middle || j < end) {
+        if (j == end)
+            out[x++] = A[i++];
+        else if (i == middle || A[j] < A[i]) 
+            out[x++] = A[j++];
+        else
+            out[x++] =  A[i++];
+    }
+    for (_int i=start; i<end; ++i) {
+        A[i] = out[i];
+    }
+}
+
+template <typename T>
+void merge_sort(T A[], T out[], _int start, _int end) {
+    if (end - start <= 1) return;
+
+    _int x = (end-start)/2;
+    merge_sort(A, out, start, start+x);
+    merge_sort(A, out, start+x, end);
+    merge(A, out, start, start+x, end);
+}
+
+template <typename T>
+void merge_sort(T A[], _int n) {
+    T B[n];
+    merge_sort(A, B, 0, n);
+}
+
+#pragma endregion sorts
 
 int main() {
     // input
@@ -315,7 +388,7 @@ int main() {
     bool has_answer;
     vector<point> answer;
     solve(n, m, people, has_answer, answer);
-    // print(answer);
+    print(answer);
 
     return 0;
 }
