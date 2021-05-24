@@ -4,24 +4,35 @@
 */
 
 #include <iostream>
+#include <string>
+
+using std::cin;
 using std::cout;
 using std::endl;
+using std::string;
 
 #define LONG long long
 
-template <typename T>
-T inline max(const T& a, const T& b)
-{ return a > b ? a : b; }
-
+/*
+    debugging tool
+*/
 int count = 0;
 void rc()
 { cout << "rc! " << count++ << endl; }
+
+/*
+    help function
+*/
+template <typename T>
+T inline max(const T& a, const T& b)
+{ return a > b ? a : b; }
 
 namespace avl_tree
 {
     template <typename E>
     class avl_tree
     {
+        public:
         struct node
         {
             E data;
@@ -46,7 +57,6 @@ namespace avl_tree
             }
         };
 
-        public:
         avl_tree() : root(0), m_size(0) { }
 
         void add(E e)
@@ -84,7 +94,7 @@ namespace avl_tree
 
         private:
         node* root;
-        int size;
+        int m_size;
 
         node* find(node* root, E x) 
         {
@@ -313,8 +323,52 @@ namespace avl_tree
 
 } // avl tree
 
+template <typename T>
+void print(T t) 
+{ 
+    cout << t << endl; 
+}
+
 int main() 
 {
-    return avl_tree::test_delete_1();
+    int n;
+    cin >> n;
+    avl_tree::avl_tree<int> tree;
+    string cmd;
+    for (int i=0; i<n; ++i)
+    {
+        cin >> cmd;
+        if (cmd == "size")
+        {
+            print(tree.size());
+        }
+        else 
+        {
+            int x;
+            cin >> x;
+            if (cmd == "add")
+                tree.add(x);
+            else if (cmd == "remove")
+                tree.remove(x);
+            else if (cmd == "contains")
+                tree.contains(x) ? print("YES") : print("NO");
+            else
+            {
+                if (cmd == "ceiling") 
+                {
+                    auto* n = tree.ceiling(x);
+                    if (n) print(n->data);
+                    else print("null"); 
+                }
+                else if (cmd == "floor")
+                {
+                    auto* n = tree.floor(x);
+                    if (n) print(n->data);
+                    else print("null");
+                }
+                else print("invalid command");
+            }
+        }
+    }
     return 0;
 }
