@@ -19,33 +19,33 @@ void rc()
 
 namespace avl_tree
 {
-    struct node
-    {
-        E data;
-        node* left;
-        node* right;
-        int height;
-
-        bool operator <(node& other) const
-        { return data < other.data; }
-
-        bool operator >(node& other) const
-        { return data > other.data; }
-
-        bool operator ==(node& other) const 
-        { return data == other.data; }
-
-        int dif() const
-        { 
-            int r = right ? right->height : 0;
-            int l = left ? left->height : 0;
-            return r-l;
-        }
-    };
-
     template <typename E>
     class avl_tree
     {
+        struct node
+        {
+            E data;
+            node* left;
+            node* right;
+            int height;
+
+            bool operator <(const node& other) const
+            { return data < other.data; }
+
+            bool operator >(const node& other) const
+            { return data > other.data; }
+
+            bool operator ==(const node& other) const 
+            { return data == other.data; }
+
+            int dif() const
+            { 
+                int r = right ? right->height : -1,
+                    l = left ? left->height : -1;
+                return r-l;
+            }
+        };
+
         public:
         avl_tree() : root(0) { }
 
@@ -54,7 +54,7 @@ namespace avl_tree
             node* n = new node {e,0,0,0};
             if (root == 0) 
                 root = n;
-            else insert(*n, *root); 
+            else insert(n, root); 
         }
 
         void print()
@@ -66,44 +66,50 @@ namespace avl_tree
         private:
         node* root;
 
-        node& insert(node& n, node parent)
+        node* insert(node* n, node* parent) 
         {
-            if (n == parent) return n;
-            bool is_root = parent == *root;
-            if (n < parent) 
-                parent = insert_left(n, parent);
+            if (*n == *parent) return parent;
+            // bool is_root = *parent == *root;
+            node* final_parent;
+            if (*n < *parent) 
+                final_parent = insert_left(n, parent);
             else
-                parent = insert_right(n, parent);
+                final_parent = insert_right(n, parent);
             
-            if (is_root) root = &parent;
-            update_height(parent);
-            return balance(parent, n<parent);
+            // if (is_root) root = parent;
+            update_height(*final_parent);
+            return &balance(*parent, *n < *parent);
+            // return parent;
         }
 
-        inline node& insert_left(node& n, node& parent) 
+        inline node* insert_left(node* n, node* parent) 
         {
-            if (parent.left)
-                return insert(n, *parent.left);
-            parent.left = &n;
+            if (parent->left)
+                return insert(n, parent->left);
+            parent->left = n;
             return parent;
         }
 
-        inline node& insert_right(node& n, node& parent) 
+        inline node* insert_right(node* n, node* parent) 
         {
-            if (parent.right) 
-                return insert(n, *parent.right);
-            parent.right = &n; 
+            if (parent->right) 
+                return insert(n, parent->right);
+            parent->right = n; 
             return parent;
         }
         
-        void inline update_height(node& n)
+        inline void update_height(node& n)
         {
-            n.height = 1+max(
-                n.left ? n.left->height : 0,
-                n.right ? n.right->height : 0
+            n.height = max(
+                n.left ? n.left->height + 1 : 0,
+                n.right ? n.right->height + 1 : 0
             );
         }
 
+        /*
+            p: parent node
+            left: whether there was a node inserted left side (or right side)
+        */
         node& balance(node& p, bool left) 
         {
             int i = p.dif();
