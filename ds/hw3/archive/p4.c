@@ -1,11 +1,24 @@
+#include <stdio.h>
 
-// struct _node
-// {
-//     int data;
-//     struct _node *left;
-//     struct _node *right;
-// } node;
+typedef struct node
+{
+    int data,
+        height;
+    node *left, *right;
+} node;
 
+typedef struct tree
+{
+    node *root;
+} tree;
+
+
+
+
+void add(int e) 
+{
+    node* nodw
+}
 
 // int main()
 // {
