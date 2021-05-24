@@ -66,36 +66,26 @@ namespace avl_tree
         private:
         node* root;
 
+        // node* remove(node* n, E key)
+        // {
+        //     if (root == 0) return 0;
+        //     if (root->)
+        // }
+
         node* insert(node* n, node* parent) 
         {
-            if (*n == *parent) return parent;
-            // bool is_root = *parent == *root;
-            node* final_parent;
-            if (*n < *parent) 
-                final_parent = insert_left(n, parent);
-            else
-                final_parent = insert_right(n, parent);
+            // todo: exception for duplicate item
+            if (parent == 0) return n;
             
-            // if (is_root) root = parent;
-            update_height(*final_parent);
-            return &balance(*parent, *n < *parent);
-            // return parent;
-        }
-
-        inline node* insert_left(node* n, node* parent) 
-        {
-            if (parent->left)
-                return insert(n, parent->left);
-            parent->left = n;
-            return parent;
-        }
-
-        inline node* insert_right(node* n, node* parent) 
-        {
-            if (parent->right) 
-                return insert(n, parent->right);
-            parent->right = n; 
-            return parent;
+            if (*n < *parent) 
+                parent->left = insert(n, parent->left);
+            else
+                parent->right = insert(n, parent->right);
+            
+            update_height(*parent);
+            node* subroot = &balance(*parent, *n < *parent);
+            if (parent == root) root = subroot;
+            return subroot;
         }
         
         inline void update_height(node& n)
@@ -105,7 +95,6 @@ namespace avl_tree
                 n.right ? n.right->height + 1 : 0
             );
         }
-
         /*
             p: parent node
             left: whether there was a node inserted left side (or right side)
@@ -115,24 +104,26 @@ namespace avl_tree
             int i = p.dif();
             if (left)
             {
-                if (i < -1) 
-                    return right_rotate(p);
+                if (i < -1) return right_rotate(p);
             } 
             else 
             {
-
+                if (i > 1) return left_rotate(p);
             }
             return p;
         }
         
-        void left_rotate(node& p) 
+        // clone
+        node& left_rotate(node& p) 
         {
-            
+            node* new_mid = p.right;
+            p.right = new_mid->left;
+            new_mid->left = &p;
+            return *new_mid;   
         }
 
         node& right_rotate(node& p) 
         {
-            cout << "right rotate" << endl;
             node* new_mid = p.left;
             p.left = new_mid->right;
             new_mid->right = &p;
@@ -148,7 +139,8 @@ namespace avl_tree
 
     };
 
-    int test() 
+#pragma region tests
+    int test_right_rotate() 
     {
         avl_tree<int> tree;
         tree.add(10);
@@ -156,14 +148,31 @@ namespace avl_tree
         tree.add(9);
         tree.add(8);
         tree.add(7);
+        
         rc();
         tree.print();
         return 0;
     }
+
+    int test_left_rotate() 
+    {
+        avl_tree<int> tree;
+        tree.add(8);
+        tree.add(7);
+        tree.add(9);
+        tree.add(10);
+        tree.add(11);
+        
+        rc();
+        tree.print();
+        return 0;
+    }
+#pragma endregion tests
+
 } // avl tree
 
 int main() 
 {
-    return avl_tree::test();
+    return avl_tree::test_left_rotate();
     return 0;
 }
