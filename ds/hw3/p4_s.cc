@@ -138,7 +138,7 @@ namespace avl_tree
 
             update_height(*root);
             bool was_root = this->root == root;
-            root = &balance(*root, true); // removing from right <-> adding from left?
+            root = &balance(*root, !(x<root->data)); // removing from right <-> adding from left?
             if (was_root) this->root = root;
             return root;
         }
@@ -154,7 +154,9 @@ namespace avl_tree
         {
             node* temp = find(root, x);
             if (!temp) return 0;
-            return minimum(temp->right);
+            if (temp->right)
+                return minimum(temp->right);
+            return temp;
         }
 
         node* minimum(node* root) 
@@ -171,7 +173,9 @@ namespace avl_tree
         {
             node* temp = find(root, e);
             if (!temp) return 0;
-            return maximum(temp->left);
+            if (temp->left)
+                return maximum(temp->left);
+            return temp;
         }
 
         node* maximum(node* root)
@@ -241,7 +245,6 @@ namespace avl_tree
                         p.right = &right_rotate(*p.right);
                         return left_rotate(p);
                     }
-
                 }
             }
             return p;
