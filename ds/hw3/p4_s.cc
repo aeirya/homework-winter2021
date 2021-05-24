@@ -8,14 +8,12 @@ using std::cout;
 using std::endl;
 
 #define LONG long long
-#define E int
 
 template <typename T>
 T inline max(const T& a, const T& b)
 { return a > b ? a : b; }
 
 int count = 0;
-
 void rc()
 { cout << "rc! " << count++ << endl; }
 
@@ -45,6 +43,7 @@ namespace avl_tree
         }
     };
 
+    template <typename E>
     class avl_tree
     {
         public:
@@ -145,7 +144,7 @@ namespace avl_tree
 
     int test() 
     {
-        avl_tree tree;
+        avl_tree<int> tree;
         tree.add(10);
         tree.add(11);
         tree.add(9);
