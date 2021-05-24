@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <string>
+#include <list>
 
 using std::cin;
 using std::cout;
@@ -61,17 +62,19 @@ namespace avl_tree
 
         void add(E e)
         {
+            if (!contains(e))
+                ++m_size;
             node* n = new node {e,0,0,0};
             if (root == 0) 
                 root = n;
             else insert(n, root); 
-            ++m_size;
         }
 
         void remove(E e)
         { 
+            if (contains(e))
+                --m_size; 
             remove(root, e);
-            --m_size; 
         }
 
         bool contains(E x)
@@ -326,11 +329,40 @@ namespace avl_tree
 
 } // avl tree
 
-template <typename T>
-void print(T t) 
-{ 
-    cout << t << endl; 
+struct printable
+{
+    string text;
+    int number;
+    bool is_text;
+};
+
+std::list<printable> outputs;
+void print(int x) 
+{
+    outputs.push_back(printable{"", x, false});
 }
+
+void print(string s)
+{
+    outputs.push_back(printable{s, -1, true});
+}
+
+void print_output() 
+{
+    for (auto& p : outputs)
+    {
+        if (p.is_text)
+            cout << p.text << endl;
+        else
+            cout << p.number << endl;
+    }
+}
+
+// template <typename T>
+// void print(T t) 
+// { 
+//     cout << t << endl; 
+// }
 
 int main() 
 {
@@ -369,9 +401,10 @@ int main()
                     if (n) print(n->data);
                     else print("null");
                 }
-                else print("invalid command");
+                // else print("invalid command");
             }
         }
     }
+    print_output();
     return 0;
 }
