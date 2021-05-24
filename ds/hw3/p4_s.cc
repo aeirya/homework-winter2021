@@ -47,7 +47,7 @@ namespace avl_tree
         };
 
         public:
-        avl_tree() : root(0) { }
+        avl_tree() : root(0), m_size(0) { }
 
         void add(E e)
         {
@@ -55,7 +55,26 @@ namespace avl_tree
             if (root == 0) 
                 root = n;
             else insert(n, root); 
+            ++m_size;
         }
+
+        void remove(E e)
+        { 
+            remove(root, e);
+            --m_size; 
+        }
+
+        bool contains(E x)
+        { return find(root, x) != 0; }
+
+        node* ceiling(E e)
+        { return ceiling(root, e); }
+
+        node* floor(E e)
+        { return floor(root, e); }
+
+        int size()
+        { return m_size; }
 
         void print()
         {
@@ -63,12 +82,9 @@ namespace avl_tree
             print(*root);
         }
 
-        void remove(E e)
-        { remove(root, e); }
-
         private:
         node* root;
-
+        int size;
 
         node* find(node* root, E x) 
         {
@@ -117,17 +133,19 @@ namespace avl_tree
             return root;
         }
 
-        // next successor
+        // next successor to the root node value
         node* ceiling(node* root)
         {
             return minimum(root->right);
         }
 
-        // node* ceiling(node* root, E x)
-        // {
-        //     node* temp = find(root, x);
-        //     return minimum(root->right);
-        // }
+        // first find x and then its successor
+        node* ceiling(node* root, E x)
+        {
+            node* temp = find(root, x);
+            if (!temp) return 0;
+            return minimum(temp->right);
+        }
 
         node* minimum(node* root) 
         {
@@ -136,6 +154,26 @@ namespace avl_tree
                 return minimum(root->left);
             return root;
         }
+
+        #pragma region floor
+        
+        node* floor(node* root, E e)
+        {
+            node* temp = find(root, e);
+            if (!temp) return 0;
+            return maximum(temp->left);
+        }
+
+        node* maximum(node* root)
+        {
+            if (!root) return 0;
+            if (root->right)
+                return maximum(root->right);
+            return root;
+        }
+
+        #pragma endregion floor
+
 
         node* insert(node* n, node* parent) 
         {
