@@ -63,18 +63,22 @@ namespace avl_tree
         void add(E e)
         {
             if (!contains(e))
+            {
                 ++m_size;
-            node* n = new node {e,0,0,0};
-            if (root == 0) 
-                root = n;
-            else insert(n, root); 
+                node* n = new node {e,0,0,0};
+                if (root == 0) 
+                    root = n;
+                else insert(n, root); 
+            }
         }
 
         void remove(E e)
         { 
-            if (contains(e))
+            if (contains(e)) 
+            {
                 --m_size; 
-            remove(root, e);
+                remove(root, e);
+            }
         }
 
         bool contains(E x)
@@ -122,7 +126,7 @@ namespace avl_tree
                 if (root->left && root->right)
                 {
                     // next successor
-                    temp = ceiling(root);
+                    temp = minimum(root->right)
                     root->data = temp->data;
                     root->right = remove(root->right, temp->data);
                 }
@@ -331,7 +335,7 @@ namespace avl_tree
 
 struct printable
 {
-    string text;
+    string* text;
     int number;
     bool is_text;
 };
@@ -339,12 +343,14 @@ struct printable
 std::list<printable> outputs;
 void print(int x) 
 {
-    outputs.push_back(printable{"", x, false});
+    outputs.push_back(printable{0, x, false});
 }
 
 void print(string s)
 {
-    outputs.push_back(printable{s, -1, true});
+    string* text = new string();
+    *text = s;
+    outputs.push_back(printable{text, -1, true});
 }
 
 void print_output() 
@@ -352,7 +358,7 @@ void print_output()
     for (auto& p : outputs)
     {
         if (p.is_text)
-            cout << p.text << endl;
+            cout << *p.text << endl;
         else
             cout << p.number << endl;
     }
@@ -383,8 +389,9 @@ int main()
             cin >> x;
             if (cmd == "add")
                 tree.add(x);
-            else if (cmd == "remove")
+            else if (cmd == "remove") {
                 tree.remove(x);
+            }
             else if (cmd == "contains")
                 tree.contains(x) ? print("YES") : print("NO");
             else
@@ -401,7 +408,7 @@ int main()
                     if (n) print(n->data);
                     else print("null");
                 }
-                // else print("invalid command");
+                else print("invalid command");
             }
         }
     }
