@@ -85,10 +85,10 @@ namespace avl_tree
         { return find(root, x) != 0; }
 
         node* ceiling(E e)
-        { return ceiling(root, e); }
+        { return ceiling(root, 0, e); }
 
         node* floor(E e)
-        { return floor(root, e); }
+        { return floor(root, 0, e); }
 
         int size()
         { return m_size; }
@@ -126,7 +126,7 @@ namespace avl_tree
                 if (root->left && root->right)
                 {
                     // next successor
-                    temp = minimum(root->right)
+                    temp = minimum(root->right);
                     root->data = temp->data;
                     root->right = remove(root->right, temp->data);
                 }
@@ -150,20 +150,19 @@ namespace avl_tree
             return root;
         }
 
-        // next successor to the root node value
-        node* ceiling(node* root)
+        // first best item with value > x
+        node* ceiling(node* root, node* best, E x)
         {
-            return minimum(root->right);
-        }
-
-        // first find x and then its successor
-        node* ceiling(node* root, E x)
-        {
-            node* temp = find(root, x);
-            if (!temp) return 0;
-            if (temp->right)
-                return minimum(temp->right);
-            return temp;
+            if (!root) return best;
+            if (root->data > x) 
+            {
+                if (best == 0 || root->data < best->data)
+                    best = root; 
+                if (root->left)
+                    return ceiling(root->left, best, x);
+                else return best;
+            } 
+            else return best;
         }
 
         node* minimum(node* root) 
@@ -176,13 +175,18 @@ namespace avl_tree
 
         #pragma region floor
         
-        node* floor(node* root, E e)
+        node* floor(node* root, node* best, E x)
         {
-            node* temp = find(root, e);
-            if (!temp) return 0;
-            if (temp->left)
-                return maximum(temp->left);
-            return temp;
+            if (!root) return best;
+            if (root->data < x) 
+            {
+                if (best == 0 || root->data > best->data)
+                    best = root; 
+                if (root->right)
+                    return floor(root->right, best, x);
+                else return best;
+            } 
+            else return best;
         }
 
         node* maximum(node* root)
@@ -318,7 +322,8 @@ namespace avl_tree
         return 0;
     }
 
-    int test_delete_1() {
+    int test_delete_1() 
+    {
         avl_tree<int> tree;
         tree.add(10);
         tree.add(11);
@@ -329,6 +334,19 @@ namespace avl_tree
         tree.remove(11);
         return 0;
     }
+
+    int test_ceiling_1() 
+    {
+        avl_tree<int> tree;
+        tree.add(10);
+        tree.add(11);
+        tree.add(9);
+        tree.add(8);
+        tree.add(6);
+        cout << tree.ceiling(7)->data << endl;
+        return 0;
+    }
+
 #pragma endregion tests
 
 } // avl tree
@@ -372,6 +390,7 @@ void print_output()
 
 int main() 
 {
+    // return avl_tree::test_ceiling_1();
     int n;
     cin >> n;
     avl_tree::avl_tree<int> tree;
