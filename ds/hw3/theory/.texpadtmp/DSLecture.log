@@ -5,105 +5,102 @@ entering extended mode
  %&-line parsing enabled.
 **DSLecture.tex
 (./DSLecture.tex
-LaTeX2e <2020-02-02> patch level 5
-L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count163
-\c@section=\count164
-\c@subsection=\count165
-\c@subsubsection=\count166
-\c@paragraph=\count167
-\c@subparagraph=\count168
-\c@figure=\count169
-\c@table=\count170
+\c@part=\count175
+\c@section=\count176
+\c@subsection=\count177
+\c@subsubsection=\count178
+\c@paragraph=\count179
+\c@subparagraph=\count180
+\c@figure=\count181
+\c@table=\count182
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
-\bibindent=\dimen134
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+\bibindent=\dimen138
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: xetex.def on input line 105.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2021/03/18 v5.0k Graphics/color driver for xetex
 ))
-\Gin@req@height=\dimen135
-\Gin@req@width=\dimen136
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@everybye=\toks16
-\pgfutil@tempdima=\dimen137
-\pgfutil@tempdimb=\dimen138
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box45
- (/usr/local/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty
-Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+\pgfutil@tempdima=\dimen141
+\pgfutil@tempdimb=\dimen142
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box47
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2020/12/27 v3.1.8b (3.1.8b)
 ))
-Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+Package: pgf 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks17
 \pgfkeys@temptoks=\toks18
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
 \pgfkeys@tmptoks=\toks19
 ))
-\pgf@x=\dimen139
-\pgf@y=\dimen140
-\pgf@xa=\dimen141
-\pgf@ya=\dimen142
-\pgf@xb=\dimen143
-\pgf@yb=\dimen144
-\pgf@xc=\dimen145
-\pgf@yc=\dimen146
-\pgf@xd=\dimen147
-\pgf@yd=\dimen148
+\pgf@x=\dimen143
+\pgf@y=\dimen144
+\pgf@xa=\dimen145
+\pgf@ya=\dimen146
+\pgf@xb=\dimen147
+\pgf@yb=\dimen148
+\pgf@xc=\dimen149
+\pgf@yc=\dimen150
+\pgf@xd=\dimen151
+\pgf@yd=\dimen152
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count171
-\c@pgf@countb=\count172
-\c@pgf@countc=\count173
-\c@pgf@countd=\count174
+\c@pgf@counta=\count183
+\c@pgf@countb=\count184
+\c@pgf@countc=\count185
+\c@pgf@countd=\count186
 \t@pgf@toka=\toks20
 \t@pgf@tokb=\toks21
 \t@pgf@tokc=\toks22
-\pgf@sys@id@count=\count175
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@sys@id@count=\count187
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2020/12/27 v3.1.8b (3.1.8b)
 )
 Driver file for pgf: pgfsys-xetex.def
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
-File: pgfsys-xetex.def 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
-File: pgfsys-dvipdfmx.def 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-xetex.def
+File: pgfsys-xetex.def 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2020/12/27 v3.1.8b (3.1.8b)
 )
-\pgfsys@objnum=\count176
-)))
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
-File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count177
-\pgfsyssoftpath@bigbuffer@items=\count178
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
-File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+\pgfsys@objnum=\count188
+))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfsyssoftpath@smallbuffer@items=\count189
+\pgfsyssoftpath@bigbuffer@items=\count190
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: xetex.def on input line 225.
@@ -115,201 +112,202 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen149
-\pgfmath@count=\count179
-\pgfmath@box=\box46
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen153
+\pgfmath@count=\count191
+\pgfmath@box=\box48
 \pgfmath@toks=\toks23
 \pgfmath@stack@operand=\toks24
 \pgfmath@stack@operation=\toks25
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count180
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
-File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@picminx=\dimen150
-\pgf@picmaxx=\dimen151
-\pgf@picminy=\dimen152
-\pgf@picmaxy=\dimen153
-\pgf@pathminx=\dimen154
-\pgf@pathmaxx=\dimen155
-\pgf@pathminy=\dimen156
-\pgf@pathmaxy=\dimen157
-\pgf@xx=\dimen158
-\pgf@xy=\dimen159
-\pgf@yx=\dimen160
-\pgf@yy=\dimen161
-\pgf@zx=\dimen162
-\pgf@zy=\dimen163
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
-File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@path@lastx=\dimen164
-\pgf@path@lasty=\dimen165
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
-File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@shorten@end@additional=\dimen166
-\pgf@shorten@start@additional=\dimen167
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
-File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfpic=\box47
-\pgf@hbox=\box48
-\pgf@layerbox@main=\box49
-\pgf@picture@serial@count=\count181
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
-File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgflinewidth=\dimen168
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
-File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@pt@x=\dimen169
-\pgf@pt@y=\dimen170
-\pgf@pt@temp=\dimen171
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
-File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
-File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
-File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfarrowsep=\dimen172
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@max=\dimen173
-\pgf@sys@shading@range@num=\count182
-\pgf@shadingcount=\count183
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
-File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfexternal@startupbox=\box50
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
-File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
-File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
-File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
-File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodeparttextbox=\box51
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
-Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@nodesepstart=\dimen174
-\pgf@nodesepend=\dimen175
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
-Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen176
-\pgffor@skip=\dimen177
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count192
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@picminx=\dimen154
+\pgf@picmaxx=\dimen155
+\pgf@picminy=\dimen156
+\pgf@picmaxy=\dimen157
+\pgf@pathminx=\dimen158
+\pgf@pathmaxx=\dimen159
+\pgf@pathminy=\dimen160
+\pgf@pathmaxy=\dimen161
+\pgf@xx=\dimen162
+\pgf@xy=\dimen163
+\pgf@yx=\dimen164
+\pgf@yy=\dimen165
+\pgf@zx=\dimen166
+\pgf@zy=\dimen167
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@path@lastx=\dimen168
+\pgf@path@lasty=\dimen169
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@shorten@end@additional=\dimen170
+\pgf@shorten@start@additional=\dimen171
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfpic=\box49
+\pgf@hbox=\box50
+\pgf@layerbox@main=\box51
+\pgf@picture@serial@count=\count193
+)
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgflinewidth=\dimen172
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@pt@x=\dimen173
+\pgf@pt@y=\dimen174
+\pgf@pt@temp=\dimen175
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfarrowsep=\dimen176
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@max=\dimen177
+\pgf@sys@shading@range@num=\count194
+\pgf@shadingcount=\count195
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfexternal@startupbox=\box52
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfnodeparttextbox=\box53
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@nodesepstart=\dimen178
+\pgf@nodesepend=\dimen179
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2020/12/27 v3.1.8b (3.1.8b)
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen180
+\pgffor@skip=\dimen181
 \pgffor@stack=\toks26
 \pgffor@toks=\toks27
 ))
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
-File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count184
-\pgfplotmarksize=\dimen178
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@plot@mark@count=\count196
+\pgfplotmarksize=\dimen182
 )
-\tikz@lastx=\dimen179
-\tikz@lasty=\dimen180
-\tikz@lastxsaved=\dimen181
-\tikz@lastysaved=\dimen182
-\tikz@lastmovetox=\dimen183
-\tikz@lastmovetoy=\dimen184
-\tikzleveldistance=\dimen185
-\tikzsiblingdistance=\dimen186
-\tikz@figbox=\box52
-\tikz@figbox@bg=\box53
-\tikz@tempbox=\box54
-\tikz@tempbox@bg=\box55
-\tikztreelevel=\count185
-\tikznumberofchildren=\count186
-\tikznumberofcurrentchild=\count187
-\tikz@fig@count=\count188
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count189
-\pgfmatrixcurrentcolumn=\count190
-\pgf@matrix@numberofcolumns=\count191
+\tikz@lastx=\dimen183
+\tikz@lasty=\dimen184
+\tikz@lastxsaved=\dimen185
+\tikz@lastysaved=\dimen186
+\tikz@lastmovetox=\dimen187
+\tikz@lastmovetoy=\dimen188
+\tikzleveldistance=\dimen189
+\tikzsiblingdistance=\dimen190
+\tikz@figbox=\box54
+\tikz@figbox@bg=\box55
+\tikz@tempbox=\box56
+\tikz@tempbox@bg=\box57
+\tikztreelevel=\count197
+\tikznumberofchildren=\count198
+\tikznumberofcurrentchild=\count199
+\tikz@fig@count=\count266
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfmatrixcurrentrow=\count267
+\pgfmatrixcurrentcolumn=\count268
+\pgf@matrix@numberofcolumns=\count269
 )
-\tikz@expandcount=\count192
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\tikz@expandcount=\count270
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks28
 \t@pgfplots@tokb=\toks29
 \t@pgfplots@tokc=\toks30
-\pgfplots@tmpa=\dimen187
-\c@pgfplots@coordindex=\count193
-\c@pgfplots@scanlineindex=\count194
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count195
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count196
+\pgfplots@tmpa=\dimen191
+\c@pgfplots@coordindex=\count271
+\c@pgfplots@scanlineindex=\count272
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count273
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count274
 \t@pgfplotstable@a=\toks31
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count197
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count275
 
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-xetex.def (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-dvipdfmx.def
-\c@pgfplotslibrarysurf@streamlen=\count198
-)))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen188
-\pgfdecoratedremainingdistance=\dimen189
-\pgfdecoratedinputsegmentcompleteddistance=\dimen190
-\pgfdecoratedinputsegmentremainingdistance=\dimen191
-\pgf@decorate@distancetomove=\dimen192
-\pgf@decorate@repeatstate=\count199
-\pgfdecorationsegmentamplitude=\dimen193
-\pgfdecorationsegmentlength=\dimen194
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-xetex.def (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-dvipdfmx.def
+\c@pgfplotslibrarysurf@streamlen=\count276
+)))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen192
+\pgfdecoratedremainingdistance=\dimen193
+\pgfdecoratedinputsegmentcompleteddistance=\dimen194
+\pgfdecoratedinputsegmentremainingdistance=\dimen195
+\pgf@decorate@distancetomove=\dimen196
+\pgf@decorate@repeatstate=\count277
+\pgfdecorationsegmentamplitude=\dimen197
+\pgfdecorationsegmentlength=\dimen198
 )
-\tikz@lib@dec@box=\box56
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
-\pgfplots@numplots=\count266
-\pgfplots@xmin@reg=\dimen195
-\pgfplots@xmax@reg=\dimen196
-\pgfplots@ymin@reg=\dimen197
-\pgfplots@ymax@reg=\dimen198
-\pgfplots@zmin@reg=\dimen199
-\pgfplots@zmax@reg=\dimen256
+\tikz@lib@dec@box=\box58
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count278
+\pgfplots@xmin@reg=\dimen199
+\pgfplots@xmax@reg=\dimen256
+\pgfplots@ymin@reg=\dimen257
+\pgfplots@ymax@reg=\dimen258
+\pgfplots@zmin@reg=\dimen259
+\pgfplots@zmax@reg=\dimen260
 )
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
-File: tikzlibraryplotmarks.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
-File: pgflibraryplotmarks.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/datavisualization/tikzlibrarydatavisualization.code.tex
-File: tikzlibrarydatavisualization.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduledatavisualization.code.tex
-File: pgfmoduledatavisualization.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleoo.code.tex
-\pgfoo@objectcount=\count267
-\pgfoothis@count=\count268
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/datavisualization/tikzlibrarydatavisualization.code.tex
+File: tikzlibrarydatavisualization.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmoduledatavisualization.code.tex
+File: pgfmoduledatavisualization.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/modules/pgfmoduleoo.code.tex
+\pgfoo@objectcount=\count279
+\pgfoothis@count=\count280
 \pgfoo@toks=\toks32
 )
-\pgf@lib@dv@cache@count=\count269
-\pgf@lib@dv@cache@count=\count270
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
-File: tikzlibrarybackgrounds.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@layerbox@background=\box57
-\pgf@layerboxsaved@background=\box58
+\pgf@lib@dv@cache@count=\count281
+\pgf@lib@dv@cache@count=\count282
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@layerbox@background=\box59
+\pgf@layerboxsaved@background=\box60
 )
-\tikzdvvisualizercounter=\count271
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/datavisualization/tikzlibrarydatavisualization.formats.functions.code.tex
-File: tikzlibrarydatavisualization.formats.functions.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/datavisualization/pgflibrarydatavisualization.formats.functions.code.tex
-File: pgflibrarydatavisualization.formats.functions.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\tikzdvvisualizercounter=\count283
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/datavisualization/tikzlibrarydatavisualization.formats.functions.code.tex
+File: tikzlibrarydatavisualization.formats.functions.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/datavisualization/pgflibrarydatavisualization.formats.functions.code.tex
+File: pgflibrarydatavisualization.formats.functions.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 ))
 \@input{template.aux}
 \openout2 = `template.aux'.
 
-(./template.tex (/usr/local/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2017/10/31 v2.20.4
+(./template.tex (/usr/local/texlive/2021/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks33
 \thm@bodyfont=\toks34
 \thm@headfont=\toks35
@@ -319,14 +317,14 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@postskip=\skip50
 \thm@headsep=\skip51
 \dth@everypar=\toks38
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/base/latexsym.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks39
 \symAMSa=\mathgroup5
@@ -334,398 +332,401 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks40
 \verbatim@line=\toks41
 \verbatim@in@stream=\read3
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/enumitem/enumitem.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip52
-\enit@outerparindent=\dimen257
+\enit@outerparindent=\dimen261
 \enit@toks=\toks42
-\enit@inbox=\box59
-\enit@count@id=\count272
-\enitdp@description=\count273
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2020/01/20 v2.17e AMS math features
+\enit@inbox=\box61
+\enit@count@id=\count284
+\enitdp@description=\count285
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
 \@mathmargin=\skip53
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks43
-\ex@=\dimen258
-)) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
+\ex@=\dimen262
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen259
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen263
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count274
-LaTeX Info: Redefining \frac on input line 227.
-\uproot@=\count275
-\leftroot@=\count276
-LaTeX Info: Redefining \overline on input line 389.
-\classnum@=\count277
-\DOTSCASE@=\count278
-LaTeX Info: Redefining \ldots on input line 486.
-LaTeX Info: Redefining \dots on input line 489.
-LaTeX Info: Redefining \cdots on input line 610.
-\Mathstrutbox@=\box60
-\strutbox@=\box61
-\big@size=\dimen260
-LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
-\macc@depth=\count279
-\c@MaxMatrixCols=\count280
+\inf@bad=\count286
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count287
+\leftroot@=\count288
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count289
+\DOTSCASE@=\count290
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box62
+\strutbox@=\box63
+\big@size=\dimen264
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count291
+\c@MaxMatrixCols=\count292
 \dotsspace@=\muskip16
-\c@parentequation=\count281
-\dspbrk@lvl=\count282
+\c@parentequation=\count293
+\dspbrk@lvl=\count294
 \tag@help=\toks44
-\row@=\count283
-\column@=\count284
-\maxfields@=\count285
+\row@=\count295
+\column@=\count296
+\maxfields@=\count297
 \andhelp@=\toks45
-\eqnshift@=\dimen261
-\alignsep@=\dimen262
-\tagshift@=\dimen263
-\tagwidth@=\dimen264
-\totwidth@=\dimen265
-\lineht@=\dimen266
+\eqnshift@=\dimen265
+\alignsep@=\dimen266
+\tagshift@=\dimen267
+\tagwidth@=\dimen268
+\totwidth@=\dimen269
+\lineht@=\dimen270
 \@envbody=\toks46
 \multlinegap=\skip54
 \multlinetaggap=\skip55
 \mathdisplay@stack=\toks47
-LaTeX Info: Redefining \[ on input line 2859.
-LaTeX Info: Redefining \] on input line 2860.
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/tools/array.sty
-Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen267
-\ar@mcellbox=\box62
-\extrarowheight=\dimen268
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen271
+\ar@mcellbox=\box64
+\extrarowheight=\dimen272
 \NC@list=\toks48
 \extratabsurround=\skip56
 \backup@length=\skip57
-\ar@cellbox=\box63
+\ar@cellbox=\box65
 ) (./tkz-graph.sty
 2021/01/20 v 2.00 tkz-graph.sty
 Package: tkz-graph 2021/01/20 2.00 base for graphs
-(/usr/local/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks49
 \XKV@tempa@toks=\toks50
 )
-\XKV@depth=\count286
+\XKV@depth=\count298
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
-File: tikzlibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\arrowsize=\dimen269
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+File: tikzlibraryarrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\arrowsize=\dimen273
 ))
-\c@tkz@gr@a=\count287
-\c@tkz@gr@b=\count288
-\c@tkz@gr@c=\count289
-\c@tkz@gr@e=\count290
-\c@tkz@gr@d=\count291
-\c@tkz@gr@p=\count292
-\c@tkz@gr@i=\count293
-\c@tkz@gr@n=\count294
-\c@tkz@gr@ta=\count295
-\c@tkz@gr@tb=\count296
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/bookmark/bookmark.sty
-Package: bookmark 2019/12/03 v1.28 PDF bookmarks (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
- (/usr/local/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+\c@tkz@gr@a=\count299
+\c@tkz@gr@b=\count300
+\c@tkz@gr@c=\count301
+\c@tkz@gr@e=\count302
+\c@tkz@gr@d=\count303
+\c@tkz@gr@p=\count304
+\c@tkz@gr@i=\count305
+\c@tkz@gr@n=\count306
+\c@tkz@gr@ta=\count307
+\c@tkz@gr@tb=\count308
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/bookmark/bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode not found.
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen270
-\Hy@linkcounter=\count297
-\Hy@pagecounter=\count298
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty
+\@linkdim=\dimen274
+\Hy@linkcounter=\count309
+\Hy@pagecounter=\count310
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel languages
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count299
-Package hyperref Info: Hyper figures OFF on input line 4547.
-Package hyperref Info: Link nesting OFF on input line 4552.
-Package hyperref Info: Hyper index ON on input line 4555.
-Package hyperref Info: Plain pages OFF on input line 4562.
-Package hyperref Info: Backreferencing OFF on input line 4567.
+\Hy@SavedSpaceFactor=\count311
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4800.
-\c@Hy@tempcnt=\count300
- (/usr/local/texlive/2020/texmf-dist/tex/latex/url/url.sty
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count312
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5159.
-\XeTeXLinkMargin=\dimen271
- (/usr/local/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen275
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count301
-\Field@Width=\dimen272
-\Fld@charsize=\dimen273
-Package hyperref Info: Hyper figures OFF on input line 6430.
-Package hyperref Info: Link nesting OFF on input line 6435.
-Package hyperref Info: Hyper index ON on input line 6438.
-Package hyperref Info: backreferencing OFF on input line 6445.
-Package hyperref Info: Link coloring OFF on input line 6450.
-Package hyperref Info: Link coloring with OCG OFF on input line 6455.
-Package hyperref Info: PDF/A mode OFF on input line 6460.
-LaTeX Info: Redefining \ref on input line 6500.
-LaTeX Info: Redefining \pageref on input line 6504.
- (/usr/local/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty
-Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+\Fld@menulength=\count313
+\Field@Width=\dimen276
+\Fld@charsize=\dimen277
+Package hyperref Info: Hyper figures OFF on input line 6075.
+Package hyperref Info: Link nesting OFF on input line 6080.
+Package hyperref Info: Hyper index ON on input line 6083.
+Package hyperref Info: backreferencing OFF on input line 6090.
+Package hyperref Info: Link coloring OFF on input line 6095.
+Package hyperref Info: Link coloring with OCG OFF on input line 6100.
+Package hyperref Info: PDF/A mode OFF on input line 6105.
+LaTeX Info: Redefining \ref on input line 6145.
+LaTeX Info: Redefining \pageref on input line 6149.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi package
+with kernel methods
 )
-\Hy@abspage=\count302
-\c@Item=\count303
-\c@Hfootnote=\count304
+\Hy@abspage=\count314
+\c@Item=\count315
+\c@Hfootnote=\count316
 )
 Package hyperref Info: Driver (autodetected): hxetex.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
- (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
-)
-(/usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/stringenc.sty
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2021-02-27 v7.00k Hyperref driver for XeTeX
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\pdfm@box=\box64
-\c@Hy@AnnotLevel=\count305
-\HyField@AnnotCount=\count306
-\Fld@listcount=\count307
-\c@bookmark@seq@number=\count308
- (/usr/local/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+\pdfm@box=\box66
+\c@Hy@AnnotLevel=\count317
+\HyField@AnnotCount=\count318
+\Fld@listcount=\count319
+\c@bookmark@seq@number=\count320
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty
-Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
-Package atveryend Info: \enddocument detected (standard20110627).
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery package
+with kernel methods
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 286.
 )
 \Hy@SectionHShift=\skip58
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
-File: bkm-dvipdfm.def 2019/12/03 v1.28 bookmark driver for dvipdfm (HO)
-\BKM@id=\count309
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
-File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarychains.code.tex
-File: tikzlibrarychains.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
-File: tikzlibraryfit.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
-File: tikzlibraryshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
-File: tikzlibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
-File: pgflibraryshapes.geometric.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
-File: tikzlibraryshapes.misc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
-File: pgflibraryshapes.misc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
-File: tikzlibraryshapes.symbols.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
-File: pgflibraryshapes.symbols.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
-File: tikzlibraryshapes.arrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
- (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
-File: pgflibraryshapes.arrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
-File: tikzlibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
-File: pgflibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodepartlowerbox=\box65
-\pgfnodeparttwobox=\box66
-\pgfnodepartthreebox=\box67
-\pgfnodepartfourbox=\box68
-\pgfnodeparttwentybox=\box69
-\pgfnodepartnineteenbox=\box70
-\pgfnodeparteighteenbox=\box71
-\pgfnodepartseventeenbox=\box72
-\pgfnodepartsixteenbox=\box73
-\pgfnodepartfifteenbox=\box74
-\pgfnodepartfourteenbox=\box75
-\pgfnodepartthirteenbox=\box76
-\pgfnodeparttwelvebox=\box77
-\pgfnodepartelevenbox=\box78
-\pgfnodeparttenbox=\box79
-\pgfnodepartninebox=\box80
-\pgfnodeparteightbox=\box81
-\pgfnodepartsevenbox=\box82
-\pgfnodepartsixbox=\box83
-\pgfnodepartfivebox=\box84
-))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
+File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
+\BKM@id=\count321
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarychains.code.tex
+File: tikzlibrarychains.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex))
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfnodepartlowerbox=\box67
+\pgfnodeparttwobox=\box68
+\pgfnodepartthreebox=\box69
+\pgfnodepartfourbox=\box70
+\pgfnodeparttwentybox=\box71
+\pgfnodepartnineteenbox=\box72
+\pgfnodeparteighteenbox=\box73
+\pgfnodepartseventeenbox=\box74
+\pgfnodepartsixteenbox=\box75
+\pgfnodepartfifteenbox=\box76
+\pgfnodepartfourteenbox=\box77
+\pgfnodepartthirteenbox=\box78
+\pgfnodeparttwelvebox=\box79
+\pgfnodepartelevenbox=\box80
+\pgfnodeparttenbox=\box81
+\pgfnodepartninebox=\box82
+\pgfnodeparteightbox=\box83
+\pgfnodepartsevenbox=\box84
+\pgfnodepartsixbox=\box85
+\pgfnodepartfivebox=\box86
+))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (/usr/local/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count310
-\Gm@cntv=\count311
-\c@Gm@tempcnt=\count312
-\Gm@bindingoffset=\dimen274
-\Gm@wd@mp=\dimen275
-\Gm@odd@mp=\dimen276
-\Gm@even@mp=\dimen277
-\Gm@layoutwidth=\dimen278
-\Gm@layoutheight=\dimen279
-\Gm@layouthoffset=\dimen280
-\Gm@layoutvoffset=\dimen281
+\Gm@cnth=\count322
+\Gm@cntv=\count323
+\c@Gm@tempcnt=\count324
+\Gm@bindingoffset=\dimen278
+\Gm@wd@mp=\dimen279
+\Gm@odd@mp=\dimen280
+\Gm@even@mp=\dimen281
+\Gm@layoutwidth=\dimen282
+\Gm@layoutheight=\dimen283
+\Gm@layouthoffset=\dimen284
+\Gm@layoutvoffset=\dimen285
 \Gm@dimlist=\toks51
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count313
-\lst@gtempboxa=\box85
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count325
+\lst@gtempboxa=\box87
 \lst@token=\toks52
-\lst@length=\count314
-\lst@currlwidth=\dimen282
-\lst@column=\count315
-\lst@pos=\count316
-\lst@lostspace=\dimen283
-\lst@width=\dimen284
-\lst@newlines=\count317
-\lst@lineno=\count318
-\lst@maxwidth=\dimen285
- (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty
+\lst@length=\count326
+\lst@currlwidth=\dimen286
+\lst@column=\count327
+\lst@pos=\count328
+\lst@lostspace=\dimen287
+\lst@width=\dimen288
+\lst@newlines=\count329
+\lst@lineno=\count330
+\lst@maxwidth=\dimen289
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count319
-\lst@skipnumbers=\count320
-\lst@framebox=\box86
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg
+\c@lstnumber=\count331
+\lst@skipnumbers=\count332
+\lst@framebox=\box88
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
  (./clrscode3e.sty
 Package: clrscode3e 
-\c@codelinenumber=\count321
-\c@indent=\count322
+\c@codelinenumber=\count333
+\c@indent=\count334
 \digitwidth=\skip59
-\savecode=\box87
+\savecode=\box89
 \codeboxwidth=\skip60
-\c@thisindent=\count323
+\c@thisindent=\count335
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 24.
- (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/xepersian.sty
-Package: xepersian 2020-01-31 v22.8 Persian typesetting in XeLaTeX
- (/usr/local/texlive/2020/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2020-03-06 L3 programming layer (loader) 
- (/usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-xdvipdfmx.def
-File: l3backend-xdvipdfmx.def 2020-03-12 L3 backend support: xdvipdfmx
-\g__graphics_track_int=\count324
-\l__pdf_internal_box=\box88
-\g__pdf_backend_object_int=\count325
-\g__pdf_backend_annotation_int=\count326
-))
-Package: xparse 2020-03-06 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count327
-\g__xparse_grabber_int=\count328
-\l__xparse_m_args_int=\count329
-\l__xparse_v_nesting_int=\count330
-)
+ (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/xepersian.sty
+Package: xepersian 2020/05/17 v23.1 Persian typesetting in XeLaTeX
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/local/texlive/2021/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2021-02-18 L3 programming layer (loader) 
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
+File: l3backend-xetex.def 2021-03-18 L3 backend support: XeTeX
+ (|extractbb --version)
+\c__kernel_sys_dvipdfmx_version_int=\count336
+\l__color_backend_stack_int=\count337
+\g__color_backend_stack_int=\count338
+\g__graphics_track_int=\count339
+\l__pdf_internal_box=\box90
+\g__pdf_backend_object_int=\count340
+\g__pdf_backend_annotation_int=\count341
+\g__pdf_backend_link_int=\count342
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-01.sty (/usr/local/texlive/2021/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex)))
 Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
- (/usr/local/texlive/2020/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
-\l__fontspec_script_int=\count331
-\l__fontspec_language_int=\count332
-\l__fontspec_strnum_int=\count333
-\l__fontspec_tmp_int=\count334
-\l__fontspec_tmpa_int=\count335
-\l__fontspec_tmpb_int=\count336
-\l__fontspec_tmpc_int=\count337
-\l__fontspec_em_int=\count338
-\l__fontspec_emdef_int=\count339
-\l__fontspec_strong_int=\count340
-\l__fontspec_strongdef_int=\count341
-\l__fontspec_tmpa_dim=\dimen286
-\l__fontspec_tmpb_dim=\dimen287
-\l__fontspec_tmpc_dim=\dimen288
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/xepersian-persiancal.sty
+\l__fontspec_script_int=\count343
+\l__fontspec_language_int=\count344
+\l__fontspec_strnum_int=\count345
+\l__fontspec_tmp_int=\count346
+\l__fontspec_tmpa_int=\count347
+\l__fontspec_tmpb_int=\count348
+\l__fontspec_tmpc_int=\count349
+\l__fontspec_em_int=\count350
+\l__fontspec_emdef_int=\count351
+\l__fontspec_strong_int=\count352
+\l__fontspec_strongdef_int=\count353
+\l__fontspec_tmpa_dim=\dimen290
+\l__fontspec_tmpb_dim=\dimen291
+\l__fontspec_tmpc_dim=\dimen292
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/xepersian-persiancal.sty
 Package: xepersian-persiancal 2012/07/25 v0.2 provides Persian calendar
-\XePersian@i=\count342
-\XePersian@y=\count343
-\XePersian@m=\count344
-\XePersian@d=\count345
-\XePersian@latini=\count346
-\XePersian@persiani=\count347
-\XePersian@latinii=\count348
-\XePersian@persianii=\count349
-\XePersian@latiniii=\count350
-\XePersian@persianiii=\count351
-\XePersian@latiniv=\count352
-\XePersian@persianiv=\count353
-\XePersian@latinv=\count354
-\XePersian@persianv=\count355
-\XePersian@latinvi=\count356
-\XePersian@persianvi=\count357
-\XePersian@latinvii=\count358
-\XePersian@persianvii=\count359
-\XePersian@latinviii=\count360
-\XePersian@persianviii=\count361
-\XePersian@latinix=\count362
-\XePersian@persianix=\count363
-\XePersian@latinx=\count364
-\XePersian@persianx=\count365
-\XePersian@latinxi=\count366
-\XePersian@persianxi=\count367
-\XePersian@latinxii=\count368
-\XePersian@persianxii=\count369
-\XePersian@persianxiii=\count370
-\XePersian@temp=\count371
-\XePersian@temptwo=\count372
-\XePersian@tempthree=\count373
-\XePersian@yModHundred=\count374
-\XePersian@thirtytwo=\count375
-\XePersian@dn=\count376
-\XePersian@sn=\count377
-\XePersian@mminusone=\count378
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/xepersian-mathsdigitspec.sty
+\XePersian@i=\count354
+\XePersian@y=\count355
+\XePersian@m=\count356
+\XePersian@d=\count357
+\XePersian@latini=\count358
+\XePersian@persiani=\count359
+\XePersian@latinii=\count360
+\XePersian@persianii=\count361
+\XePersian@latiniii=\count362
+\XePersian@persianiii=\count363
+\XePersian@latiniv=\count364
+\XePersian@persianiv=\count365
+\XePersian@latinv=\count366
+\XePersian@persianv=\count367
+\XePersian@latinvi=\count368
+\XePersian@persianvi=\count369
+\XePersian@latinvii=\count370
+\XePersian@persianvii=\count371
+\XePersian@latinviii=\count372
+\XePersian@persianviii=\count373
+\XePersian@latinix=\count374
+\XePersian@persianix=\count375
+\XePersian@latinx=\count376
+\XePersian@persianx=\count377
+\XePersian@latinxi=\count378
+\XePersian@persianxi=\count379
+\XePersian@latinxii=\count380
+\XePersian@persianxii=\count381
+\XePersian@persianxiii=\count382
+\XePersian@temp=\count383
+\XePersian@temptwo=\count384
+\XePersian@tempthree=\count385
+\XePersian@yModHundred=\count386
+\XePersian@thirtytwo=\count387
+\XePersian@dn=\count388
+\XePersian@sn=\count389
+\XePersian@mminusone=\count390
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/xepersian-mathsdigitspec.sty
 Package: xepersian-mathsdigitspec 2018/12/16 v1.1.7 Unicode Persian maths digits in XeLaTeX
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/bidi.sty
-Package: bidi 2020-01-29 v35.11 Bidirectional typesetting in plain TeX and LaTeX
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/bidi.sty
+Package: bidi 2020/05/17 v36.3 Bidirectional typesetting in plain TeX and LaTeX
 
 ****************************************************
 * 
@@ -737,84 +738,91 @@ Package: bidi 2020-01-29 v35.11 Bidirectional typesetting in plain TeX and LaTeX
 * and LaTeX. The package includes adaptations
 * for use with many other commonly-used packages.
 * 
-* Copyright (c) 2009--2019 Vafa Khalighi
-* 2018-2020 bidi-tex GitHub Organisation
+* Copyright (c) 2007--2020 Vafa Khalighi
+* Copyright (c) 2018--2020 bidi-tex GitHub organization
 * 
-* v35.11, 2020-01-29
+* v36.3, 2020/05/17
 * 
 * License: LaTeX Project Public License, version
 * 1.3c or higher (your choice)
 * 
 * Location on CTAN: /macros/xetex/latex/bidi
 * 
-* Issue tracker: https://github.com/bidi-tex/bidi/issues
+* Issue tracker: https://github.com/persiantex/bidi/issues
+* 
+* Primary author of bidi package: Vafa Khalighi.
 * 
 ****************************************************
-(/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/biditools.sty
-Package: biditools 2020-01-29 v1.10 Programming tools for bidi package
+(/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/biditools.sty
+Package: biditools 2020/05/13 v2 Programming tools for bidi package
 \@bidi@envbody=\toks53
 \@bidi@emptytoks=\toks54
-\bidi@tempcountb=\count379
+\bidi@poscount=\count391
+
+
+Package biditools Warning: Patching `\enddocument' failed on input line 916.
+
+\bidi@tempcountb=\count392
 \bidi@temptoksa=\toks55
 \bidi@temptoksb=\toks56
-\bidi@dummies=\count380
+\bidi@dummies=\count393
 \bidi@are@these@correct=\toks57
 \bidi@toks@lista=\toks58
 \bidi@toks@listb=\toks59
-\bidi@stack@length=\count381
+\bidi@stack@length=\count394
 \bidi@empty@stack=\toks60
-\bidi@looprepeat@depth=\count382
-) (/usr/local/texlive/2020/texmf-dist/tex/latex/zref/zref-abspage.sty
-Package: zref-abspage 2020-03-03 v2.29 Module abspage for zref (HO)
- (/usr/local/texlive/2020/texmf-dist/tex/latex/zref/zref-base.sty
-Package: zref-base 2020-03-03 v2.29 Module base for zref (HO)
-Package zref Info: New property list: main on input line 763.
-Package zref Info: New property: default on input line 764.
-Package zref Info: New property: page on input line 765.
+\bidi@looprepeat@depth=\count395
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/zref/zref-abspage.sty
+Package: zref-abspage 2020-07-03 v2.32 Module abspage for zref (HO)
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/zref/zref-base.sty
+Package: zref-base 2020-07-03 v2.32 Module base for zref (HO)
+Package zref Info: New property list: main on input line 764.
+Package zref Info: New property: default on input line 765.
+Package zref Info: New property: page on input line 766.
 )
-\c@abspage=\count383
+\c@abspage=\count396
 Package zref Info: New property: abspage on input line 66.
 )
 \@bidi@copyins@=\insert252
- (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/latex-xetex-bidi.def
+ (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/latex-xetex-bidi.def
 File: latex-xetex-bidi.def 2019/03/03 v1.3.7 bidi adaptations for `latex.ltx' for XeTeX engine
 \bidi@n@everypar=\toks61
-\bidi@column@check@number=\count384
- (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/footnote-xetex-bidi.def
+\bidi@column@check@number=\count397
+ (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/footnote-xetex-bidi.def
 File: footnote-xetex-bidi.def 2017/08/09 v1.1 bidi footnote macros for XeTeX engine
-\c@footdir@label=\count385
+\c@footdir@label=\count398
 \footdir@toks=\toks62
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/article-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/article-xetex-bidi.def
 File: article-xetex-bidi.def 2017/06/09 v0.6 bidi adaptations for standard article class for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/amsmath-xetex-bidi.def
-File: amsmath-xetex-bidi.def 2018/01/08 v1.1 bidi adaptations for amsmath package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/amstext-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/amsmath-xetex-bidi.def
+File: amsmath-xetex-bidi.def 2020/05/16 v1.2 bidi adaptations for amsmath package for XeTeX engine
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/amstext-xetex-bidi.def
 File: amstext-xetex-bidi.def 2016/09/12 v0.2 bidi adaptations for amstext package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/amsthm-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/amsthm-xetex-bidi.def
 File: amsthm-xetex-bidi.def 2010/07/25 v0.1 bidi adaptations for amsthm package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/color-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/color-xetex-bidi.def
 File: color-xetex-bidi.def 2013/04/08 v0.2 bidi adaptations for color package for XeTeX engine
-LaTeX Info: Redefining \color on input line 46.
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/xcolor-xetex-bidi.def
+LaTeX Info: Redefining \color on input line 47.
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/xcolor-xetex-bidi.def
 File: xcolor-xetex-bidi.def 2013/04/08 v0.2 bidi adaptations for xcolor package for XeTeX engine
-LaTeX Info: Redefining \color on input line 45.
-LaTeX Info: Redefining \bidicolor on input line 88.
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/graphicx-xetex-bidi.def
+LaTeX Info: Redefining \color on input line 46.
+LaTeX Info: Redefining \bidicolor on input line 89.
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/graphicx-xetex-bidi.def
 File: graphicx-xetex-bidi.def 2017/06/17 v0.5 bidi adaptations for graphicx package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/geometry-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/geometry-xetex-bidi.def
 File: geometry-xetex-bidi.def 2017/01/14 v0.2 bidi adaptations for geometry package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/hyperref-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/hyperref-xetex-bidi.def
 File: hyperref-xetex-bidi.def 2018/11/11 v1.1 bidi adaptations for hyperref package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/listings-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/listings-xetex-bidi.def
 File: listings-xetex-bidi.def 2018/09/15 v1.5 bidi adaptations for listings package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/pgfcorescopes.code-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/pgfcorescopes.code-xetex-bidi.def
 File: pgfcorescopes.code-xetex-bidi.def 2015/11/14 v0.1 bidi adaptations for pgf package for XeTeX engine
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/array-xetex-bidi.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/array-xetex-bidi.def
 File: array-xetex-bidi.def 2015/11/07 v0.3 bidi adaptations for array package for XeTeX engine
-)) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/bidi/loadingorder-xetex-bidi.def
+)) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/bidi/loadingorder-xetex-bidi.def
 File: loadingorder-xetex-bidi.def 2017/12/29 v0.97 making sure that bidi is the last package loaded
 )
-\bidi@digits=\count386
+\bidi@digits=\count399
 \bidi@digits@charclass=\XeTeXcharclass1
 \bidi@sepmark@charclass=\XeTeXcharclass2
 )
@@ -826,37 +834,51 @@ File: loadingorder-xetex-bidi.def 2017/12/29 v0.97 making sure that bidi is the 
 * typesetting, using fonts provided in the
 * distribution.
 * 
-* Copyright (c) 2008-2019 Vafa Khalighi
-* 2018-2020 bidi-tex GitHub Organisation
+* Copyright (c) 2008--2020 Vafa Khalighi
+* Copyright (c) 2018--2020 bidi-tex GitHub Organization
 * 
-* v22.8, 2020-01-31
+* v23.1, 2020/05/17
 * 
 * License: LaTeX Project Public License, version
 * 1.3c or higher (your choice)
 * 
 * Location on CTAN: /macros/xetex/latex/xepersian
 * 
-* Issue tracker: https://github.com/bidi-tex/xepersian/issues
+* Issue tracker: https://github.com/persiantex/xepersian/issues
+* 
+* Primary author of xepersian package: Vafa Khalighi.
 * 
 ****************************************************
-\xepersian@tcl=\count387
-\xepersian@ilg=\dimen289
-\xepersian@strutilg=\dimen290
-(/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/loadingorder-xepersian.def
+\xepersian@tcl=\count400
+\xepersian@ilg=\dimen293
+\xepersian@strutilg=\dimen294
+(/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/loadingorder-xepersian.def
 File: loadingorder-xepersian.def 2018/09/29 v0.5 making sure that xepersian is the last package loaded
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/footnote-xepersian.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/footnote-xepersian.def
 File: footnote-xepersian.def 2017/08/09 v0.6 footnote macros for xepersian package
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/listings-xepersian.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/listings-xepersian.def
 File: listings-xepersian.def 2014/07/17 v0.3 bilingual captions for listings package
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/enumitem-xepersian.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/enumitem-xepersian.def
 File: enumitem-xepersian.def 2017/09/06 v0.1 adaptations for enumitem package
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/hyperref-xepersian.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/hyperref-xepersian.def
 File: hyperref-xepersian.def 2015/02/02 v0.6 bilingual captions for hyperref package
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/tikz.code-xepersian.def
-File: tikz.code-xepersian.def 2018/12/11 v0.1 adaptations for tikz.code.tex file
-) (/usr/local/texlive/2020/texmf-dist/tex/xelatex/xepersian/article-xepersian.def
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/tikz.code-xepersian.def
+File: tikz.code-xepersian.def 2020/05/17 v0.2 adaptations for tikz.code.tex file
+) (/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/article-xepersian.def
 File: article-xepersian.def 2010/07/25 v0.2 adaptations for standard article class
 )
+
+/usr/local/texlive/2021/texmf-dist/tex/xelatex/xepersian/xepersian.sty:1479: LaTeX Error: Unknown option `fontsloadable' for package `xepersian'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1479 
+       
+The option `fontsloadable' was not declared in package `xepersian', perhaps you
+misspelled its name. Try typing  <return>  to proceed.
+
 
 Package fontspec Info: Font family 'lmroman10-regular(0)' created for font
 (fontspec)             'lmroman10-regular' with options
@@ -938,6 +960,221 @@ Package xepersian-mathsdigitspec Info: DefiningthedefaultPersianmathsdigitsfonta
 \symnew@mathit@font@digits=\mathgroup9
 \symnew@mathrm@font@digits=\mathgroup10
 
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./template.tex:31: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+./template.tex:31: Undefined control sequence.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \l_fontspec_font "#1\scan_...
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./template.tex:31: Extra \fi.
+\__xepersian_mathsdigitspec_primitive_font_char_if_exist:nF ...
+                                                  \use:n 
+l.31 \defpersianfont
+                    \outline[Scale=1]{HM XNiloofar Outline}
+I'm ignoring this; it doesn't match any \if.
+
+
 Package fontspec Info: Could not resolve font "HM XNiloofar Outline/B" (it
 (fontspec)             probably doesn't exist).
 
@@ -961,6 +1198,7 @@ Package fontspec Info: Font family 'HMXNiloofarOutline(0)' created for font
 (fontspec)             Outline/BI/OT:script=arab;language=dflt;mapping=persian-tex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
+<<<<<<< HEAD
 \c@theorem=\count388
 \c@proposition=\count389
 \c@claim=\count390
@@ -968,6 +1206,64 @@ Package fontspec Info: Font family 'HMXNiloofarOutline(0)' created for font
 \c@corollary=\count392
 \c@definition=\count393
 ) (/Users/madscientist/homework/ds/hw3/theory/.texpadtmp/DSLecture.aux)
+=======
+\c@theorem=\count401
+\c@proposition=\count402
+\c@claim=\count403
+\c@lemma=\count404
+\c@corollary=\count405
+\c@definition=\count406
+)
+./DSLecture.tex:11: Undefined control sequence.
+\set@color ->\special {color push \current@color 
+                                                 }\aftergroup \reset@color 
+l.11 \include{template}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./DSLecture.tex:11: Undefined control sequence.
+\set@color ->\special {color push \current@color 
+                                                 }\aftergroup \reset@color 
+l.11 \include{template}
+                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\HyPL@Entry{0<</S/D>>}
+[1
+
+
+]
+./DSLecture.tex:11: Extra \else.
+\@include ...ediate \closeout \@partaux \fi \else 
+                                                  \deadcycles \z@ \@nameuse ...
+l.11 \include{template}
+                       
+I'm ignoring this; it doesn't match any \if.
+
+./DSLecture.tex:11: Extra \fi.
+\@include ...\deadcycles \z@ \@nameuse {cp@#1}\fi 
+                                                  \let \@auxout \@mainaux 
+l.11 \include{template}
+                       
+I'm ignoring this; it doesn't match any \if.
+
+./DSLecture.tex:11: Extra \fi.
+\include ...clude \expandafter {\@curr@file } \fi 
+                                                  
+l.11 \include{template}
+                       
+I'm ignoring this; it doesn't match any \if.
+
+(/Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw3/theory/.texpadtmp/DSLecture.aux)
+>>>>>>> 2c932632fe93e4416b408aa8a6f93229ed32d0f9
 \openout1 = `DSLecture.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -980,7 +1276,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 14.
- (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 14.
@@ -994,25 +1290,27 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
- ABD: EveryShipout initializing macros
+
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable tick labels; missing features). Consider writing \pgfplotsset{compat=1.17} into your preamble.
  on input line 14.
 
-\AtBeginShipoutBox=\box89
 Package hyperref Info: Link coloring ON on input line 14.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
- (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count394
+\c@section@level=\count407
 )
 LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1048,6 +1346,7 @@ LaTeX Info: Redefining \nameref on input line 14.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<<<<<<< HEAD
 \c@lstlisting=\count395
 File: Sharif.png Graphic file (type bmp)
 <Sharif.png>
@@ -1100,7 +1399,489 @@ Here is how much of TeX's memory you used:
  1480908 words of memory out of 5000000
  58084 multiletter control sequences out of 15000+600000
  538120 words of font info for 103 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 68i,6n,98p,4822b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+=======
+\c@lstlisting=\count408
+(./q5.tex
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 3.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `TU/HMXNiloofar(1)/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/HMXNiloofar(1)/b/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `TU/HMXNiloofar(1)/bx/n' in size <8> not available
+(Font)              Font shape `TU/HMXNiloofar(1)/b/n' tried instead on input line 3.
+LaTeX Font Info:    Font shape `TU/HMXNiloofar(1)/bx/n' in size <6> not available
+(Font)              Font shape `TU/HMXNiloofar(1)/b/n' tried instead on input line 3.
+) (./q6.tex
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 12.
 
+Warning: Indentation ends at level -1 in codebox on page 2.
+Warning: Indentation ends at level -1 in codebox on page 2.
+[2
+
+
+]
+Warning: Indentation ends at level -1 in codebox on page 3.
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...beginR \fi #3\if@nonlatin \endR \fi }
+                                                  }
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...eginR \fi #3\if@nonlatin \endR \fi }}
+                                                  
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\text@ ...e {\textdef@ \displaystyle \f@size {#1}}
+                                                  {\textdef@ \textstyle \f@s...
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...beginR \fi #3\if@nonlatin \endR \fi }
+                                                  }
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...eginR \fi #3\if@nonlatin \endR \fi }}
+                                                  
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\text@ ...xtstyle \f@size {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \sf@...
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...beginR \fi #3\if@nonlatin \endR \fi }
+                                                  }
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...eginR \fi #3\if@nonlatin \endR \fi }}
+                                                  
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\text@ ...tstyle \sf@size {\firstchoice@false #1}}
+                                                  {\textdef@ \textstyle \ssf...
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...beginR \fi #3\if@nonlatin \endR \fi }
+                                                  }
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\textdef@ ...eginR \fi #3\if@nonlatin \endR \fi }}
+                                                  
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\text@ ...style \ssf@size {\firstchoice@false #1}}
+                                                  \check@mathfonts }
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Extra }, or forgotten $.
+\text@ ...firstchoice@false #1}}\check@mathfonts }
+                                                  
+l.79 \end{codebox}
+                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.79 \end{codebox}
+                  
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.79 \end{codebox}
+                  
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing { inserted.
+<to be read again> 
+                   \endgroup 
+l.79 \end{codebox}
+                  
+A left brace was mandatory here, so I've put one in.
+You might want to delete and/or insert some corrections
+so that I will find a matching right brace soon.
+(If you're confused by all this, try typing `I}' now.)
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing } inserted.
+<inserted text> 
+                }
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./q6.tex:79: Missing $ inserted.
+<inserted text> 
+                $
+l.79 \end{codebox}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+) (./q7.tex)
+File: Sharif.png Graphic file (type bmp)
+<Sharif.png>
+ (./q8.tex
+Underfull \hbox (badness 10000) in paragraph at lines 22--1
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--1
+[][]
+ []
+
+[3]) [4] (/Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw3/theory/.texpadtmp/DSLecture.aux) ) 
+Here is how much of TeX's memory you used:
+ 40627 strings out of 476919
+ 1001434 string characters out of 5821840
+ 1563520 words of memory out of 5000000
+ 59820 multiletter control sequences out of 15000+600000
+ 409995 words of font info for 114 fonts, out of 8000000 for 9000
+>>>>>>> 2c932632fe93e4416b408aa8a6f93229ed32d0f9
+ 1348 hyphenation exceptions out of 8191
+ 103i,16n,108p,4822b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+<<<<<<< HEAD
 Output written on /Users/madscientist/homework/ds/hw3/theory/.texpadtmp/DSLecture.pdf (2 pages).
+=======
+Output written on /Users/amadeus/Library/Mobile Documents/com~apple~CloudDocs/Documents/homework/ds/hw3/theory/.texpadtmp/DSLecture.pdf (4 pages).
+>>>>>>> 2c932632fe93e4416b408aa8a6f93229ed32d0f9
