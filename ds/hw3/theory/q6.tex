@@ -58,26 +58,18 @@ $O(klogk)$
 	\li \Comment one more match
 	\li ++counter
 	\li \If $counter >= k$ \Then 
-	\li \Return \End
+	\li \Return
 	\li visit(n.left, k, x, ptr to counter)
 	\li visit(n.right, k, x, ptr to counter)
-	\End
 \end{codebox}
-\end{latin}
 
-\begin{latin}
-	\begin{codebox}
-	\Procname{$\proc{is_bigger(h: heap, 	k: int, x: int)}$}
+\begin{codebox}
+	\Procname{$\proc{is-bigger(h: heap, 	k: int, x: int)}$}
 	\li counter : int = 0
 	\li visit (h.root, k, x, ptr to counter)
-	\li \If counter == k \Then 
-	\li \Return \true
-	\li \Else 
-	\li \Return \false
-	\End
+	\li \Return counter == k 
 	\End
 \end{codebox}
-
 \end{latin}
 
 این الگوریتم زمانی پایان میابد یا k عدد بزرگ‌تر از x پیدا شود٫ یا دیگر در این پیمایش‌ها در تمام شاخه‌ها با عددی کوچک‌تر از x مواجه شویم.
