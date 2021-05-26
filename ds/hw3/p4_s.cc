@@ -66,9 +66,7 @@ namespace avl_tree
             {
                 ++m_size;
                 node* n = new node {e,0,0,0};
-                if (root == 0) 
-                    root = n;
-                else insert(n, root); 
+                root = insert(n, root); 
             }
         }
 
@@ -77,7 +75,7 @@ namespace avl_tree
             if (contains(e)) 
             {
                 --m_size; 
-                remove(root, e);
+                root = remove(root, e);
             }
         }
 
@@ -132,21 +130,13 @@ namespace avl_tree
                 }
                 else // if one or no child
                 {
-                    temp = root->left ? root->left : root->right;
-                    if (temp)
-                        *root = *temp;
-                    else // zero child
-                    {
-                        delete root;
-                        return 0;
-                    }
+                    node* temp = root;
+                    root = root->left ? root->left : root->right;
+                    delete temp;
                 }
             }
-
-            update_height(*root);
-            bool was_root = this->root == root;
-            root = &balance(*root, !(x<root->data)); // removing from right <-> adding from left?
-            if (was_root) this->root = root;
+            if (root)
+                root = &balance(*root);
             return root;
         }
 
@@ -210,10 +200,7 @@ namespace avl_tree
             else
                 parent->right = insert(n, parent->right);
             
-            update_height(*parent);
-            node* subroot = &balance(*parent, *n < *parent);
-            if (parent == root) root = subroot;
-            return subroot;
+            return &balance(*parent);
         }
         
         inline void update_height(node& n)
@@ -227,41 +214,59 @@ namespace avl_tree
             p: parent node
             left: whether there was a node inserted left side (or right side)
         */
-        node& balance(node& p, bool left) 
+        node& balance(node& p) 
         {
+            update_height(*root);
             int i = p.dif();
-            // child which went under 'addition'
-            node* child = left ? p.left : p.right;
-            int j = child ? child->dif() : 0;
+            int j;
             
-            if (left)
-            {  
-                if (i < -1) {
-                    if (j < 0)
-                        return right_rotate(p);
-                    else 
-                    {
-                        p.left = &left_rotate(*p.left);
-                        return right_rotate(p);
-                    }
+            if (i < -1) {
+                j = p.left ? p.left->dif() : 0;
+                if (j < 0)
+                    return right_rotate(p);
+                else 
+                {
+                    p.left = &left_rotate(*p.left);
+                    return right_rotate(p);
                 }
-            } 
-            else 
-            {
-                if (i > 1) {
-                    if (j > 0) 
-                        return left_rotate(p);
-                    else
-                    {
-                        p.right = &right_rotate(*p.right);
-                        return left_rotate(p);
-                    }
+            }
+    
+            if (i > 1) {
+                j = p.right ? p.right->dif() : 0;
+                if (j > 0) 
+                    return left_rotate(p);
+                else
+                {
+                    p.right = &right_rotate(*p.right);
+                    return left_rotate(p);
                 }
             }
             return p;
         }
         
         // clone
+        // node& left_rotate(node& p) 
+        // {
+        //     node* new_mid = p.right;
+        //     p.right = new_mid->left;
+        //     new_mid->left = &p;
+
+        //     update_height(*new_mid->left);
+        //     update_height(*new_mid);
+        //     return *new_mid;   
+        // }
+
+        // node& right_rotate(node& p) 
+        // {
+        //     node* new_mid = p.left;
+        //     p.left = new_mid->right;
+        //     new_mid->right = &p;
+
+        //     update_height(*new_mid->right);
+        //     update_height(*new_mid);
+        //     return *new_mid;
+        // }
+        
         node& left_rotate(node& p) 
         {
             node* new_mid = p.right;
