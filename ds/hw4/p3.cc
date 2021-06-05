@@ -23,19 +23,21 @@ class trie {
 
         public:
         node(char _c) : c(_c) {}
-        // ~node() {
-        //     if (children) {
-        //         for (int i=0; i<26; ++i) {
-        //             if (children[i]) delete children[i];
-        //         }
-        //         delete[] children;
-        //     }
-        // }
+        ~node() {
+            if (children) {
+                for (int i=0; i<26; ++i) {
+                    if (children[i]) delete children[i];
+                }
+                delete[] children;
+            }
+        }
 
         node* next(char read) {
-            int i = read - 97;
+            int i = (int) read - 97;
             if (!children) {
                 children = new node*[26];
+                for (int i=0; i<26; ++i)
+                    children[i] = 0;
             }
             if (!children[i]) {
                 children[i] = new node(read);
@@ -53,6 +55,12 @@ class trie {
     private:
     node* root;
 
+    /*
+        either find the word or add missing chars
+        returns the node containing the last char
+
+        collision: whether there was a suffic added to trie
+    */
     node* find(const string& word, bool& collision) {
         node* n = root;
         for (char const& c : word) {
@@ -70,9 +78,9 @@ class trie {
         root = new node(0);
     }
 
-    // ~trie() {
-    //     delete root;
-    // }
+    ~trie() {
+        delete root;
+    }
 
     void add(string word, bool& collision) {
         find(word, collision)->mark();
@@ -128,8 +136,10 @@ int main() {
     // input words
     vector<string> words;
     words.reserve(n);
+    string buffer;
     for (int i=0; i<n; ++i) {
-        cin >> words[i];
+        cin >> buffer;
+        words.push_back(buffer);
     }
     cout << solve(n, m, words) << endl;
 }
