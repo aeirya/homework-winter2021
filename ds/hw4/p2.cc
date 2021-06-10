@@ -8,30 +8,58 @@ using std::list;
 using std::string;
 using std::to_string;
 
-void kmp_preprocess(const string& pattern, int out[]) {
+void kmp_preprocess(const string& pattern, const int M, int out[]) {
     out[0] = 0;
-    int i=0,    // head index
-        j = 1;  // moving index
-    if (pattern[i] == pattern[j]) {
-        out[j] = out[j-1] + 1;
-    } else {
-        
+    int i=0,    // head index (match len)
+        j=1;    // moving index (progress)
+    
+    while (i < M) {
+        if (pattern[i] == pattern[j]) {
+            ++j;
+            out[j] = out[j-1] + 1;
+            ++i;
+        } else {
+            if (j>0)
+                j = out[j-1];
+            else out[i++] = 0;
+        }
     }
 }
 
 void kmp(const string& pattern, const string& text, list<int>& matches) {
-    int i = 1, // index on the pattern
-        j = 0; // index on the text
-    int plen = pattern.length();
-    int f[plen];
-    if (
-
+    int pn = pattern.length(),
+        tn = text.length(),
+        f[pn],
+        i = 0,  // text
+        j = 0;  // pattern
+    kmp_preprocess(pattern, pn, f);
+    while (true) {
+        if (text[i] == pattern[j]) {
+            ++i;
+            ++j;
+            if (i == tn-1) {
+                matches.push_back(i-j);
+                j = f[j-1];
+            }
+        } 
+        if (j == pn) { // found match at i-pn
+            j = f[j-1];
+        }
+        if (i == tn) break;
+        if (text[i] != pattern[j]) {
+            if (j) 
+                j = f[j-1];
+            else ++i;
+        }
+    }
 }
 
 int type_A(const string& M) {
     list<int> matches;
     kmp(M, M, matches);
-    
+    for (int x : matches) {
+        cout << x << std::endl;
+    }
 }
 
 /*
@@ -70,7 +98,15 @@ int type_C(const int N, const int M, const int ln, const int lm) {
 }
 
 int main() 
-{
+{  
+    type_A("abababcababab");
+    return 0;
+
+    string s;
+    cin >> s;
+    type_A(s);
+    return 0;
+
     int N, M;
     cin >> N;
     cin >> M;
@@ -82,7 +118,7 @@ int main()
     int ln = n.length(),
         lm = m.length(); 
     
-    int result = type_B(ln, lm) + type_C(N, M, ln, lm);
+    // int result = type_B(ln, lm) + type_C(N, M, ln, lm);
 }
 
 /*
