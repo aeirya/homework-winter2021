@@ -4,62 +4,58 @@
 
 using std::cin;
 using std::cout;
+using std::endl;
 using std::list;
 using std::string;
 using std::to_string;
 
-void kmp_preprocess(const string& pattern, const int M, int out[]) {
-    out[0] = 0;
-    int i=0,    // head index (match len)
-        j=1;    // moving index (progress)
-    
-    while (i < M) {
-        if (pattern[i] == pattern[j]) {
-            ++j;
-            out[j] = out[j-1] + 1;
-            ++i;
-        } else {
-            if (j>0)
-                j = out[j-1];
-            else out[i++] = 0;
-        }
-    }
-}
+#define type long long
 
-void kmp(const string& pattern, const string& text, list<int>& matches) {
-    int pn = pattern.length(),
-        tn = text.length(),
-        f[pn],
-        i = 0,  // text
-        j = 0;  // pattern
-    kmp_preprocess(pattern, pn, f);
-    while (true) {
-        if (text[i] == pattern[j]) {
-            ++i;
-            ++j;
-            if (i == tn-1) {
-                matches.push_back(i-j);
-                j = f[j-1];
-            }
-        } 
-        if (j == pn) { // found match at i-pn
+void kmp_preprocess(const string& pattern, int f[]) {
+    int n, i, j;
+    n = pattern.length();
+    i = 1;
+    j = 0;  // lps len so far
+    f[0] = 0;
+    while (i<n) {
+        if (pattern[i] == pattern[j])
+            f[i++] = ++j;
+        else if (j)
             j = f[j-1];
-        }
-        if (i == tn) break;
-        if (text[i] != pattern[j]) {
-            if (j) 
-                j = f[j-1];
-            else ++i;
-        }
+        else f[i++] = 0;
     }
 }
 
-int type_A(const string& M) {
-    list<int> matches;
-    kmp(M, M, matches);
-    for (int x : matches) {
-        cout << x << std::endl;
+int type_A(const string& M, const int lm, const type n, const int ln) {
+    int f[lm];
+    kmp_preprocess(M, f);
+
+    // find right-most 1
+    int i;
+    for (i=lm-1; i>=0 && f[i]!=1; --i);
+
+    // fight proper start points
+    list<int> A;
+    for (int j=i; j<lm; ++j) {
+        bool flag = true;
+        for (int k=j; k<lm; ++k) {
+            if (M[k] == M[k-j]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag)
+            A.push_back(j);
     }
+
+    // calc frequency 
+    int a;
+    int count = 0;
+    for (int j : A) {
+        a = lm-j;   // chars to append 
+        count += (ln - lm) / a;
+    }
+    return count;
 }
 
 /*
@@ -78,36 +74,28 @@ int type_B(const int ln, const int lm) {
 /*
     only words < N in the boundary
 */
-int type_C(const int N, const int M, const int ln, const int lm) {
+int type_C(const type N, const int M, const int ln, const int lm) {
     // first lm digits of N
-    const int A = N / (ln-lm);
+    const type A = N / (ln-lm);
     if (A < M) return 0;
     
     // rest ln-lm digits of of N
-    const int B = N / lm - A * 10^(ln-2*lm);
+    const type B = N / lm - A * 10^(ln-2*lm);
     if (B < M) return 0;
     
     // middle ln-2.lm digits of N
-    const int C = B / (10^lm);
+    const type C = B / (10^lm);
  
     // last lm digits of N
-    const int D = B % (10^lm);
+    const type D = B % (10^lm);
     
-    int x = (D<M)?1:0;
+    type x = (D<M)?1:0;
     return C+1-x;
 }
 
 int main() 
-{  
-    type_A("abababcababab");
-    return 0;
-
-    string s;
-    cin >> s;
-    type_A(s);
-    return 0;
-
-    int N, M;
+{
+    type N, M;
     cin >> N;
     cin >> M;
 
@@ -118,7 +106,8 @@ int main()
     int ln = n.length(),
         lm = m.length(); 
     
-    // int result = type_B(ln, lm) + type_C(N, M, ln, lm);
+    int result = type_A(m, lm, N, ln) + type_B(ln, lm) + type_C(N, M, ln, lm);
+    cout << result << endl;
 }
 
 /*
