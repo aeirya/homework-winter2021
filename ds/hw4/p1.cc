@@ -12,7 +12,7 @@ using std::string;
 using std::reverse;
 
 class trie {
-
+    public:
     class node {
         private:
         char c;
@@ -56,6 +56,9 @@ class trie {
         auto children_iterator() const {
             return child_it.begin();
         }
+
+        list<int> pal_from_start;
+        list<int> pal_from_end;
     };
     
     private:
@@ -73,6 +76,40 @@ class trie {
         return n;
     }
 
+    void find_head_tail_palindromes(const string& word, 
+        list<int>& pal_from_start, list<int>& pal_from_end) {
+        size_t n = word.length();
+        
+        // find palindromes from start
+        pal_from_start.push_back(0);
+        pal_from_start.push_back(1);
+        bool flag;
+        int l,i;
+        for (l=2; l<n; ++l) {
+            flag = true;
+            for (i=0; i<l; ++i) {
+                if (word[i] != word[l-i]) {
+                    flag= false;
+                    break;
+                } 
+            }
+            if (flag) pal_from_start.push_back(l);
+        }
+        // find palindromes from end
+        pal_from_end.push_back(0);
+        pal_from_end.push_back(1);
+        for (l=2; l<n; ++l) {
+            flag = true;
+            for (i=0; i<l; ++i) {
+                if (word[n-1-i] != word[n-1-(l-i)]) {
+                    flag= false;
+                    break;
+                } 
+            }
+            if (flag) pal_from_end.push_back(l);
+        }
+    }
+
     public:
     trie() {
         root = new node(0);
@@ -84,6 +121,7 @@ class trie {
 
     node* add(const string& word) {
         node* n = find(word);
+        find_head_tail_palindromes(word, n->pal_from_start, n->pal_from_end);
         n->mark();
         return n;
     }
@@ -103,20 +141,26 @@ void make_reverse_words_tree(const vector<string>& A, trie& t) {
     }
 }
 
-int search(const trie& t, const string& word) {
+trie::node* search(const trie& t, const string& word, bool& reached_end, int& depth) {
     auto* n = t.get_root(); 
+    reached_end = false;
+    depth = 0;
     for (char const& c : word) {
-        if (n->has(c))
-            n = n->next(c);
-        else return 0;
+        if (!n->has(c)) return n;
+        n = n->next(c);
+        ++depth;
     }
-
+    reached_end = true;
+    return n;
 }
+
+void 
 
 int main() 
 {
     int n, i;
     string s;
+
     vector<string> A;
     trie t;
 
@@ -128,8 +172,14 @@ int main()
     }
 
     make_reverse_words_tree(A, t);
-    
-    t.add()
+    int depth, count = 0;
+    bool is_reached_end;
+    for (string& word : A) {
+        search(t, word, is_reached_end, depth);
+        if (is_reached_end) {
+
+        }
+    }
 
 }
 
