@@ -535,6 +535,7 @@ code Kernel
       ---
           var
             t: ptr to Thread
+            oldIntStat: int
 
           oldIntStat = SetInterruptsTo (DISABLED)
 
@@ -2763,5 +2764,62 @@ code Kernel
         endMethod
 
   endBehavior
+
+----------------------------------------------------------------------------------
+------------------------------  User Code Stuff  ---------------------------------
+----------------------------------------------------------------------------------
+
+-----------------------------  StartUserProcess  ---------------------------------
+  function StartUserProcess (arg: int)
+      var 
+        pcb : ptr to ProcessControlBlock
+        openFile : ptr to OpenFile
+        initPC : int
+        initUserStack : int
+        initSystemStack : int
+        oldIntStat : int
+      
+      --  make process
+      pcb = processManager.GetANewProcess ()
+      --  connect pcb and thread
+      pcb.myThread = currentThread
+      currentThread.myProcess = pcb
+      
+      --  open exec file
+      openFile = fileManager.Open ("TestProgram1")
+      --  load exec file (into process adress space)
+      initPC = openFile.LoadExecutable (& pcb.addrSpace)
+      --  check for error
+      if initPC < 0
+        FatalError ("error at loading the exec")
+      endIf
+      -- close file
+      fileManager.Close (openFile)
+
+      -- HERE I SHOULD BE SETTING USER STACK TOP
+      initUserStack = pcb.addrSpace.numberOfPages * PAGE_SIZE
+      -- HERE I SHOULD BE SETTING SYSTEM STACK TOP
+      initSystemStack = (& currentThread.systemStack[SYSTEM_STACK_SIZE-1]) asInteger
+
+      --  (1) disable interrupt
+      oldIntStat = SetInterruptsTo (DISABLED)
+      --  (2) init page regs
+      pcb.addrSpace.SetToThisPageTable ()
+      -- (3) is user thread
+      currentThread.isUserThread = true
+      -- (4)->(9) call assembly routine
+      BecomeUserThread (initUserStack, initPC, initSystemStack)
+
+    endFunction
+
+-----------------------------  InitFirstProcess  ---------------------------------
+    function InitFirstProcess ()
+        var 
+          th : ptr to Thread
+          
+        th = threadManager.GetANewThread ()
+        th.Init ("UserProgram")
+        th.Fork (StartUserProcess, 0)
+      endFunction
 
 endCode
