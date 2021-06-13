@@ -112,7 +112,7 @@ int type_A(const string& M, const type lm, const type ln) {
         a = lm-j;   // chars to append 
         count += (2*lm - lm - 1) / a;
     }
-    return count;
+    return mod(count);
 }
 
 /*
@@ -126,6 +126,16 @@ type type_B(const type ln, const type lm) {
         t*= 10;
     }
     return sum;
+}
+
+type new_type_B(const type ln, const type lm) {
+    type X = ln - 2*lm;
+    if (X <= 0) return 0;
+    
+    char str[X];
+    for (int i=0; i<X; ++i)
+        str[i] = '1';
+    return mod(str);
 }
 
 /*
@@ -196,10 +206,10 @@ int main()
     type result = 
         type_Z(n, m)
         + type_A(m, lm, ln) 
-        + type_B(ln, lm) 
+        + new_type_B(ln, lm) 
         + new_type_C(n, m, ln, lm)
         ;
-    cout << result << endl;
+    cout << mod(result) << endl;
 }
 
 /*
