@@ -10,9 +10,63 @@ using std::string;
 using std::to_string;
 
 #define type long long
+#define MOD 1000000007
 
-void kmp_preprocess(const string& pattern, int f[]) {
-    int n, i, j;
+/* returns x mod MOD */
+inline type mod(type x)
+{
+    return x % MOD;
+}
+
+type string_to_number(const string& str)
+{
+    type
+        len = str.length(),
+        i = len - 1,
+        t = 1,
+        n = 0;
+        
+    while (i>=0) {
+        n += t * (int)(str[i]-48);
+        t *= 10;
+        --i;
+    }
+    return n;
+}
+
+/* returns n rightmost chars of str */
+string right_cut(const string& str, type n)
+{
+    return str.substr(str.length()-n, n);
+}
+
+/* returns n leftmost chars of str */
+string left_cut(const string& str, type n) 
+{
+    return str.substr(0, n);
+}
+
+inline type min(type a, type b) {
+    return a<b ? a:b;
+}
+
+inline type mod(string str)
+{
+    return mod(string_to_number(right_cut(str, min(10, str.length()))));
+}
+
+/* returns 1 if bigger, 0 if equal, -1 if n is smaller */
+int compare_big_nums(const string& n, const string& m) {
+    type
+        nl = n.length(),
+        ml = m.length();
+    if (nl < ml) return -1;
+    if (nl > ml) return 1;
+    return n.compare(m);
+}
+
+void kmp_preprocess(const string& pattern, type f[]) {
+    type n, i, j;
     n = pattern.length();
     i = 1;
     j = 0;  // lps len so far
@@ -26,19 +80,22 @@ void kmp_preprocess(const string& pattern, int f[]) {
     }
 }
 
-int type_A(const string& M, const int lm, const type n, const int ln) {
-    int f[lm];
+int type_A(const string& M, const type lm, const type ln) {
+    if (lm == 1) return 0;
+    
+    type f[lm];
     kmp_preprocess(M, f);
 
     // find right-most 1
-    int i;
+    type i;
     for (i=lm-1; i>1 && f[i]!=1; --i); //
 
     // fight proper start points
-    list<int> A;
-    for (int j=i; j<lm; ++j) {
+    list<type> A;
+    type j,k;
+    for (j=i; j<lm; ++j) {
         bool flag = true;
-        for (int k=j; k<lm; ++k) {
+        for (k=j; k<lm; ++k) {
             if (M[k] != M[k-j]) {
                 flag = false;
                 break;
@@ -49,11 +106,11 @@ int type_A(const string& M, const int lm, const type n, const int ln) {
     }
 
     // calc frequency 
-    int a;
-    int count = 0;
-    for (int j : A) {
+    type a;
+    type count = 0;
+    for (type j : A) {
         a = lm-j;   // chars to append 
-        count += (ln - lm - 1) / a;
+        count += (2*lm - lm - 1) / a;
     }
     return count;
 }
@@ -61,10 +118,10 @@ int type_A(const string& M, const int lm, const type n, const int ln) {
 /*
     we could fill the space between two Ms with as many digits
 */
-int type_B(const int ln, const int lm) {
-    int X = ln - 2*lm - 1;
-    int i, sum, t;
-    for (i=0, sum=0, t=10; i<X; ++i) {
+type type_B(const type ln, const type lm) {
+    type X = ln - 2*lm;
+    type i, sum, t;
+    for (i=0, sum=0, t=1; i<X; ++i) {
         sum+= t;
         t*= 10;
     }
@@ -93,39 +150,54 @@ int type_C(const type N, const int M, const int ln, const int lm) {
     return C+1-x;
 }
 
-int type_Z(const string& M, const type m, const int lm, const type n, const int ln) {
+type new_type_C(const string& n, const string& m, const type ln, const type lm) {
+    // check for n > m
+    if (compare_big_nums(n, m) <= 0) return 0;
+    // check for bigger prefix
+    if (compare_big_nums(left_cut(n, lm), m) < 0) return 0;
+    
+    // check for enough suffix
+    if (ln-lm < lm) return 0;
+
+    // pushing ONE more case :p
+    int x = right_cut(n, lm).compare(m)<0 ? 1:0;
+    return mod(n.substr(lm, ln-2*lm))+(1-x);
+}
+
+/* M is an asnwer */
+int type_Z(const string& n, const string& m) {
     int x = 0;
-    if (m < n) ++x;
-    if (2*lm < ln) ++x;
+    if (compare_big_nums(m,n) < 0) ++x;
+    // if (2*lm < ln) ++x;
     return x;
 }
 
+/*
+    n:  text            : string
+    m:  pattern         : string
+    ln: text length     : long long
+    lm: pattern length  : long long
+*/
+
 int main() 
 {
-    type N, M;
-    cin >> N;
-    cin >> M;
-    
-    // test
-    // N = 100000000000;
-    // M = 2323;
-
-    // test 2
-    // N = 22;
-    // M = 2;
+    // return test();
 
     string n, m;
-    n = to_string(N);
-    m = to_string(M);
+    // n = "22";
+    // m = "2";
+    cin >> n;
+    cin >> m;
 
-    int ln = n.length(),
+    type 
+        ln = n.length(),
         lm = m.length(); 
     
-    int result = 
-        type_Z(m, M, lm, N, ln)
-        + type_A(m, lm, N, ln) 
+    type result = 
+        type_Z(n, m)
+        + type_A(m, lm, ln) 
         + type_B(ln, lm) 
-        + type_C(N, M, ln, lm)
+        + new_type_C(n, m, ln, lm)
         ;
     cout << result << endl;
 }
@@ -139,3 +211,12 @@ int main()
     2: 2|M| <= n < |N|  | MwM
     3: n = |N|          | MwM
 */
+
+ 
+// test
+// N = 100000000000;
+// M = 2323;
+
+// test 2
+// N = 22;
+// M = 2;
