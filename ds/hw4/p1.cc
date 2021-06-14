@@ -6,19 +6,35 @@
 
 using std::cin;
 using std::cout;
+using std::endl;
 using std::vector;
 using std::list;
 using std::string;
 using std::reverse;
 
+/* 
+    returns true if the w_start,...,w_end is palindrome
+*/
+bool is_palindrome(const string& word, int start, int end) {
+    while (start < end)
+        if (word[start++] != word[end--]) return false;
+    return true;
+}
+
+/*
+    the word are kept in reverse order
+    each node contains string ids where w_depth,...,w_1 is palindrome
+*/
 class trie {
     public:
     class node {
         private:
-        char c;
+        char c = 0;
+        int id = -1;
         bool is_word = false;
+        
         node** children = 0;
-        list<node*> child_it;
+        list<int> pal_from_start_ids;
 
         public:
         node(char _c) : c(_c) {}
@@ -40,147 +56,162 @@ class trie {
                 for (int i=0; i<26; ++i)
                     children[i] = 0;
             }
-            if (!children[i]) {
+            if (!children[i])
                 children[i] = new node(read);
-                child_it.push_back(children[i]);
-            }
             return children[i];
         }
 
-        void mark() { is_word = true; }
+        void mark(int _id) { is_word = true; id = _id; }
+        char get_char() {return c;}
+        void reset() { is_word = false; id = -1; }
+
+        bool has(char ch) { return children && children[ch-97] != 0; }
+
+        /* returns whether word i start is here */
+        bool is(int i) { return id == i; }
+        int get_id() { return id; }
+
+        void add_pal_id(int id) { pal_from_start_ids.push_back(id); }
         
-        void reset() { is_word = false; }
-
-        bool has(char ch) { return children[ch-97] != 0; }
-
-        auto children_iterator() const {
-            return child_it.begin();
+        class pal_it {
+            private:
+            const list<int>& pal;
+            public:
+            pal_it(list<int>& p): pal(p) {}
+            list<int>::const_iterator begin() const { return pal.begin(); }
+            list<int>::const_iterator end() const { return pal.end(); }
+        };
+        
+        pal_it get_pal_ids() {
+            return pal_it(pal_from_start_ids);
         }
 
-        list<int> pal_from_start;
-        list<int> pal_from_end;
+        int pal_children = 0;
     };
     
     private:
     node* root;
 
-    /*
-        either find the word or add missing chars
-        returns the node containing the last char
-    */
-    node* find(const string& word) {
-        node* n = root;
-        for (char const& c : word) {
-            n = n->next(c);
-        }
-        return n;
-    }
-
-    void find_head_tail_palindromes(const string& word, 
-        list<int>& pal_from_start, list<int>& pal_from_end) {
-        size_t n = word.length();
-        
-        // find palindromes from start
-        pal_from_start.push_back(0);
-        pal_from_start.push_back(1);
-        bool flag;
-        int l,i;
-        for (l=2; l<n; ++l) {
-            flag = true;
-            for (i=0; i<l; ++i) {
-                if (word[i] != word[l-i]) {
-                    flag= false;
-                    break;
-                } 
-            }
-            if (flag) pal_from_start.push_back(l);
-        }
-        // find palindromes from end
-        pal_from_end.push_back(0);
-        pal_from_end.push_back(1);
-        for (l=2; l<n; ++l) {
-            flag = true;
-            for (i=0; i<l; ++i) {
-                if (word[n-1-i] != word[n-1-(l-i)]) {
-                    flag= false;
-                    break;
-                } 
-            }
-            if (flag) pal_from_end.push_back(l);
-        }
-    }
-
     public:
-    trie() {
-        root = new node(0);
+    trie() { root = new node(0); }
+
+    ~trie() { delete root; }
+
+    void add(const string& word, int id) {
+        node *n = root, *parent = 0;
+        
+        // adding the string in reverse order
+        for (int i=word.length()-1; i>=0; --i) {
+            parent = n;
+            n = n->next(word[i]);
+            if (is_palindrome(word, 0, i)) {
+                n->add_pal_id(i);
+                ++parent->pal_children;
+            }
+        }
+        n->add_pal_id(id); // zero length string is also pal
+        n->mark(id);
     }
 
-    ~trie() {
-        delete root;
-    }
-
-    node* add(const string& word) {
-        node* n = find(word);
-        find_head_tail_palindromes(word, n->pal_from_start, n->pal_from_end);
-        n->mark();
-        return n;
-    }
-
-    node* get_root() const {
-        return root;
-    }
+    node* get_root() const { return root; }
 };
 
-
 /*
-    out : trie t
+    returns number of palindrome pairs found with 'word'
 */
-void make_reverse_words_tree(const vector<string>& A, trie& t) {
-    for (const string& s : A) {
-        t.add(string(s.rbegin(), s.rend()));
-    }
-}
-
-trie::node* search(const trie& t, const string& word, bool& reached_end, int& depth) {
-    auto* n = t.get_root(); 
-    reached_end = false;
-    depth = 0;
-    for (char const& c : word) {
-        if (!n->has(c)) return n;
+int search(const trie& t, const string& word, int id) {
+    int count = 0,
+        depth = 0,
+        len = word.length();
+    cout << "searching word " << word << " in trie" << endl;
+    auto* n = t.get_root();
+    for (char const c : word) {
+        if (!n->has(c)) 
+            return count;
         n = n->next(c);
+        // cout << "current char: " << n->get_char() << endl;
+        // cout << "depth: " << depth << endl;
+        /* finding palindrome words w of shape word|w (reverse(w) is also prefix of word) */
+        bool found = (n->word() && ! n->is(id) && is_palindrome(word, depth, len-1));
+        if (found)
+            cout << "found!" << endl;
+        count += found;
         ++depth;
+        if (found) cout << id << "," << n->get_id() << endl;
     }
-    reached_end = true;
-    return n;
+    /* finding paldrome words w of shape w|rev(word) (w starts with reverse of word) */
+    // we only need to check number of paldinrome beginnings after current node (which is preprocessed)
+    // n = t.get_root();
+    // for (int i=len-1; i>=0; --i)
+    //     n = n->next(word[i]);
+    cout << "adding " << n->pal_children << endl;
+    count += n->pal_children;
+    // for (int child = 0; child<26; ++child) {
+    //     n->
+    // }
+    // for (int i : n->get_pal_ids()) {
+    //     count += i != id; // only different string pairs
+    //     // if (i != id)
+    //     //     cout << "inserting id: " << i << endl;
+    //     // cout << id << "," << i << endl;
+    // }
+    return count;
 }
 
-void 
+long long solve(vector<string>& A) {
+    int i, 
+        n = A.size();
+    long long count = 0;
+    trie t;
 
-int main() 
-{
+    for (i=0; i<n; ++i) 
+        t.add(A[i], i);
+    for (i=0; i<n; ++i)
+        count += search(t, A[i], i);
+    return count;
+}
+
+int test0() {
+    vector<string> A = {   
+        "abaccabaab"
+        ,"accaba"
+        ,"abacc"
+        ,"ab"
+        ,"ba"
+        ,"aba"
+        ,"ccaba"
+        ,"abaaba"};
+    cout << solve(A) << endl;
+    return 0;
+}
+
+int test1() {
+    vector<string> A = {   
+        "ab"
+        ,"ba"};
+    cout << solve(A) << endl;
+    return 0;
+}
+
+int main() {
+    // return test1();
+
     int n, i;
     string s;
 
     vector<string> A;
     trie t;
 
+    // getting input
     cin >> n;
-    for (i=0; i<n; ++i) 
-    {
+    for (i=0; i<n; ++i) {
         cin >> s;
         A.push_back(s);
     }
 
-    make_reverse_words_tree(A, t);
-    int depth, count = 0;
-    bool is_reached_end;
-    for (string& word : A) {
-        search(t, word, is_reached_end, depth);
-        if (is_reached_end) {
+    cout << solve(A) << endl;
 
-        }
-    }
-
+    return 0;
 }
 
 /*
@@ -190,3 +221,5 @@ int main()
         look in T
         the remaining? should be palindrome
 */
+
+// کلمات
