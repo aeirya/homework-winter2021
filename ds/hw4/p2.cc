@@ -50,9 +50,20 @@ inline type min(type a, type b) {
     return a<b ? a:b;
 }
 
-inline type mod(string str)
+inline type old_mod(string str)
 {
     return mod(string_to_number(right_cut(str, min(10, str.length()))));
+}
+
+type mod(string str) 
+{
+    type
+        result = 0,
+        len = str.length(),
+        i;
+    for (i =0; i<len; ++i)
+        result = mod(result * 10 + (int)(str[i] - '0'));
+    return result;
 }
 
 /* returns 1 if bigger, 0 if equal, -1 if n is smaller */
@@ -105,12 +116,10 @@ int type_A(const string& M, const type lm, const type ln) {
             A.push_back(j);
     }
 
-    // calc frequency 
-    type a;
     type count = 0;
     for (type j : A) {
-        a = lm-j;   // chars to append 
-        count += (2*lm - lm - 1) / a;
+        if (j-1+lm <= ln) ++count;
+        else break;
     }
     return mod(count);
 }
@@ -133,9 +142,21 @@ type new_type_B(const type ln, const type lm) {
     if (X <= 0) return 0;
     
     char str[X];
-    for (int i=0; i<X; ++i)
+    for (type i=0; i<X; ++i)
         str[i] = '1';
-    return mod(str);
+    cout << "string is: " << string(str) << endl;
+    return mod(string(str));
+}
+
+type newest_type_B(const type ln, const type lm) {
+    type X = ln - 2*lm;
+    if (X <= 0) return 0;
+    
+    string str = "";
+    for (type i=0; i<X; ++i)
+        str += "1";
+
+    return mod(string(str));
 }
 
 /*
@@ -160,18 +181,32 @@ int type_C(const type N, const int M, const int ln, const int lm) {
     return C+1-x;
 }
 
+string pow10(type n) {
+    string result= "1";
+    int x = 0;
+    while (x<n) {
+        ++x;
+        result += "0"; 
+    }
+    return result;
+}
+
 type new_type_C(const string& n, const string& m, const type ln, const type lm) {
     // check for n > m
     if (compare_big_nums(n, m) <= 0) return 0;
     // check for bigger prefix
-    if (compare_big_nums(left_cut(n, lm), m) < 0) return 0;
+    int left_cmp = compare_big_nums(left_cut(n, lm), m);
+    if (left_cmp < 0) return 0;
     
     // check for enough suffix
     if (ln-lm < lm) return 0;
 
     // pushing ONE more case :p
-    int x = right_cut(n, lm).compare(m)<0 ? 1:0;
-    return mod(n.substr(lm, ln-2*lm))+(1-x);
+    if (left_cmp == 0) {
+        int x = right_cut(n, lm).compare(m)<0 ? 1:0;
+        return mod(n.substr(lm, ln-2*lm))+(1-x);
+    } 
+    return mod(pow10(ln-2*lm));
 }
 
 /* M is an asnwer */
@@ -192,10 +227,15 @@ int type_Z(const string& n, const string& m) {
 int main() 
 {
     // return test();
+    // cout << mod("2431111111111111111111111111243") << endl;
+    // return 0;
 
     string n, m;
     // n = "22";
     // m = "2";
+    // n = "1111111111";
+    // m = "1";
+
     cin >> n;
     cin >> m;
 
@@ -206,9 +246,15 @@ int main()
     type result = 
         type_Z(n, m)
         + type_A(m, lm, ln) 
-        + new_type_B(ln, lm) 
+        + newest_type_B(ln, lm) 
         + new_type_C(n, m, ln, lm)
         ;
+    
+    // cout << "A:" << type_A(m, lm, ln) << endl;
+    // cout << "B:" << newest_type_B(ln, lm) << endl;
+    // cout << "C:" << new_type_C(n, m, ln, lm) << endl;
+    // cout << "D:" << type_Z(n, m) << endl;
+
     cout << mod(result) << endl;
 }
 
