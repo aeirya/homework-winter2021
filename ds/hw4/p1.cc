@@ -30,15 +30,16 @@ class trie {
     class node {
         private:
         char c = 0;
-        int id = -1;
         bool is_word = false;
+        list<int> words; // all the words residing here
         
         node** children = 0;
         list<int> pal_from_start_ids;
 
         public:
         node(char _c) : c(_c) {}
-        ~node() {
+        ~node()
+        {
             if (children) {
                 for (int i=0; i<26; ++i) {
                     if (children[i]) delete children[i];
@@ -61,17 +62,25 @@ class trie {
             return children[i];
         }
 
-        void mark(int _id) { is_word = true; id = _id; }
+        void mark(int id) { 
+            is_word = true;
+            words.push_back(id);
+        }
+
         char get_char() {return c;}
-        void reset() { is_word = false; id = -1; }
 
         bool has(char ch) { return children && children[ch-97] != 0; }
 
-        /* returns whether word i start is here */
-        bool is(int i) { return id == i; }
-        int get_id() { return id; }
+        int words_but_x(int x) {
+            bool found = false;
+            for (int index : words)
+                found = found || index == x;
+            return words.size() - found;
+        }
 
-        void add_pal_id(int id) { pal_from_start_ids.push_back(id); }
+        void add_pal_child() { ++pal_children; }
+
+        // void add_pal_id(int id) { pal_from_start_ids.push_back(id); }
         
         class pal_it {
             private:
@@ -98,18 +107,16 @@ class trie {
     ~trie() { delete root; }
 
     void add(const string& word, int id) {
-        node *n = root, *parent = 0;
+        node *n = root;
         
         // adding the string in reverse order
         for (int i=word.length()-1; i>=0; --i) {
-            parent = n;
             n = n->next(word[i]);
             if (is_palindrome(word, 0, i)) {
-                n->add_pal_id(i);
-                ++parent->pal_children;
+                n->add_pal_child();
             }
         }
-        n->add_pal_id(id); // zero length string is also pal
+        // n->add_pal_id(id); // zero length string is also pal
         n->mark(id);
     }
 
@@ -132,20 +139,23 @@ int search(const trie& t, const string& word, int id) {
         // cout << "current char: " << n->get_char() << endl;
         // cout << "depth: " << depth << endl;
         /* finding palindrome words w of shape word|w (reverse(w) is also prefix of word) */
-        bool found = (n->word() && ! n->is(id) && is_palindrome(word, depth, len-1));
+        bool found = (n->word() && is_palindrome(word, depth, len-1));
         if (found)
             cout << "found!" << endl;
-        count += found;
+        if (found) count += n->words_but_x(id);
         ++depth;
-        if (found) cout << id << "," << n->get_id() << endl;
+        // if (found) cout << id << "," << n->get_id() << endl;
     }
+    count += n->words_but_x(id);
+    count += n->pal_children;
+
     /* finding paldrome words w of shape w|rev(word) (w starts with reverse of word) */
     // we only need to check number of paldinrome beginnings after current node (which is preprocessed)
     // n = t.get_root();
     // for (int i=len-1; i>=0; --i)
     //     n = n->next(word[i]);
-    cout << "adding " << n->pal_children << endl;
-    count += n->pal_children;
+    // cout << "adding " << n->pal_children << endl;
+    // count += n->pal_children;
     // for (int child = 0; child<26; ++child) {
     //     n->
     // }
