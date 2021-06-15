@@ -1,10 +1,10 @@
 This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.4.7)  15 JUN 2021 05:58
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**DSLecture.tex
-(./DSLecture.tex
+**/Users/madscientist/homework/ds/hw4/theory/DSLecture.tex
+(/Users/madscientist/homework/ds/hw4/theory/DSLecture.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
@@ -94,8 +94,7 @@ File: pgfsys-dvipdfmx.def 2020/01/08 v3.1.5b (3.1.5b)
 File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 )
 \pgfsys@objnum=\count176
-)))
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfsyssoftpath@smallbuffer@items=\count177
 \pgfsyssoftpath@bigbuffer@items=\count178
@@ -209,8 +208,7 @@ Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 \pgffor@skip=\dimen177
 \pgffor@stack=\toks26
 \pgffor@toks=\toks27
-))
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
  (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -256,8 +254,7 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \t@pgfplotstable@a=\toks31
 ) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count197
-
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-xetex.def (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-dvipdfmx.def
+ (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-xetex.def (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-dvipdfmx.def
 \c@pgfplotslibrarysurf@streamlen=\count198
 )))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen188
@@ -270,7 +267,8 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfdecorationsegmentlength=\dimen194
 )
 \tikz@lib@dec@box=\box56
-) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
 \pgfplots@numplots=\count266
 \pgfplots@xmin@reg=\dimen195
 \pgfplots@xmax@reg=\dimen196
@@ -278,8 +276,7 @@ File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfplots@ymax@reg=\dimen198
 \pgfplots@zmin@reg=\dimen199
 \pgfplots@zmax@reg=\dimen256
-)
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 File: tikzlibraryplotmarks.code.tex 2020/01/08 v3.1.5b (3.1.5b)
  (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -308,7 +305,7 @@ File: pgflibrarydatavisualization.formats.functions.code.tex 2020/01/08 v3.1.5b 
 \@input{template.aux}
 \openout2 = `template.aux'.
 
-(./template.tex (/usr/local/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty
+(/Users/madscientist/homework/ds/hw4/theory/template.tex (/usr/local/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2017/10/31 v2.20.4
 \thm@style=\toks33
 \thm@bodyfont=\toks34
@@ -410,7 +407,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \extratabsurround=\skip56
 \backup@length=\skip57
 \ar@cellbox=\box63
-) (./tkz-graph.sty
+) (/Users/madscientist/homework/ds/hw4/theory/tkz-graph.sty
 2021/01/20 v 2.00 tkz-graph.sty
 Package: tkz-graph 2021/01/20 2.00 base for graphs
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
@@ -524,8 +521,7 @@ Package hyperref Info: Driver (autodetected): hxetex.
 File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
  (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
-)
-(/usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/stringenc.sty
+) (/usr/local/texlive/2020/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \pdfm@box=\box64
@@ -573,8 +569,7 @@ File: tikzlibraryshapes.arrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 File: pgflibraryshapes.arrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
 File: tikzlibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-
-(/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
+ (/usr/local/texlive/2020/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfnodepartlowerbox=\box65
 \pgfnodeparttwobox=\box66
@@ -637,7 +632,7 @@ File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (./clrscode3e.sty
+ (/Users/madscientist/homework/ds/hw4/theory/clrscode3e.sty
 Package: clrscode3e 
 \c@codelinenumber=\count321
 \c@indent=\count322
@@ -967,7 +962,7 @@ Package fontspec Info: Font family 'HMXNiloofarOutline(0)' created for font
 \c@lemma=\count391
 \c@corollary=\count392
 \c@definition=\count393
-) (/Users/madscientist/homework/ds/hw4/theory/.texpadtmp/DSLecture.aux)
+) (/Users/madscientist/homework/ds/hw4/theory/DSLecture.aux)
 \openout1 = `DSLecture.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -1013,6 +1008,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 14.
 LaTeX Info: Redefining \pageref on input line 14.
 LaTeX Info: Redefining \nameref on input line 14.
+
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1069,12 +1067,12 @@ LaTeX Font Info:    Font shape `TU/HMXNiloofar(1)/bx/n' in size <8> not availabl
 (Font)              Font shape `TU/HMXNiloofar(1)/b/n' tried instead on input line 16.
 LaTeX Font Info:    Font shape `TU/HMXNiloofar(1)/bx/n' in size <6> not available
 (Font)              Font shape `TU/HMXNiloofar(1)/b/n' tried instead on input line 16.
- (./q5.tex
+ (/Users/madscientist/homework/ds/hw4/theory/q5.tex
 Underfull \hbox (badness 10000) in paragraph at lines 16--11
 [][]
  []
 
-./q5.tex:60: Undefined control sequence.
+/Users/madscientist/homework/ds/hw4/theory/q5.tex:60: Undefined control sequence.
 l.60 $l_i \left(i \in \interval
                                [n-y+1, n] \right)$
 The control sequence at the end of the top line
@@ -1097,18 +1095,18 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 ]) [2]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 27.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 27.
- (/Users/madscientist/homework/ds/hw4/theory/.texpadtmp/DSLecture.aux)
+ (/Users/madscientist/homework/ds/hw4/theory/DSLecture.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 27.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 27.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 27.
  ) 
 Here is how much of TeX's memory you used:
  41335 strings out of 479418
- 1011594 string characters out of 5884586
- 1480908 words of memory out of 5000000
+ 1011937 string characters out of 5884586
+ 1474715 words of memory out of 5000000
  58073 multiletter control sequences out of 15000+600000
  538048 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 68i,6n,98p,4822b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,6n,98p,4865b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on /Users/madscientist/homework/ds/hw4/theory/.texpadtmp/DSLecture.pdf (2 pages).
+Output written on /Users/madscientist/homework/ds/hw4/theory/DSLecture.xdv (2 pages, 24096 bytes).
