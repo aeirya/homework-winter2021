@@ -38,7 +38,7 @@ IPv4
 ? (224.0.0.251) at 1:0:5e:0:0:fb on en0 ifscope permanent [ethernet]
 ? (239.255.255.250) at 1:0:5e:7f:ff:fa on en0 ifscope permanent [ethernet]
 
-IP | MAC | interface name | static/dynamic | interface type
+IP | MAC | interface name | static/dynamic (wheter entry gets cleared)| interface type(eth, wifi, ...)
 
 ## 10
 src: 00:d0:59:a9:3d:68
@@ -48,7 +48,7 @@ dest: ff:ff:ff:ff:ff:ff
 type: 0x00000806
 
 ## 12
-2o bytes from the beginning
+20 bytes from the beginning
 yes it inclues sender's ip
 target MAC address is set to 00:00:00:00:00:00
 
@@ -61,3 +61,6 @@ src: 00:06:25:da:af:73
 dest: 00:d0:59:a9:3d:68
 
 # 15
+first i did a broadcast and pinged all hosts in my local network.
+then i checked arp cache every 10 minutes. 
+the clearance (of the entry of the device with ip 192.168.43.41) took 22-32 minutes to happen.
