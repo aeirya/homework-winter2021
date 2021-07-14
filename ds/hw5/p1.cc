@@ -78,31 +78,32 @@ typedef list_trie<strlist> string_trie;
 template <typename T>
 class listlist {
     public:
-    typedef list<list<const T*>*> lol; // list of lists
+    typedef list<const list<const T*>*> lol; // list of lists
 
     private:
     lol* lists;
 
     class iterator {
-        typedef typename std::list<list<const T*>*>::iterator t_lol_it;
+        typedef typename std::list<const list<const T*>*>::iterator t_lol_it;
         typedef typename std::list<const T*>::iterator t_lst_it; 
 
         private:
         t_lol_it lists_it;
         t_lst_it it;
-        list<const T*>* current_list;
+        lol* m_lists;
 
         public:
-        iterator(t_lst_it& li) : lists_it(li), it((*li)->begin()) {}
-        iterator() {}
+        iterator(const t_lol_it& lsi, const t_lst_it& li, lol* p_lists) :
+            lists_it(lsi), it(li), m_lists(p_lists) {}
+
+        iterator(lol* _lists) : m_lists(_lists) {} 
 
         iterator& operator++() {
             ++it;
-            if (it == lists->end()) {
+            if (it == (*lists_it)->end()) {
                 ++lists_it;
-                if (lists_it == lists->end())
-                    return iterator();
-                it = (*lists_it)->begin();
+                if (lists_it != m_lists->end())
+                    it = (*lists_it)->begin();
             }
             return *this;
         }
@@ -111,9 +112,15 @@ class listlist {
             return *it;
         }
 
-        bool operator!=(const iterator& other) const {
-            return *this != other;
+        friend bool operator==(const iterator& me, const iterator& other) {
+            return 
+            (me.m_lists->size() == 0 || other.m_lists->size() == 0)  ||
+            (me.it == other.it && other.lists_it == me.lists_it);
         } 
+
+        friend bool operator!=(const iterator& me, const iterator& other) {
+            return me.it != other.it || other.lists_it != me.lists_it;
+        }        
     };
 
     public:
@@ -124,11 +131,16 @@ class listlist {
     }
 
     iterator begin() const {
-        return iterator(lists->begin());
+        return iterator(lists->begin(), (*(lists->begin()))->begin(), lists);
     }
 
     iterator end() const {
-        return iterator();
+        if (lists->size() == 0)
+            return iterator(lists);
+        auto e = lists->end();
+        --e;
+        auto le = (*e)->end();
+        return iterator(lists->end(), le, lists);
     }
 };
 
