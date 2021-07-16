@@ -1,0 +1,16 @@
+flag = false
+
+dfs(x, dfs_stack, visited, end, print_stack):
+    if visited[x] return
+    visited[x] = true
+    dfs_stack.push(x)
+    if x == end:
+        flag = true
+    if not flag:
+        while dfs_stack not empty:
+            y = dfs_stack.pop()
+            if visited[y] continue
+            add all neighbors of y to dfs_stack
+    if flag:
+        print_stack.push(x)
+    
