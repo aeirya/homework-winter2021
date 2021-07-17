@@ -75,13 +75,13 @@ class graph {
             cout << "graph made" << endl;
     }
 
-    void add(edge e) {
+    void add(edge& e) {
         connect(e.from-1, e.to-1);
         if (DEBUG)
             cout << "edge added" << endl;
     }
 
-    void remove(edge e) {
+    void remove(edge& e) {
         disconnect(e.from-1, e.to-1);
         cout << "removing " << e.from << "," << e.to << endl;
     }

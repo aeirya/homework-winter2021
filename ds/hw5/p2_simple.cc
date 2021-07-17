@@ -43,9 +43,8 @@ class graph {
 graph to_undirected_graph(graph& dir) {
     int n = dir.size();
     graph g(n);
-    list<int> adj;
     for (int i=0; i<n; ++i) {
-        adj = dir.neighbors(i);
+        auto& adj = dir.neighbors(i);
         for (int j : adj) {
             g.add_edge(i, j);
             g.add_edge(j, i);
@@ -100,7 +99,7 @@ bool is_dag(graph& g, list<int>& comp) {
 /*
     get connected components
 */
-list<list<int>> get_connected_components(graph& g) {
+list<list<int>>& get_connected_components(graph& g) {
     int n = g.size();
     bool visited[n];
     stack<int> st;
