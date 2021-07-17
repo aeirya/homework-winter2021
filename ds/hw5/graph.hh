@@ -1,4 +1,11 @@
-class directed_graph {
+class graph {
+    public:
+    virtual void add_edge(int from, int to) = 0;
+    virtual const list<int>& neighbors(int v) = 0;
+    virtual int size() = 0;
+};
+
+class directed_graph : public graph {
     private: 
     int n;
     vector<list<int>> A;
@@ -32,15 +39,15 @@ class directed_graph {
     }
 };
 
-class graph {
+class undirected_graph : public graph {
     private:
     directed_graph g;
     int n;
 
     public:
-    graph(int _n) : n(_n) , g(_n) { }
+    undirected_graph(int _n) : n(_n) , g(_n) { }
 
-    graph(directed_graph& d) : n(d.size()), g(d.size()) {
+    undirected_graph(directed_graph& d) : n(d.size()), g(d.size()) {
         bool A[n][n];
         for (int i=0; i<n; ++i)
             for (int j=0; j<i; ++j)
@@ -68,6 +75,6 @@ class graph {
     }
 };
 
-graph to_undirected_graph(directed_graph& g) {
-    return graph(g);
+undirected_graph to_undirected_graph(directed_graph& g) {
+    return undirected_graph(g);
 }

@@ -24,46 +24,13 @@ using std::sort;
 
 #define DEBUG 0
 
-
-class directed_graph {
-    private: 
-    int n;
-    vector<list<int>> A;
-    
-    public:
-    directed_graph(int _n) {
-        n = _n;
-        A.resize(_n);
-    }
-
-    void add_edge(int from, int to) {
-        A[from].push_back(to);
-    }
-
-    const list<int>& neighbors(int v) {
-        return A[v];
-    }
-
-    directed_graph transpose() {
-        directed_graph g(n);
-        for (int i=0; i<n; ++i) {
-            for (int j : neighbors(i)) {
-                g.add_edge(j, i);
-            }
-        }
-        return g;
-    }
-
-    int get_size() {
-        return n;
-    }
-};
+#include "graph.hh"
 
 void c() {
     cout << "checkpoint" << endl;
 }
 
-void dfs_visit(int v, directed_graph& g, bool visited[], stack<int>* finished) {
+void dfs_visit(int v, graph& g, bool visited[], stack<int>* finished) {
     if (DEBUG) cout << "visiting " << v << endl;
     visited[v] = true;
     auto neighbors = g.neighbors(v);
@@ -76,10 +43,35 @@ void dfs_visit(int v, directed_graph& g, bool visited[], stack<int>* finished) {
 }
 
 /*
+    get connected components
+*/
+list<list<int>> get_connected_components(undirected_graph& g) {
+    int n = g.size();
+    bool visited[n];
+    stack<int> st;
+
+    for (int i=0; i<n; ++i)
+        visited[i] = false;
+
+    list<list<int>> cc;
+    for (int v=0; v<n; ++v) {
+        if (visited[v]) continue;
+        dfs_visit(v, g, visited, &st);
+        list<int> comp;
+        while (!st.empty()) {
+            comp.push_back(st.top());
+            st.pop();
+        }
+        cc.push_back(comp);
+    }
+    return cc;
+}
+
+/*
     strongly connected components
 */
 list<list<int>> get_scc(directed_graph& g) {
-    int n = g.get_size();
+    int n = g.size();
     bool visited[n];
     stack<int> finished;
     
@@ -124,7 +116,7 @@ list<list<int>> get_scc(directed_graph& g) {
 }
 
 bool is_dag(directed_graph& g, list<int>& comp) {
-    int n = g.get_size();
+    int n = g.size();
     bool visited[n];
     stack<int> st;
     list<int> neighbors;
@@ -158,9 +150,27 @@ void print_component(list<int>& comp) {
     cout << endl;
 }
 
+int cc_test() {
+    directed_graph g(6);
+    g.add_edge(1,2);
+    g.add_edge(2,3);
+    g.add_edge(4,5);
+    c();
+    auto undirected = to_undirected_graph(g);
+    c();
+    auto cc = get_connected_components(undirected);
+    c();
+    for (auto comp : cc) {
+        for (int v : comp) 
+            cout << v << " ";
+        cout << endl;
+    }
+    return 0;
+}
 
 int main()
-{
+{  
+    return cc_test();
     int n,  // towns
         m;  // important pairs
 
@@ -181,7 +191,7 @@ int main()
     }
 
     auto scc = get_scc(g);
-    int sum = g.get_size()-1;
+    int sum = g.size()-1;
     bool dag;
     for (auto comp : scc) {
         // dag = is_dag(g, comp);
