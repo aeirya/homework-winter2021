@@ -13,12 +13,16 @@ using std::vector;
 using std::sort;
 
 struct edge {
-    const int from;
-    const int to;
-    const int weight;
+    int from;
+    int to;
+    int weight;
 
     bool operator<=(const edge& other) const {
         return this->weight <= other.weight;
+    }
+
+    bool operator<(const edge& other) const {
+        return this->weight < other.weight;
     }
 };
 
@@ -44,6 +48,10 @@ class tailcut_list {
         // while (*rit >= x)
         //     --rit;
     }
+
+    auto rbegin() {
+        return rit;
+    }
 };
 
 using graph = vector<edge>;
@@ -55,13 +63,15 @@ list<component>* get_components(graph g) {
     return new list<component>();
 }
 
-// int main() {
-//     int n, m, k;
-//     cin >> n >> m >> k;
+int main() {
+    int n, m, k;
+    cin >> n >> m >> k;
 
-//     int M[];
-//     for (int i=0; i<m; ++i) {
-//         cin M[i]
-//     }
-//     return 0;
-// }
+    vector<edge> edges;
+    int f, t, w;
+    for (int i=0; i<m; ++i) {
+        cin >> f >> t >> w;
+        edges.push_back(edge{f, t, w});
+    }
+    return 0;
+}
