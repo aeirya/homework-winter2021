@@ -24,7 +24,88 @@ using std::sort;
 
 #define DEBUG 0
 
-#include "graph.hh"
+#pragma region 
+class graph {
+    public:
+    virtual void add_edge(int from, int to) = 0;
+    virtual const list<int>& neighbors(int v) = 0;
+    virtual int size() = 0;
+};
+
+class directed_graph : public graph {
+    private: 
+    int n;
+    vector<list<int>> A;
+    
+    public:
+    directed_graph(int _n) {
+        n = _n;
+        A.resize(_n);
+    }
+
+    void add_edge(int from, int to) {
+        A[from].push_back(to);
+    }
+
+    const list<int>& neighbors(int v) {
+        return A[v];
+    }
+
+    directed_graph transpose() {
+        directed_graph g(n);
+        for (int i=0; i<n; ++i) {
+            for (int j : neighbors(i)) {
+                g.add_edge(j, i);
+            }
+        }
+        return g;
+    }
+
+    int size() {
+        return n;
+    }
+};
+
+class undirected_graph : public graph {
+    private:
+    directed_graph g;
+    int n;
+
+    public:
+    undirected_graph(int _n) : n(_n) , g(_n) { }
+
+    undirected_graph(directed_graph& d) : n(d.size()), g(d.size()) {
+        bool A[n][n];
+        for (int i=0; i<n; ++i)
+            for (int j=0; j<i; ++j)
+                A[i][j] = false;
+
+        for (int i=0; i<n; ++i) {
+            auto neigh = d.neighbors(i);
+            for (int j : neigh)
+                if (i<j && !A[j][i] || j<i && !A[i][j])
+                    add_edge(i,j);
+        }
+    }
+
+    void add_edge(int a, int b) {
+        g.add_edge(a, b);
+        g.add_edge(b, a);
+    }
+
+    const list<int>& neighbors(int v) {
+        return g.neighbors(v);
+    }
+
+    int size() {
+        return n;
+    }
+};
+
+undirected_graph to_undirected_graph(directed_graph& g) {
+    return undirected_graph(g);
+}
+#pragma endregion
 
 void c() {
     cout << "checkpoint" << endl;
@@ -115,31 +196,66 @@ list<list<int>> get_scc(directed_graph& g) {
     return scc;
 }
 
+// bool is_dag(directed_graph& g, list<int>& comp) {
+//     int n = g.size();
+//     bool visited[n];
+//     stack<int> st;
+//     list<int> neighbors;
+
+//     for (int i=0; i<n; ++i)
+//         visited[i] = false;
+
+//     int start = comp.front();
+//     if (DEBUG) cout << "checking if dag, starting " << start << endl;
+    
+//     st.push(start);
+
+//     while (!st.empty()) {
+//         int v = st.top();
+//         st.pop();
+//         if (DEBUG) cout << "visit " << v << endl;
+//         if (visited[v]) return false;
+
+//         visited[v] = true;
+//         neighbors = g.neighbors(v);
+//         for (int neighbor : neighbors)
+//             st.push(neighbor);
+//     }
+//     return true;
+// }
+
+/*
+    checks if a subset of graph g is dag
+*/
 bool is_dag(directed_graph& g, list<int>& comp) {
     int n = g.size();
     bool visited[n];
-    stack<int> st;
+    stack<int> finished;
+    vector<int> finish_time(n);
     list<int> neighbors;
 
     for (int i=0; i<n; ++i)
         visited[i] = false;
 
-    int start = comp.front();
-    if (DEBUG) cout << "checking if dag, starting " << start << endl;
-    
-    st.push(start);
+    // dfs visit (on component vertices)
+    for (int v : comp)
+        if (!visited[v]) 
+            dfs_visit(v, g, visited, &finished);
 
-    while (!st.empty()) {
-        int v = st.top();
-        st.pop();
-        if (DEBUG) cout << "visit " << v << endl;
-        if (visited[v]) return false;
-
-        visited[v] = true;
-        neighbors = g.neighbors(v);
-        for (int neighbor : neighbors)
-            st.push(neighbor);
+    // set finish times 
+    for (int t=n-1; t>=0; --t) {
+        finish_time[finished.top()] = t;
+        finished.pop();
     }
+
+    // dfs again and find back edge
+    for (int v : comp) {
+        neighbors = g.neighbors(v);
+        for (int to : neighbors)
+            if (finish_time[v] < finish_time[to])
+                return false;
+    }
+
     return true;
 }
 
@@ -170,7 +286,6 @@ int cc_test() {
 
 int main()
 {  
-    return cc_test();
     int n,  // towns
         m;  // important pairs
 
@@ -190,21 +305,17 @@ int main()
         g.add_edge(from-1, to-1);
     }
 
-    auto scc = get_scc(g);
+    auto undirected = to_undirected_graph(g);
+    auto cc = get_connected_components(undirected);
     int sum = g.size()-1;
+    // cout << "SUM STARTS WITH " << sum << endl;
     bool dag;
-    for (auto comp : scc) {
-        // dag = is_dag(g, comp);
-        // if (DEBUG) {
-        //     if (dag)
-        //         cout << "dag" << endl;
-        //     else cout << "not dag" << endl;
-        // }
-        // sum += !dag;
-        if (comp.size() > 1)
-            ++sum;
+    for (auto comp : cc) {
+        // print_component(comp);
+        dag = is_dag(g, comp);
+        // if (dag) cout << "DAG" << endl;
+        if (!dag) ++sum;
     }
-
     cout << sum << endl;
 }
 

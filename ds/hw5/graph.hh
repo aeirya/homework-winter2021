@@ -53,7 +53,7 @@ class undirected_graph : public graph {
             for (int j=0; j<i; ++j)
                 A[i][j] = false;
 
-        for (int i=0; i<n; ++n) {
+        for (int i=0; i<n; ++i) {
             auto neigh = d.neighbors(i);
             for (int j : neigh)
                 if (i<j && !A[j][i] || j<i && !A[i][j])
