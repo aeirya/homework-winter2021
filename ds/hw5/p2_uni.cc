@@ -95,24 +95,24 @@ bool is_dag(graph& g, list<int>& comp) {
     return true;
 }
 
-/*
-    get connected components for undirected graph
-*/
-list<list<int>> get_connected_components(graph& g) {
+int solve(graph& g) {
+    graph u = to_undirected_graph(g); 
     int n = g.size();
     bool visited[n];
+    list<int> comp;
 
     for (int i=0; i<n; ++i)
         visited[i] = false;
 
-    list<list<int>> cc;
+    int result = n-1;
     for (int v=0; v<n; ++v) {
-        list<int> comp;
         if (visited[v]) continue;
-        dfs_visit(v, g, visited, &comp);
-        cc.push_back(comp);
+        comp.clear();
+        dfs_visit(v, u, visited, &comp);
+        if (!is_dag(g, comp)) 
+            ++result;
     }
-    return cc;
+    return result;
 }
 
 int main() {
@@ -128,15 +128,7 @@ int main() {
         g.add_edge(from-1, to-1);
     }
 
-    graph undir = to_undirected_graph(g);
-    auto cc = get_connected_components(undir);
-    int sum = g.size()-1;
-    for (auto& comp : cc) {
-        if (!is_dag(g, comp)) {
-            ++sum;
-        }
-    }
-    cout << sum << endl;
+    cout << solve(g) << endl;
 }
 
 /*
