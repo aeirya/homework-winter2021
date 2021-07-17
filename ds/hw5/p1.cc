@@ -71,78 +71,78 @@ class cluster_trie {
 */
 typedef list_trie<strlist> string_trie;
 
-/*
-    hold lists of lists of T
-    is iterable
-*/
-template <typename T>
-class listlist {
-    public:
-    typedef list<const list<const T*>*> lol; // list of lists
+// /*
+//     hold lists of lists of T
+//     is iterable
+// */
+// template <typename T>
+// class listlist {
+//     public:
+//     typedef list<const list<const T*>*> lol; // list of lists
 
-    private:
-    lol* lists;
+//     private:
+//     lol* lists;
 
-    class iterator {
-        typedef typename std::list<const list<const T*>*>::iterator t_lol_it;
-        typedef typename std::list<const T*>::iterator t_lst_it; 
+//     class iterator {
+//         typedef typename std::list<const list<const T*>*>::iterator t_lol_it;
+//         typedef typename std::list<const T*>::iterator t_lst_it; 
 
-        private:
-        t_lol_it lists_it;
-        t_lst_it it;
-        lol* m_lists;
+//         private:
+//         t_lol_it lists_it;
+//         t_lst_it it;
+//         lol* m_lists;
 
-        public:
-        iterator(const t_lol_it& lsi, const t_lst_it& li, lol* p_lists) :
-            lists_it(lsi), it(li), m_lists(p_lists) {}
+//         public:
+//         iterator(const t_lol_it& lsi, const t_lst_it& li, lol* p_lists) :
+//             lists_it(lsi), it(li), m_lists(p_lists) {}
 
-        iterator(lol* _lists) : m_lists(_lists) {} 
+//         iterator(lol* _lists) : m_lists(_lists) {} 
 
-        iterator& operator++() {
-            ++it;
-            if (it == (*lists_it)->end()) {
-                ++lists_it;
-                if (lists_it != m_lists->end())
-                    it = (*lists_it)->begin();
-            }
-            return *this;
-        }
+//         iterator& operator++() {
+//             ++it;
+//             if (it == (*lists_it)->end()) {
+//                 ++lists_it;
+//                 if (lists_it != m_lists->end())
+//                     it = (*lists_it)->begin();
+//             }
+//             return *this;
+//         }
 
-        const T* operator*() {
-            return *it;
-        }
+//         const T* operator*() {
+//             return *it;
+//         }
 
-        friend bool operator==(const iterator& me, const iterator& other) {
-            return 
-            (me.m_lists->size() == 0 || other.m_lists->size() == 0)  ||
-            (me.it == other.it && other.lists_it == me.lists_it);
-        } 
+//         friend bool operator==(const iterator& me, const iterator& other) {
+//             return 
+//             (me.m_lists->size() == 0 || other.m_lists->size() == 0)  ||
+//             (me.it == other.it && other.lists_it == me.lists_it);
+//         } 
 
-        friend bool operator!=(const iterator& me, const iterator& other) {
-            return me.it != other.it || other.lists_it != me.lists_it;
-        }        
-    };
+//         friend bool operator!=(const iterator& me, const iterator& other) {
+//             return me.it != other.it || other.lists_it != me.lists_it;
+//         }        
+//     };
 
-    public:
-    listlist(lol* l) : lists(l) {}
+//     public:
+//     listlist(lol* l) : lists(l) {}
 
-    void add(list<const T*>* l) {
-        lists->push_back(l);
-    }
+//     void add(list<const T*>* l) {
+//         lists->push_back(l);
+//     }
 
-    iterator begin() const {
-        return iterator(lists->begin(), (*(lists->begin()))->begin(), lists);
-    }
+//     iterator begin() const {
+//         return iterator(lists->begin(), (*(lists->begin()))->begin(), lists);
+//     }
 
-    iterator end() const {
-        if (lists->size() == 0)
-            return iterator(lists);
-        auto e = lists->end();
-        --e;
-        auto le = (*e)->end();
-        return iterator(lists->end(), le, lists);
-    }
-};
+//     iterator end() const {
+//         if (lists->size() == 0)
+//             return iterator(lists);
+//         auto e = lists->end();
+//         --e;
+//         auto le = (*e)->end();
+//         return iterator(lists->end(), le, lists);
+//     }
+// };
 
 class graph {
     private:
@@ -160,9 +160,13 @@ class graph {
         }
     }
 
-    listlist<string>* get_neighbors(const string& word) {
-        auto* ll = strings.get(word);
-        return new listlist<string>(ll);
+    // listlist<string>* get_neighbors(const string& word) {
+    //     auto* ll = strings.get(word);
+    //     return new listlist<string>(ll);
+    // }
+
+    auto* get_neighbors(const string& word) {
+        return strings.get(word);
     }
 };
 
@@ -176,16 +180,25 @@ int bfs(graph& g, queue<const string*> q, trie<bool> v) {
     cout << *word << endl;
 
     const auto neighbors = g.get_neighbors(*word);
-    string other;
-    for (
-        auto it = neighbors->begin();
-        it != neighbors->end();
-        ++it
-    ) {
-        other = **it;
-        if (v.get(other) == 0) {
-            v.add(other, (bool*)1);
-            q.push(&other);
+    // string other;
+    // for (
+    //     auto it = neighbors->begin();
+    //     it != neighbors->end();
+    //     ++it
+    // ) {
+    //     other = **it;
+    //     if (v.get(other) == 0) {
+    //         v.add(other, (bool*)1);
+    //         q.push(&other);
+    //     }
+    // }
+    for (const auto& lists_it : *neighbors) {
+        for (const auto& it : *lists_it) {
+            const string other = *it;
+            if (v.get(other) == 0) {
+                v.add(other, (bool*)1);
+                q.push(&other);
+            }
         }
     }
 

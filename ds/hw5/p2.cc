@@ -4,6 +4,11 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+class directed_graph {
+    private: 
+    
+};
+
 int main()
 {
     int n,  // towns
