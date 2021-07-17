@@ -1,0 +1,63 @@
+Date : 2021-07-17 22:51:53
+Directory : /Users/madscientist/homework/ds/hw5
+Total : 31 files,  4312 codes, 604 comments, 512 blanks, all 5428 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Log      |          1 |      1,078 |          0 |         28 |      1,106 |
+| TeX      |          2 |      1,008 |        289 |         74 |      1,371 |
+| C++      |         18 |        988 |        197 |        272 |      1,457 |
+| PDF      |          1 |        605 |          0 |          7 |        612 |
+| C        |          2 |        358 |         88 |         52 |        498 |
+| LaTeX    |          7 |        275 |         30 |         79 |        384 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                   |         31 |      4,312 |        604 |        512 |      5,428 |
+| archive                                                             |          1 |        175 |         48 |         52 |        275 |
+| theory                                                              |         11 |      2,966 |        319 |        188 |      3,473 |
+| theory/.texpadtmp                                                   |          1 |      1,078 |          0 |         28 |      1,106 |
++---------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                            | language | code       | comment    | blank      | total      |
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/madscientist/homework/ds/hw5/archive/p4.c                    | C        |        175 |         48 |         52 |        275 |
+| /Users/madscientist/homework/ds/hw5/common.hh                       | C++      |         14 |          0 |          6 |         20 |
+| /Users/madscientist/homework/ds/hw5/con_comp.cc                     | C++      |         14 |          0 |          7 |         21 |
+| /Users/madscientist/homework/ds/hw5/gen_list.c                      | C        |        183 |         40 |          0 |        223 |
+| /Users/madscientist/homework/ds/hw5/graph.hh                        | C++      |         57 |          0 |         12 |         69 |
+| /Users/madscientist/homework/ds/hw5/graph_test.cc                   | C++      |         15 |          0 |          1 |         16 |
+| /Users/madscientist/homework/ds/hw5/in_test.cc                      | C++      |         17 |          0 |          2 |         19 |
+| /Users/madscientist/homework/ds/hw5/list_remove_test.cc             | C++      |         15 |          0 |          3 |         18 |
+| /Users/madscientist/homework/ds/hw5/list_vec_test.cc                | C++      |         15 |          3 |          4 |         22 |
+| /Users/madscientist/homework/ds/hw5/mem_test.cc                     | C++      |         18 |          0 |          3 |         21 |
+| /Users/madscientist/homework/ds/hw5/p1.cc                           | C++      |        119 |         91 |         41 |        251 |
+| /Users/madscientist/homework/ds/hw5/p2.cc                           | C++      |        110 |         25 |         35 |        170 |
+| /Users/madscientist/homework/ds/hw5/p2_f.cc                         | C++      |        137 |         25 |         41 |        203 |
+| /Users/madscientist/homework/ds/hw5/p2_re.cc                        | C++      |        169 |         28 |         48 |        245 |
+| /Users/madscientist/homework/ds/hw5/p3.cc                           | C++      |         55 |          7 |         15 |         77 |
+| /Users/madscientist/homework/ds/hw5/p3_c.cc                         | C++      |        146 |         10 |         31 |        187 |
+| /Users/madscientist/homework/ds/hw5/p4.cc                           | C++      |          0 |          0 |          1 |          1 |
+| /Users/madscientist/homework/ds/hw5/sort_test.cc                    | C++      |         18 |          0 |          8 |         26 |
+| /Users/madscientist/homework/ds/hw5/theory/.texpadtmp/DSLecture.log | Log      |      1,078 |          0 |         28 |      1,106 |
+| /Users/madscientist/homework/ds/hw5/theory/DSLecture.pdf            | PDF      |        605 |          0 |          7 |        612 |
+| /Users/madscientist/homework/ds/hw5/theory/DSLecture.tex            | LaTeX    |         10 |          8 |         10 |         28 |
+| /Users/madscientist/homework/ds/hw5/theory/clrscode3e.sty           | TeX      |        124 |        159 |         61 |        344 |
+| /Users/madscientist/homework/ds/hw5/theory/help.tex                 | LaTeX    |         61 |          4 |         19 |         84 |
+| /Users/madscientist/homework/ds/hw5/theory/q5.tex                   | LaTeX    |         34 |          0 |         15 |         49 |
+| /Users/madscientist/homework/ds/hw5/theory/q6.tex                   | LaTeX    |          8 |          0 |          2 |         10 |
+| /Users/madscientist/homework/ds/hw5/theory/q7.tex                   | LaTeX    |         97 |         10 |         18 |        125 |
+| /Users/madscientist/homework/ds/hw5/theory/q8.tex                   | LaTeX    |          4 |          0 |          1 |          5 |
+| /Users/madscientist/homework/ds/hw5/theory/template.tex             | LaTeX    |         61 |          8 |         14 |         83 |
+| /Users/madscientist/homework/ds/hw5/theory/tkz-graph.sty            | TeX      |        884 |        130 |         13 |      1,027 |
+| /Users/madscientist/homework/ds/hw5/trie.hh                         | C++      |         61 |          8 |         13 |         82 |
+| /Users/madscientist/homework/ds/hw5/type_test.cc                    | C++      |          8 |          0 |          1 |          9 |
+| Total                                                               |          |      4,312 |        604 |        512 |      5,428 |
++---------------------------------------------------------------------+----------+------------+------------+------------+------------+
