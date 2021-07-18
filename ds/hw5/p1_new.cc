@@ -9,135 +9,139 @@ using std::list;
 #include <vector>
 using std::vector;
 
+#include <queue>
+using std::queue;
+
 using std::string;
 
-#include "trie.hh"
-
-/*
-    each word contains a list of type T*
-*/
-template <typename T>
-class list_trie {
-    typedef list<const T*> tlist;
-
-    private:
-    trie<tlist> t;
-
+class trie {
     public:
-    tlist* add(const string& word, const T* data) {
-        auto* list = get(word);
-        list->push_back(data);
-        return list;
-    }
+    class node {
+        private:
+        node** children = 0;
 
-    tlist* get(const string& word) {
-        auto* list = t.get(word);
-        if (!list) {
-            list = new tlist();
-            t.add(word, list);
+        public:
+        bool is_word = false;
+        int data = -1;
+
+        ~node() {
+            if (children) {
+                for (int i=0; i<26; ++i) {
+                    if (children[i]) delete children[i];
+                }
+                delete[] children;
+            }
         }
-        return list;
-    }
-};
 
-inline string star(string word, int index) {
-    word[index] = STAR;
-    return word;
-}
+        /*
+            0-25 for alphabet
+        */
+        node* next(char read) {
+            int i = (int) read - 97;
 
-/*
-    neighbors for all template clusters
-*/
-typedef list<const string*> strlist; 
-class cluster_trie {
+            if (!children) {
+                children = new node*[26];
+                for (int j=0; j<26; ++j)
+                    children[j] = 0;
+            }
+            if (!children[i])
+                children[i] = new node();
+            
+            return children[i];
+        }
+
+        int value() { return data; }
+    };
+    
     private:
-    list_trie<string> t;
+    node* root;
+
+    /*
+        either find the word or add missing chars
+        returns the node containing the last char
+    */
+    node* find(const string& word, int star_index) {
+        int m = word.length();
+        node* n = root;
+        for (int i=0; i<m; ++i) {
+            if (i != star_index) n = n->next(word[i]);
+        }
+        return n;
+    }
 
     public:
-    strlist* add(const string& word, int star_index) {
-        /*
-            key: word (with i'th index starred)
-            val: word itself
-         */
-        return t.add(star(word, star_index), &word);
+    trie() {
+        root = new node();
     }
 
-    /* get cluster */
-    strlist* get(const string& word, int star_index) {
-        return t.get(star(word, star_index));
+    ~trie() {
+        delete root;
+    }
+
+    void add(const string& word, int star_index, int data) {
+        node* n = find(word, star_index);
+        n->data = data;
+        n->is_word = true;
+    }
+
+    int get(const string& word, int star_index) {
+        return find(word, star_index)->data;
     }
 };
-
-/*
-    clusters each string is in
-*/
-typedef list_trie<strlist> string_trie;
-
 
 class graph {
     private:
-    cluster_trie clusters;
-    string_trie strings;
+    vector<list<int>> A;
 
     public:
-    void add(const string& word) {
-        int len = word.length();
-        strlist* cluster;
-        auto* cluster_list = strings.get(word);
-        for (int i=0; i<len; ++i) {
-            cluster = clusters.add(word, i);
-            cluster_list->push_back(cluster);
-        }
+    graph(int n) {
+        A.resize(n);
     }
 
-    auto* get_neighbors(const string& word) {
-        return strings.get(word);
+    void add_edge(int a, int b) {
+        A[a].push_back(b);
+        A[b].push_back(a);
+    }
+
+    list<int>& neighbors(int v) {
+        return A[v];
+    }
+
+    int size() {
+        return A.size();
     }
 };
 
-int bfs(graph& g, queue<const string*> q, trie<bool> v) {
+struct tuple {
+    int v;
+    int level;
+};
+
+int bfs(graph& g, int end_i, bool visited[], queue<tuple>& q) {
+
     if (q.empty()) return 0;
 
-    auto* word = q.front();
+    tuple t = q.front();
     q.pop();
+    if (t.v == end_i) return t.level;
 
-    // visit here
-    cout << *word << endl;
-
-    const auto neighbors = g.get_neighbors(*word);
-
-    for (const auto& lists_it : *neighbors) {
-        for (const auto& it : *lists_it) {
-            const string other = *it;
-            if (v.get(other) == 0) {
-                v.add(other, (bool*)1);
-                q.push(&other);
-            }
+    auto& adj = g.neighbors(t.v);
+    for (int i : adj) {
+        if (!visited[i]) {
+            visited[i] = true;
+            q.push(tuple{i, t.level+1});
         }
     }
 
-    bfs(g, q, v);
-    // return value
+    return bfs(g, end_i, visited, q);
 }
 
-int solve(
-    const string& begin_word,
-    const string& end_word,
-    graph& g,
-    const list<string>& dictionary
-    ) 
-{
-    trie<bool> visited;
-    queue<const string*> q;
-    
-    for (auto& word : dictionary) {
-        if (visited.get(word) == 0) {
-            visited.add(word, (bool*)1);
-            q.push(&word);
-            bfs(g, q, visited);
-        }
-    }
-    return 0;
+int solve(graph& g, int end_i) {
+    bool visited[g.size()];
+    queue<tuple> q;
+    // 0 : begin word index
+    q.push(tuple{0,0});
+    return bfs(g, end_i, 0, visited, q);
 }
 
 int main()
@@ -149,24 +153,59 @@ int main()
         >> end_word
         >> n;
 
-    // all words
+    // all words + begin_word
+    ++n;
     vector<string> dictionary(n);
-    // patterns for every word
-    vector<string> patterns(n);
 
-    for (int i=0; i<n; ++i)
+    // setup dictionary
+    dictionary[0] = begin_word;
+    for (int i=1; i<n; ++i)
         cin >> dictionary[i];
 
+    // word length
+    int m = begin_word.length();
+    // words for each pattern
+    vector<list<int>> pw(n*m);
+    // a trie for each pattern index
+    vector<trie> T(m);
+    // generate patterns for each word
+    int next_id = 0,
+        id;
     for (int i=0; i<n; ++i) {
-        
+        string& word = dictionary[i];
+        for (int j=0; j<m; ++j) {
+            id = T[j].get(word, j);
+            if (id < 0) {
+                T[j].add(word, j, next_id);
+                pw[next_id].push_back(i); // register word i to pattern 
+                ++next_id;
+            } else {
+                pw[id].push_back(i); // register word i to an existing pattern
+            }
+        }
     }
 
     graph g(n);
-
-
-    
-
     // make graph relations
+    for (auto& cluster : pw) {
+        for (int i : cluster) {
+            for (int j : cluster) {
+                if (i!=j) g.add_edge(i, j);
+            }
+        }
+    }
 
-    cout << solve(begin_word, end_word, g, dictionary) << endl;
+    int end_i = -1;
+    for (int i=1; i<n; ++i) {
+        if (dictionary[i].compare(end_word)==0) {
+            end_i = i;
+            break;
+        }
+    }
+    if (end_i < 0) {
+        cout << 0 << endl;
+        return 0;
+    }
+
+    cout << solve(g, dictionary) << endl;
 }

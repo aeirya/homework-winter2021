@@ -44,7 +44,7 @@ graph to_undirected_graph(graph& dir) {
     int n = dir.size();
     graph g(n);
     for (int i=0; i<n; ++i) {
-        auto& adj = dir.neighbors(i);
+        list<int>& adj = dir.neighbors(i);
         for (int j : adj) {
             g.add_edge(i, j);
             g.add_edge(j, i);
@@ -55,10 +55,12 @@ graph to_undirected_graph(graph& dir) {
 
 void dfs_visit(int v, graph& g, bool visited[], list<int>* finished) {
     visited[v] = true;
-    auto neighbors = g.neighbors(v);
+    auto& neighbors = g.neighbors(v);
     for (int n : neighbors)
-        if (!visited[n])
+        if (!visited[n]) {
             dfs_visit(n, g, visited, finished);
+            visited[n] = true;
+        }
     
     if (finished) 
         finished->push_back(v);
@@ -68,8 +70,12 @@ bool is_dag(graph& g, list<int>& comp) {
     int n = g.size();
     bool visited[n];
     list<int> finished;
-    vector<int> finish_time(n);
+    vector<int> finish_time;
     list<int> neighbors;
+
+    finish_time.resize(n);
+    for (int i=0; i<n; ++i)
+        finish_time[i] = -1;
 
     for (int i=0; i<n; ++i)
         visited[i] = false;
@@ -96,7 +102,7 @@ bool is_dag(graph& g, list<int>& comp) {
 }
 
 int solve(graph& g) {
-    graph u = to_undirected_graph(g); 
+    graph undir = to_undirected_graph(g); 
     int n = g.size();
     bool visited[n];
     list<int> comp;
@@ -108,12 +114,16 @@ int solve(graph& g) {
     for (int v=0; v<n; ++v) {
         if (visited[v]) continue;
         comp.clear();
-        dfs_visit(v, u, visited, &comp);
+        dfs_visit(v, undir, visited, &comp);
         if (!is_dag(g, comp)) 
             ++result;
     }
     return result;
 }
+
+// int test1() {
+//     return 0;
+// }
 
 int main() {
     int n,  // towns
