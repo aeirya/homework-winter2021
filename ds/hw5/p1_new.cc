@@ -118,8 +118,7 @@ struct tuple {
 };
 
 int bfs(graph& g, int end_i, bool visited[], queue<tuple>& q) {
-
-    if (q.empty()) return 0;
+    if (q.empty()) return -1;
 
     tuple t = q.front();
     q.pop();
@@ -132,16 +131,21 @@ int bfs(graph& g, int end_i, bool visited[], queue<tuple>& q) {
             q.push(tuple{i, t.level+1});
         }
     }
-
     return bfs(g, end_i, visited, q);
 }
 
 int solve(graph& g, int end_i) {
-    bool visited[g.size()];
+    int n = g.size();
+    bool visited[n];
+
+    for (int i=0; i<n; ++i)
+        visited[i] = false;
+
     queue<tuple> q;
     // 0 : begin word index
+    visited[0] = true;
     q.push(tuple{0,0});
-    return bfs(g, end_i, 0, visited, q);
+    return 1 + bfs(g, end_i, visited, q);
 }
 
 int main()
@@ -207,5 +211,6 @@ int main()
         return 0;
     }
 
-    cout << solve(g, dictionary) << endl;
+    int result = solve(g, end_i);
+    cout << result << endl;
 }

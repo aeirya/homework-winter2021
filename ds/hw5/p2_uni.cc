@@ -13,9 +13,6 @@ using std::list;
 #include <vector>
 using std::vector;
 
-#include <stack>
-using std::stack;
-
 #define DEBUG 0
 
 class graph {
@@ -57,27 +54,17 @@ void dfs_visit(int v, graph& g, bool visited[], list<int>* finished) {
     visited[v] = true;
     auto& neighbors = g.neighbors(v);
     for (int n : neighbors)
-        if (!visited[n]) {
+        if (!visited[n])
             dfs_visit(n, g, visited, finished);
-            visited[n] = true;
-        }
     
     if (finished) 
         finished->push_back(v);
 }
 
-bool is_dag(graph& g, list<int>& comp) {
-    int n = g.size();
-    bool visited[n];
+bool is_dag(graph& g, list<int>& comp, bool visited[], int finish_time[]) {
     list<int> finished;
-    vector<int> finish_time;
-    list<int> neighbors;
 
-    finish_time.resize(n);
-    for (int i=0; i<n; ++i)
-        finish_time[i] = -1;
-
-    for (int i=0; i<n; ++i)
+    for (int i : comp)
         visited[i] = false;
 
     // dfs visit (on component vertices)
@@ -93,7 +80,7 @@ bool is_dag(graph& g, list<int>& comp) {
 
     // dfs again and find back edge
     for (int v : comp) {
-        neighbors = g.neighbors(v);
+        auto& neighbors = g.neighbors(v);
         for (int to : neighbors)
             if (finish_time[v] < finish_time[to])
                 return false;
@@ -102,28 +89,27 @@ bool is_dag(graph& g, list<int>& comp) {
 }
 
 int solve(graph& g) {
-    graph undir = to_undirected_graph(g); 
+    graph undir = to_undirected_graph(g);
     int n = g.size();
     bool visited[n];
     list<int> comp;
 
+    bool id_visited[n];
+    int id_finish_time[n];
+
     for (int i=0; i<n; ++i)
         visited[i] = false;
 
-    int result = n-1;
+    int result = n;
     for (int v=0; v<n; ++v) {
         if (visited[v]) continue;
         comp.clear();
         dfs_visit(v, undir, visited, &comp);
-        if (!is_dag(g, comp)) 
-            ++result;
+        if (is_dag(g, comp, id_visited, id_finish_time)) 
+            --result;
     }
     return result;
 }
-
-// int test1() {
-//     return 0;
-// }
 
 int main() {
     int n,  // towns
