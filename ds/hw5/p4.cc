@@ -9,9 +9,9 @@ using std::list;
 #include <vector>
 using std::vector;
 
-enum state {
-    none, any, at_least_one
-};
+#include <algorithm>
+using std::sort;
+
 
 class disjoint_set {
     private:
@@ -63,6 +63,25 @@ class disjoint_set {
     }
 };
 
+enum edge_state {
+    none, any, at_least_one
+};
+
+struct edge {
+    int u, v, weight;
+    edge_state state;
+
+    bool operator <(const edge& other) const {
+        return weight < other.weight;
+    }
+
+    bool operator ==(const edge& other) const {
+        return weight == other.weight;
+    }
+};
+
+
+#pragma region test
 int disjoint_set_test() {
     disjoint_set ds(5);
     ds.join(0,1);
@@ -75,8 +94,70 @@ int disjoint_set_test() {
     return 0;
 }
 
+int arr_test(int e[], int size) {
+    for (int i=0; i<size; ++i) 
+        cout << e[i] << endl;
+}
+
+int arr_test() {
+    int e[6] = {1,2,3,4,5,6};
+    arr_test(e+2, 3);
+    return 0;
+}
+#pragma endregion test
+
+/*
+    finds end of the array, where weight is bigger than begin's weight
+*/
+int find_end_index(edge e[], int size, int begin) {
+    int i = begin,
+        w = e[begin].weight;
+    while (i<size && e[i].weight <= w) ++i;
+    return i;
+}
+
+/*
+    find none edges and mark them
+*/
+void find_none(edge e[], int size, disjoint_set& ds) {
+    for (int i=0; i<size; ++i) {
+        // if connecting members of the same component
+        if (ds.find(e[i].u) == ds.find(e[i].v)) {
+            e[i].state = none;
+        }
+    }
+}
+
 
 int main() {
-    return disjoint_set_test();
+    int n, m;
+    cin >> n >> m;
+
+    edge e[m];
+    // get input
+    for (int i=0; i<m; ++i)
+        cin >> e[i].u >> e[i].v >> e[i].weight;
+
+    // sort edges
+    sort(e, e+m);
+
+    // default state to any
+    for (int i=0; i<m; ++i)
+        e[i].state = any;
+
+    disjoint_set ds(n);
+    int begin, end;
+    begin = 0;
+    while (begin < m) {
+        end = find_end_index(e, m, begin);
+        find_none(e+begin, end-begin, ds);
+        // find bridges
+        begin = end;
+    }
+    // for (int i=begin; i<end; ++i) {
+
+    // }
+
+
     return 0;
 }
