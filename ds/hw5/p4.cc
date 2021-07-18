@@ -128,6 +128,21 @@ void find_none(edge e[], int size, disjoint_set& ds) {
     }
 }
 
+void find_any(edge edges[], int size, disjoint_set& ds) {
+    if (size == 1) {
+        edge e = edges[0];
+        if (ds.find(e.u) != ds.find(e.v))
+            e.state = any;
+    }
+}
+
+void insert(edge e[], int size, disjoint_set& ds) {
+    for (int i=0; i<size; ++i) {
+        if (ds.find(e[i].u) != ds.find(e[i].v)) {
+            ds.join(e[i].u, e[i].v);
+        }
+    }
+}
 
 int main() {
     int n, m;
@@ -143,7 +158,7 @@ int main() {
 
     // default state to any
     for (int i=0; i<m; ++i)
-        e[i].state = any;
+        e[i].state = at_least_one;
 
     disjoint_set ds(n);
     int begin, end;
@@ -151,13 +166,29 @@ int main() {
     while (begin < m) {
         end = find_end_index(e, m, begin);
         find_none(e+begin, end-begin, ds);
-        // find bridges
+        // find bridges 
+        // or find any
+        find_any(e+begin, end-begin, ds);
+
+        insert(e+begin, end-begin, ds);
+
         begin = end;
     }
     // for (int i=begin; i<end; ++i) {
 
     // }
-
+    for (int i=0; i<m; ++i) {
+        switch(e[i].state) {
+            case any:
+            cout << "ANY" << endl;
+            break;
+            case none:
+            cout << "NONE" << endl;
+            break;
+            default:
+            cout << "SOME" << endl;
+        }
+    }
 
     return 0;
 }
