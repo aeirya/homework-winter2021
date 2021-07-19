@@ -49,33 +49,33 @@ class disjoint_set {
             nodes[i] = new_node(i);
     }
 
-    // int find(int x) {
-    //     node *n = &nodes[x];
-    //     node *p = n->parent;
-
-    //     int i=0;
-    //     while (p) {
-    //         if (DEBUG) cout << "in find node value is " << n->value << endl;
-    //         if (DEBUG) cout << "in find parent value is " << p->value << endl;
-    //         if (p->parent) {
-    //             n->parent = p->parent;
-    //             if (DEBUG) cout << "in find parent of parent value is " << p->value << endl;
-    //         }
-    //         n = p;
-    //         p = p->parent;
-
-    //         ++i;
-    //         if (i == 2) break;
-    //     }
-    //     return n->value;
-    // }
-
     int find(int x) {
         node *n = &nodes[x];
-        while (n->parent) 
-            n = n->parent;
+        node *p = n->parent;
+
+        // int i=0;
+        while (p) {
+            // if (DEBUG) cout << "in find node value is " << n->value << endl;
+            // if (DEBUG) cout << "in find parent value is " << p->value << endl;
+            if (p->parent) {
+                n->parent = p->parent;
+                // if (DEBUG) cout << "in find parent of parent value is " << p->value << endl;
+            }
+            n = p;
+            p = p->parent;
+
+            // ++i;
+            // if (i == 2) break;
+        }
         return n->value;
     }
+
+    // int find(int x) {
+    //     node *n = &nodes[x];
+    //     while (n->parent) 
+    //         n = n->parent;
+    //     return n->value;
+    // }
 
     // void join(int x, int y) {
     //     int px = find(x),
@@ -107,9 +107,10 @@ class disjoint_set {
             cout << "what the .." << endl;
             cout << 1/0 << endl;
         }
+
         nodes[px].parent = &nodes[py];
-        if (DEBUG) cout << "my address is " << &nodes[px] << endl;
-        if (DEBUG) cout << "my parent will be set to " << &nodes[py] << endl;
+        // if (DEBUG) cout << "my address is " << &nodes[px] << endl;
+        // if (DEBUG) cout << "my parent will be set to " << &nodes[py] << endl;
 
         nodes[py].size += nodes[px].size;
         if (DEBUG) cout << x << ", " << y << ": " << "joining " << px << " and " << py << endl;
@@ -197,14 +198,14 @@ int find_end_index(edge e[], int size, int begin) {
     find none edges and mark them
 */
 void find_none(edge e[], int size, disjoint_set& ds) {
-    if (DEBUG) cout << "finding none, size: " << size << endl;
+    // if (DEBUG) cout << "finding none, size: " << size << endl;
     for (int i=0; i<size; ++i) {
-        if (DEBUG) cout << "checking ";
-        if (DEBUG) print_edge(e[i]);
-        if (DEBUG) cout << endl;
+        // if (DEBUG) cout << "checking ";
+        // if (DEBUG) print_edge(e[i]);
+        // if (DEBUG) cout << endl;
         // if connecting members of the same component
         if (ds.find(e[i].u) == ds.find(e[i].v)) {
-            if (DEBUG) cout << e[i].u << ", " << e[i].v << " is none" << endl;
+            // if (DEBUG) cout << e[i].u << ", " << e[i].v << " is none" << endl;
             e[i].state = none;
         }
     }
@@ -214,8 +215,8 @@ void insert(edge e[], int size, disjoint_set& ds) {
     for (int i=0; i<size; ++i) {
         // if (ds.find(e[i].u) != ds.find(e[i].v))
         if (e[i].state != none) {
-            cout << "attemting to join " << e[i].u << ", " << e[i].v << endl;
-            cout << "and their parents is " << ds.find(e[i].u) << ", " << ds.find(e[i].v) << endl;
+            // if (DEBUG) cout << "attemting to join " << e[i].u << ", " << e[i].v << endl;
+            // if (DEBUG) cout << "and their parents is " << ds.find(e[i].u) << ", " << ds.find(e[i].v) << endl;
             ds.join(e[i].u, e[i].v);
         }
     }
@@ -397,16 +398,24 @@ struct tuple {
 
 void visit(int current, int parent, graph& g, bool visited[], int low_time[], int visit_time[], list<tuple>& out) {
     static int time = 0;
+    if (DEBUG) cout << "visiting " << current << endl;
     visited[current] = true;
     visit_time[current] = low_time[current] = time++;
 
     auto& neighbors = g.neighbors(current);
     for (int neighbor : neighbors) {
+        if (DEBUG) cout << "neighbor of me is " << neighbor << endl;
+        if (DEBUG) cout << "parent of me is " << parent << endl;
         if (neighbor == parent) continue;
         if (!visited[neighbor]) {
             visit(neighbor, current, g, visited, low_time, visit_time, out);
             low_time[current] = min(low_time[current], low_time[neighbor]);
+            if (DEBUG) {
+                cout << "visit time is " << visit_time[current] << endl;
+                cout << "low time is " << low_time[neighbor] << endl;
+            }
             if (visit_time[current] < low_time[neighbor]) {
+                if (DEBUG) cout << "arrrrrrrr " << current << ", " << neighbor << endl;
                 out.push_back(tuple{current, neighbor});
             }
         } else {
@@ -420,15 +429,24 @@ void find_any(edge e[], int m, disjoint_set& ds, graph& g, bool visited[], int l
     bin_tree<tuple, edge*> tree;
     int x,y;
     for (int i=0; i<m; ++i) {
+        if (e[i].state == none) continue;
         x = ds.find(e[i].u);
         y = ds.find(e[i].v);
+        if (DEBUG) cout << "is edge " << e[i].u << ", " << e[i].v << " any?" << endl;
+        if (DEBUG) cout << "adding graph edge " << x << ", " << y << endl;
         g.add_edge(x, y);
         tree.add(tuple{x,y}, &e[i]);
     }
     list<tuple> bridges;
 
+    for (int i : g.nodes()) {
+        visited[i] = false;
+    }
+
+    for (int i : g.nodes()) {
+        visit(i, -1, g, visited, low_time, visit_time, bridges);
+    }
     // find_critical_connections
-    visit(0, -1, g, visited, low_time, visit_time, bridges);
 
     for (tuple& t : bridges) {
         tree.get(t)->state = any;
@@ -500,11 +518,10 @@ int main() {
     // used by tarjan
     graph g(n);
     bool visited[n];
-    int low_time[n];
-    int visit_time[n];
-    // reset flags
-    for (int i=0; i<n; ++i)
-        visited[i] = false;
+    int low_time[n], visit_time[n];
+    // // reset flags
+    // for (int i=0; i<n; ++i)
+    //     visited[i] = false;
 
     // begin <= edges of weight w < end
     int begin, end;
@@ -520,7 +537,7 @@ int main() {
         if (DEBUG) cout << "weights of : " << e_head[0].weight << endl;
 
         find_none(e_head, e_size, ds);
-        if (DEBUG) cout << "checked nones" << endl;
+        // if (DEBUG) cout << "checked nones" << endl;
         find_any(e_head, e_size, ds, g, visited, low_time, visit_time);
         if (DEBUG) cout << "checked anys" << endl;
         insert(e_head, e_size, ds);
