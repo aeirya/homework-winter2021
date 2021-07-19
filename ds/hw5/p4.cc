@@ -14,7 +14,7 @@ using std::sort;
 
 // #include "crit_con.hh"
 
-#define DEBUG 1
+#define DEBUG 0
 
 inline int min(int x, int y) {
     return x<y ? x:y;
@@ -155,6 +155,13 @@ class graph {
         A[b].push_back(a);
         active_nodes.push_back(a);
         active_nodes.push_back(b);
+    }
+
+    void remove_edge(int a, int b) {
+        A[a].remove(b);
+        A[b].remove(a);
+        if (A[a].empty()) active_nodes.remove(a);
+        if (A[b].empty()) active_nodes.remove(b);
     }
 
     list<int>& neighbors(int v) {
@@ -318,13 +325,13 @@ void print_states(edge* e, int m) {
     for (int i=0; i<m; ++i) {
         switch(s[i]) {
             case any:
-            cout << "ANY" << endl;
+            cout << "any" << endl;
             break;
             case none:
-            cout << "NONE" << endl;
+            cout << "none" << endl;
             break;
             case at_least_one:
-            cout << "SOME" << endl;
+            cout << "at least one" << endl;
             break;
         }
     }
@@ -434,6 +441,10 @@ void find_any(edge e[], int m, disjoint_set& ds, graph& g, bool visited[], int l
         y = ds.find(e[i].v);
         if (DEBUG) cout << "is edge " << e[i].u << ", " << e[i].v << " any?" << endl;
         if (DEBUG) cout << "adding graph edge " << x << ", " << y << endl;
+        if (tree.has(tuple{x,y})) {
+            g.remove_edge(x,y);
+            continue;
+        }
         g.add_edge(x, y);
         tree.add(tuple{x,y}, &e[i]);
     }
@@ -451,7 +462,7 @@ void find_any(edge e[], int m, disjoint_set& ds, graph& g, bool visited[], int l
     for (tuple& t : bridges) {
         tree.get(t)->state = any;
         auto ed = tree.get(t);
-        cout << ed->u << ", " << ed->v << " is any" << endl;
+        if (DEBUG) cout << ed->u << ", " << ed->v << " is any" << endl;
     }
 
     g.clear();
