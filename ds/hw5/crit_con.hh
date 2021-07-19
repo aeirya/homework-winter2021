@@ -59,7 +59,7 @@ void visit(int current, int parent, graph& g, bool visited[], int low_time[], in
             low_time[current] = min(low_time[current], visit_time[neighbor]);
         }
     }
-}
+}   
 
 vector<tuple> critical_connections(graph& g) {
     int n = g.size();
