@@ -433,6 +433,7 @@ void visit(int current, int parent, graph& g, bool visited[], int low_time[], in
 }
 
 void find_any(edge e[], int m, disjoint_set& ds, graph& g, bool visited[], int low_time[], int visit_time[]) {
+    bin_tree<tuple, bool> has_multiple;
     bin_tree<tuple, edge*> tree;
     int x,y;
     for (int i=0; i<m; ++i) {
@@ -443,8 +444,10 @@ void find_any(edge e[], int m, disjoint_set& ds, graph& g, bool visited[], int l
         if (DEBUG) cout << "adding graph edge " << x << ", " << y << endl;
         if (tree.has(tuple{x,y})) {
             g.remove_edge(x,y);
+            has_multiple.add(tuple{x,y}, true);
             continue;
         }
+        if (has_multiple.has(tuple{x,y})) continue;
         g.add_edge(x, y);
         tree.add(tuple{x,y}, &e[i]);
     }
