@@ -12,9 +12,17 @@ using std::vector;
 #include <algorithm>
 using std::sort;
 
+#include <unordered_map>
+using std::unordered_map;
+
+#include <unordered_set>
+using std::unordered_set;
+
 // #include "crit_con.hh"
 
 #define DEBUG 0
+
+#pragma region util
 
 inline int min(int x, int y) {
     return x<y ? x:y;
@@ -23,6 +31,23 @@ inline int min(int x, int y) {
 inline int max(int x, int y) {
     return x>y ? x:y;
 }
+
+inline void min_max(int& min, int& max) {
+    if (min > max) {
+        int tmp = min;
+        min = max;
+        max = tmp;
+    }
+}
+
+template <typename T>
+inline void swp(T& x, T& y) {
+    T tmp = x;
+    x = y;
+    y = tmp;
+}
+
+#pragma endregion util
 
 #pragma region data structures
 
@@ -39,11 +64,9 @@ class disjoint_set {
     }
 
     vector<node> nodes;
-    int m_size;
 
     public:
     disjoint_set(int n) {
-        m_size = n;
         nodes.resize(n);
         for (int i=0; i<n; ++i)
             nodes[i] = new_node(i);
@@ -53,7 +76,6 @@ class disjoint_set {
         node *n = &nodes[x];
         node *p = n->parent;
 
-        // int i=0;
         while (p) {
             // if (DEBUG) cout << "in find node value is " << n->value << endl;
             // if (DEBUG) cout << "in find parent value is " << p->value << endl;
@@ -63,9 +85,6 @@ class disjoint_set {
             }
             n = p;
             p = p->parent;
-
-            // ++i;
-            // if (i == 2) break;
         }
         return n->value;
     }
@@ -97,27 +116,21 @@ class disjoint_set {
         int px = find(x),
             py = find(y);
         if (px == py) return;
-        // set smaller the child of bigger
-        if (nodes[px].size > nodes[py].size) {
-            int tmp = px;
-            px = py;
-            py = tmp;
-        }
-        if (px == py) {
-            cout << "what the .." << endl;
-            cout << 1/0 << endl;
-        }
 
-        nodes[px].parent = &nodes[py];
+        // set smaller the child of bigger
+        node *c = &nodes[px], 
+            *p = &nodes[py];
+        if (c->size > p->size) swp(c, p);
+        
+        c->parent = p;
+        p->size += c->size;
+
+        // nodes[px].parent = &nodes[py];
         // if (DEBUG) cout << "my address is " << &nodes[px] << endl;
         // if (DEBUG) cout << "my parent will be set to " << &nodes[py] << endl;
 
-        nodes[py].size += nodes[px].size;
-        if (DEBUG) cout << x << ", " << y << ": " << "joining " << px << " and " << py << endl;
-    }
-
-    int size() {
-        return m_size;
+        // nodes[py].size += nodes[px].size;
+        // if (DEBUG) cout << x << ", " << y << ": " << "joining " << px << " and " << py << endl;
     }
 };
 
@@ -129,10 +142,18 @@ struct edge {
     int u, v, weight, index;
     edge_state state;
 
+    // bool operator <(const edge& other) const {
+    //     return weight < other.weight || 
+    //         weight == other.weight && u < other.u ||
+    //         (weight == other.weight && u == other.u && v < other.v);
+    // }
+
+    // bool operator ==(const edge& other) const {
+    //     return weight == other.weight && u == other.u && v == other.v;
+    // }
+
     bool operator <(const edge& other) const {
-        return weight < other.weight || 
-            weight == other.weight && u < other.u ||
-            (weight == other.weight && u == other.u && v < other.v);
+        return weight < other.weight;
     }
 
     bool operator ==(const edge& other) const {
@@ -176,18 +197,10 @@ class graph {
         for (int i : active_nodes) A[i].clear();
         active_nodes.clear();
     }
-
-    // int size() {
-    //     return A.size();
-    // }
 };
 
 
 #pragma endregion structures
-
-void print_edge(edge& e) {
-    cout << e.u << ", " << e.v << endl;
-}
 
 #pragma region algorithm
 
@@ -300,16 +313,12 @@ void insert(edge e[], int size, disjoint_set& ds) {
 
 #pragma region io
 
-void print_edges(edge* e, int m) {
-    cout << "edges: " << endl;
-    for (int i=0; i<m; ++i)
-        cout << e[i].u << ", " << e[i].v << ", " << e[i].weight << endl;
-}
-
 void input_edges(edge* e, int m) {
     for (int i=0; i<m; ++i) {
         cin >> e[i].u >> e[i].v >> e[i].weight;
         e[i].index = i;
+    }
+    for (int i=0; i<m; ++i) {
         --e[i].u; 
         --e[i].v;
     }
@@ -337,11 +346,19 @@ void print_states(edge* e, int m) {
     }
 }
 
-#pragma endregion io
+// other
 
-// void find_critical_connections(graph& g, edge e[], int m, bool visited[], int low_time[], int visit_time[]) {
-//     return bridges;
-// } 
+void print_edges(edge* e, int m) {
+    cout << "edges: " << endl;
+    for (int i=0; i<m; ++i)
+        cout << e[i].u << ", " << e[i].v << ", " << e[i].weight << endl;
+}
+
+void print_edge(edge& e) {
+    cout << e.u << ", " << e.v << endl;
+}
+
+#pragma endregion io
 
 template <typename T, typename U>
 class bin_tree {
@@ -383,27 +400,70 @@ class bin_tree {
     }
 };
 
-struct tuple {
-    int x,y;
+// template <typename T>
+// class hashmap {
+//     private:
+//     vector<T> items;
+//     vector<int> map;
+//     int next;
 
-    bool operator<(tuple& other) const {
-        int a = min(x,y),
-            A  = min(other.x, other.y);
-        if (a < A) return true;
-        if (a > A) return false;
-        int b = max(x, y),
-            B = max(other.x, other.y);
-        if (b < B) return true;
-        return false;
+//     public:  
+//     hashmap() : next(0) {}
+
+//     void add(int key, T item) {
+//         map[next] = 
+//     }
+// };
+
+template <typename T>
+class hashed_searchable {
+    private:
+    int n;
+    bin_tree<int, T> tree;
+
+    inline int hash(int x, int y) {
+        return n*x+y;
     }
 
-    bool operator==(tuple& other) const {
-        return x == other.x && y == other.y || 
-            x == other.y && y == other.x;
+    public:
+    hashed_searchable(int _n) : n(_n) {}
+
+    void add(int x, int y, T t) {
+        tree.add(hash(x,y), t);
+    }
+
+    bool has(int x, int y) {
+        return tree.has(hash(x,y));
+    }
+
+    T get(int x, int y) {
+        return tree.get(hash(x,y));
     }
 };
 
-void visit(int current, int parent, graph& g, bool visited[], int low_time[], int visit_time[], list<tuple>& out) {
+struct tuple {
+    int x,y;
+
+    tuple(int _x, int _y) {
+        min_max(_x, _y);
+        x = _x;
+        y = -y;
+    }
+
+    bool operator<(tuple& other) const {
+        return x<other.x || x==other.x && y<other.y;
+    }
+
+    bool operator==(tuple& other) const {
+        return x == other.x && y == other.y;
+    }
+};
+
+inline int hash(int x, int y, int n) {
+    return n*x + y;
+}
+
+void visit(int current, int parent, graph& g, bool visited[], int low_time[], int visit_time[], unordered_map<int, edge*>& map, int n) {
     static int time = 0;
     if (DEBUG) cout << "visiting " << current << endl;
     visited[current] = true;
@@ -411,11 +471,12 @@ void visit(int current, int parent, graph& g, bool visited[], int low_time[], in
 
     auto& neighbors = g.neighbors(current);
     for (int neighbor : neighbors) {
-        if (DEBUG) cout << "neighbor of me is " << neighbor << endl;
+        if (DEBUG) cout << "neighbor of  me is " << neighbor << endl;
         if (DEBUG) cout << "parent of me is " << parent << endl;
         if (neighbor == parent) continue;
         if (!visited[neighbor]) {
-            visit(neighbor, current, g, visited, low_time, visit_time, out);
+            // visit(neighbor, current, g, visited, low_time, visit_time, out);
+            visit(neighbor, current, g, visited, low_time, visit_time, map, n);
             low_time[current] = min(low_time[current], low_time[neighbor]);
             if (DEBUG) {
                 cout << "visit time is " << visit_time[current] << endl;
@@ -423,7 +484,8 @@ void visit(int current, int parent, graph& g, bool visited[], int low_time[], in
             }
             if (visit_time[current] < low_time[neighbor]) {
                 if (DEBUG) cout << "arrrrrrrr " << current << ", " << neighbor << endl;
-                out.push_back(tuple{current, neighbor});
+                // out.push_back(tuple{current, neighbor});
+                map[hash(current, neighbor,n)]->state = any;
             }
         } else {
             // back edge
@@ -432,41 +494,61 @@ void visit(int current, int parent, graph& g, bool visited[], int low_time[], in
     }
 }
 
-void find_any(edge e[], int m, disjoint_set& ds, graph& g, bool visited[], int low_time[], int visit_time[]) {
-    bin_tree<tuple, bool> has_multiple;
-    bin_tree<tuple, edge*> tree;
-    int x,y;
+void find_any(int n, edge e[], int m, disjoint_set& ds, graph& g, bool visited[], int low_time[], int visit_time[]) {
+    // bin_tree<tuple, bool> has_multiple;
+    // bin_tree<tuple, edge*> tree;
+    // hashed_searchable<edge*> map;
+    // hashed_searchable<short> restricted;
+    unordered_map<int, edge*> map;
+    unordered_set<int> set;
+    int x,y,h;
     for (int i=0; i<m; ++i) {
         if (e[i].state == none) continue;
         x = ds.find(e[i].u);
         y = ds.find(e[i].v);
-        if (DEBUG) cout << "is edge " << e[i].u << ", " << e[i].v << " any?" << endl;
-        if (DEBUG) cout << "adding graph edge " << x << ", " << y << endl;
-        if (tree.has(tuple{x,y})) {
-            g.remove_edge(x,y);
-            has_multiple.add(tuple{x,y}, true);
+        h = hash(x, y, n);
+        // if (DEBUG) cout << "is edge " << e[i].u << ", " << e[i].v << " any?" << endl;
+        // if (DEBUG) cout << "adding graph edge " << x << ", " << y << endl;
+        
+        // if (tree.has(tuple{x,y})) {
+        //     g.remove_edge(x,y);
+        //     has_multiple.add(tuple{x,y}, true);
+        //     continue;
+        // }
+        // if (map.has(x,y)) {
+        //     g.remove_edge(x,y);
+
+        // }
+        // if in map
+        if (map.find(h) != map.end()) {
+            g.remove_edge(x, y);
+            set.insert(h);
             continue;
         }
-        if (has_multiple.has(tuple{x,y})) continue;
-        g.add_edge(x, y);
-        tree.add(tuple{x,y}, &e[i]);
+        if (set.find(h) != set.end()) continue;
+        
+        // if (has_multiple.has(tuple{x,y})) continue;
+        // g.add_edge(x, y);
+        // tree.add(tuple{x,y}, &e[i]);
+
+        g.add_edge(x,y);
+        map[h] = &e[i];
     }
+
     list<tuple> bridges;
-
-    for (int i : g.nodes()) {
+    auto& active_nodes = g.nodes();
+    for (int i : active_nodes)
         visited[i] = false;
-    }
 
-    for (int i : g.nodes()) {
-        visit(i, -1, g, visited, low_time, visit_time, bridges);
-    }
     // find_critical_connections
+    for (int i : active_nodes)
+        visit(i, -1, g, visited, low_time, visit_time, map, n);
 
-    for (tuple& t : bridges) {
-        tree.get(t)->state = any;
-        auto ed = tree.get(t);
-        if (DEBUG) cout << ed->u << ", " << ed->v << " is any" << endl;
-    }
+    // for (tuple& t : bridges) {
+    //     tree.get(t)->state = any;
+    //     // auto ed = tree.get(t);
+    //     // if (DEBUG) cout << ed->u << ", " << ed->v << " is any" << endl;
+    // }
 
     g.clear();
 }
@@ -549,18 +631,14 @@ int main() {
         e_head = e+begin;
         e_size = end - begin;
         if (DEBUG) cout << "weights of : " << e_head[0].weight << endl;
-
         find_none(e_head, e_size, ds);
         // if (DEBUG) cout << "checked nones" << endl;
-        find_any(e_head, e_size, ds, g, visited, low_time, visit_time);
-        if (DEBUG) cout << "checked anys" << endl;
+        find_any(n, e_head, e_size, ds, g, visited, low_time, visit_time);
+        // if (DEBUG) cout << "checked anys" << endl;
         insert(e_head, e_size, ds);
-        if (DEBUG) cout << "inserted" << endl;
-
+        // if (DEBUG) cout << "inserted" << endl;
         begin = end;
     }
-
     print_states(e, m);
-
     return 0;
-}
+}   
