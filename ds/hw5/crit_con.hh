@@ -9,28 +9,28 @@ using std::list;
 #include <vector>
 using std::vector;
 
-class graph {
-    private:
-    vector<list<int>> A;
+// class graph {
+//     private:
+//     vector<list<int>> A;
 
-    public:
-    graph(int n) {
-        A.resize(n);
-    }
+//     public:
+//     graph(int n) {
+//         A.resize(n);
+//     }
 
-    void add_edge(int a, int b) {
-        A[a].push_back(b);
-        A[b].push_back(a);
-    }
+//     void add_edge(int a, int b) {
+//         A[a].push_back(b);
+//         A[b].push_back(a);
+//     }
 
-    list<int>& neighbors(int v) {
-        return A[v];
-    }
+//     list<int>& neighbors(int v) {
+//         return A[v];
+//     }
 
-    int size() {
-        return A.size();
-    }
-};
+//     int size() {
+//         return A.size();
+//     }
+// };
 
 inline int min(int x, int y) {
     return x<y ? x:y;

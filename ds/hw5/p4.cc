@@ -16,6 +16,36 @@ using std::sort;
 
 #define DEBUG 1
 
+class graph {
+    private:
+    vector<list<int>> A;
+    list<int> active_nodes;
+
+    public:
+    graph(int n) {
+        A.resize(n);
+    }
+
+    void add_edge(int a, int b) {
+        A[a].push_back(b);
+        A[b].push_back(a);
+        active_nodes.push_back(a);
+        active_nodes.push_back(b);
+    }
+
+    list<int>& neighbors(int v) {
+        return A[v];
+    }
+
+    list<int>& nodes() {
+        return active_nodes;
+    }
+
+    // int size() {
+    //     return A.size();
+    // }
+};
+
 class disjoint_set {
     private:
     struct node {
@@ -195,28 +225,17 @@ int get_mapped(int x, bin_tree& tree, int map[], int& map_i) {
     return i;
 }
 
-struct tuple {
-    int x, y;
-}
-
 void find_any(edge e[], int size, disjoint_set& ds) {
     int n = ds.size();
     int map[n], map_index = 0;
-    edge mapped_e[size];
+    int x,y;
     bin_tree tree;
-
     graph g(n);
-
     for (int i=0; i<size; ++i) {
-        mapped_e[i].u = get_mapped(e[i].u, tree, map, map_index);
-        mapped_e[i].v = get_mapped(e[i].v, tree, map, map_index);
-        mapped_e[i
+        x = get_mapped(e[i].u, tree, map, map_index);
+        y = get_mapped(e[i].v, tree, map, map_index);
+        g.add_edge(x, y);
     }
-    // if (size == 1) {
-    //     edge e = edges[0];
-    //     if (ds.find(e.u) != ds.find(e.v))
-    //         e.state = any;
-    // }
 }
 
 void insert(edge e[], int size, disjoint_set& ds) {
@@ -304,7 +323,7 @@ int main() {
         find_none(e+begin, end-begin, ds);
         // find bridges 
         // or find any
-        // find_any(e+begin, end-begin, ds);
+        find_any(e+begin, end-begin, ds);
 
         insert(e+begin, end-begin, ds);
 
