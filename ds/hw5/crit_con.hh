@@ -32,10 +32,6 @@ class graph {
     }
 };
 
-struct edge {
-    int u, v, weight;
-};
-
 inline int min(int x, int y) {
     return x<y ? x:y;
 }
@@ -78,14 +74,14 @@ vector<tuple> critical_connections(graph& g) {
     return bridges;
 } 
 
-int main() {
-    graph g(4);
-    g.add_edge(0,1);
-    g.add_edge(1,2);
-    g.add_edge(2,0);
-    g.add_edge(1,3);
-    auto cc = critical_connections(g);
-    for (tuple t : cc) {
-        cout << t.x << "," << t.y << endl;
-    }
-}
+// int main() {
+//     graph g(4);
+//     g.add_edge(0,1);
+//     g.add_edge(1,2);
+//     g.add_edge(2,0);
+//     g.add_edge(1,3);
+//     auto cc = critical_connections(g);
+//     for (tuple t : cc) {
+//         cout << t.x << "," << t.y << endl;
+//     }
+// }
